@@ -1,9 +1,9 @@
 const path = require("path");
 const { importSchema } = require("graphql-import");
-const { buildSchema } = require("graphql");
+const { parse } = require("graphql/language");
 
 const schemaPath = path.join(__dirname, "__schema__", "index.graphql");
 const source = importSchema(schemaPath);
-const schema = buildSchema(source);
+const document = parse(source);
 
-module.exports = schema;
+module.exports = { source, document };
