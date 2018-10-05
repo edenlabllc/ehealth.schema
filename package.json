@@ -1,9 +1,17 @@
 {
   "name": "@ehealth-ua/schema",
-  "version": "0.0.0-development",
+  "version": "0.1.0",
   "description": "Type definitions of the eHealth GraphQL API",
   "main": "index.js",
+  "scripts": {
+    "lint": "graphql-schema-linter __schema__/*.graphql",
+    "release": "standard-version -m \"chore(release): publish %s [skip ci]\"",
+    "github-release": "conventional-github-releaser -p angular"
+  },
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/edenlabllc/ehealth.schema.git"
@@ -15,6 +23,17 @@
     "graphql": "^0.13.0 || ^14.0.0"
   },
   "devDependencies": {
-    "graphql": "^0.13.0"
+    "conventional-github-releaser": "^3.1.2",
+    "graphql": "^0.13.0",
+    "graphql-schema-linter": "^0.1.6",
+    "husky": "^1.1.0",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0",
+    "standard-version": "^4.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && pretty-quick --staged"
+    }
   }
 }
