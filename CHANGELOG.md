@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/edenlabllc/ehealth.schema/compare/v0.1.0...v0.1.1) (2018-10-05)
+
+
+### Bug Fixes
+
+* export schema AST instead of executable schema ([e68d9ec](https://github.com/edenlabllc/ehealth.schema/commit/e68d9ec))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2018-10-05)
 
