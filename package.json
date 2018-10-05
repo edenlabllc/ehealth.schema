@@ -1,0 +1,20 @@
+{
+  "name": "@ehealth-ua/schema",
+  "version": "0.0.0-development",
+  "description": "Type definitions of the eHealth GraphQL API",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edenlabllc/ehealth.schema.git"
+  },
+  "dependencies": {
+    "graphql-import": "^0.7.1"
+  },
+  "peerDependencies": {
+    "graphql": "^0.13.0 || ^14.0.0"
+  },
+  "devDependencies": {
+    "graphql": "^0.13.0"
+  }
+}
