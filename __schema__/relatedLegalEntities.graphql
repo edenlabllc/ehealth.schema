@@ -1,0 +1,39 @@
+# import LegalEntity from "legalEntities.graphql"
+
+input RelatedLegalEntityFilter {
+  edrpou: String!
+}
+
+enum RelatedLegalEntityOrderBy {
+  EDRPOU_ASC
+  EDRPOU_DESC
+  INSERTED_AT_DESC
+  INSERTED_AT_ASC
+  IS_ACTIVE_ASC
+  IS_ACTIVE_DESC
+}
+
+type RelatedLegalEntityConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [RelatedLegalEntity]
+  "A list of edges."
+  edges: [RelatedLegalEntityEdge]
+}
+
+type RelatedLegalEntityEdge {
+  "The item at the end of the edge."
+  node: LegalEntityMergeJob!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+type RelatedLegalEntity {
+  isActive: Boolean!
+  reason: String!
+  mergedToLegalEntity: LegalEntity!
+  mergedFromLegalEntity: LegalEntity!
+  insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  insertedBy: String!
+}

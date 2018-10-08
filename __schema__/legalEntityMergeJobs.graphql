@@ -1,0 +1,75 @@
+# import SignedContent from "signedContent.graphql"
+
+type Query {
+  legalEntityMergeJobs(
+    filter: LegalEntityMergeJobFilter
+    orderBy: LegalEntityMergeJobOrderBy
+  ): LegalEntityMergeJobConnection!
+}
+
+input LegalEntityMergeJobFilter {
+  status: LegalEntityMergeJobStatus
+}
+
+enum LegalEntityMergeJobOrderBy {
+  STARTED_AT_ASC
+  STARTED_AT_DESC
+}
+
+type LegalEntityMergeJobConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [LegalEntityMergeJob]
+  "A list of edges."
+  edges: [LegalEntityMergeJobEdge]
+}
+
+type LegalEntityMergeJobEdge {
+  "The item at the end of the edge."
+  node: LegalEntityMergeJob!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+type Mutation {
+  mergeLegalEntities(input: MergeLegalEntityInput!): MergeLegalEntityPayload
+}
+
+input MergeLegalEntityInput {
+  signedContent: SignedContent!
+}
+
+type MergeLegalEntityPayload {
+  legalEntityMergeJob: LegalEntityMergeJob
+}
+
+type Subscription {
+  legalEntityMergeJobs(
+    filter: LegalEntityMergeJobFilter
+    orderBy: LegalEntityMergeJobOrderBy
+  ): LegalEntityMergeJobConnection!
+}
+
+type LegalEntityMergeJob {
+  id: ID!
+  status: LegalEntityMergeJobStatus!
+  startedAt: DateTime!
+  endedAt: DateTime
+  mergedToLegalEntity: MergeeLegalEntityMetadata!
+  mergedFromLegalEntity: MergeeLegalEntityMetadata!
+  # TBD
+  # error: LegalEntityMergeJobError
+}
+
+enum LegalEntityMergeJobStatus {
+  PENDING
+  ERROR
+  PROCESSED
+}
+
+type MergeeLegalEntityMetadata {
+  id: ID!
+  name: String!
+  edrpou: String!
+}
