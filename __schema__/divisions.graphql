@@ -42,6 +42,7 @@ type Division {
   type: DivisionType!
   mountainGroup: Boolean!
   legalEntity: LegalEntity!
+  workingHours: DivisionWorkingHours
 }
 
 enum DivisionStatus {
@@ -54,3 +55,26 @@ enum DivisionType {
   CLINIC
   FAP
 }
+
+type DivisionWorkingHours {
+  days: [WeekDay]!
+  hours: [TimeRange]!
+}
+
+# TODO: this type should be moved from this file
+enum WeekDay {
+  SUNDAY
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+}
+
+# TODO: this type should be moved from this file
+type TimeRange {
+  from: Time
+  to: Time
+}
+
