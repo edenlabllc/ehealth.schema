@@ -1,0 +1,32 @@
+type Query {
+  dictionaries(filter: DictionaryFilter): [Dictionary]
+  dictionary(name: String!): Dictionary
+}
+
+type Mutation {
+  updateDictionary(input: UpdateDictionaryInput!): UpdateDictionaryPayload
+}
+
+input UpdateDictionaryInput {
+  name: String!
+  isActive: Boolean!
+  labels: [String]
+  values: JSON
+}
+
+input UpdateDictionaryPayload {
+  dictionary: Dictionary
+}
+
+type Dictionary {
+  name: String
+  isActive: Boolean
+  labels: [String]
+  values: JSON
+}
+
+input DictionaryFilter {
+  name: String
+  label: String
+  isActive: Boolean = true
+}

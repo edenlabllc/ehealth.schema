@@ -3,6 +3,7 @@
 # import * from "relay.graphql"
 
 # import Query.*, Mutation.* from "declarations.graphql"
+# import Query.*, Mutation.* from "dictionaries.graphql"
 # import Query.*, Mutation.* from "legalEntities.graphql"
 # import Query.*, Mutation.*, Subscription.* from "legalEntityMergeJobs.graphql"
 # import Query.*, Mutation.* from "persons.graphql"
