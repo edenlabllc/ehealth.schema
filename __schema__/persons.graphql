@@ -1,78 +1,12 @@
-"""
-This is Person (MPI) details. In order to obtain details user must have a scope **person:read**
-"""
-type Person {
-  id: ID!
-  firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
-  lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
-  secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
-  birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
-  gender: PersonGender!
-  status: PersonStatus!
-  birthCountry: String!
-  birthSettlement: String!
-  "the unique number in Unified State Register"
-  unzr: String
-  taxId: String
-    @fake(
-      locale: "uk"
-      method: "random.number"
-      args: [{ min: 1000000000, max: 9999999999 }]
-    )
-  authenticationMethod: [AuthenticationMethod]!
-  documents: [Document]
-  attachedDocuments: [attachedDocuments]
-  insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
-  addresses: [Address]!
-  "the way how a patient wants to be reached"
-  preferredWayCommunication: PersonPreferredWayCommunication
-  phones: [Phone]
-  declarations(
-    filter: DeclarationFilter
-    orderBy: DeclarationOrderBy
-  ): [Declaration]
-}
+# import Address from "addresses.graphql"
+# import Phone from "phones.graphql"
 
-enum PersonStatus {
-  ACTIVE
-  INACTIVE
-}
+type Query {
+  "the filter must be used to get exactly one person knowing id"
+  person(id: ID!): Person
 
-enum PersonGender {
-  MALE
-  FEMALE
-}
-
-enum PersonPreferredWayCommunication {
-  EMAIL
-  PHONE
-}
-
-enum PersonAuthenticationMethodType {
-  OTP
-  OFFLINE
-  NA
-}
-
-type AuthenticationMethod {
-  type: PersonAuthenticationMethodType!
-  phoneNumber: String
-}
-
-type Document {
-  "Dictionary DOCUMENT_TYPE"
-  type: String
-  "document issue number"
-  number: String
-  "authority which issued the document"
-  issuedBy: String @fake(locale: "uk", method: "company.companyName")
-  "the date when document was issued"
-  issuedAt: Date @fake(locale: "uk", method: "date.past")
-}
-
-type attachedDocuments {
-  type: String!
-  url: String!
+  "the filter should be used in order to get a list of persons by parametrs"
+  persons(filter: PersonFilter, orderBy: PersonOrderBy): PersonConnection!
 }
 
 input PersonFilter {
@@ -97,4 +31,104 @@ enum PersonOrderBy {
   BIRTH_DATE_DESC
   INSERTED_AT_ASC
   INSERTED_AT_DESC
+}
+
+type PersonConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Person]
+  "A list of edges."
+  edges: [PersonEdge]
+}
+
+type PersonEdge {
+  "The item at the end of the edge."
+  node: Person!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+type Mutation {
+  resetPersonAuthenticationMethod(input: ResetPersonAuthenticationMethodInput!): ResetPersonAuthenticationMethodPayload
+}
+
+input ResetPersonAuthenticationMethodInput {
+  personId: ID!
+}
+
+type ResetPersonAuthenticationMethodPayload {
+  person: Person!
+}
+
+"""
+This is Person (MPI) details. In order to obtain details user must have a scope **person:read**
+"""
+type Person {
+  id: ID!
+  firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
+  lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
+  secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
+  birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  gender: PersonGender!
+  status: PersonStatus!
+  birthCountry: String!
+  birthSettlement: String!
+  "the unique number in Unified State Register"
+  unzr: String
+  taxId: String
+    @fake(
+      locale: "uk"
+      method: "random.number"
+      args: [{ min: 1000000000, max: 9999999999 }]
+    )
+  preferredWayCommunication: PersonPreferredWayCommunication
+  insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  updatedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  authenticationMethods: [PersonAuthenticationMethod]!
+  documents: [PersonDocument]
+  addresses: [Address]!
+  "the way how a patient wants to be reached"
+  phones: [Phone]
+  declarations(
+    filter: DeclarationFilter
+    orderBy: DeclarationOrderBy
+  ): [Declaration]
+}
+
+enum PersonStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum PersonGender {
+  MALE
+  FEMALE
+}
+
+enum PersonPreferredWayCommunication {
+  EMAIL
+  PHONE
+}
+
+type PersonAuthenticationMethod {
+  type: PersonAuthenticationMethodType!
+  phoneNumber: String
+}
+
+enum PersonAuthenticationMethodType {
+  OTP
+  OFFLINE
+  NA
+}
+
+type PersonDocument {
+  "Dictionary DOCUMENT_TYPE"
+  type: String
+  "document issue number"
+  number: String
+  "authority which issued the document"
+  issuedBy: String @fake(locale: "uk", method: "company.companyName")
+  "the date when document was issued"
+  issuedAt: Date @fake(locale: "uk", method: "date.past")
 }

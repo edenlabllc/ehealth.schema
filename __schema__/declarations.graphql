@@ -1,11 +1,93 @@
+type Query {
+  "the filter must be used to get list of declarations which belong to the patient knowing patient ID"
+  declarations(
+    filter: DeclarationFilter
+    orderBy: DeclarationOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): DeclarationConnection!
+
+  "the filter must be used to get exactly one declaration knowing its' id"
+  declaration(id: ID!): Declaration
+
+  "the filter must be used to get exactly one declaration knowing its' number"
+  declarationByNumber(number: String!): Declaration
+}
+
+input DeclarationFilter {
+  declarationId: ID
+  declarationNumber: String
+  status: DeclarationStatus
+}
+
+enum DeclarationOrderBy {
+  START_DATE_ASC
+  START_DATE_DESC
+  STATUS_ASC
+  STATUS_DESC
+}
+
+type DeclarationConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Declaration]
+  "A list of edges."
+  edges: [DeclarationEdge]
+}
+
+type DeclarationEdge {
+  "The item at the end of the edge."
+  node: Declaration!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+type Mutation {
+  terminateDeclaration(input: TerminateDeclarationInput!): TerminateDeclarationPayload
+
+  approveDeclaration(input: ApproveDeclarationInput!): ApproveDeclarationPayload
+
+  rejectDeclaration(input: RejectDeclarationInput!): RejectDeclarationPayload
+}
+
+input TerminateDeclarationInput {
+  id: ID!
+  reasonDescription: String
+}
+
+type TerminateDeclarationPayload {
+  declaration: Declaration!
+}
+
+input ApproveDeclarationInput {
+  id: ID!
+}
+
+type ApproveDeclarationPayload {
+  declaration: Declaration!
+}
+
+input RejectDeclarationInput {
+  id: ID!
+}
+
+type RejectDeclarationPayload {
+  declaration: Declaration!
+}
+
 """
 Declaration combines data about Patient, Employee, LegalEntity and Division.
 
 In order to obtain details user must have a scope `declaration:read`.
 """
 type Declaration {
-  "declaration ID in UUID format"
+  "The ID of an object"
   id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
   "unique human redable number of declaration"
   declarationNumber: String!
   startDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
@@ -30,15 +112,7 @@ enum DeclarationStatus {
   ACTIVE
 }
 
-enum DeclarationOrderBy {
-  START_DATE_ASC
-  START_DATE_DESC
-  STATUS_ASC
-  STATUS_DESC
-}
-
-input DeclarationFilter {
-  declarationId: ID
-  declarationNumber: String
-  status: DeclarationStatus
+type DeclarationAttachedDocuments {
+  type: String!
+  url: String!
 }

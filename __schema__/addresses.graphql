@@ -17,8 +17,8 @@ type Address {
 }
 
 enum AddressType {
-  ACTIVE
-  CLOSED
+  RESIDENCE
+  REGISTRATION
 }
 
 enum StreetType {
@@ -45,11 +45,4 @@ enum StreetType {
   AVENUE
   ASCENT
   ALLEY
-}
-
-enum SettlementType {
-  VILLAGE
-  TOWNSHIP
-  SETTLEMENT
-  CITY
 }
