@@ -2,6 +2,7 @@
 # import * from "directives.graphql"
 # import * from "relay.graphql"
 
+# import Query.*, Mutation.* from "contractRequests.graphql"
 # import Query.*, Mutation.* from "declarations.graphql"
 # import Query.*, Mutation.* from "dictionaries.graphql"
 # import Query.*, Mutation.* from "legalEntities.graphql"

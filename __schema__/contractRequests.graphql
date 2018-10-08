@@ -1,0 +1,187 @@
+type Query {
+  contractRequests: (
+    filter: ContractRequestFilter
+    orderBy: ContractRequestOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): ContractRequestConnection!
+  contractRequest: (id: ID!): ContractRequest
+}
+
+input ContractRequestFilter {
+  edrpou: String
+  contractNumber: String
+  status: ContractRequestStatus
+  startDateFrom: Date
+  startDateTo: Date
+  endDateFrom: Date
+  endDateTo: Date
+  assigneeId: ID
+  assigneeName: String
+}
+
+enum ContractRequestOrderBy {
+  EDRPOU_ASC
+  EDRPOU_DESC
+  END_DATE_ASC
+  END_DATE_DESC
+  STATUS_ASC
+  STATUS_DESC
+  START_DATE_ASC
+  START_DATE_DESC
+}
+
+type Mutation {
+  updateContractRequest(input: UpdateContractRequestInput!): UpdateContractRequestPayload
+  assignContractRequest(input: AssignContractRequestInput!): AssignContractRequestPayload
+  declineContractRequest(input: DeclineContractRequestInput!): DeclineContractRequestPayload
+  approveContractRequest(input: ApproveContractRequestInput!): ApproveContractRequestPayload
+  signContractRequest(input: SignContractRequestInput!): SignContractRequestPayload
+}
+
+input UpdateContractRequestInput {
+  nhsSignerId: ID
+  nhsSignerBase: String
+  nhsContractPrice: Float
+  nhsPaymentMethod: NhsPaymentMethod
+  issueCity: String
+  miscellaneous: String
+}
+
+type UpdateContractRequestPayload {
+  contractRequest: ContractRequest
+}
+
+input AssignContractRequestInput {
+  contractRequestId: ID!
+  employeeId: ID!
+}
+
+input AssignContractRequestPayload {
+  contractRequest: ContractRequest
+}
+
+input DeclineContractRequestInput {
+  signedContent: SignedContent!
+}
+
+type DeclineContractRequestPayload {
+  contractRequest: ContractRequest
+}
+
+input ApproveContractRequestInput {
+  signedContent: SignedContent!
+}
+
+type ApproveContractRequestPayload {
+  contractRequest: ContractRequest
+}
+
+input SignContractRequestInput {
+  signedContent: SignedContent!
+}
+
+type SignContractRequestPayload {
+  contractRequest: ContractRequest
+}
+
+"""
+In order to obtain details user must have a scope `contract_request:read`.
+
+Nhs admin can assign contract request to NHS Employee having a scope: `contract_requst:update`.
+NHS admin can approve Contract Request having a scope `contract_request:approve`.
+It's possible to decline Contract Request having a scope `contract_request:decline`
+NHS admin can sign contract request in status ='PENDING_NHS_SIGN'. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in signed_content property. 
+
+"""
+type ContractRequest {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
+  contractNumber: String
+  parentContractId: ID
+  previousRequest: ID
+  assignee: Employee
+  idForm: String!
+  status: ContractRequestStatus!
+  statusReason: String
+  issueCity: String
+  printoutContent: String
+  startDate: Date!
+  endDate: Date!
+  contractorLegalEntity: LegalEntity!
+  contractorOwner: Employee!
+  contractorBase: String!
+  contractorPaymentDetails: ContractorPaymentDetails!
+  contractorRmspAmount: Int!
+  contractorDivisions(filter: DivisionFilter, orderBy: DivisionOrderBy): DivisionConnection!
+  contractorEmployeeDivisions(filter: ContractorEmployeeDivisionFilter orderBy: ContractorEmployeeDivisionOrderBy): ContractorEmployeeDivisionConnection!
+  externalСontractorFlag: Boolean!
+  externalContractors: [ExternalContractor]
+  nhsSigner: Employee
+  nhsSignerBase: String
+  # FIXME: contact price actually does not belong to nhs
+  nhsContractPrice: Float
+  # FIXME: payment method actually does not belong to nhs
+  nhsPaymentMethod: NhsPaymentMethod
+}
+
+enum NhsPaymentMethod {
+  BACKWARD
+  FORWARD
+}
+
+enum ContractRequestStatus {
+  NEW
+  IN_PROCESS
+  DECLINED
+  APPROVED
+  PENDING_NHS_SIGN
+  NHS_SIGNED
+  TERMINATED
+}
+
+type ContractorPaymentDetails {
+  bankName: String!
+  mfo: String!
+  payerAccount: String!
+}
+
+input ContractorEmployeeDivisionFilter {
+  divisionName: String
+  divisionId: ID
+}
+
+enum ContractorEmployeeDivisionOrderBy {
+  DECLARATION_LIMIT_ASC
+  DECLARATION_LIMIT_DESC
+  STAFF_UNITS_ASC
+  STAFF_UNITS_DESC  
+}
+
+type ContractorEmployeeDivision {
+  employee: Employee!
+  staffUnits: Float!
+  declarationLimit: Int!
+  division: Division!
+}
+
+type ExternalContractor {
+  legalEntity: LegalEntity!
+  contract: ExternalContractorContract!
+  divisions: [ExternalContractorDivsion]!
+}
+
+type ExternalContractorContract {
+  number: String!
+  issuedAt: String!
+  expiresAt: String!
+}
+
+type ExternalContractorDivsion {
+  division: Division!
+  medicalService: String!
+}
