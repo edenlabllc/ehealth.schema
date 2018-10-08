@@ -1,3 +1,32 @@
+# import Address from "addresses.graphql"
+# import Phone from "phones.graphql"
+# import LegalEntity from "legalEntities.graphql"
+
+input DivisionFilter {
+  name: String
+}
+
+enum DivisionOrderBy {
+  NAME_ASC
+  NAME_DESC
+}
+
+type DivisionConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Division]
+  "A list of edges."
+  edges: [DivisionEdge]
+}
+
+type DivisionEdge {
+  "The item at the end of the edge."
+  node: Division!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
 """
 Division contains details about places where services are provided
 
@@ -10,7 +39,7 @@ type Division {
   phones: [Phone]!
   email: String!
   status: DivisionStatus!
-  type: LegalEntityType!
+  type: DivisionType!
   mountainGroup: Boolean!
   legalEntity: LegalEntity!
 }
@@ -21,15 +50,7 @@ enum DivisionStatus {
 }
 
 enum DivisionType {
-  CLINIC
   AMBULANT_CLINIC
+  CLINIC
   FAP
-}
-
-input DivisionFilter {
-  name: String
-}
-
-input DivisionOrderBy {
-  name: String
 }

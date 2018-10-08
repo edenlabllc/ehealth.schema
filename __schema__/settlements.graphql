@@ -1,7 +1,31 @@
+type Query {
+  settlements(filter: SettlementFilter): SettlementConnection!
+}
+
+input SettlementFilter {
+  name: String
+}
+
+type SettlementConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Settlement]
+  "A list of edges."
+  edges: [SettlementEdge]
+}
+
+type SettlementEdge {
+  "The item at the end of the edge."
+  node: Settlement!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
 """
 Settlement details contain information about Settlement and area
 """
-type Settlements {
+type Settlement {
   id: ID!
   district: String
   districtId: ID
@@ -13,4 +37,11 @@ type Settlements {
   region: String!
   regionId: ID!
   type: SettlementType!
+}
+
+enum SettlementType {
+  VILLAGE
+  TOWNSHIP
+  SETTLEMENT
+  CITY
 }
