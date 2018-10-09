@@ -4,24 +4,6 @@
 # import Employee from "employees.graphql"
 # import RelatedLegalEntityFilter, RelatedLegalEntityOrderBy, RelatedLegalEntityConnection from "relatedLegalEntities.graphql"
 
-type Query {
-  "the filter must be used to get exactly one legal entity knowing its' ID"
-  legalEntity(id: ID!): LegalEntity
-
-  "the filter must be used to get exactly one legal entity knowing its' EDRPOU"
-  legalEntityByEdrpou(edrpou: String!): LegalEntity
-
-  "the filter must be used to get list of legal entities"
-  legalEntities(
-    filter: LegalEntityFilter
-    orderBy: LegalEntityOrderBy
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): LegalEntityConnection!
-}
-
 input LegalEntityFilter {
   nhsVerified: Boolean
   area: String
@@ -55,12 +37,6 @@ type LegalEntityEdge {
   node: LegalEntity!
   "A cursor for use in pagination."
   cursor: String!
-}
-
-type Mutation {
-  nhsVerifyLegalEntity(input: NhsVerifyLegalEntityInput!): NhsVerifyLegalEntityPayload
-  
-  deactivateLegalEntity(input: DeactivateLegalEntityInput!): DeactivateLegalEntityPayload
 }
 
 input NhsVerifyLegalEntityInput {
@@ -128,8 +104,8 @@ type LegalEntity {
   #   last: Int
   # ): EmployeeConnection!
   divisions(
-    filter: DivisionFilter,
-    orderBy: DivisionOrderBy,
+    filter: DivisionFilter
+    orderBy: DivisionOrderBy
     after: String
     before: String
     first: Int

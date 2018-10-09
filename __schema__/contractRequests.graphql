@@ -1,15 +1,3 @@
-type Query {
-  contractRequests(
-    filter: ContractRequestFilter
-    orderBy: ContractRequestOrderBy
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): ContractRequestConnection!
-  contractRequest(id: ID!): ContractRequest
-}
-
 input ContractRequestFilter {
   edrpou: String
   contractNumber: String
@@ -33,22 +21,20 @@ enum ContractRequestOrderBy {
   START_DATE_DESC
 }
 
-type Mutation {
-  updateContractRequest(
-    input: UpdateContractRequestInput!
-  ): UpdateContractRequestPayload
-  assignContractRequest(
-    input: AssignContractRequestInput!
-  ): AssignContractRequestPayload
-  declineContractRequest(
-    input: DeclineContractRequestInput!
-  ): DeclineContractRequestPayload
-  approveContractRequest(
-    input: ApproveContractRequestInput!
-  ): ApproveContractRequestPayload
-  signContractRequest(
-    input: SignContractRequestInput!
-  ): SignContractRequestPayload
+type ContractRequestConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ContractRequest]
+  "A list of edges."
+  edges: [ContractRequestEdge]
+}
+
+type ContractRequestEdge {
+  "The item at the end of the edge."
+  node: ContractRequest!
+  "A cursor for use in pagination."
+  cursor: String!
 }
 
 input UpdateContractRequestInput {
@@ -175,6 +161,22 @@ enum ContractorEmployeeDivisionOrderBy {
   DECLARATION_LIMIT_DESC
   STAFF_UNITS_ASC
   STAFF_UNITS_DESC
+}
+
+type ContractorEmployeeDivisionConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ContractorEmployeeDivision]
+  "A list of edges."
+  edges: [ContractorEmployeeDivisionEdge]
+}
+
+type ContractorEmployeeDivisionEdge {
+  "The item at the end of the edge."
+  node: ContractorEmployeeDivision!
+  "A cursor for use in pagination."
+  cursor: String!
 }
 
 type ContractorEmployeeDivision {

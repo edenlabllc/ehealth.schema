@@ -2,10 +2,125 @@
 # import * from "directives.graphql"
 # import * from "relay.graphql"
 
-# import Query.*, Mutation.* from "contractRequests.graphql"
-# import Query.*, Mutation.* from "declarations.graphql"
-# import Query.*, Mutation.* from "dictionaries.graphql"
-# import Query.*, Mutation.* from "legalEntities.graphql"
-# import Query.*, Mutation.*, Subscription.* from "legalEntityMergeJobs.graphql"
-# import Query.*, Mutation.* from "persons.graphql"
-# import Query.* from "settlements.graphql"
+# import * from "contractRequests.graphql"
+# import * from "declarations.graphql"
+# import * from "dictionaries.graphql"
+# import * from "legalEntities.graphql"
+# import * from "legalEntityMergeJobs.graphql"
+# import * from "persons.graphql"
+# import * from "settlements.graphql"
+
+type Query {
+  contractRequests(
+    filter: ContractRequestFilter
+    orderBy: ContractRequestOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): ContractRequestConnection!
+
+  contractRequest(id: ID!): ContractRequest
+
+  "the filter must be used to get list of declarations which belong to the patient knowing patient ID"
+  declarations(
+    filter: DeclarationFilter
+    orderBy: DeclarationOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): DeclarationConnection!
+
+  "the filter must be used to get exactly one declaration knowing its' id"
+  declaration(id: ID!): Declaration
+
+  "the filter must be used to get exactly one declaration knowing its' number"
+  declarationByNumber(number: String!): Declaration
+
+  dictionaries(filter: DictionaryFilter): [Dictionary]
+
+  dictionary(name: String!): Dictionary
+
+  "the filter must be used to get exactly one legal entity knowing its' ID"
+  legalEntity(id: ID!): LegalEntity
+
+  "the filter must be used to get exactly one legal entity knowing its' EDRPOU"
+  legalEntityByEdrpou(edrpou: String!): LegalEntity
+
+  "the filter must be used to get list of legal entities"
+  legalEntities(
+    filter: LegalEntityFilter
+    orderBy: LegalEntityOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): LegalEntityConnection!
+
+  legalEntityMergeJobs(
+    filter: LegalEntityMergeJobFilter
+    orderBy: LegalEntityMergeJobOrderBy
+  ): LegalEntityMergeJobConnection!
+
+  "the filter must be used to get exactly one person knowing id"
+  person(id: ID!): Person
+
+  "the filter should be used in order to get a list of persons by parametrs"
+  persons(filter: PersonFilter, orderBy: PersonOrderBy): PersonConnection!
+
+  settlements(filter: SettlementFilter): SettlementConnection!
+}
+
+type Mutation {
+  updateContractRequest(
+    input: UpdateContractRequestInput!
+  ): UpdateContractRequestPayload
+
+  assignContractRequest(
+    input: AssignContractRequestInput!
+  ): AssignContractRequestPayload
+
+  declineContractRequest(
+    input: DeclineContractRequestInput!
+  ): DeclineContractRequestPayload
+
+  approveContractRequest(
+    input: ApproveContractRequestInput!
+  ): ApproveContractRequestPayload
+
+  signContractRequest(
+    input: SignContractRequestInput!
+  ): SignContractRequestPayload
+
+  terminateDeclaration(
+    input: TerminateDeclarationInput!
+  ): TerminateDeclarationPayload
+
+  approveDeclaration(input: ApproveDeclarationInput!): ApproveDeclarationPayload
+
+  rejectDeclaration(input: RejectDeclarationInput!): RejectDeclarationPayload
+
+  updateDictionary(input: UpdateDictionaryInput!): UpdateDictionaryPayload
+
+  nhsVerifyLegalEntity(
+    input: NhsVerifyLegalEntityInput!
+  ): NhsVerifyLegalEntityPayload
+
+  deactivateLegalEntity(
+    input: DeactivateLegalEntityInput!
+  ): DeactivateLegalEntityPayload
+
+  mergeLegalEntities(input: MergeLegalEntityInput!): MergeLegalEntityPayload
+
+  resetPersonAuthenticationMethod(
+    input: ResetPersonAuthenticationMethodInput!
+  ): ResetPersonAuthenticationMethodPayload
+}
+
+type Subscription {
+  legalEntityMergeJobs(
+    filter: LegalEntityMergeJobFilter
+    orderBy: LegalEntityMergeJobOrderBy
+  ): LegalEntityMergeJobConnection!
+}

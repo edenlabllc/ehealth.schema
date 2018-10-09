@@ -1,14 +1,6 @@
 # import Address from "addresses.graphql"
 # import Phone from "phones.graphql"
 
-type Query {
-  "the filter must be used to get exactly one person knowing id"
-  person(id: ID!): Person
-
-  "the filter should be used in order to get a list of persons by parametrs"
-  persons(filter: PersonFilter, orderBy: PersonOrderBy): PersonConnection!
-}
-
 input PersonFilter {
   taxId: String
   unzr: String
@@ -47,10 +39,6 @@ type PersonEdge {
   node: Person!
   "A cursor for use in pagination."
   cursor: String!
-}
-
-type Mutation {
-  resetPersonAuthenticationMethod(input: ResetPersonAuthenticationMethodInput!): ResetPersonAuthenticationMethodPayload
 }
 
 input ResetPersonAuthenticationMethodInput {

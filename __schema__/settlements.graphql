@@ -1,7 +1,3 @@
-type Query {
-  settlements(filter: SettlementFilter): SettlementConnection!
-}
-
 input SettlementFilter {
   name: String
 }

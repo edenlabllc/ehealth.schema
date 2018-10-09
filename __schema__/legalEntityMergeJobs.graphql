@@ -1,12 +1,5 @@
 # import SignedContent from "signedContent.graphql"
 
-type Query {
-  legalEntityMergeJobs(
-    filter: LegalEntityMergeJobFilter
-    orderBy: LegalEntityMergeJobOrderBy
-  ): LegalEntityMergeJobConnection!
-}
-
 input LegalEntityMergeJobFilter {
   status: LegalEntityMergeJobStatus
 }
@@ -32,23 +25,12 @@ type LegalEntityMergeJobEdge {
   cursor: String!
 }
 
-type Mutation {
-  mergeLegalEntities(input: MergeLegalEntityInput!): MergeLegalEntityPayload
-}
-
 input MergeLegalEntityInput {
   signedContent: SignedContent!
 }
 
 type MergeLegalEntityPayload {
   legalEntityMergeJob: LegalEntityMergeJob
-}
-
-type Subscription {
-  legalEntityMergeJobs(
-    filter: LegalEntityMergeJobFilter
-    orderBy: LegalEntityMergeJobOrderBy
-  ): LegalEntityMergeJobConnection!
 }
 
 type LegalEntityMergeJob {

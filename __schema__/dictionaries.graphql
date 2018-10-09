@@ -1,12 +1,3 @@
-type Query {
-  dictionaries(filter: DictionaryFilter): [Dictionary]
-  dictionary(name: String!): Dictionary
-}
-
-type Mutation {
-  updateDictionary(input: UpdateDictionaryInput!): UpdateDictionaryPayload
-}
-
 input UpdateDictionaryInput {
   name: String!
   isActive: Boolean!
