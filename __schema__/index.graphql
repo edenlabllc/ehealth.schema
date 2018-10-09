@@ -61,15 +61,32 @@ type Query {
   legalEntityMergeJobs(
     filter: LegalEntityMergeJobFilter
     orderBy: LegalEntityMergeJobOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
   ): LegalEntityMergeJobConnection!
 
   "the filter must be used to get exactly one person knowing id"
   person(id: ID!): Person
 
   "the filter should be used in order to get a list of persons by parametrs"
-  persons(filter: PersonFilter, orderBy: PersonOrderBy): PersonConnection!
+  persons(
+    filter: PersonFilter
+    orderBy: PersonOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PersonConnection!
 
-  settlements(filter: SettlementFilter): SettlementConnection!
+  settlements(
+    filter: SettlementFilter
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): SettlementConnection!
 }
 
 type Mutation {
@@ -122,5 +139,9 @@ type Subscription {
   legalEntityMergeJobs(
     filter: LegalEntityMergeJobFilter
     orderBy: LegalEntityMergeJobOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
   ): LegalEntityMergeJobConnection!
 }

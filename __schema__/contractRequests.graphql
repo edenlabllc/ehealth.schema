@@ -115,10 +115,18 @@ type ContractRequest implements Node {
   contractorDivisions(
     filter: DivisionFilter
     orderBy: DivisionOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
   ): DivisionConnection!
   contractorEmployeeDivisions(
     filter: ContractorEmployeeDivisionFilter
     orderBy: ContractorEmployeeDivisionOrderBy
+    after: String
+    before: String
+    first: Int
+    last: Int
   ): ContractorEmployeeDivisionConnection!
   externalContractorFlag: Boolean!
   externalContractors: [ExternalContractor]
