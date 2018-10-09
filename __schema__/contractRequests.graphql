@@ -1,5 +1,5 @@
 type Query {
-  contractRequests: (
+  contractRequests(
     filter: ContractRequestFilter
     orderBy: ContractRequestOrderBy
     after: String
@@ -7,7 +7,7 @@ type Query {
     first: Int
     last: Int
   ): ContractRequestConnection!
-  contractRequest: (id: ID!): ContractRequest
+  contractRequest(id: ID!): ContractRequest
 }
 
 input ContractRequestFilter {
@@ -34,11 +34,21 @@ enum ContractRequestOrderBy {
 }
 
 type Mutation {
-  updateContractRequest(input: UpdateContractRequestInput!): UpdateContractRequestPayload
-  assignContractRequest(input: AssignContractRequestInput!): AssignContractRequestPayload
-  declineContractRequest(input: DeclineContractRequestInput!): DeclineContractRequestPayload
-  approveContractRequest(input: ApproveContractRequestInput!): ApproveContractRequestPayload
-  signContractRequest(input: SignContractRequestInput!): SignContractRequestPayload
+  updateContractRequest(
+    input: UpdateContractRequestInput!
+  ): UpdateContractRequestPayload
+  assignContractRequest(
+    input: AssignContractRequestInput!
+  ): AssignContractRequestPayload
+  declineContractRequest(
+    input: DeclineContractRequestInput!
+  ): DeclineContractRequestPayload
+  approveContractRequest(
+    input: ApproveContractRequestInput!
+  ): ApproveContractRequestPayload
+  signContractRequest(
+    input: SignContractRequestInput!
+  ): SignContractRequestPayload
 }
 
 input UpdateContractRequestInput {
@@ -93,8 +103,7 @@ In order to obtain details user must have a scope `contract_request:read`.
 Nhs admin can assign contract request to NHS Employee having a scope: `contract_requst:update`.
 NHS admin can approve Contract Request having a scope `contract_request:approve`.
 It's possible to decline Contract Request having a scope `contract_request:decline`
-NHS admin can sign contract request in status ='PENDING_NHS_SIGN'. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in signed_content property. 
-
+NHS admin can sign contract request in status ='PENDING_NHS_SIGN'. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in signed_content property.
 """
 type ContractRequest {
   "The ID of an object"
@@ -117,9 +126,15 @@ type ContractRequest {
   contractorBase: String!
   contractorPaymentDetails: ContractorPaymentDetails!
   contractorRmspAmount: Int!
-  contractorDivisions(filter: DivisionFilter, orderBy: DivisionOrderBy): DivisionConnection!
-  contractorEmployeeDivisions(filter: ContractorEmployeeDivisionFilter orderBy: ContractorEmployeeDivisionOrderBy): ContractorEmployeeDivisionConnection!
-  externalСontractorFlag: Boolean!
+  contractorDivisions(
+    filter: DivisionFilter
+    orderBy: DivisionOrderBy
+  ): DivisionConnection!
+  contractorEmployeeDivisions(
+    filter: ContractorEmployeeDivisionFilter
+    orderBy: ContractorEmployeeDivisionOrderBy
+  ): ContractorEmployeeDivisionConnection!
+  externalContractorFlag: Boolean!
   externalContractors: [ExternalContractor]
   nhsSigner: Employee
   nhsSignerBase: String
@@ -159,7 +174,7 @@ enum ContractorEmployeeDivisionOrderBy {
   DECLARATION_LIMIT_ASC
   DECLARATION_LIMIT_DESC
   STAFF_UNITS_ASC
-  STAFF_UNITS_DESC  
+  STAFF_UNITS_DESC
 }
 
 type ContractorEmployeeDivision {
