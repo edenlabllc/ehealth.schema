@@ -62,8 +62,11 @@ In order to obtain details user must have a scope `legal_entity:read`.
 NHS admin can verify Legal Entity having a scope `legal_entity:nhs_verify`.
 Also it's possible to deactivate Legal Entity having a scope `legal_entity:deactivate`
 """
-type LegalEntity {
+type LegalEntity implements Node {
+  "The ID of an object"
   id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
   "full official name of legal entity also the name to show on public sources [as map, portal etc]"
   name: String!
   shortName: String

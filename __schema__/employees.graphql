@@ -1,8 +1,11 @@
 """
 Employee details contain information about Party (personal data) and Employee (proffesional data)
 """
-type Employee {
+type Employee implements Node {
+  "The ID of an object"
   id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
   position: String!
   startDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
   endDate: Date @fake(locale: "uk", method: "date.past", args: [100])

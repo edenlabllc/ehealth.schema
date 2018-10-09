@@ -32,8 +32,11 @@ Division contains details about places where services are provided
 
 In order to obtain details user must have a scope **division:read**
 """
-type Division {
+type Division implements Node {
+  "The ID of an object"
   id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
   name: String!
   addresses: [Address]!
   phones: [Phone]!

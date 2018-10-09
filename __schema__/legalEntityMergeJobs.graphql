@@ -33,8 +33,11 @@ type MergeLegalEntityPayload {
   legalEntityMergeJob: LegalEntityMergeJob
 }
 
-type LegalEntityMergeJob {
+type LegalEntityMergeJob implements Node {
+  "The ID of an object"
   id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
   status: LegalEntityMergeJobStatus!
   startedAt: DateTime!
   endedAt: DateTime

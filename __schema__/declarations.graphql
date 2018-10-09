@@ -57,7 +57,7 @@ Declaration combines data about Patient, Employee, LegalEntity and Division.
 
 In order to obtain details user must have a scope `declaration:read`.
 """
-type Declaration {
+type Declaration implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"

@@ -29,7 +29,11 @@ type RelatedLegalEntityEdge {
   cursor: String!
 }
 
-type RelatedLegalEntity {
+type RelatedLegalEntity implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
   isActive: Boolean!
   reason: String!
   mergedToLegalEntity: LegalEntity!

@@ -91,7 +91,7 @@ NHS admin can approve Contract Request having a scope `contract_request:approve`
 It's possible to decline Contract Request having a scope `contract_request:decline`
 NHS admin can sign contract request in status ='PENDING_NHS_SIGN'. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in signed_content property.
 """
-type ContractRequest {
+type ContractRequest implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"

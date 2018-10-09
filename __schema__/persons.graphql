@@ -52,8 +52,11 @@ type ResetPersonAuthenticationMethodPayload {
 """
 This is Person (MPI) details. In order to obtain details user must have a scope **person:read**
 """
-type Person {
+type Person implements Node {
+  "The ID of an object"
   id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
   firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
   lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
   secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])

@@ -21,8 +21,11 @@ type SettlementEdge {
 """
 Settlement details contain information about Settlement and area
 """
-type Settlement {
+type Settlement implements Node {
+  "The ID of an object"
   id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
   district: String
   districtId: ID
   koatuu: String!
