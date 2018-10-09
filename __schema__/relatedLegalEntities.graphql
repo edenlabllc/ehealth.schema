@@ -24,7 +24,7 @@ type RelatedLegalEntityConnection {
 
 type RelatedLegalEntityEdge {
   "The item at the end of the edge."
-  node: LegalEntityMergeJob!
+  node: RelatedLegalEntity!
   "A cursor for use in pagination."
   cursor: String!
 }
