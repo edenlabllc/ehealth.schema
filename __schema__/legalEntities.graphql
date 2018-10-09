@@ -75,7 +75,7 @@ input DeactivateLegalEntityInput {
   id: ID!
 }
 
-input DeactivateLegalEntityPayload {
+type DeactivateLegalEntityPayload {
   legalEntity: LegalEntity
 }
 

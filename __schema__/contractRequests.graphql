@@ -69,7 +69,7 @@ input AssignContractRequestInput {
   employeeId: ID!
 }
 
-input AssignContractRequestPayload {
+type AssignContractRequestPayload {
   contractRequest: ContractRequest
 }
 

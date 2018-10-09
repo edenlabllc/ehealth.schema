@@ -14,7 +14,7 @@ input UpdateDictionaryInput {
   values: JSON
 }
 
-input UpdateDictionaryPayload {
+type UpdateDictionaryPayload {
   dictionary: Dictionary
 }
 
