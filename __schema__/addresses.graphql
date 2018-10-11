@@ -2,25 +2,43 @@
 ADDRESS contain info about both type of addresses REGISTRATION and RESIDENCE
 """
 type Address {
+  "Contain address type: REGISTRATION and RESIDENCE"
   type: AddressType!
+  "The name of Country"
   country: String!
+  "The area name in specific country. Should be taken from the state directory"
   area: String!
+  "The region name in specific area. Should be taken from the state directory"
   region: String
+  "The settlement name. Should be taken from the state directory and should fit settlementId"
   settlement: String!
+  "The settlement type. Should fit settlementId and settlement name"
   settlementType: SettlementType!
+  "ID odspecific settlement. Should settlement name."
   settlementId: ID!
+  "The street type. Should be one of the StreetType"
   streetType: StreetType!
+  "The street name."
   street: String
+  "The number of a building"
   building: String!
+  "Apartment number"
   apartment: String
+  "Address's zip code"
   zip: String!
 }
 
+"""
+List of possible addresses types. RESIDENCE is an actual address of living, REGISTRATION is a person's registration address.   
+"""
 enum AddressType {
   RESIDENCE
   REGISTRATION
 }
 
+"""
+List of possible street types
+"""
 enum StreetType {
   TRACT
   STREET
