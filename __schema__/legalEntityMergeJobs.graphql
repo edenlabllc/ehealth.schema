@@ -42,7 +42,7 @@ type LegalEntityMergeJobEdge {
 """
 Inputs for merge legal entity.
 """
-input MergeLegalEntityInput {
+input MergeLegalEntitiesInput {
   "Input for Signed Content"
   signedContent: SignedContent!
 }
@@ -50,7 +50,7 @@ input MergeLegalEntityInput {
 """
 Payload for merge legal entity.
 """
-type MergeLegalEntityPayload {
+type MergeLegalEntitiesPayload {
   "payload legalEntityMergeJob."
   legalEntityMergeJob: LegalEntityMergeJob
 }
@@ -81,11 +81,11 @@ type LegalEntityMergeJob implements Node {
 List of statuses for LegalEntityMergeJob.
 """
 enum LegalEntityMergeJobStatus {
-  "Status `ERROR` for LegalEntityMergeJob is set when job has an error and could not be finished successfully."
+  "Is set when job has an error and could not be finished successfully."
   ERROR
-  "Status `PENDING` for LegalEntityMergeJob is set when job is in a queue."
+  "Is set when job is in a queue."
   PENDING
-  "Status `PROCESSED` for LegalEntityMergeJob is set when job is finished successfully."
+  "Is set when job is finished successfully."
   PROCESSED
 }
 
