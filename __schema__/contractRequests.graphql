@@ -105,8 +105,8 @@ type ContractRequest implements Node {
   statusReason: String
   issueCity: String
   printoutContent: String
-  startDate: Date!
-  endDate: Date!
+  startDate: Date! @fake(locale: "uk", method: "date.past")
+  endDate: Date! @fake(locale: "uk", method: "date.past")
   contractorLegalEntity: LegalEntity!
   contractorOwner: Employee!
   contractorBase: String!
