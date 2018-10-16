@@ -1,7 +1,14 @@
+"""
+Fields to filter LegalEntity in the system.
+"""
 input SettlementFilter {
+  "Settlement name"
   name: String
 }
 
+"""
+A connection to a list of `Settlement` values.
+"""
 type SettlementConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
@@ -11,6 +18,9 @@ type SettlementConnection {
   edges: [SettlementEdge]
 }
 
+"""
+Reads and enables pagination through a set of `Settlement`.
+"""
 type SettlementEdge {
   "The item at the end of the edge."
   node: Settlement!
@@ -26,18 +36,27 @@ type Settlement implements Node {
   id: ID!
   "Primary key identifier from the database"
   databaseId: ID!
+  "District name"
   district: String
+  "District unique ID in DB"
   districtId: ID
+  "State Classifier of Objects of the Administrative-Territorial Order of Ukraine."
   koatuu: String!
+  "Бark whether the village belongs to the mountain group."
   mountainGroup: Boolean!
+  "Settlement name."
   name: String!
   parentSettlement: String
   parentSettlementId: ID
+  "Region name."
   region: String!
+  "Region ID in DB."
   regionId: ID!
+  "Settlement type."
   type: SettlementType!
 }
 
+"List of settlenemts type."
 enum SettlementType {
   VILLAGE
   TOWNSHIP

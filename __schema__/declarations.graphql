@@ -2,8 +2,11 @@
 Filters for `Declaration`
 """
 input DeclarationFilter {
+  "Declaration database identifier."
   declarationId: ID
+  "DEclaration human readable unique number."
   declarationNumber: String
+  "DEclaration status"
   status: DeclarationStatus
 }
 

@@ -1,11 +1,12 @@
 """
-
+Payload that is signed by digital sign and is converted to base 64. 
 """
 input SignedContent {
   signedContent: String!
   signedContentEncoding: SignedContentEncoding!
 }
 
+"List of signed content encoding"
 enum SignedContentEncoding {
   BASE64
 }

@@ -2,15 +2,25 @@
 # import Phone from "phones.graphql"
 # import LegalEntity from "legalEntities.graphql"
 
+"""
+Fields to filter division in the system.
+"""
 input DivisionFilter {
+  "Division name."
   name: String
 }
 
+""""
+Methods to use when ordering `Division`.
+"""
 enum DivisionOrderBy {
   NAME_ASC
   NAME_DESC
 }
 
+"""
+A connection to a list of `Division` items.
+"""
 type DivisionConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
@@ -20,6 +30,9 @@ type DivisionConnection {
   edges: [DivisionEdge]
 }
 
+"""
+An edge in a connection of `Division`.
+"""
 type DivisionEdge {
   "The item at the end of the edge."
   node: Division!
@@ -37,30 +50,50 @@ type Division implements Node {
   id: ID!
   "Primary key identifier from the database"
   databaseId: ID!
+  "Division name."
   name: String!
+  "Division address."
   addresses: [Address]!
+  "Division contact phone number."
   phones: [Phone]!
+  "Division contact email."
   email: String!
+  "Division status, is set automatically."
   status: DivisionStatus!
+  "Division type, is choosen from dictionary."
   type: DivisionType!
+  "In case division address in mountain group, mountainGroup=true. Is set automatically according to division address."
   mountainGroup: Boolean!
+  "Information about legal_entity"
   legalEntity: LegalEntity!
+  "Division working hours."
   workingHours: DivisionWorkingHours
 }
 
+"""
+List for division statuses.
+"""
 enum DivisionStatus {
   ACTIVE
   INACTIVE
 }
 
+"""
+List for division tyoes.
+"""
 enum DivisionType {
   AMBULANT_CLINIC
   CLINIC
   FAP
 }
 
+"""
+Division working hours structure.
+"""
 type DivisionWorkingHours {
+  "Division working week days"
   days: [WeekDay]!
+  "Division working hours, according to working days."
   hours: [TimeRange]!
 }
 
