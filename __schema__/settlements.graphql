@@ -46,7 +46,9 @@ type Settlement implements Node {
   mountainGroup: Boolean!
   "Settlement name."
   name: String!
+  "Parent settlement name."
   parentSettlement: String
+  "Parent settlement ID from database."
   parentSettlementId: ID
   "Region name."
   region: String!
@@ -58,8 +60,12 @@ type Settlement implements Node {
 
 "List of settlenemts type."
 enum SettlementType {
-  VILLAGE
-  TOWNSHIP
-  SETTLEMENT
+  "A large town."
   CITY
+  "A place where people establish a community."
+  SETTLEMENT
+  "A small town."
+  TOWNSHIP
+  "A group of houses and associated buildings, larger than a hamlet and smaller than a town, situated in a rural area."
+  VILLAGE
 }

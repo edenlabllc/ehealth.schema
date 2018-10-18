@@ -1,14 +1,25 @@
 # import SignedContent from "signedContent.graphql"
-
+"""
+Filter for Legal entity merge job. 
+"""
 input LegalEntityMergeJobFilter {
+  "Legal entity merge job filters."
   status: LegalEntityMergeJobStatus
 }
 
+"""
+List of fields to filter both ask and desc side `LegalEntityMergeJob`.
+"""
 enum LegalEntityMergeJobOrderBy {
+  "Sort legal entity merge job by started at in ascending order"
   STARTED_AT_ASC
+  "Sort legal entity merge job by started at in descending order"
   STARTED_AT_DESC
 }
 
+"""
+A connection to a list of `LegalEntityMergeJob` values.
+"""
 type LegalEntityMergeJobConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
@@ -18,6 +29,9 @@ type LegalEntityMergeJobConnection {
   edges: [LegalEntityMergeJobEdge]
 }
 
+"""
+Reads and enables pagination through a set of `LegalEntityMergeJob`.
+"""
 type LegalEntityMergeJobEdge {
   "The item at the end of the edge."
   node: LegalEntityMergeJob!
@@ -25,36 +39,64 @@ type LegalEntityMergeJobEdge {
   cursor: String!
 }
 
+"""
+Inputs for merge legal entity.
+"""
 input MergeLegalEntityInput {
+  "Input for Signed Content"
   signedContent: SignedContent!
 }
 
+"""
+Payload for merge legal entity.
+"""
 type MergeLegalEntityPayload {
+  "payload legalEntityMergeJob."
   legalEntityMergeJob: LegalEntityMergeJob
 }
 
+"""
+An object for LegalEntityMergeJob.
+"""
 type LegalEntityMergeJob implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
   databaseId: ID!
+  "Legal Entity Merge Job status."
   status: LegalEntityMergeJobStatus!
+  "Date and time when the job starts."
   startedAt: DateTime!
+  "Date and time when the job ends."
   endedAt: DateTime
+  "The main legal entity that is active after merging."
   mergedToLegalEntity: MergeeLegalEntityMetadata!
+  "Legal entity that is merged."
   mergedFromLegalEntity: MergeeLegalEntityMetadata!
   # TBD
   # error: LegalEntityMergeJobError
 }
 
+"""
+List of statuses for LegalEntityMergeJob.
+"""
 enum LegalEntityMergeJobStatus {
-  PENDING
+  "Status `ERROR` for LegalEntityMergeJob is set when job has an error and could not be finished successfully."
   ERROR
+  "Status `PENDING` for LegalEntityMergeJob is set when job is in a queue."
+  PENDING
+  "Status `PROCESSED` for LegalEntityMergeJob is set when job is finished successfully."
   PROCESSED
 }
 
+"""
+Metadata of merging legal entities.
+"""
 type MergeeLegalEntityMetadata {
+  "Primary key identifier from the database"
   id: ID!
+  "full official name of legal entity"
   name: String!
+  "Legal entity edrpou."
   edrpou: String!
 }

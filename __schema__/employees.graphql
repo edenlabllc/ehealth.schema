@@ -30,17 +30,22 @@ type Employee implements Node {
 List for employee status.
 """
 enum EmployeeStatus {
-  NEW
+  "Status `APPROVED` for employee."
   APPROVED
+  "Status `DISMISSED` for employee."
   DISMISSED
+  "Status `NEW` for employee."
+  NEW
 }
 
 """
 List forparty gender.
 """
 enum Gender {
-  MALE
+  "Gender `FEMALE` for a party."
   FEMALE
+  "Gender `MALE` for a party."
+  MALE
 }
 
 """
@@ -65,6 +70,7 @@ type Party {
 Proffesional information of employee.
 """
 type Doctor {
+  "Doctor's speciality"
   specialities: [Speciality]
 }
 

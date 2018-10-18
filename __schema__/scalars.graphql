@@ -1,4 +1,8 @@
+"Custom primitive type `Date`."
 scalar Date
+"Custom primitive type `Time`."
 scalar Time
+"Custom primitive type `DateTime`."
 scalar DateTime
+"Custom primitive type `JSON`."
 scalar JSON

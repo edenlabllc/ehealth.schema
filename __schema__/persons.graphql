@@ -31,14 +31,22 @@ input PersonPersonalFilter {
 Methods to use when ordering `Person`.
 """
 enum PersonOrderBy {
-  TAX_ID_ASC
-  TAX_ID_DESC
-  UNZR_ASC
-  UNZR_DESC
+  "Sort Person by birth date in ascending order."
   BIRTH_DATE_ASC
+  "Sort Person by birth date in descending order."
   BIRTH_DATE_DESC
+  "Sort Person by inserted at in ascending order."
   INSERTED_AT_ASC
+  "Sort Person by inserted at in descending order."
   INSERTED_AT_DESC
+  "Sort Person by tax id in ascending order."
+  TAX_ID_ASC
+  "Sort Person by tax id in descending order."
+  TAX_ID_DESC
+  "Sort Person by unzr in ascending order."
+  UNZR_ASC
+  "Sort Person by unzr in descending order."
+  UNZR_DESC
 }
 
 """
@@ -76,6 +84,7 @@ input ResetPersonAuthenticationMethodInput {
 Payload for reseting patient authentication method.
 """
 type ResetPersonAuthenticationMethodPayload {
+  "person infirmation."
   person: Person!
 }
 
@@ -126,6 +135,7 @@ type Person implements Node {
   addresses: [Address]!
   "the way how a patient wants to be reached"
   phones: [Phone]
+  "Person's declarations."
   declarations(
     filter: DeclarationFilter
     orderBy: DeclarationOrderBy
@@ -136,7 +146,9 @@ type Person implements Node {
 List of person statuses.
 """
 enum PersonStatus {
+  "Status `ACTIVE` for a person"
   ACTIVE
+  "Status `INACTIVE` for a person"
   INACTIVE
 }
 
@@ -144,15 +156,19 @@ enum PersonStatus {
 List of person Gender.
 """
 enum PersonGender {
-  MALE
+  "Gender `FEMALE` for a person."
   FEMALE
+  "Gender `MALE` for a person."
+  MALE
 }
 
 """
 List of person preferred way communication.
 """
 enum PersonPreferredWayCommunication {
+  "`EMAIL` as apreferred way communication"
   EMAIL
+   "`PHONE` as apreferred way communication"
   PHONE
 }
 
@@ -160,7 +176,9 @@ enum PersonPreferredWayCommunication {
 The method to verify changes of patient by patient. 
 """
 type PersonAuthenticationMethod {
+  "Type of authentication method, is taken from dictionary."
   type: PersonAuthenticationMethodType!
+  "In case type=OTP, phoneNumber is a number of person's mobile phone."
   phoneNumber: String
 }
 
@@ -168,9 +186,12 @@ type PersonAuthenticationMethod {
 List of authentication method type
 """
 enum PersonAuthenticationMethodType {
-  OTP
-  OFFLINE
+  "`NA` is set when person does not have any authentication method or authentication method was resetted by NHS."
   NA
+  "`OFFLINE` is set when person does not have cell phone number. In that case person should provide its documents."
+  OFFLINE
+  "`OTP` is set when person has a cell phone number."
+  OTP
 }
 
 """

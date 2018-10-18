@@ -11,12 +11,16 @@ input DeclarationFilter {
 }
 
 """
-List of fields to filter both ask and desc side `DeclarationOrderBy`.
+List of fields to filter both ask and desc side `Declaration`.
 """
 enum DeclarationOrderBy {
+  "Sort declaration by start date in ascending order."
   START_DATE_ASC
+  "Sort declaration by start date in descending order."
   START_DATE_DESC
+  "Sort declaration by status in ascending order."
   STATUS_ASC
+  "Sort declaration by status in descending order."
   STATUS_DESC
 }
 
@@ -56,6 +60,7 @@ input TerminateDeclarationInput {
 The payload that should be sent in order to terminate declaration. 
 """
 type TerminateDeclarationPayload {
+  "Payload for `declaration`."
   declaration: Declaration!
 }
 
@@ -71,6 +76,7 @@ input ApproveDeclarationInput {
 The payload that should be sent in order to approve declaration.
 """
 type ApproveDeclarationPayload {
+  "Payload for `declaration`."
   declaration: Declaration!
 }
 
@@ -86,6 +92,7 @@ input RejectDeclarationInput {
 The payload that should be sent in order to reject declaration.
 """
 type RejectDeclarationPayload {
+  "Payload for `declaration`."
   declaration: Declaration!
 }
 
@@ -131,10 +138,14 @@ type Declaration implements Node {
 List of declaration statuses.
 """
 enum DeclarationStatus {
-  PENDING_VERIFICATION
-  REJECTED
-  TERMINATED
+  "Status `Active` for declaration."
   ACTIVE
+  "Status `PENDING_VERIFICATION` for declaration."
+  PENDING_VERIFICATION
+   "Status `REJECTED` for declaration."
+  REJECTED
+   "Status `TERMINATED` for declaration."
+  TERMINATED
 }
 
 """

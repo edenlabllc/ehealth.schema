@@ -24,13 +24,21 @@ input LegalEntityFilter {
 Methods to use when ordering `LegalEntity`.
 """
 enum LegalEntityOrderBy {
+  "Sort legal entity by edrpou in ascending order."
   EDRPOU_ASC
+  "Sort legal entity by edrpou in descending order."
   EDRPOU_DESC
+  "Sort legal entity by inserted at in ascending order."
   INSERTED_AT_ASC
+  "Sort legal entity by inserted at in descending order."
   INSERTED_AT_DESC
+  "Sort legal entity by nhs verified at in ascending order."
   NHS_VERIFIED_ASC
+  "Sort legal entity by nhs verified at in descending order."
   NHS_VERIFIED_DESC
+  "Sort legal entity by status at in ascending order."
   STATUS_ASC
+  "Sort legal entity by status at in descending order."
   STATUS_DESC
 }
 
@@ -69,6 +77,7 @@ Payload that should be sent to verify legal entity.
 In order to deactivate legal entity user must have a scope `legal_entity:nhs_verify`.
 """
 type NhsVerifyLegalEntityPayload {
+  "Payload for legal entity."
   legalEntity: LegalEntity
 }
 
@@ -85,6 +94,7 @@ Payload that should be sent to deactivate legal entity.
 In order to deactivate legal entity user must have a scope `legal_entity:deactivate`.
 """
 type DeactivateLegalEntityPayload {
+  "Payload for legalEntity."
   legalEntity: LegalEntity
 }
 
@@ -104,6 +114,7 @@ type LegalEntity implements Node {
   name: String!
   "Legal entity short name."
   shortName: String
+  "Legal entity public name."
   publicName: String
   "Legal entity type."
   type: LegalEntityType!
@@ -175,8 +186,11 @@ type LegalEntity implements Node {
 List of legal entitis types.
 """
 enum LegalEntityType {
+  "`MIS` type for legal entity."
   MIS
+  "`MSP` type for legal entity."
   MSP
+  "`PHARMACY` type for legal entity."
   PHARMACY
 }
 
@@ -184,7 +198,9 @@ enum LegalEntityType {
 List of legal entities statuses.
 """
 enum LegalEntityStatus {
+  "`ACTIVE` status for legal entity."
   ACTIVE
+  "`CLOSED` status for legal entity."
   CLOSED
 }
 
@@ -192,7 +208,9 @@ enum LegalEntityStatus {
 List of Mis Verification status.
 """
 enum LegalEntityMisVerificationStatus {
+  "Status for not verified legal entity by MIS"
   NOT_VERIFIED
+  "Status for verified legal entity by MIS"
   VERIFIED
 }
 
@@ -200,7 +218,9 @@ enum LegalEntityMisVerificationStatus {
 Inforamtion about licenses and accreditations of legal entity.
 """
 type MedicalServiceProvider {
+  "legal entity medical licenses."
   licenses: [LegalEntityLicense]
+  "legal entity accreditation information."
   accreditation: LegalEntityAccreditation
 }
 

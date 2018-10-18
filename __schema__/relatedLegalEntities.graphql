@@ -1,18 +1,34 @@
 # import LegalEntity from "legalEntities.graphql"
 
+"""
+Filters for related legal entity.
+"""
 input RelatedLegalEntityFilter {
+  "RelatedLegalEntity edrpou."
   edrpou: String!
 }
 
+"""
+List of filters for related legal entity.
+"""
 enum RelatedLegalEntityOrderBy {
+  "Sort RelatedLegalEntity by edrpou in ascending order."
   EDRPOU_ASC
+  "Sort RelatedLegalEntity by edrpou in descending order."
   EDRPOU_DESC
-  INSERTED_AT_DESC
+  "Sort RelatedLegalEntity by inserted at in ascending order."
   INSERTED_AT_ASC
+  "Sort RelatedLegalEntity by inserted at in descending order."
+  INSERTED_AT_DESC
+  "Sort RelatedLegalEntity by is_active in ascending order."
   IS_ACTIVE_ASC
+  "Sort RelatedLegalEntity by is_active in descending order."
   IS_ACTIVE_DESC
 }
 
+"""
+A connection to a list of `RelatedLegalEntity` items.
+"""
 type RelatedLegalEntityConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
@@ -22,6 +38,9 @@ type RelatedLegalEntityConnection {
   edges: [RelatedLegalEntityEdge]
 }
 
+"""
+Reads and enables pagination through a set of `RelatedLegalEntity`.
+"""
 type RelatedLegalEntityEdge {
   "The item at the end of the edge."
   node: RelatedLegalEntity!
@@ -29,15 +48,25 @@ type RelatedLegalEntityEdge {
   cursor: String!
 }
 
+"""
+RelatedLegalEntity is a relationship for reorganized legal entities.
+In order to get RelatedLegalEntity user should have scopes `related_legal_entities:read`. 
+"""
 type RelatedLegalEntity implements Node {
   "The ID of an object"
   id: ID!
-  "Primary key identifier from the database"
+  "Primary key identifier from the database."
   databaseId: ID!
+  "Active or not information about the relationship."
   isActive: Boolean!
+  "Reason to merge legal entities."
   reason: String!
+  "Successor legal entity."
   mergedToLegalEntity: LegalEntity!
+  "Legator legal entity."
   mergedFromLegalEntity: LegalEntity!
+  "The time when informationa about the relationship where inserted to the database."
   insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  "The user who inserted the informationa about the relationship to the database."
   insertedBy: String!
 }

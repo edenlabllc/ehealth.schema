@@ -16,6 +16,7 @@ input UpdateDictionaryInput {
 Payload that should be sent in order to update dictionary.
 """
 type UpdateDictionaryPayload {
+  "Payload for dictionary."
   dictionary: Dictionary
 }
 
@@ -27,7 +28,6 @@ type Dictionary {
   name: String
   "In case dictionary is used isActive = true."
   isActive: Boolean!
-  isActive: Boolean
   "Type of usage dictionary in the system"
   labels: [String]
   "Dictionary's values."
