@@ -133,7 +133,7 @@ type Person implements Node {
   documents: [PersonDocument]
   "Patient addresses."
   addresses: [Address]!
-  "the way how a patient wants to be reached"
+  "The way how a patient wants to be reached."
   phones: [Phone]
   "Person's declarations."
   declarations(
