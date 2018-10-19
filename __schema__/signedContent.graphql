@@ -4,7 +4,7 @@ Payload that is signed by digital sign and is converted to base64.
 input SignedContent {
 	"payload for SignedContent, converted to encoding type."
   signedContent: String!
-  "Type is encoding. Is taken from the list."
+  "Denotes the signed content encoding scheme."
   signedContentEncoding: SignedContentEncoding!
 }
 
