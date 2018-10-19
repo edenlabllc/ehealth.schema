@@ -4,7 +4,9 @@ The `Date` scalar type represents a date. The Date appears in a JSON response as
 scalar Date
 "Custom primitive type `Time`."
 scalar Time
-"Custom primitive type `DateTime`."
+"""
+The `DateTime` scalar type represents a date and time in the UTC timezone. The DateTime appears in a JSON response as an ISO8601 formatted string, including UTC timezone ("Z"). The parsed date and time string will be converted to UTC and any UTC offset other than 0 will be rejected.
+"""
 scalar DateTime
 "Custom primitive type `JSON`."
 scalar JSON
