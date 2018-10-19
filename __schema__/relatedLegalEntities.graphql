@@ -50,7 +50,7 @@ type RelatedLegalEntityEdge {
 
 """
 RelatedLegalEntity is a relationship for reorganized legal entities.
-In order to get RelatedLegalEntity user should have scopes `related_legal_entities:read`. 
+In order to get RelatedLegalEntity user should have `related_legal_entities:read` scope. 
 """
 type RelatedLegalEntity implements Node {
   "The ID of an object."
