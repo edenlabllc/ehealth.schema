@@ -186,7 +186,7 @@ type LegalEntity implements Node {
 List of legal entitis types.
 """
 enum LegalEntityType {
-  "`MIS` type for legal entity."
+  "Is a medical information system."
   MIS
   "`MSP` type for legal entity."
   MSP
