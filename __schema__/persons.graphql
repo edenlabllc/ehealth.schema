@@ -186,7 +186,7 @@ type PersonAuthenticationMethod {
 List of authentication method type
 """
 enum PersonAuthenticationMethodType {
-  "`NA` is set when person does not have any authentication method or authentication method was resetted by NHS."
+  "Is set when a person does not have any authentication method or authentication method was reset by NHS."
   NA
   "`OFFLINE` is set when person does not have cell phone number. In that case person should provide its documents."
   OFFLINE
