@@ -188,7 +188,7 @@ List of legal entitis types.
 enum LegalEntityType {
   "Is a medical information system."
   MIS
-  "`MSP` type for legal entity."
+  "Is a medical service provider."
   MSP
   "`PHARMACY` type for legal entity."
   PHARMACY
