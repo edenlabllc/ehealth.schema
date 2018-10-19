@@ -4,7 +4,7 @@ Phone structure. At least one of type must be present.
 type Phone {
   "Denotes type of the phone. In the collection, each type can be represented only once."
   type: PhoneType!
-  "phone number in format '+38/'"
+  "Phone number as specified by [E.164](https://en.wikipedia.org/wiki/E.164)."
   number: String!
 }
 
