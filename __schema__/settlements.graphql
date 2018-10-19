@@ -58,7 +58,7 @@ type Settlement implements Node {
   type: SettlementType!
 }
 
-"List of settlenemts type."
+"List of settlements type."
 enum SettlementType {
   "A large town."
   CITY
