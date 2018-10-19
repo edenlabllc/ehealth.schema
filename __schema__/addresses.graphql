@@ -48,7 +48,7 @@ enum StreetType {
   ASCENT
   "A wide road with trees or tall buildings on both sides."
   AVENUE
-  "a street with a dead end."
+  "A street with a dead end."
   BLIND_STREET
    "A square group of buildings or houses with roads on each side."
   BLOCK
