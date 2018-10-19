@@ -42,7 +42,7 @@ type Settlement implements Node {
   districtId: ID
   "State Classifier of Objects of the Administrative-Territorial Order of Ukraine."
   koatuu: String!
-  "Бark whether the village belongs to the mountain group."
+  "Flag whether the village belongs to the mountain group."
   mountainGroup: Boolean!
   "Settlement name."
   name: String!
