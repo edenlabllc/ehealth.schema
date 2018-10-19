@@ -12,7 +12,7 @@ type Phone {
 List of phone type.
 """
 enum PhoneType {
-	"land line phone number type."
+	"Landline phone number."
   	LAND_LINE
 	"mobile phone number type"
 	MOBILE
