@@ -190,7 +190,7 @@ enum PersonAuthenticationMethodType {
   NA
   "Is set when the person does not have cell phone number. In that case, the person should provide its documents."
   OFFLINE
-  "`OTP` is set when person has a cell phone number."
+  "Is set when the person has a cell phone number."
   OTP
 }
 
