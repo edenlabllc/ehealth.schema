@@ -178,7 +178,7 @@ The method to verify changes of patient by patient.
 type PersonAuthenticationMethod {
   "Type of authentication method, is taken from dictionary."
   type: PersonAuthenticationMethodType!
-  "In case type=OTP, phoneNumber is a number of person's mobile phone."
+  "Person's mobile phone number when the authentication method type is `OTP`."
   phoneNumber: String
 }
 
