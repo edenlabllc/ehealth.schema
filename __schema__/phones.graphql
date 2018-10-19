@@ -2,7 +2,7 @@
 Phone structure. At least one of type must be present. 
 """
 type Phone {
-  "Dictionary PHONE_TYPE type of phone Land Line or Mobile. Each type can be represented only once."
+  "Denotes type of the phone. In the collection, each type can be represented only once."
   type: PhoneType!
   "phone number in format '+38/'"
   number: String!
