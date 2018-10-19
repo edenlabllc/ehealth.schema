@@ -200,7 +200,7 @@ List of legal entities statuses.
 enum LegalEntityStatus {
   "`ACTIVE` status for legal entity."
   ACTIVE
-  "`CLOSED` status for legal entity."
+  "Denotes that legal entity is closed. This state is irreversible."
   CLOSED
 }
 
