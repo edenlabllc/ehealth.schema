@@ -131,7 +131,7 @@ type Person implements Node {
   authenticationMethods: [PersonAuthenticationMethod]!
   "Patient identification documents."
   documents: [PersonDocument]
-  "Patient addresses"
+  "Patient addresses."
   addresses: [Address]!
   "the way how a patient wants to be reached"
   phones: [Phone]
