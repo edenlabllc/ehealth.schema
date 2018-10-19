@@ -183,7 +183,7 @@ type LegalEntity implements Node {
 }
 
 """
-List of legal entitis types.
+Denotes the type of legal entity.
 """
 enum LegalEntityType {
   "Is a medical information system."
