@@ -53,7 +53,7 @@ RelatedLegalEntity is a relationship for reorganized legal entities.
 In order to get RelatedLegalEntity user should have scopes `related_legal_entities:read`. 
 """
 type RelatedLegalEntity implements Node {
-  "The ID of an object"
+  "The ID of an object."
   id: ID!
   "Primary key identifier from the database."
   databaseId: ID!
