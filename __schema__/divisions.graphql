@@ -2,15 +2,27 @@
 # import Phone from "phones.graphql"
 # import LegalEntity from "legalEntities.graphql"
 
+"""
+Fields to filter division in the system.
+"""
 input DivisionFilter {
+  "Division name."
   name: String
 }
 
+""""
+Methods to use when ordering `Division`.
+"""
 enum DivisionOrderBy {
+  "Sort division by name in ascending order."
   NAME_ASC
+  "Sort division by name in descending order."
   NAME_DESC
 }
 
+"""
+A connection to a list of `Division` items.
+"""
 type DivisionConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
@@ -20,6 +32,9 @@ type DivisionConnection {
   edges: [DivisionEdge]
 }
 
+"""
+An edge in a connection of `Division`.
+"""
 type DivisionEdge {
   "The item at the end of the edge."
   node: Division!
@@ -37,47 +52,87 @@ type Division implements Node {
   id: ID!
   "Primary key identifier from the database"
   databaseId: ID!
+  "Division name."
   name: String!
+  "Division address."
   addresses: [Address]!
+  "Division contact phone number."
   phones: [Phone]!
+  "Division contact email."
   email: String!
+  "Division status, is set automatically."
   status: DivisionStatus!
+  "Division type, is choosen from dictionary."
   type: DivisionType!
+  "In case division address in mountain group, mountainGroup=true. Is set automatically according to division address."
   mountainGroup: Boolean!
+  "Information about legal_entity"
   legalEntity: LegalEntity!
+  "Division working hours."
   workingHours: DivisionWorkingHours
 }
 
+"""
+List for division statuses.
+"""
 enum DivisionStatus {
+  "Status `ACTIVE` for Division"
   ACTIVE
+  "Status `INACTIVE` for Division"
   INACTIVE
 }
 
+"""
+List for division tyoes.
+"""
 enum DivisionType {
+  "Type `AMBULANT_CLINIC` for division."
   AMBULANT_CLINIC
+  "Type `CLINIC` for division."
   CLINIC
+  "Type `FAP` for division."
   FAP
 }
 
+"""
+Division working hours structure.
+"""
 type DivisionWorkingHours {
+  "Division working week days"
   days: [WeekDay]!
+  "Division working hours, according to working days."
   hours: [TimeRange]!
 }
 
+"""
+List of week days, which are the part of WorkingHours for divisions.
+"""
 # TODO: this type should be moved from this file
 enum WeekDay {
-  SUNDAY
-  MONDAY
-  TUESDAY
-  WEDNESDAY
-  THURSDAY
+  "The day of the week before Saturday and following Thursday."
   FRIDAY
+  "The day of the week before Tuesday and following Sunday."
+  MONDAY
+  "The day of the week before Sunday and following Friday, and (together with Sunday) forming part of the weekend."
   SATURDAY
+  "The day of the week before Monday and following Saturday, and (together with Saturday) forming part of the weekend."
+  SUNDAY
+  "The day of the week before Friday and following Wednesday."
+  THURSDAY
+  "The day of the week before Wednesday and following Monday."
+  TUESDAY
+  "The day of the week before Thursday and following Tuesday."
+  WEDNESDAY
 }
 
+"""
+Time range of working hours for divisions.
+"""
 # TODO: this type should be moved from this file
 type TimeRange {
+  "Start of workingHours for divisions."
   from: Time
+  "End of workingHours for divisions."
   to: Time
 }
 

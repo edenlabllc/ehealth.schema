@@ -4,25 +4,47 @@
 # import Employee from "employees.graphql"
 # import RelatedLegalEntityFilter, RelatedLegalEntityOrderBy, RelatedLegalEntityConnection from "relatedLegalEntities.graphql"
 
+"""
+Fields to filter LegalEntity in the system.
+"""
 input LegalEntityFilter {
+  "In case legal entity was verified by NHS employee, nhsVerified should be true."
   nhsVerified: Boolean
+  "Area from legal entity address."
   area: String
+  "settlement from legal entity address."
   settlement: String
+  "The ID of an object"
   id: ID
+  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
 }
 
+"""
+Methods to use when ordering `LegalEntity`.
+"""
 enum LegalEntityOrderBy {
+  "Sort legal entity by edrpou in ascending order."
   EDRPOU_ASC
+  "Sort legal entity by edrpou in descending order."
   EDRPOU_DESC
+  "Sort legal entity by inserted at in ascending order."
   INSERTED_AT_ASC
+  "Sort legal entity by inserted at in descending order."
   INSERTED_AT_DESC
+  "Sort legal entity by nhs verified at in ascending order."
   NHS_VERIFIED_ASC
+  "Sort legal entity by nhs verified at in descending order."
   NHS_VERIFIED_DESC
+  "Sort legal entity by status at in ascending order."
   STATUS_ASC
+  "Sort legal entity by status at in descending order."
   STATUS_DESC
 }
 
+"""
+A connection to a list of `LegalEntity` values.
+"""
 type LegalEntityConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
@@ -32,6 +54,9 @@ type LegalEntityConnection {
   edges: [LegalEntityEdge]
 }
 
+"""
+Reads and enables pagination through a set of `LegalEntity`.
+"""
 type LegalEntityEdge {
   "The item at the end of the edge."
   node: LegalEntity!
@@ -39,19 +64,37 @@ type LegalEntityEdge {
   cursor: String!
 }
 
+"""
+Inputs to verify legal entity by NHS employee.
+"""
 input NhsVerifyLegalEntityInput {
+  "Legal entity database unique identifier."
   id: ID!
 }
 
+"""
+Payload that should be sent to verify legal entity. 
+In order to deactivate legal entity user must have a scope `legal_entity:nhs_verify`.
+"""
 type NhsVerifyLegalEntityPayload {
+  "Payload for legal entity."
   legalEntity: LegalEntity
 }
 
+"""
+Inputs to deactivate legal entity by NHS employee.
+"""
 input DeactivateLegalEntityInput {
+  "Legal entity database unique identifier."
   id: ID!
 }
 
+"""
+Payload that should be sent to deactivate legal entity.
+In order to deactivate legal entity user must have a scope `legal_entity:deactivate`.
+"""
 type DeactivateLegalEntityPayload {
+  "Payload for legalEntity."
   legalEntity: LegalEntity
 }
 
@@ -69,13 +112,19 @@ type LegalEntity implements Node {
   databaseId: ID!
   "full official name of legal entity also the name to show on public sources [as map, portal etc]"
   name: String!
+  "Legal entity short name."
   shortName: String
+  "Legal entity public name."
   publicName: String
+  "Legal entity type."
   type: LegalEntityType!
   "Unified Register of Businesses and Organizations"
   edrpou: String!
+  "Legal entity status, is set automatically"
   status: LegalEntityStatus!
+  "Legal entity address."
   addresses: [Address]!
+  "Legal entity phone number."
   phones: [Phone]!
   "email to contact person in charge from legal entity"
   email: String!
@@ -85,8 +134,11 @@ type LegalEntity implements Node {
   ownerPropertyType: String!
   "Dictionary LEGAL_FORM - business form [as ТОВ/ФОП/ДП/КП]"
   legalForm: String!
+  "Licenses and accreditation of legal entity."
   medicalServiceProvider: MedicalServiceProvider!
+  "In case legal entity is verified by MIS, misVerified = true"
   misVerified: LegalEntityMisVerificationStatus!
+  "In case legal entity is verified by NHS, nhsVerified = true"
   nhsVerified: Boolean
   "legal entity website"
   website: String
@@ -94,7 +146,9 @@ type LegalEntity implements Node {
   receiverFundsCode: String
   "legal owner of legal entity [нформація про власника ЗОЗ, для ФОП не заповнюється]"
   beneficiary: String
+  "Legal entity archive information, date and place"
   archives: [LegalEntityArchive]
+  "System information: date and time when legal entity was inserted to DB."
   insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
   "employee with employee_type='OWNER and isActive=true"
   owner: Employee!
@@ -106,6 +160,7 @@ type LegalEntity implements Node {
   #   first: Int
   #   last: Int
   # ): EmployeeConnection!
+  "Divisions within this legal entity."
   divisions(
     filter: DivisionFilter
     orderBy: DivisionOrderBy
@@ -114,7 +169,9 @@ type LegalEntity implements Node {
     first: Int
     last: Int
   ): DivisionConnection!
+  "Main/Active legal entity after merging legal entities."
   mergedToLegalEntity: RelatedLegalEntity
+  "Legal entities that are not active anymore and that were merged to this one."
   mergedFromLegalEntities(
     filter: RelatedLegalEntityFilter
     orderBy: RelatedLegalEntityOrderBy
@@ -125,45 +182,87 @@ type LegalEntity implements Node {
   ): RelatedLegalEntityConnection!
 }
 
+"""
+Denotes the type of legal entity.
+"""
 enum LegalEntityType {
+  "Is a medical information system."
   MIS
+  "Is a medical service provider."
   MSP
+  "Is a pharmacy."
   PHARMACY
 }
 
+"""
+List of legal entities statuses.
+"""
 enum LegalEntityStatus {
+  "Denotes that legal entity is active."
   ACTIVE
+  "Denotes that legal entity is closed. This state is irreversible."
   CLOSED
 }
 
+"""
+List of Mis Verification status.
+"""
 enum LegalEntityMisVerificationStatus {
+  "Status for not verified legal entity by MIS"
   NOT_VERIFIED
+  "Status for verified legal entity by MIS"
   VERIFIED
 }
 
+"""
+Inforamtion about licenses and accreditations of legal entity.
+"""
 type MedicalServiceProvider {
+  "legal entity medical licenses."
   licenses: [LegalEntityLicense]
+  "legal entity accreditation information."
   accreditation: LegalEntityAccreditation
 }
 
+"""
+Legal entity license to practice medicine.
+"""
 type LegalEntityLicense {
+  "License number."
   licenseNumber: String
+  "Institution name where license was obtained."
   issuedBy: String!
+  "The date when the license was obtained."
   issuedDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  "The date when the license expires."
   expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  "The date of transferring this license to archive"
   activeFromDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  "License type, what is it granted for."
   whatLicensed: String
+  "License order number"
   orderNo: String!
 }
 
+"""
+Legal entity accreditation information.
+"""
 type LegalEntityAccreditation {
+  "Accreditation category."
   category: String!
+  "The issue date of accreditation."
   issuedDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  "The expiration date of accreditation."
   expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  "Accreditation order number."
   orderNo: String!
+  "Accreditation order date."
   orderDate: Date @fake(locale: "uk", method: "date.past", args: [100])
 }
 
+"""
+Inforamtion of transferring paper documents of legal entities to archive.
+"""
 type LegalEntityArchive {
   "the date when paper documents were transferred to archive"
   date: Date @fake(locale: "uk", method: "date.past", args: [100])

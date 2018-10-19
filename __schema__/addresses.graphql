@@ -1,48 +1,91 @@
 """
-ADDRESS contain info about both type of addresses REGISTRATION and RESIDENCE
+The `Address` type represents the physical location of a building, apartment, or other structure.
 """
 type Address {
+  "Type of address."
   type: AddressType!
+  "The name of Country."
   country: String!
+  "The area name in specific country. Should be taken from the state directory."
   area: String!
+  "The region name in specific area. Should be taken from the state directory."
   region: String
+  "The settlement name. Should be taken from the state directory and should fit settlementId."
   settlement: String!
+  "The settlement type. Should fit settlementId and settlement name."
   settlementType: SettlementType!
+  "ID of specific settlement. Should fit settlement name."
   settlementId: ID!
+  "The street type."
   streetType: StreetType!
+  "The street name."
   street: String
+  "The number of a building."
   building: String!
+  "Apartment number."
   apartment: String
+  "Address's zip code."
   zip: String!
 }
 
+"""
+List of possible addresses types.
+"""
 enum AddressType {
-  RESIDENCE
+  "Person's registration address."
   REGISTRATION
+  "An actual address of living."
+  RESIDENCE
 }
 
+"""
+List of possible street types.
+"""
 enum StreetType {
-  TRACT
-  STREET
-  STATION
-  SQUARE
-  SELECTION_BASE
-  ROAD
-  RIVER_SIDE
-  PASSAGE
-  PASS
-  MILITARY_BASE
-  MICRODISTRICT
-  MAIDAN
-  LINE
-  HOUSING_AREA
-  HIGHWAY
-  FORESTRY
-  ENTRANCE
-  BOULEVARD
-  BLOCK
-  BLIND_STREET
-  AVENUE
-  ASCENT
+  "A narrow road or path between buildings."
   ALLEY
+  "A road that goes up."
+  ASCENT
+  "A wide road with trees or tall buildings on both sides."
+  AVENUE
+  "A street with a dead end."
+  BLIND_STREET
+   "A square group of buildings or houses with roads on each side."
+  BLOCK
+  "A wide road in a city, usually with trees on each side or along the centre."
+  BOULEVARD
+  "A kind of street in a city."
+  ENTRANCE
+   "A forest site as an economic unit, as well as an institution in charge of this site."
+  FORESTRY
+  "A public road or a road that joins cities or towns together."
+  HIGHWAY
+  "A group of homes and other buildings built together as a single development."
+  HOUSING_AREA
+  "A kind of street in a city."
+  LINE
+  "A square in the city."
+  MAIDAN
+  "An area of a city that has been given fixed borders for official purposes."
+  MICRODISTRICT
+  "Is a facility directly owned and operated by a military or one of its branches."
+  MILITARY_BASE
+  "A path or road between or over mountains."
+  PASS
+  "A long and narrow part of a building with rooms on one or both sides."
+  PASSAGE
+  "The street along the edges of a river."
+  RIVER_SIDE
+  "Road ( abbreviation Rd.) is often used in the names of roads."
+  ROAD
+  "The building or place surrounded it where animals or plants are kept in order to breed from them."
+  SELECTION_BASE
+  "An area of land in a city or a town, often including the buildings that surround it."
+  SQUARE
+  "A building or buildings and the surrounding area where a particular service or activity takes place."
+  STATION
+  "A road in a city or town that has buildings that are usually close together along one or both sides."
+  STREET
+  "A large area of land."
+  TRACT
 }

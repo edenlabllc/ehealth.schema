@@ -1,30 +1,57 @@
 # import Address from "addresses.graphql"
 # import Phone from "phones.graphql"
 
+"""
+Fields to filter Person in the system.
+"""
 input PersonFilter {
+  "National person identifier."
   taxId: String
+  "Unique person number in govetnmental register."
   unzr: String
+  "Patient personal phone number."
   phoneNumber: String
+  "Personal patient information."
   personal: PersonPersonalFilter
 }
 
+"""
+Personal patient information.
+"""
 input PersonPersonalFilter {
+  "Patient first name."
   firstName: String!
+  "Patients last name."
   lastName: String!
+  "Patient birth Date."
   birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
 }
 
+"""
+Methods to use when ordering `Person`.
+"""
 enum PersonOrderBy {
-  TAX_ID_ASC
-  TAX_ID_DESC
-  UNZR_ASC
-  UNZR_DESC
+  "Sort Person by birth date in ascending order."
   BIRTH_DATE_ASC
+  "Sort Person by birth date in descending order."
   BIRTH_DATE_DESC
+  "Sort Person by inserted at in ascending order."
   INSERTED_AT_ASC
+  "Sort Person by inserted at in descending order."
   INSERTED_AT_DESC
+  "Sort Person by tax id in ascending order."
+  TAX_ID_ASC
+  "Sort Person by tax id in descending order."
+  TAX_ID_DESC
+  "Sort Person by unzr in ascending order."
+  UNZR_ASC
+  "Sort Person by unzr in descending order."
+  UNZR_DESC
 }
 
+"""
+A connection to a list of `Person` values.
+"""
 type PersonConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
@@ -34,6 +61,9 @@ type PersonConnection {
   edges: [PersonEdge]
 }
 
+"""
+Reads and enables pagination through a set of `Person`.
+"""
 type PersonEdge {
   "The item at the end of the edge."
   node: Person!
@@ -41,11 +71,20 @@ type PersonEdge {
   cursor: String!
 }
 
+"""
+Inputs to reset patient authentication method. 
+In order to reset patient authentication method user must have a scope `person:reset_authentication_method`
+"""
 input ResetPersonAuthenticationMethodInput {
+  "Primary key identifier from the database"
   personId: ID!
 }
 
+"""
+Payload for reseting patient authentication method.
+"""
 type ResetPersonAuthenticationMethodPayload {
+  "person infirmation."
   person: Person!
 }
 
@@ -57,62 +96,107 @@ type Person implements Node {
   id: ID!
   "Primary key identifier from the database"
   databaseId: ID!
+  "Patient first name."
   firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
+  "Patient last name."
   lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
+  "Patient second name, is exists."
   secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
+  "Patient birth date."
   birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  "Patient gender."
   gender: PersonGender!
+  "Patient status in the system, is set automatically."
   status: PersonStatus!
+  "Patient birth country."
   birthCountry: String!
+  "Patient birth settlement."
   birthSettlement: String!
   "the unique number in Unified State Register"
   unzr: String
+  "National person identifier."
   taxId: String
     @fake(
       locale: "uk"
       method: "random.number"
       args: [{ min: 1000000000, max: 9999999999 }]
     )
+  "Preffered way to communicate with the patient."
   preferredWayCommunication: PersonPreferredWayCommunication
+  "Technical information when the patient was inserted into the DB."
   insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  "Technical information when the patient was updated in the DB."
   updatedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  "The method to verify changes of patient by patient."
   authenticationMethods: [PersonAuthenticationMethod]!
+  "Patient identification documents."
   documents: [PersonDocument]
+  "Patient addresses."
   addresses: [Address]!
-  "the way how a patient wants to be reached"
+  "The way how a patient wants to be reached."
   phones: [Phone]
+  "Person's declarations."
   declarations(
     filter: DeclarationFilter
     orderBy: DeclarationOrderBy
   ): [Declaration]
 }
 
+"""
+List of person statuses.
+"""
 enum PersonStatus {
+  "Status `ACTIVE` for a person"
   ACTIVE
+  "Status `INACTIVE` for a person"
   INACTIVE
 }
 
+"""
+List of person Gender.
+"""
 enum PersonGender {
-  MALE
+  "Gender `FEMALE` for a person."
   FEMALE
+  "Gender `MALE` for a person."
+  MALE
 }
 
+"""
+List of person preferred way communication.
+"""
 enum PersonPreferredWayCommunication {
+  "`EMAIL` as a preferred way of the communication."
   EMAIL
+   "`PHONE` as a preferred way of the communication."
   PHONE
 }
 
+"""
+The method to verify changes of patient by patient. 
+"""
 type PersonAuthenticationMethod {
+  "Type of authentication method, is taken from dictionary."
   type: PersonAuthenticationMethodType!
+  "Person's mobile phone number when the authentication method type is `OTP`."
   phoneNumber: String
 }
 
+"""
+List of authentication method type
+"""
 enum PersonAuthenticationMethodType {
-  OTP
-  OFFLINE
+  "Is set when a person does not have any authentication method or authentication method was reset by NHS."
   NA
+  "Is set when the person does not have cell phone number. In that case, the person should provide its documents."
+  OFFLINE
+  "Is set when the person has a cell phone number."
+  OTP
 }
 
+"""
+Person indentifier documents.
+"""
 type PersonDocument {
   "Dictionary DOCUMENT_TYPE"
   type: String

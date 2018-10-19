@@ -1,23 +1,47 @@
+"""
+Inputs for update dictionary.
+"""
 input UpdateDictionaryInput {
+  "Name of a dictionary."
   name: String!
+  "In case dictionary is used isActive = true."
   isActive: Boolean!
+  "Type of usage dictionary in the system"
   labels: [String]
+  "Dictionary's values."
   values: JSON
 }
 
+"""
+Payload that should be sent in order to update dictionary.
+"""
 type UpdateDictionaryPayload {
+  "Payload for dictionary."
   dictionary: Dictionary
 }
 
+""" 
+The dictionaty type represent all preregistered values in e-health.
+"""
 type Dictionary {
+  "Name of a dictionary."
   name: String
-  isActive: Boolean
+  "In case dictionary is used isActive = true."
+  isActive: Boolean!
+  "Type of usage dictionary in the system"
   labels: [String]
+  "Dictionary's values."
   values: JSON
 }
 
+"""
+Fields to filter dictionaries.
+"""
 input DictionaryFilter {
+  "Name of a dictionary."
   name: String
+  "Type of usage dictionary in the system"
   label: String
+  "In case dictionary is used isActive = true."
   isActive: Boolean = true
 }

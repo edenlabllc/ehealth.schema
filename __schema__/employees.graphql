@@ -6,48 +6,92 @@ type Employee implements Node {
   id: ID!
   "Primary key identifier from the database"
   databaseId: ID!
+  "Employee position."
   position: String!
+  "First day on the job."
   startDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  "Last day on the job"
   endDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  "Employee status, is choosen from dictionary."
   status: EmployeeStatus!
+  "Employee type, is choosen from dictionary."
   employeeType: String!
+  "Personal information of employee."
   party: Party!
+  "Proffesional information of employee."
   doctor: Doctor
+  "Division in which employee works."
   division: Division
+  "Legal entity in which employee works."
   legalEntity: LegalEntity!
 }
 
+"""
+List for employee status.
+"""
 enum EmployeeStatus {
-  NEW
+  "Status `APPROVED` for employee."
   APPROVED
+  "Status `DISMISSED` for employee."
   DISMISSED
+  "Status `NEW` for employee."
+  NEW
 }
 
+"""
+List forparty gender.
+"""
 enum Gender {
-  MALE
+  "Gender `FEMALE` for a party."
   FEMALE
+  "Gender `MALE` for a party."
+  MALE
 }
 
+"""
+Personal information of employee, ex. fisrt name, last name etc.
+"""
 type Party {
+  "Employee's first name."
   firstName: String!
+  "Employee's last name."
   lastName: String!
+  "Employee's second name, if exists."
   secondName: String
+  "employee's birth date."
   birthDate: Date!
+  "Employee's gender, is choosen from dictionary."
   gender: Gender!
+  "Personal phone numaber."
   phones: [Phone]
 }
 
+"""
+Proffesional information of employee.
+"""
 type Doctor {
+  "Doctor's speciality"
   specialities: [Speciality]
 }
 
+"""
+Information abiut doctor's speciality.
+"""
 type Speciality {
+  "Speciality title"
   speciality: String!
+  "In case this speciality is a speciality for job position, speciality Officio should be true."
   specialityOfficio: Boolean!
+  "Qualification level."
   level: String!
+  "Qualification type."
   qualificationType: String!
+  "Institution name where qualification was obtained."
   attestationName: String!
+  "The date when qualification was obtained."
   attestationDate: Date!
+  "Qualification certificate expiration date."
   validToDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  "Number of qualification certificate."
   certificateNumber: String!
 }
