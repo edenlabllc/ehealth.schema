@@ -10,6 +10,6 @@ input SignedContent {
 
 "List of signed content encoding"
 enum SignedContentEncoding {
-	"Type is encoding."
+	"Is encoded in the [Base64](https://en.wikipedia.org/wiki/Base64) encoding scheme."
   BASE64
 }
