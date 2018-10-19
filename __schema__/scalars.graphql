@@ -1,4 +1,6 @@
-"Custom primitive type `Date`."
+"""
+The `Date` scalar type represents a date. The Date appears in a JSON response as an ISO8601 formatted string.
+"""
 scalar Date
 "Custom primitive type `Time`."
 scalar Time
