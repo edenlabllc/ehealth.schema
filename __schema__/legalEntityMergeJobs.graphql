@@ -5,6 +5,8 @@ Filter for Legal entity merge job.
 input LegalEntityMergeJobFilter {
   "Legal entity merge job filters."
   status: LegalEntityMergeJobStatus
+  mergedToLegalEntity: MergeeLegalEntityMetadata
+  mergedFromLegalEntity: MergeeLegalEntityMetadata
 }
 
 """
@@ -81,8 +83,10 @@ type LegalEntityMergeJob implements Node {
 List of statuses for LegalEntityMergeJob.
 """
 enum LegalEntityMergeJobStatus {
-  "Status `ERROR` for LegalEntityMergeJob is set when job has an error and could not be finished successfully."
-  ERROR
+  "Status `FAILED` for LegalEntityMergeJob is set when job has been failed and could not be finished successfully."
+  FAILED
+  "Status `FAILED_WITH_ERROR` for LegalEntityMergeJob is set when job has an error and could not be finished successfully."
+  FAILED_WITH_ERROR
   "Status `PENDING` for LegalEntityMergeJob is set when job is in a queue."
   PENDING
   "Status `PROCESSED` for LegalEntityMergeJob is set when job is finished successfully."
