@@ -203,9 +203,9 @@ type ContractRequest implements Node {
   "Content od printout form in html format."
   printoutContent: String
   "The day when contract takes effect."
-  startDate: Date!
+  startDate: Date! @fake(locale: "uk", method: "date.past")
   "The day when contract ends."
-  endDate: Date!
+  endDate: Date! @fake(locale: "uk", method: "date.past")
   "Block of information about legal entity in the contract."
   contractorLegalEntity: LegalEntity!
   "Information about owner in legal entity that is in the contract."
