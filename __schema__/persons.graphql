@@ -166,7 +166,7 @@ enum PersonGender {
 List of person preferred way communication.
 """
 enum PersonPreferredWayCommunication {
-  "`EMAIL` as apreferred way communication"
+  "`EMAIL` as a preferred way of the communication."
   EMAIL
    "`PHONE` as apreferred way communication"
   PHONE
