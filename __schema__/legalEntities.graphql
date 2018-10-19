@@ -234,7 +234,7 @@ type LegalEntityLicense {
   issuedBy: String!
   "The date when licens was obtained."
   issuedDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
-  "The license expiration date."
+  "The date when the license expires."
   expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
   "The date of transferring this license to archive"
   activeFromDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
