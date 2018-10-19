@@ -14,7 +14,7 @@ List of phone type.
 enum PhoneType {
 	"Landline phone number."
   	LAND_LINE
-	"mobile phone number type"
+	"Mobile phone number."
 	MOBILE
   
 }
