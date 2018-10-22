@@ -4,7 +4,7 @@
 Filters for related legal entity.
 """
 input RelatedLegalEntityFilter {
-  "RelatedLegalEntity edrpou."
+  "RelatedLegalEntity active status."
   isActive: Boolean!
 }
 
