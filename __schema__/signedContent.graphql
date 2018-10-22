@@ -1,15 +1,15 @@
 """
-Payload that is signed by digital sign and is converted to base64. 
+Payload that is signed by digital sign and is converted to base64.
 """
 input SignedContent {
   "The signed payload in the [PKCS7](https://tools.ietf.org/html/rfc2315) container encoded according to the given encoding scheme."
-  signedContent: String!
+  content: String!
   "Denotes the signed content encoding scheme."
-  signedContentEncoding: SignedContentEncoding!
+  encoding: SignedContentEncoding!
 }
 
 "List of signed content encoding"
 enum SignedContentEncoding {
-	"Is encoded in the [Base64](https://en.wikipedia.org/wiki/Base64) encoding scheme."
+  "Is encoded in the [Base64](https://en.wikipedia.org/wiki/Base64) encoding scheme."
   BASE64
 }
