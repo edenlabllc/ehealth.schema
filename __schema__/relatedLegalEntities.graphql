@@ -5,17 +5,13 @@ Filters for related legal entity.
 """
 input RelatedLegalEntityFilter {
   "RelatedLegalEntity edrpou."
-  edrpou: String!
+  isActive: Boolean!
 }
 
 """
 List of filters for related legal entity.
 """
 enum RelatedLegalEntityOrderBy {
-  "Sort RelatedLegalEntity by edrpou in ascending order."
-  EDRPOU_ASC
-  "Sort RelatedLegalEntity by edrpou in descending order."
-  EDRPOU_DESC
   "Sort RelatedLegalEntity by inserted at in ascending order."
   INSERTED_AT_ASC
   "Sort RelatedLegalEntity by inserted at in descending order."
