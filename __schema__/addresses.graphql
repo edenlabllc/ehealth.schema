@@ -52,7 +52,7 @@ enum StreetType {
   BLIND_STREET
   "A square group of buildings or houses with roads on each side."
   BLOCK
-  "Is a family home."
+  "A family home."
   BOARGING_HOUSE
   "A wide road in a city, usually with trees on each side or along the centre."
   BOULEVARD
