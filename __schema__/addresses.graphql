@@ -58,7 +58,7 @@ enum StreetType {
   BOULEVARD
   "A narrow road with little vehicular traffic."
   COUNTRY_LANE
-  "Is an at-grade junction where two or more roads meet or cross."
+  "An at-grade junction where two or more roads meet or cross."
   CROSSROADS
   "A post-Soviet cities country cottage used especially in the summer."
   DACHA_COOPERATIVE
