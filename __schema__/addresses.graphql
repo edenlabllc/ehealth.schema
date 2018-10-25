@@ -96,7 +96,7 @@ enum StreetType {
   PASS
   "A long and narrow part of a building with rooms on one or both sides."
   PASSAGE
-  "Is a place on a single line railway or tramway, often located at a station, where trains or trams can pass each other."
+  "A place on a single line railway or tramway, often located at a station, where trains or trams can pass each other."
   PASSING_LOOP
   "The street along the edges of a river."
   RIVER_SIDE
