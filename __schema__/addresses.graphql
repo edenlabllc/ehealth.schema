@@ -68,7 +68,7 @@ enum StreetType {
   FORESTRY
   "A communal garden in an urban area."
   GARDEN_SQUARE
-  "Is a small group of trees."
+  "A small group of trees."
   GROVE
   "A small settlement, smaller than a village."
   HAMLET
