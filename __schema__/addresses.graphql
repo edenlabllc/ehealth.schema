@@ -66,7 +66,7 @@ enum StreetType {
   ENTRANCE
   "A forest site as an economic unit, as well as an institution in charge of this site."
   FORESTRY
-  "Is a type of communal garden in an urban area."
+  "A communal garden in an urban area."
   GARDEN_SQUARE
   "Is a small group of trees."
   GROVE
