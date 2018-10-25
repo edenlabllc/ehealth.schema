@@ -19,7 +19,7 @@ jobs:
     - stage: release
       if: branch = env(TRUNK_BRANCH) AND type = push
       script:
-        - "./ci/prepare-release.sh || travis_terminate 1"
+        - source ./ci/prepare-release.sh || travis_terminate 1
         - npm run release || travis_terminate 1
         - git push --follow-tags origin $TRAVIS_BRANCH || travis_terminate 1
         - npm run github-release || travis_terminate 1
