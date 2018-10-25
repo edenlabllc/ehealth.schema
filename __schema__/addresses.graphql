@@ -50,18 +50,36 @@ enum StreetType {
   AVENUE
   "A street with a dead end."
   BLIND_STREET
-   "A square group of buildings or houses with roads on each side."
+  "A square group of buildings or houses with roads on each side."
   BLOCK
+  "A family home."
+  BOARGING_HOUSE
   "A wide road in a city, usually with trees on each side or along the centre."
   BOULEVARD
+  "A narrow road with little vehicular traffic."
+  COUNTRY_LANE
+  "An at-grade junction where two or more roads meet or cross."
+  CROSSROADS
+  "A post-Soviet cities country cottage used especially in the summer."
+  DACHA_COOPERATIVE
   "A kind of street in a city."
   ENTRANCE
-   "A forest site as an economic unit, as well as an institution in charge of this site."
+  "A forest site as an economic unit, as well as an institution in charge of this site."
   FORESTRY
-  "A public road or a road that joins cities or towns together."
+  "A communal garden in an urban area."
+  GARDEN_SQUARE
+  "A small group of trees."
+  GROVE
+  "A small settlement, smaller than a village."
+  HAMLET
+  "A main road, especially one connecting major towns or cities."
   HIGHWAY
   "A group of homes and other buildings built together as a single development."
   HOUSING_AREA
+  "A piece of sub-continental land that is surrounded by water."
+  ISLAND
+  "A narrow road, especially in a rural area."
+  LANE
   "A kind of street in a city."
   LINE
   "A square in the city."
@@ -70,22 +88,42 @@ enum StreetType {
   MICRODISTRICT
   "Is a facility directly owned and operated by a military or one of its branches."
   MILITARY_BASE
+  "An excavation in the earth for extracting coal or other minerals."
+  MINE
+  "A large public garden or area of land used for recreation."
+  PARK
   "A path or road between or over mountains."
   PASS
   "A long and narrow part of a building with rooms on one or both sides."
   PASSAGE
+  "A place on a single line railway or tramway, often located at a station, where trains or trams can pass each other."
+  PASSING_LOOP
   "The street along the edges of a river."
   RIVER_SIDE
   "Road ( abbreviation Rd.) is often used in the names of roads."
   ROAD
+  "A public road or a road that joins cities or towns together."
+  ROADWAY
+  "An establishment for the medical treatment of people."
+  SANATORIUM
   "The building or place surrounded it where animals or plants are kept in order to breed from them."
   SELECTION_BASE
+  "A place where people establish a community."
+  SETTLEMENT
   "An area of land in a city or a town, often including the buildings that surround it."
   SQUARE
+  "A state farming enterprise."
+  STATE_FARM
   "A building or buildings and the surrounding area where a particular service or activity takes place."
   STATION
+  "A settlement near the station."
+  STATION_SETTLEMENT
   "A road in a city or town that has buildings that are usually close together along one or both sides."
   STREET
+  "A rough path or road, typically one beaten by use rather than constructed."
+  TRACK
   "A large area of land."
   TRACT
+  "A road, track, or path for travelling along."
+  WAY
 }
