@@ -76,7 +76,7 @@ enum StreetType {
   HIGHWAY
   "A group of homes and other buildings built together as a single development."
   HOUSING_AREA
-  "Is any piece of sub-continental land that is surrounded by water."
+  "A piece of sub-continental land that is surrounded by water."
   ISLAND
   "A narrow road, especially in a rural area."
   LANE
