@@ -56,7 +56,7 @@ enum StreetType {
   BOARGING_HOUSE
   "A wide road in a city, usually with trees on each side or along the centre."
   BOULEVARD
-  "Ia a narrow road with little vehicular traffic."
+  "A narrow road with little vehicular traffic."
   COUNTRY_LANE
   "Is an at-grade junction where two or more roads meet or cross."
   CROSSROADS
