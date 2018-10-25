@@ -70,7 +70,7 @@ enum StreetType {
   GARDEN_SQUARE
   "Is a small group of trees."
   GROVE
-  "Is a small settlement, smaller than a village."
+  "A small settlement, smaller than a village."
   HAMLET
   "A main road, especially one connecting major towns or cities."
   HIGHWAY
