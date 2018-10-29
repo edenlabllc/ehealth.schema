@@ -101,7 +101,7 @@ input UpdateContractRequestInput {
 }
 
 """
-The payload that should be sent to update contractRequest.
+The payload that received when update contractRequest.
 """
 type UpdateContractRequestPayload {
   "Payload for a ContractRequest."
@@ -113,7 +113,7 @@ The fields that are necessery in order to set an assignee for a contractRequest.
 """
 input AssignContractRequestInput {
   "Input for a single `contractRequestId` using its globally unique ID."
-  contractRequestId: ID!
+  id: ID!
   "Input for a single `employeeId` using its globally unique ID."
   employeeId: ID!
 }
@@ -177,7 +177,7 @@ type SignContractRequestPayload {
 """
 In order to obtain details user must have a scope `contract_request:read`.
 
-Nhs admin can assign contract request to NHS Employee having a scope: `contract_requst:update`.
+NHS admin can assign contract request to NHS Employee having a scope: `contract_requst:update`.
 NHS admin can approve Contract Request having a scope `contract_request:approve`.
 It's possible to decline Contract Request having a scope `contract_request:decline`
 NHS admin can sign contract request in status ='PENDING_NHS_SIGN'. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in signed_content property.
@@ -211,11 +211,13 @@ type ContractRequest implements Node {
   endDate: Date! @fake(locale: "uk", method: "date.past")
   "Block of information about legal entity in the contract."
   contractorLegalEntity: LegalEntity!
+  "Additional conditions to contract."
+  miscellaneous: String
   "Information about owner in legal entity that is in the contract."
   contractorOwner: Employee!
   "Proof for the employee to sign contracts."
   contractorBase: String!
-  "Information about MSP bank account to make payment"
+  "Information about MSP bank account to make payment."
   contractorPaymentDetails: ContractorPaymentDetails!
   "Information about the red lists for legal entity in contract."
   contractorRmspAmount: Int!
@@ -259,6 +261,9 @@ type ContractRequest implements Node {
   externalContractors: [ExternalContractor]
   "Employee who will sign contract on NHS side."
   nhsSigner: Employee
+  "Information about legal entity from NHS side"
+  nhsLegalEntity: LegalEntity
+  "Documents which allows to represent nhs"
   nhsSignerBase: String
   # FIXME: contact price actually does not belong to nhs
   "The price for the contract. Is filled with UAH."
@@ -266,6 +271,8 @@ type ContractRequest implements Node {
   # FIXME: payment method actually does not belong to nhs
   "Payment method for the contract."
   nhsPaymentMethod: NhsPaymentMethod
+  "Link to receive attached documents with particular types."
+  attachedDocuments: [ContractDocument]!
 }
 
 """
