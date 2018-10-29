@@ -78,6 +78,9 @@ type ContractRequestEdge {
 Inputs that should be filled for update contract request. ContractRequest is updated by NHS employee through NHS Admin portal.
 """
 input UpdateContractRequestInput {
+  "Contract Request ID"
+  id: ID!
+
   "ID of NHS employee who can sign contracts."
   nhsSignerId: ID
 
@@ -192,7 +195,7 @@ type ContractRequest implements Node {
   previousRequest: ID
   "Person who is responsible for the contract."
   assignee: Employee
-  "ID of the print form."
+  "The type of the contract."
   idForm: String!
   "Status of ContractRequest. Is set automatically."
   status: ContractRequestStatus!
@@ -212,7 +215,7 @@ type ContractRequest implements Node {
   contractorOwner: Employee!
   "Proof for the employee to sign contracts."
   contractorBase: String!
-  "Paymen details for contract."
+  "Information about MSP bank account to make payment"
   contractorPaymentDetails: ContractorPaymentDetails!
   "Information about the red lists for legal entity in contract."
   contractorRmspAmount: Int!
@@ -256,7 +259,6 @@ type ContractRequest implements Node {
   externalContractors: [ExternalContractor]
   "Employee who will sign contract on NHS side."
   nhsSigner: Employee
-  "Proof for the employee to sign contracts."
   nhsSignerBase: String
   # FIXME: contact price actually does not belong to nhs
   "The price for the contract. Is filled with UAH."
@@ -297,7 +299,26 @@ enum ContractRequestStatus {
 }
 
 """
-Payment method for Contract.
+Information about attached documents to contract.
+"""
+type ContractDocument{
+  "type of document which was uploaded"
+  type: ContractDocumentsType!
+  "url to get the document"
+  url: String!
+}
+
+"""
+Possible types of attached to contract documents
+"""
+enum ContractDocumentsType{
+  SIGNED_CONTENT
+  CONTRACT_REQUEST_STATUTE
+  CONTRACT_REQUEST_ADDITIONAL_DOCUMENT
+}
+
+"""
+Information about MPS bank account.
 """
 type ContractorPaymentDetails {
   "Bank name."
