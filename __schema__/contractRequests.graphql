@@ -308,7 +308,7 @@ enum ContractRequestStatus {
 """
 Information about attached documents to contract.
 """
-type ContractDocument{
+type ContractDocument {
   "type of document which was uploaded"
   type: ContractDocumentsType!
   "url to get the document"
@@ -318,10 +318,13 @@ type ContractDocument{
 """
 Possible types of attached to contract documents
 """
-enum ContractDocumentsType{
-  SIGNED_CONTENT
-  CONTRACT_REQUEST_STATUTE
+enum ContractDocumentsType {
+  "uploaded additional document"
   CONTRACT_REQUEST_ADDITIONAL_DOCUMENT
+  "uploaded statute document"
+  CONTRACT_REQUEST_STATUTE
+  "type of upload documents with signed content"
+  SIGNED_CONTENT
 }
 
 """

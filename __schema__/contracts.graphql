@@ -43,7 +43,7 @@ enum ContractOrderBy {
   "Sort by end date in ascending order."
   END_DATE_ASC
   "Sort by end date in descending order."
-  END_DATE_ASC
+  END_DATE_DESC
   "Sort by is suspended in ascending order."
   IS_SUSPENDED_ASC
   "Sort by is suspended in descending order."
@@ -61,7 +61,7 @@ enum ContractOrderBy {
 """
 A connection to a list of `Contracts` items.
 """
-type ContractsConnection {
+type ContractConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of nodes."
@@ -105,7 +105,7 @@ input ProlongateContractInput {
   "Input for a single `contractId` using its globally unique ID."
   id: ID!
   "Input for new value of contract's `endDate`"
-  endDate: Date! 
+  endDate: Date!
 }
 
 """
@@ -116,13 +116,11 @@ type ProlongateContractPayload {
   contract: Contract
 }
 
-
 """
 In order to obtain details user must have a scope `contract:read`.
 
 Nhs admin can terminate contract having a scope: `contract:terminate`.
 NHS admin can prolongate contract  Contract Request having a scope `contract:update`. Prolongate contract is possible in case legal entity was reorginised.
-
 """
 type Contract implements Node {
   "The ID of an object"
@@ -162,11 +160,37 @@ type Contract implements Node {
   "The amount of population which were served by this MSP"
   contractorRmspAmount: Int!
   "Divisions which were included in contract"
-  contractorDivisions(filter: DivisionFilter, orderBy: DivisionOrderBy): DivisionConnection!
+  contractorDivisions(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: DivisionFilter
+    "The method to use when ordering collection items."
+    orderBy: DivisionOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DivisionConnection!
   "Employees which were included in contract"
-  contractorEmployeeDivisions(filter: ContractorEmployeeDivisionFilter orderBy: ContractorEmployeeDivisionOrderBy): ContractorEmployeeDivisionConnection!
+  contractorEmployeeDivisions(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ContractorEmployeeDivisionFilter
+    "The method to use when ordering collection items."
+    orderBy: ContractorEmployeeDivisionOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ContractorEmployeeDivisionConnection!
   "The existence of second appendix"
-  externalСontractorFlag: Boolean!
+  externalContractorFlag: Boolean!
   "Second appendix"
   externalContractors: [ExternalContractor]
   "Representer of NHS who signed contract"
@@ -184,5 +208,3 @@ type Contract implements Node {
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
 }
-
-
