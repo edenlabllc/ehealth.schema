@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.2.1...v0.4.0) (2018-10-29)
+
+
+### Bug Fixes
+
+* add fake dates to the contractRequests ([0668de7](https://github.com/edenlabllc/ehealth.schema/commit/0668de7))
+* add missing `miscellaneous`, `nhsLegalEntity` and `attachedDocuments` fields to `ContractRequest` ([84b02ff](https://github.com/edenlabllc/ehealth.schema/commit/84b02ff))
+* add missing pagination args on `Connection` fields ([b975df2](https://github.com/edenlabllc/ehealth.schema/commit/b975df2))
+* change input in SignedContent ([#7](https://github.com/edenlabllc/ehealth.schema/issues/7)) ([3f149df](https://github.com/edenlabllc/ehealth.schema/commit/3f149df))
+* use proper node type in `RelatedLegalEntityEdge` ([e5c39b4](https://github.com/edenlabllc/ehealth.schema/commit/e5c39b4))
+
+
+### Features
+
+* add new street types ([f0aff4f](https://github.com/edenlabllc/ehealth.schema/commit/f0aff4f))
+* add the `Contract` and `ContractDocument` types ([f92512a](https://github.com/edenlabllc/ehealth.schema/commit/f92512a))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.2.1...v0.3.0) (2018-10-25)
 
