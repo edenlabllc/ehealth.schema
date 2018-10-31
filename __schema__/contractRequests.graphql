@@ -301,6 +301,8 @@ enum ContractRequestStatus {
   NHS_SIGNED
   "Status `PENDING_NHS_SIGN` for contract request."
   PENDING_NHS_SIGN
+  "Status `SIGNED` for contract request."
+  SIGNED
   "Status `TERMINATED` for contract request."
   TERMINATED
 }

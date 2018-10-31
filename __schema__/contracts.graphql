@@ -136,7 +136,7 @@ type Contract implements Node {
   "Type of contract. Dictionary"
   idForm: String!
   "Current contract's status"
-  status: ContractRequestStatus!
+  status: ContractStatus!
   "The reason of termination contract"
   statusReason: String
   "Place of contract"
@@ -207,4 +207,14 @@ type Contract implements Node {
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
+}
+
+"""
+List of contract statuses.
+"""
+enum ContractStatus {
+  "Status `TERMINATED` for contract."
+  TERMINATED
+  "Status `VERIFIED` for contract."
+  VERIFIED
 }

@@ -73,8 +73,8 @@ input NhsVerifyLegalEntityInput {
 }
 
 """
-Payload that should be sent to verify legal entity. 
-In order to deactivate legal entity user must have a scope `legal_entity:nhs_verify`.
+Payload that should be sent to verify legal entity.
+In order to verify legal entity user must have a scope `legal_entity:nhs_verify`.
 """
 type NhsVerifyLegalEntityPayload {
   "Payload for legal entity."
