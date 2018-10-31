@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.4.1...v0.5.0) (2018-10-31)
+
+
+### Features
+
+* add to `ContractRequest` and `Contract` types order by INSERTED_AT and to filters parameter by ID ([e5313a1](https://github.com/edenlabllc/ehealth.schema/commit/e5313a1))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/edenlabllc/ehealth.schema/compare/v0.4.0...v0.4.1) (2018-10-31)
 
