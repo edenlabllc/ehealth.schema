@@ -2,7 +2,7 @@
 A condition to be used against `Contract` object types. All fields are tested for equality and combined with a logical `and`.
 """
 input ContractFilter {
-  "Contract Database ID"
+  "Primary key identifier from the database."
   databaseId: ID
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
