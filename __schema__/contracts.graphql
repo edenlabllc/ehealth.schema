@@ -3,7 +3,7 @@ A condition to be used against `Contract` object types. All fields are tested fo
 """
 input ContractFilter {
   "Contract Database ID"
-  id: ID
+  databaseId: ID
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
   "Human readable number of contract request."
