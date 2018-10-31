@@ -2,6 +2,9 @@
 A condition to be used against `ContractRequest` object types. All fields are tested for equality and combined with a logical `and`.
 """
 input ContractRequestFilter {
+  "Primary key identifier from the database."
+  databaseId: ID
+
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
 
@@ -42,6 +45,10 @@ enum ContractRequestOrderBy {
   END_DATE_ASC
   "Sort by end date in descending order."
   END_DATE_DESC
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
   "Sort by start date in ascending order."
   START_DATE_ASC
   "Sort by start date in descending order."
