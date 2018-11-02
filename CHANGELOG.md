@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/edenlabllc/ehealth.schema/compare/v0.5.0...v0.5.1) (2018-11-02)
+
+
+### Bug Fixes
+
+* rename contract terminate typo ([#12](https://github.com/edenlabllc/ehealth.schema/issues/12)) ([f0cf6dc](https://github.com/edenlabllc/ehealth.schema/commit/f0cf6dc))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.4.1...v0.5.0) (2018-10-31)
 
