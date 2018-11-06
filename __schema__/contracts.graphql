@@ -10,18 +10,19 @@ input ContractFilter {
 
   "Human readable number of contract request."
   contractNumber: String
+
   "Status of contract request."
-  status: ContractRequestStatus
-  "The beginning of the interval for searching date when contract takes effect."
-  startDateFrom: Date
-  "The end of the interval for searching date when contract takes effect."
-  startDateTo: Date
-  "The beginning of the interval for searching date when contract ends."
-  endDateFrom: Date
-  "The end of the interval for searching date when contract ends."
-  endDateTo: Date
+  status: ContractStatus
+
+  "The interval for searching by date when contract takes effect."
+  startDate: DateInterval
+
+  "The interval for searching by date when contract ends."
+  endDate: DateInterval
+
   "Filter to receive Contract of reorginised legal entities"
   legalEntityRelation: LegalEntityRelation
+
   "Whether the contract is active or temporary suspended"
   isSuspended: Boolean
 }
