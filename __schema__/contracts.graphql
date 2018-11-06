@@ -42,9 +42,9 @@ Methods to use when ordering `Contracts`.
 """
 enum ContractOrderBy {
   "Sort by edrpou in ascending order."
-  EDRPOU_ASC
+  CONTRACTOR_LEGAL_ENTITY_EDRPOU_ASC
   "Sort by edrpou in descending order."
-  EDRPOU_DESC
+  CONTRACTOR_LEGAL_ENTITY_EDRPOU_DESC
   "Sort by end date in ascending order."
   END_DATE_ASC
   "Sort by end date in descending order."
