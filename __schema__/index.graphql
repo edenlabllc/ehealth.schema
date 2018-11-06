@@ -71,8 +71,23 @@ type Query {
   "Reads a single `Dictionary` using its name."
   dictionary(name: String!): Dictionary
 
-  "Reads a single `LegalEntity` using its globally unique ID."
-  legalEntity(id: ID!): LegalEntity
+  "Reads and enables pagination through a set of `Employee`."
+  employees(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: EmployeeFilter
+    "The method to use when ordering collection items."
+    orderBy: EmployeeOrderBy
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): EmployeeConnection!
+
+  "Reads a single `Employee` using its globally unique ID."
+  employee(id: ID!): Employee
 
   "Reads and enables pagination through a set of `LegalEntity`."
   legalEntities(
@@ -88,6 +103,9 @@ type Query {
     "Only read the last _n_ values of the set."
     last: Int
   ): LegalEntityConnection!
+
+  "Reads a single `LegalEntity` using its globally unique ID."
+  legalEntity(id: ID!): LegalEntity
 
   "Reads and enables pagination through a set of `LegalEntityMergeJob`."
   legalEntityMergeJobs(
@@ -105,9 +123,6 @@ type Query {
     last: Int
   ): LegalEntityMergeJobConnection!
 
-  "Reads a single `Person` using its globally unique ID."
-  person(id: ID!): Person
-
   "Reads and enables pagination through a set of `Person`."
   persons(
     "A condition to be used in determining which values should be returned by the collection."
@@ -123,6 +138,9 @@ type Query {
     "Only read the last _n_ values of the set."
     last: Int
   ): PersonConnection!
+
+  "Reads a single `Person` using its globally unique ID."
+  person(id: ID!): Person
 
   "the filter must be used to get list of settlements"
   settlements(
