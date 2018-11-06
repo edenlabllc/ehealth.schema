@@ -14,7 +14,7 @@
 The query root of e-Health GraphQL interface.
 """
 type Query {
-  "the filter must be used to get list of contracts"
+  "Reads and enables pagination through a set of `Contract`."
   contracts(
     filter: ContractFilter
     orderBy: ContractOrderBy
@@ -24,10 +24,10 @@ type Query {
     last: Int
   ): ContractConnection!
 
-  "Reads a single `contract` using its globally unique ID."
+  "Reads a single `Contract` using its globally unique ID."
   contract(id: ID!): Contract
 
-  "the filter must be used to get list of contract request"
+  "Reads and enables pagination through a set of `ContractRequest`."
   contractRequests(
     "A condition to be used in determining which values should be returned by the collection."
     filter: ContractRequestFilter
@@ -43,10 +43,10 @@ type Query {
     last: Int
   ): ContractRequestConnection!
 
-  "Reads a single `contractRequest` using its globally unique ID."
+  "Reads a single `ContractRequest` using its globally unique ID."
   contractRequest(id: ID!): ContractRequest
 
-  "the filter must be used to get list of declarations which belong to the patient knowing patient ID"
+  "Reads and enables pagination through a set of `Declaration`."
   declarations(
     "A condition to be used in determining which values should be returned by the collection."
     filter: DeclarationFilter
@@ -66,17 +66,15 @@ type Query {
   declaration(id: ID!): Declaration
 
   "Reads a set of `Dictionary`."
-  "Filter for a dictionary."
   dictionaries(filter: DictionaryFilter): [Dictionary]
 
-  "the filter must be used to get exactly one declaration knowing its' name"
+  "Reads a single `Dictionary` using its name."
   dictionary(name: String!): Dictionary
 
   "Reads a single `LegalEntity` using its globally unique ID."
   legalEntity(id: ID!): LegalEntity
 
   "Reads and enables pagination through a set of `LegalEntity`."
-  "the filter must be used to get list of legal entities"
   legalEntities(
     "A condition to be used in determining which values should be returned by the collection."
     filter: LegalEntityFilter
@@ -91,7 +89,7 @@ type Query {
     last: Int
   ): LegalEntityConnection!
 
-  "Reads and enables pagination through a set of `legalEntityMergeJobs`."
+  "Reads and enables pagination through a set of `LegalEntityMergeJob`."
   legalEntityMergeJobs(
     "A condition to be used in determining which values should be returned by the collection."
     filter: LegalEntityMergeJobFilter
