@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.5.4...v0.6.0) (2018-11-06)
+
+
+### Bug Fixes
+
+* add missing `legalEntityMergeJob` field to `Query` type ([6636c67](https://github.com/edenlabllc/ehealth.schema/commit/6636c67))
+
+
+### Features
+
+* add `EmployeeConnection`, `EmployeeFilter` and `EmployeeOrderBy` types ([c022dde](https://github.com/edenlabllc/ehealth.schema/commit/c022dde))
+* add `employees` and `employee` fields to `Query` type ([a8e43f4](https://github.com/edenlabllc/ehealth.schema/commit/a8e43f4))
+
+
+
 <a name="0.5.4"></a>
 ## [0.5.4](https://github.com/edenlabllc/ehealth.schema/compare/v0.5.3...v0.5.4) (2018-11-06)
 
