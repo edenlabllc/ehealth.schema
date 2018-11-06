@@ -150,34 +150,53 @@ type LegalEntity implements Node {
   archives: [LegalEntityArchive]
   "System information: date and time when legal entity was inserted to DB."
   insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
-  "employee with employee_type='OWNER and isActive=true"
+  "First employee with employee_type='OWNER ordered by UPDATED_AT_DESC"
   owner: Employee!
-  # employees(
-  #   filter: EmployeeFilter,
-  #   orderBy: EmployeeOrderBy,
-  #   after: String
-  #   before: String
-  #   first: Int
-  #   last: Int
-  # ): EmployeeConnection!
+  "Employees wich belong to legal entity"
+  employees(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: EmployeeFilter
+    "The method to use when ordering collection items."
+    orderBy: EmployeeOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): EmployeeConnection!
   "Divisions within this legal entity."
   divisions(
+    "A condition to be used in determining which values should be returned by the collection."
     filter: DivisionFilter
+    "The method to use when ordering collection items."
     orderBy: DivisionOrderBy
+    "Read all values in the set after (below) this cursor."
     after: String
+    "Read all values in the set before (above) this cursor."
     before: String
+    "Only read the first _n_ values of the set."
     first: Int
+    "Only read the last _n_ values of the set."
     last: Int
   ): DivisionConnection!
   "Main/Active legal entity after merging legal entities."
   mergedToLegalEntity: RelatedLegalEntity
   "Legal entities that are not active anymore and that were merged to this one."
   mergedFromLegalEntities(
+    "A condition to be used in determining which values should be returned by the collection."
     filter: RelatedLegalEntityFilter
+    "The method to use when ordering collection items."
     orderBy: RelatedLegalEntityOrderBy
+    "Read all values in the set after (below) this cursor."
     after: String
+    "Read all values in the set before (above) this cursor."
     before: String
+    "Only read the first _n_ values of the set."
     first: Int
+    "Only read the last _n_ values of the set."
     last: Int
   ): RelatedLegalEntityConnection!
 }

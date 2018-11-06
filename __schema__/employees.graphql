@@ -1,4 +1,48 @@
 """
+Fields to filter employee in the system.
+"""
+input EmployeeFilter {
+  "Type of Employee."
+  employeeType: String
+
+  "Employee status"
+  employeeStatus: EmployeeStatus
+
+  "Filters by legal entity for employees"
+  legalEntity: EmployeeLegalEntityFilter
+}
+
+"Employee Filters by legal entity"
+input EmployeeLegalEntityFilter {
+  "Identificator from database for legal entity (UUID)"
+  databaseId: ID
+  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
+  edrpou: String
+}
+
+"""
+Methods to use when ordering `Employee`.
+"""
+enum EmployeeOrderBy {
+  "Sort division by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort division by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `Employee` values.
+"""
+type EmployeeConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Division]
+  "A list of edges."
+  edges: [DivisionEdge]
+}
+
+"""
 Employee details contain information about Party (personal data) and Employee (proffesional data)
 """
 type Employee implements Node {
@@ -39,7 +83,7 @@ enum EmployeeStatus {
 }
 
 """
-List forparty gender.
+List for party gender.
 """
 enum Gender {
   "Gender `FEMALE` for a party."
