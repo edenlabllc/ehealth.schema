@@ -65,9 +65,7 @@ type Query {
   "Reads a single `Declaration` using its globally unique ID."
   declaration(id: ID!): Declaration
 
-  "the filter must be used to get exactly one declaration knowing its' number"
-  declarationByNumber(number: String!): Declaration
-
+  "Reads a set of `Dictionary`."
   "Filter for a dictionary."
   dictionaries(filter: DictionaryFilter): [Dictionary]
 
@@ -77,9 +75,7 @@ type Query {
   "Reads a single `LegalEntity` using its globally unique ID."
   legalEntity(id: ID!): LegalEntity
 
-  "the filter must be used to get exactly one legal entity knowing its' EDRPOU"
-  legalEntityByEdrpou(edrpou: String!): LegalEntity
-
+  "Reads and enables pagination through a set of `LegalEntity`."
   "the filter must be used to get list of legal entities"
   legalEntities(
     "A condition to be used in determining which values should be returned by the collection."
