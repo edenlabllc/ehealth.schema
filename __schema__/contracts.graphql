@@ -5,8 +5,8 @@ input ContractFilter {
   "Primary key identifier from the database."
   databaseId: ID
 
-  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
-  contractorLegalEntityEdrpou: String
+  "To filter by fields related to contractor Legal Entity"
+  contractorLegalEntity: LegalEntityFilter
 
   "Human readable number of contract request."
   contractNumber: String
