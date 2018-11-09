@@ -3,21 +3,13 @@ Fields to filter employee in the system.
 """
 input EmployeeFilter {
   "Type of Employee."
-  employeeType: String
-
-  "Employee status"
-  employeeStatus: EmployeeStatus
-
-  "Filters by legal entity for employees"
-  legalEntity: EmployeeLegalEntityFilter
-}
-
-"Employee Filters by legal entity"
-input EmployeeLegalEntityFilter {
-  "Identificator from database for legal entity (UUID)"
-  databaseId: ID
-  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
-  edrpou: String
+  employeeType: EmployeeType
+  "Employee status."
+  status: EmployeeStatus
+  "Whether Employee is active or not?"
+  isActive: Boolean
+  "Filter by employee's legal entity."
+  legalEntity: LegalEntityFilter
 }
 
 """
