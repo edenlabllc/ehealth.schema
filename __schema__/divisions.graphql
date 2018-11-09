@@ -13,7 +13,6 @@ input DivisionFilter {
 }
 
 """
-"
 Methods to use when ordering `Division`.
 """
 enum DivisionOrderBy {
