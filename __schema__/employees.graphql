@@ -24,10 +24,18 @@ input EmployeeLegalEntityFilter {
 Methods to use when ordering `Employee`.
 """
 enum EmployeeOrderBy {
-  "Sort division by inserted_at in ascending order."
+  "Sort by employee_type in ascending order."
+  EMPLOYEE_TYPE_ASC
+  "Sort by employee_type in descending order."
+  EMPLOYEE_TYPE_DESC
+  "Sort by inserted_at in ascending order."
   INSERTED_AT_ASC
-  "Sort division by inserted_at in descending order."
+  "Sort by inserted_at in descending order."
   INSERTED_AT_DESC
+  "Sort by status in ascending order."
+  STATUS_ASC
+  "Sort by status in descending order."
+  STATUS_DESC
 }
 
 """
