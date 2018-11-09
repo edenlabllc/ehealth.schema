@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.7.0...v0.8.0) (2018-11-09)
+
+
+### Bug Fixes
+
+* add missing `isActive` field to `Employee` ([3e3e1ec](https://github.com/edenlabllc/ehealth.schema/commit/3e3e1ec))
+* add missing values to `EmployeeOrderBy` enum ([1117abc](https://github.com/edenlabllc/ehealth.schema/commit/1117abc))
+* rename `doctor` field of the `Employee` to `additionalInfo` ([0d42e36](https://github.com/edenlabllc/ehealth.schema/commit/0d42e36))
+* use `LegalEntityFilter` to filter `Employee` by its legal entity association ([76592b5](https://github.com/edenlabllc/ehealth.schema/commit/76592b5))
+
+
+### Features
+
+* add `EmployeeType` enum ([84781db](https://github.com/edenlabllc/ehealth.schema/commit/84781db))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.6.1...v0.7.0) (2018-11-09)
 
