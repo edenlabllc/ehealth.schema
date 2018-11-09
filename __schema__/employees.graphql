@@ -56,6 +56,8 @@ type Employee implements Node {
   startDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
   "Last day on the job"
   endDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  "Whether Employee is active or not?"
+  isActive: Boolean!
   "Employee type, is choosen from dictionary."
   employeeType: EmployeeType!
   "Employee status, is choosen from dictionary."
