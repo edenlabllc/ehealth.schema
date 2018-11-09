@@ -6,11 +6,14 @@
 Fields to filter division in the system.
 """
 input DivisionFilter {
+  "Primary key identifier from the database."
+  databaseId: ID
   "Division name."
   name: String
 }
 
-""""
+"""
+"
 Methods to use when ordering `Division`.
 """
 enum DivisionOrderBy {
@@ -104,10 +107,10 @@ type DivisionWorkingHours {
   hours: [TimeRange]!
 }
 
+# TODO: this type should be moved from this file
 """
 List of week days, which are the part of WorkingHours for divisions.
 """
-# TODO: this type should be moved from this file
 enum WeekDay {
   "The day of the week before Saturday and following Thursday."
   FRIDAY
@@ -125,14 +128,13 @@ enum WeekDay {
   WEDNESDAY
 }
 
+# TODO: this type should be moved from this file
 """
 Time range of working hours for divisions.
 """
-# TODO: this type should be moved from this file
 type TimeRange {
   "Start of workingHours for divisions."
   from: Time
   "End of workingHours for divisions."
   to: Time
 }
-
