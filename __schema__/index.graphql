@@ -16,11 +16,17 @@ The query root of e-Health GraphQL interface.
 type Query {
   "Reads and enables pagination through a set of `Contract`."
   contracts(
+    "A condition to be used in determining which values should be returned by the collection."
     filter: ContractFilter
+    "The method to use when ordering collection items."
     orderBy: ContractOrderBy
+    "Read all values in the set after (below) this cursor."
     after: String
+    "Read all values in the set before (above) this cursor."
     before: String
+    "Only read the first _n_ values of the set."
     first: Int
+    "Only read the last _n_ values of the set."
     last: Int
   ): ContractConnection!
 
@@ -77,6 +83,7 @@ type Query {
     filter: EmployeeFilter
     "The method to use when ordering collection items."
     orderBy: EmployeeOrderBy
+    "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
     before: String
@@ -95,6 +102,7 @@ type Query {
     filter: LegalEntityFilter
     "The method to use when ordering collection items."
     orderBy: LegalEntityOrderBy
+    "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
     before: String
@@ -260,7 +268,7 @@ type Mutation {
 The query root of Subscription.
 """
 type Subscription {
-  "Reads and enables pagination through a set of `legalEntityMergeJobs`."
+  "Reads and enables pagination through a set of `LegalEntityMergeJob`."
   legalEntityMergeJobs(
     "A condition to be used in determining which values should be returned by the collection."
     filter: LegalEntityMergeJobFilter
