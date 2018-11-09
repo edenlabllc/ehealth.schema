@@ -352,10 +352,8 @@ type ContractorPaymentDetails {
 Filters for ContractorEmployeeDivision.
 """
 input ContractorEmployeeDivisionFilter {
-  "Name of division."
-  divisionName: String
-  "Division unique ID in DB."
-  divisionId: ID
+  "Filter by division."
+  division: DivisionFilter
 }
 
 """
