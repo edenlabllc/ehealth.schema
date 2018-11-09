@@ -56,6 +56,8 @@ type Employee implements Node {
   startDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
   "Last day on the job"
   endDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  "Employee type, is choosen from dictionary."
+  employeeType: EmployeeType!
   "Employee status, is choosen from dictionary."
   status: EmployeeStatus!
   "Professional information of employee."
@@ -69,7 +71,27 @@ type Employee implements Node {
 }
 
 """
-List for employee status.
+List of employee types.
+"""
+enum EmployeeType {
+  "Is a admin."
+  ADMIN
+  "Is a doctor."
+  DOCTOR
+  "Is a HR."
+  HR
+  "Is a NHS employee."
+  NHS
+  "Is a MSP owner."
+  OWNER
+  "Is a pharmacist."
+  PHARMACIST
+  "Is a pharmacy owner."
+  PHARMACY_OWNER
+}
+
+"""
+List of employee statuses.
 """
 enum EmployeeStatus {
   "Status `APPROVED` for employee."
