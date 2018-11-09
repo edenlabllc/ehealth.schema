@@ -138,10 +138,10 @@ type Contract implements Node {
   databaseId: ID!
   "Human redable contract number"
   contractNumber: String
-  "ID of main contract"
-  parentContractId: ID
-  "ID of contract request"
-  contractRequestId: ID!
+  "Contract that is prolongated."
+  parentContract: Contract
+  "ContractRequest that was 2 way signed in order to receive a contract"
+  contractRequest: ContractRequest!
   "Type of contract. Dictionary"
   idForm: String!
   "Current contract's status"
