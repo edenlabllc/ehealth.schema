@@ -216,6 +216,10 @@ type Contract implements Node {
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
+  "Date and time when record was inserted"
+  insertedAt: String!
+  "Date and time when record was updated"
+  updatedAt: String!
 }
 
 """
