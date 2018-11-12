@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.9.0...v0.10.0) (2018-11-12)
+
+
+### Bug Fixes
+
+* add `id` and change required fields in `UpdateDictionaryInput` ([7e58732](https://github.com/edenlabllc/ehealth.schema/commit/7e58732))
+
+
+### Features
+
+* add `DictionaryConnection` type ([7c076f7](https://github.com/edenlabllc/ehealth.schema/commit/7c076f7))
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.8.0...v0.9.0) (2018-11-09)
 
