@@ -23,7 +23,9 @@ type UpdateDictionaryPayload {
 """
 The dictionaty type represent all preregistered values in e-health.
 """
-type Dictionary {
+type Dictionary implements Node {
+  "The ID of an object."
+  id: ID!
   "Primary key identifier from the database."
   databaseId: ID!
   "Name of a dictionary."
