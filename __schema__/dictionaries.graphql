@@ -20,7 +20,7 @@ type UpdateDictionaryPayload {
   dictionary: Dictionary
 }
 
-""" 
+"""
 The dictionaty type represent all preregistered values in e-health.
 """
 type Dictionary {
@@ -48,6 +48,9 @@ input DictionaryFilter {
   isActive: Boolean = true
 }
 
+"""
+A connection to a list of `Dictionary` values.
+"""
 type DictionaryConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
