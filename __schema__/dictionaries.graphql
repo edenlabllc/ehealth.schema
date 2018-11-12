@@ -24,8 +24,10 @@ type UpdateDictionaryPayload {
 The dictionaty type represent all preregistered values in e-health.
 """
 type Dictionary {
+  "Primary key identifier from the database."
+  databaseId: ID!
   "Name of a dictionary."
-  name: String
+  name: String!
   "In case dictionary is used isActive = true."
   isActive: Boolean!
   "Type of usage dictionary in the system"
@@ -44,4 +46,23 @@ input DictionaryFilter {
   label: String
   "In case dictionary is used isActive = true."
   isActive: Boolean = true
+}
+
+type DictionaryConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Dictionary]
+  "A list of edges."
+  edges: [DictionaryEdge]
+}
+
+"""
+An edge in a connection of `Dictionary`.
+"""
+type DictionaryEdge {
+  "The item at the end of the edge."
+  node: Dictionary!
+  "A cursor for use in pagination."
+  cursor: String!
 }

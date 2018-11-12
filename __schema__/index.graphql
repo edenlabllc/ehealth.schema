@@ -72,7 +72,18 @@ type Query {
   declaration(id: ID!): Declaration
 
   "Reads a set of `Dictionary`."
-  dictionaries(filter: DictionaryFilter): [Dictionary]
+  dictionaries(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: DictionaryFilter
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DictionaryConnection!
 
   "Reads a single `Dictionary` using its name."
   dictionary(name: String!): Dictionary
