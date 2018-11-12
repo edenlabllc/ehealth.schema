@@ -2,10 +2,12 @@
 Inputs for update dictionary.
 """
 input UpdateDictionaryInput {
+  "The ID of an object."
+  id: ID!
   "Name of a dictionary."
-  name: String!
+  name: String
   "In case dictionary is used isActive = true."
-  isActive: Boolean!
+  isActive: Boolean
   "Type of usage dictionary in the system"
   labels: [String]
   "Dictionary's values."
