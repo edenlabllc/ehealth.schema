@@ -4,6 +4,7 @@
 
 # import * from "contracts.graphql"
 # import * from "capitationContractRequests.graphql"
+# import * from "reimbursementContractRequests.graphql"
 # import * from "declarations.graphql"
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
@@ -51,6 +52,25 @@ type Query {
 
   "Reads a single `CapitationContractRequest` using its globally unique ID."
   capitationContractRequest(id: ID!): CapitationContractRequest
+
+  "Reads and enables pagination through a set of `ReimbursementContract`."
+  reimbursementContractRequests(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ReimbursementContractRequestFilter
+    "The method to use when ordering collection items."
+    orderBy: ReimbursementContractRequestOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ReimbursementContractRequestConnection!
+
+  "Reads a single `ReimbursementContractRequest` using its globally unique ID."
+  reimbursementContractRequest(id: ID!): ReimbursementContractRequest
 
   "Reads and enables pagination through a set of `Declaration`."
   declarations(
