@@ -1,0 +1,65 @@
+"""
+Fields to filter reimbursement medical programs in the system.
+"""
+input MedicalProgramFilter {
+  "Primary key identifier from the database."
+  databaseId: ID
+  "medical program name."
+  name: String
+  "is_active status."
+  isActive: Boolean
+  "Date and time when record was inserted"
+  insertedAt: String!
+}
+
+"""
+Methods to use when ordering `MedicalProgram`.
+"""
+enum MedicalProgramOrderBy {
+  "Sort MedicalProgram by name in ascending order."
+  NAME_ASC
+  "Sort MedicalProgram by name in descending order."
+  NAME_DESC
+}
+
+"""
+A connection to a list of `MedicalProgram` items.
+"""
+type MedicalProgramConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [MedicalProgram]
+  "A list of edges."
+  edges: [MedicalProgramEdge]
+}
+
+"""
+An edge in a connection of `MedicalProgram`.
+"""
+type MedicalProgramEdge {
+  "The item at the end of the edge."
+  node: MedicalProgram!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+MedicalProgram contains details about medical program for reimbursement.
+
+In order to obtain details user must have a scope **medical_program:read**
+"""
+type MedicalProgram implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
+  "MedicalProgram name."
+  name: String!
+  "is_active status"
+  isActive: Boolean!
+  "Date and time when record was inserted"
+  insertedAt: String!
+  "Date and time when record was updated"
+  updatedAt: String!
+}
