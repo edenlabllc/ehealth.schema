@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.10.0...v1.0.0) (2018-11-14)
+
+
+### Code Refactoring
+
+* rename `ContractRequest` to `CapitationContractRequest` ([82dcd62](https://github.com/edenlabllc/ehealth.schema/commit/82dcd62))
+
+
+### Features
+
+* add `ContractRequest` interface ([8731985](https://github.com/edenlabllc/ehealth.schema/commit/8731985))
+* add `MedicalProgram` type ([ec6d778](https://github.com/edenlabllc/ehealth.schema/commit/ec6d778))
+* add `ReimbursementContractRequest` type ([b886379](https://github.com/edenlabllc/ehealth.schema/commit/b886379))
+
+
+### BREAKING CHANGES
+
+* `ContractRequest` type renamed to `CapitationContractRequest`
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.9.0...v0.10.0) (2018-11-12)
 
