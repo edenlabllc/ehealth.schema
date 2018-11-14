@@ -1,0 +1,181 @@
+# import ConractRequest from "contractRequests.graphql"
+# import MedicalProgram from "medicalPrograms.graphql"
+
+"""
+A condition to be used against `ReimbursementContractRequest` object types. All fields are tested for equality and combined with a logical `and`.
+"""
+input ReimbursementContractRequestFilter {
+  "Primary key identifier from the database."
+  databaseId: ID
+
+  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
+  contractorLegalEntityEdrpou: String
+
+  "Human readable number of contract request."
+  contractNumber: String
+
+  "Status of contract request."
+  status: ContractRequestStatus
+
+  "The interval for searching by date when contract takes effect."
+  startDate: DateInterval
+
+  "The interval for searching by date when contract ends."
+  endDate: DateInterval
+
+  "ID of a person who is responsible for the contract."
+  assigneeId: ID
+
+  "Name of a person who is responsible for the contract."
+  assigneeName: String
+
+  "ID of a medical program that is a subject of reimbursement contract"
+  medicalProgramId: ID
+
+  "Name of a medical program that is a subject of reimbursement contract"
+  medicalProgramName: String
+
+  "Status of a medical program that is a subject of reimbursement contract"
+  medicalProgramStatus: Boolean
+}
+
+"""
+Methods to use when ordering `ReimbursementContractRequest`.
+"""
+enum ReimbursementContractRequestOrderBy {
+  "Sort by end date in ascending order."
+  END_DATE_ASC
+  "Sort by end date in descending order."
+  END_DATE_DESC
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
+  "Sort by medical_program_name in ascending order."
+  MEDICAL_PROGRAM_NAME_ASC
+  "Sort by medical_program_name in descending order."
+  MEDICAL_PROGRAM_NAME_DESC
+  "Sort by start date in ascending order."
+  START_DATE_ASC
+  "Sort by start date in descending order."
+  START_DATE_DESC
+  "Sort by status in ascending order."
+  STATUS_ASC
+  "Sort by status in descending order."
+  STATUS_DESC
+}
+
+"""
+A connection to a list of `ReimbursementContractRequest` items.
+"""
+type ReimbursementContractRequestConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ReimbursementContractRequest]
+  "A list of edges."
+  edges: [ReimbursementContractRequestEdge]
+}
+
+"""
+An edge in a connection of `ContractRequest`.
+"""
+type ReimbursementContractRequestEdge {
+  "The item at the end of the edge."
+  node: ContractRequest!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+In order to obtain details user must have a scope `contract_request:read`.
+
+NHS admin can assign contract request to NHS Employee having a scope: `contract_requst:update`.
+NHS admin can approve Contract Request having a scope `contract_request:approve`.
+It's possible to decline Contract Request having a scope `contract_request:decline`
+NHS admin can sign contract request in status ='PENDING_NHS_SIGN'. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in signed_content property.
+"""
+type ReimbursementContractRequest implements Node & ContractRequest {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: ID!
+  "Human readable number of contract request."
+  contractNumber: String
+  "Contract that is prolongated."
+  parentContract: Contract
+  "ContractRequest that is changed."
+  previousRequest: ContractRequest
+  "Person who is responsible for the contract."
+  assignee: Employee
+  "The type of the contract."
+  idForm: String!
+  "Status of ContractRequest. Is set automatically."
+  status: ContractRequestStatus!
+  "Text, that is added in case Contract request was declined by NHS employee."
+  statusReason: String
+  "The city where contract is signed."
+  issueCity: String
+  "Content od printout form in html format."
+  printoutContent: String
+  "The day when contract takes effect."
+  startDate: Date! @fake(locale: "uk", method: "date.past")
+  "The day when contract ends."
+  endDate: Date! @fake(locale: "uk", method: "date.past")
+  "Block of information about legal entity in the contract."
+  contractorLegalEntity: LegalEntity!
+  "Additional conditions to contract."
+  miscellaneous: String
+  "Information about owner in legal entity that is in the contract."
+  contractorOwner: Employee!
+  "Proof for the employee to sign contracts."
+  contractorBase: String!
+  "Information about MSP bank account to make payment."
+  contractorPaymentDetails: ContractorPaymentDetails!
+
+  "Divisions from legal entity that are in the contract."
+  contractorDivisions(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: DivisionFilter
+    "The method to use when ordering collection items."
+    orderBy: DivisionOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DivisionConnection!
+  "Employee who will sign contract on NHS side."
+  nhsSigner: Employee
+  "Information about legal entity from NHS side"
+  nhsLegalEntity: LegalEntity
+  "Documents which allows to represent nhs"
+  nhsSignerBase: String
+  # FIXME: payment method actually does not belong to nhs
+  "Payment method for the contract."
+  nhsPaymentMethod: NhsPaymentMethod
+  "Link to receive attached documents with particular types."
+  attachedDocuments: [ContractDocument]!
+  "Date and time when record was inserted"
+  insertedAt: String!
+  "Date and time when record was updated"
+  updatedAt: String!
+  "Medical program that is a subject of a reimbursement contract."
+  medicalProgram(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: MedicalProgramFilter
+    "The method to use when ordering collection items."
+    orderBy: MedicalProgramOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): MedicalProgramConnection!
+}
