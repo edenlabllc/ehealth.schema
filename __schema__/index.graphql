@@ -3,7 +3,7 @@
 # import * from "relay.graphql"
 
 # import * from "contracts.graphql"
-# import * from "contractRequests.graphql"
+# import * from "capitationContractRequests.graphql"
 # import * from "declarations.graphql"
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
@@ -33,12 +33,12 @@ type Query {
   "Reads a single `Contract` using its globally unique ID."
   contract(id: ID!): Contract
 
-  "Reads and enables pagination through a set of `ContractRequest`."
-  contractRequests(
+  "Reads and enables pagination through a set of `CapitationContractRequest`."
+  capitationContractRequests(
     "A condition to be used in determining which values should be returned by the collection."
-    filter: ContractRequestFilter
+    filter: CapitationContractRequestFilter
     "The method to use when ordering collection items."
-    orderBy: ContractRequestOrderBy
+    orderBy: CapitationContractRequestOrderBy
     "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
@@ -47,10 +47,10 @@ type Query {
     first: Int
     "Only read the last _n_ values of the set."
     last: Int
-  ): ContractRequestConnection!
+  ): CapitationContractRequestConnection!
 
-  "Reads a single `ContractRequest` using its globally unique ID."
-  contractRequest(id: ID!): ContractRequest
+  "Reads a single `CapitationContractRequest` using its globally unique ID."
+  capitationContractRequest(id: ID!): CapitationContractRequest
 
   "Reads and enables pagination through a set of `Declaration`."
   declarations(
