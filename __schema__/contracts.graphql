@@ -166,8 +166,6 @@ type Contract implements Node {
   contractorBase: String!
   "Information about MSP bank account to make payment"
   contractorPaymentDetails: ContractorPaymentDetails!
-  "The amount of population which were served by this MSP"
-  contractorRmspAmount: Int!
   "Divisions which were included in contract"
   contractorDivisions(
     "A condition to be used in determining which values should be returned by the collection."
@@ -183,6 +181,22 @@ type Contract implements Node {
     "Only read the last _n_ values of the set."
     last: Int
   ): DivisionConnection!
+  "Representer of NHS who signed contract"
+  nhsSigner: Employee
+  "Information about legal entity from NHS side"
+  nhsLegalEntity: LegalEntity
+  "Documents which allows to represent nhs"
+  nhsSignerBase: String
+  # FIXME: payment method actually does not belong to nhs
+  "Possible ways to pay MSP. Dictionary"
+  nhsPaymentMethod: NhsPaymentMethod
+  "Link to receive attached documents with particular types"
+  attachedDocuments: [ContractDocument]!
+  "Date and time when record was inserted"
+  insertedAt: String!
+  "Date and time when record was updated"
+  updatedAt: String!
+
   "Employees which were included in contract"
   contractorEmployeeDivisions(
     "A condition to be used in determining which values should be returned by the collection."
@@ -202,24 +216,11 @@ type Contract implements Node {
   externalContractorFlag: Boolean!
   "Second appendix"
   externalContractors: [ExternalContractor]
-  "Representer of NHS who signed contract"
-  nhsSigner: Employee
-  "Information about legal entity from NHS side"
-  nhsLegalEntity: LegalEntity
-  "Documents which allows to represent nhs"
-  nhsSignerBase: String
   # FIXME: contact price actually does not belong to nhs
   "Contract price, UAH"
   nhsContractPrice: Float
-  # FIXME: payment method actually does not belong to nhs
-  "Possible ways to pay MSP. Dictionary"
-  nhsPaymentMethod: NhsPaymentMethod
-  "Link to receive attached documents with particular types"
-  attachedDocuments: [ContractDocument]!
-  "Date and time when record was inserted"
-  insertedAt: String!
-  "Date and time when record was updated"
-  updatedAt: String!
+  "The amount of population which were served by this MSP"
+  contractorRmspAmount: Int!
 }
 
 """
