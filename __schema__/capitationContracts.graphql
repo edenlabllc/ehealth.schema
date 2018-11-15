@@ -1,4 +1,4 @@
-# import ConractRequest from "contracts.graphql"
+# import Conract from "contracts.graphql"
 
 """
 A condition to be used against `CapitationContract` object types. All fields are tested for equality and combined with a logical `and`.
