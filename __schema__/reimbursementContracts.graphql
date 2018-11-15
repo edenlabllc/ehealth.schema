@@ -1,9 +1,9 @@
 # import ConractRequest from "contracts.graphql"
-
+# import MedicalProgram from "medicalPrograms.graphql"
 """
-A condition to be used against `CapitationContract` object types. All fields are tested for equality and combined with a logical `and`.
+A condition to be used against `ReimbursementContract` object types. All fields are tested for equality and combined with a logical `and`.
 """
-input CapitationContractFilter {
+input ReimbursementContractFilter {
   "Primary key identifier from the database."
   databaseId: ID
 
@@ -12,6 +12,15 @@ input CapitationContractFilter {
 
   "Human readable number of contract request."
   contractNumber: String
+
+  "ID of a medical program that is a subject of reimbursement contract"
+  medicalProgramId: ID
+
+  "Name of a medical program that is a subject of reimbursement contract"
+  medicalProgramName: String
+
+  "Status of a medical program that is a subject of reimbursement contract"
+  medicalProgramStatus: Boolean
 
   "Status of contract request."
   status: ContractStatus
@@ -30,9 +39,9 @@ input CapitationContractFilter {
 }
 
 """
-Methods to use when ordering `CapitaionContracts`.
+Methods to use when ordering `ReimbursementContracts`.
 """
-enum CapitationContractOrderBy {
+enum ReimbursementContractOrderBy {
   "Sort by edrpou in ascending order."
   CONTRACTOR_LEGAL_ENTITY_EDRPOU_ASC
   "Sort by edrpou in descending order."
@@ -49,6 +58,10 @@ enum CapitationContractOrderBy {
   IS_SUSPENDED_ASC
   "Sort by is suspended in descending order."
   IS_SUSPENDED_DESC
+  "Sort by medical_program_name in ascending order."
+  MEDICAL_PROGRAM_NAME_ASC
+  "Sort by medical_program_name in descending order."
+  MEDICAL_PROGRAM_NAME_DESC
   "Sort by start date in ascending order."
   START_DATE_ASC
   "Sort by start date in descending order."
@@ -60,34 +73,31 @@ enum CapitationContractOrderBy {
 }
 
 """
-A connection to a list of `CapitationContracts` items.
+A connection to a list of `ReimbursementContracts` items.
 """
-type CapitationContractConnection {
+type ReimbursementContractConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of nodes."
-  nodes: [CapitationContract]
+  nodes: [ReimbursementContract]
   "A list of edges."
-  edges: [CapitationContractEdge]
+  edges: [ReimbursementContractEdge]
 }
 
 """
 An edge in a connection of `CapitationContract`.
 """
-type CapitationContractEdge {
+type ReimbursementContractEdge {
   "The item at the end of the edge."
-  node: CapitationContract!
+  node: ReimbursementContract!
   "A cursor for use in pagination."
   cursor: String!
 }
 
 """
 In order to obtain details user must have a scope `contract:read`.
-
-Nhs admin can terminate contract having a scope: `contract:terminate`.
-NHS admin can prolongate contract  Contract Request having a scope `contract:update`. Prolongate contract is possible in case legal entity was reorginised.
 """
-type CapitationContract implements Node & Contract {
+type ReimbursementContract implements Node & Contract {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
@@ -152,13 +162,12 @@ type CapitationContract implements Node & Contract {
   insertedAt: String!
   "Date and time when record was updated"
   updatedAt: String!
-
-  "Employees which were included in contract"
-  contractorEmployeeDivisions(
+  "Medical program that is a subject of a reimbursement contract."
+  medicalProgram(
     "A condition to be used in determining which values should be returned by the collection."
-    filter: ContractorEmployeeDivisionFilter
+    filter: MedicalProgramFilter
     "The method to use when ordering collection items."
-    orderBy: ContractorEmployeeDivisionOrderBy
+    orderBy: MedicalProgramOrderBy
     "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
@@ -167,14 +176,5 @@ type CapitationContract implements Node & Contract {
     first: Int
     "Only read the last _n_ values of the set."
     last: Int
-  ): ContractorEmployeeDivisionConnection!
-  "The existence of second appendix"
-  externalContractorFlag: Boolean!
-  "Second appendix"
-  externalContractors: [ExternalContractor]
-  # FIXME: contact price actually does not belong to nhs
-  "Contract price, UAH"
-  nhsContractPrice: Float
-  "The amount of population which were served by this MSP"
-  contractorRmspAmount: Int!
+  ): MedicalProgramConnection!
 }

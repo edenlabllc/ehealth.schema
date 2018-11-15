@@ -80,6 +80,8 @@ enum LegalEntityRelation {
 
 """
 Input fields to `TerminateContract`
+Nhs admin can terminate contract having a scope: `contract:terminate`.
+NHS admin can prolongate contract  Contract Request having a scope `contract:update`. Prolongate contract is possible in case legal entity was reorginised.
 """
 input TerminateContractInput {
   "Input for a single `contractId` using its globally unique ID."
