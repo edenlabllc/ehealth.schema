@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/edenlabllc/ehealth.schema/compare/v1.0.0...v1.1.0) (2018-11-19)
+
+
+### Features
+
+* add `Contract` interface ([5698bcc](https://github.com/edenlabllc/ehealth.schema/commit/5698bcc))
+* add `ReimbursementContract` type ([b8aa3a0](https://github.com/edenlabllc/ehealth.schema/commit/b8aa3a0))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/edenlabllc/ehealth.schema/compare/v0.10.0...v1.0.0) (2018-11-14)
 
