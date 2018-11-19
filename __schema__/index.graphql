@@ -5,6 +5,7 @@
 # import * from "contracts.graphql"
 # import * from "capitationContractRequests.graphql"
 # import * from "reimbursementContractRequests.graphql"
+# import * from "reimbursementContracts.graphql"
 # import * from "declarations.graphql"
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
