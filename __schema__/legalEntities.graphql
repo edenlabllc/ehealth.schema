@@ -34,6 +34,10 @@ enum LegalEntityOrderBy {
   INSERTED_AT_ASC
   "Sort legal entity by inserted at in descending order."
   INSERTED_AT_DESC
+  "Sort legal entity by nhs review at in ascending order."
+  NHS_REVIEWED_ASC
+  "Sort legal entity by nhs review at in descending order."
+  NHS_REVIEWED_DESC
   "Sort legal entity by nhs verified at in ascending order."
   NHS_VERIFIED_ASC
   "Sort legal entity by nhs verified at in descending order."
