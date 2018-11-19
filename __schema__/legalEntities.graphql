@@ -182,6 +182,10 @@ type LegalEntity implements Node {
   medicalServiceProvider: MedicalServiceProvider!
   "In case legal entity is verified by MIS, misVerified = true"
   misVerified: LegalEntityMisVerificationStatus!
+  "Change requests for this `LegalEntity` in order to verify it."
+  nhsComment: String
+  "Whether this `LegalEntity` was reviewed or not?"
+  nhsReviewed: Boolean
   "In case legal entity is verified by NHS, nhsVerified = true"
   nhsVerified: Boolean
   "legal entity website"
