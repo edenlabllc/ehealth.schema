@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/edenlabllc/ehealth.schema/compare/v1.1.2...v1.2.0) (2018-11-19)
+
+
+### Features
+
+* add `NHS_REVIEWED_ASC` and `NHS_REVIEWED_DESC` values to `LegalEntityOrderBy` enum ([640dc79](https://github.com/edenlabllc/ehealth.schema/commit/640dc79))
+* add `nhsComment` and `nhsReviewed` fields to `LegalEntity` type ([44fb4ee](https://github.com/edenlabllc/ehealth.schema/commit/44fb4ee))
+* add `nhsReviewed` field to `LegalEntityFilter` ([9206dc8](https://github.com/edenlabllc/ehealth.schema/commit/9206dc8))
+* add `nhsReviewLegalEntity` and `nhsCommentLegalEntity` mutations ([1585d07](https://github.com/edenlabllc/ehealth.schema/commit/1585d07))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/edenlabllc/ehealth.schema/compare/v1.1.1...v1.1.2) (2018-11-19)
 
