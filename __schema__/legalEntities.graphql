@@ -10,6 +10,8 @@ Fields to filter LegalEntity in the system.
 input LegalEntityFilter {
   "In case legal entity was verified by NHS employee, nhsVerified should be true."
   nhsVerified: Boolean
+  "In case legal entity was reviewed by NHS employee, nhsReview should be true."
+  nhsReviewed: Boolean
   "Area from legal entity address."
   area: String
   "settlement from legal entity address."
