@@ -10,6 +10,8 @@ Fields to filter LegalEntity in the system.
 input LegalEntityFilter {
   "In case legal entity was verified by NHS employee, nhsVerified should be true."
   nhsVerified: Boolean
+  "In case legal entity was reviewed by NHS employee, nhsReview should be true."
+  nhsReview: Boolean
   "Area from legal entity address."
   area: String
   "settlement from legal entity address."
@@ -32,6 +34,10 @@ enum LegalEntityOrderBy {
   INSERTED_AT_ASC
   "Sort legal entity by inserted at in descending order."
   INSERTED_AT_DESC
+  "Sort legal entity by nhs review at in ascending order."
+  NHS_REVIEW_ASC
+  "Sort legal entity by nhs review at in descending order."
+  NHS_REVIEW_DESC
   "Sort legal entity by nhs verified at in ascending order."
   NHS_VERIFIED_ASC
   "Sort legal entity by nhs verified at in descending order."
@@ -99,6 +105,42 @@ type DeactivateLegalEntityPayload {
 }
 
 """
+Inputs to review legal entity by NHS employee.
+"""
+input NhsReviewLegalEntityInput {
+  "Legal entity database unique identifier."
+  id: ID!
+}
+
+"""
+Payload that should be sent to review legal entity.
+In order to review legal entity user must have a scope `legal_entity:nhs_verify`.
+"""
+type NhsReviewLegalEntityPayload {
+  "Payload for legal entity."
+  legalEntity: LegalEntity
+}
+
+"""
+Inputs to comment for legal entity by NHS employee.
+"""
+input NhsCommentLegalEntityInput {
+  "Legal entity database unique identifier."
+  id: ID!
+  "Comment for MSP to change legal entity"
+  comment: String
+}
+
+"""
+Payload that should be sent to comment legal entity.
+In order to comment for legal entity user must have a scope `legal_entity:nhs_verify`.
+"""
+type NhsCommentLegalEntityPayload {
+  "Payload for legal entity."
+  legalEntity: LegalEntity
+}
+
+"""
 Legal Entity contains data about medical service providers, pharamcies and MISes.
 In order to obtain details user must have a scope `legal_entity:read`.
 
@@ -130,10 +172,12 @@ type LegalEntity implements Node {
   email: String!
   "Ukrainian Industry Classification System, there is a check that at least one of next kveds is input: 86.10, 86.21, 47.73."
   kveds: [String]!
+  "Business form."
+  legalForm: String
+  "Treasury registration code."
+  receiverFundsCode: String
   "Dictionary OWNER_PROPERTY_TYPE State or private type of legal entity"
   ownerPropertyType: String!
-  "Dictionary LEGAL_FORM - business form [as ТОВ/ФОП/ДП/КП]"
-  legalForm: String!
   "Licenses and accreditation of legal entity."
   medicalServiceProvider: MedicalServiceProvider!
   "In case legal entity is verified by MIS, misVerified = true"
@@ -142,8 +186,6 @@ type LegalEntity implements Node {
   nhsVerified: Boolean
   "legal entity website"
   website: String
-  "treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]"
-  receiverFundsCode: String
   "legal owner of legal entity [нформація про власника ЗОЗ, для ФОП не заповнюється]"
   beneficiary: String
   "Legal entity archive information, date and place"
@@ -152,6 +194,7 @@ type LegalEntity implements Node {
   insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
   "First employee with employee_type='OWNER ordered by UPDATED_AT_DESC"
   owner: Employee!
+
   "Employees wich belong to legal entity"
   employees(
     "A condition to be used in determining which values should be returned by the collection."
