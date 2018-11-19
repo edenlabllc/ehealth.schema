@@ -1,10 +1,11 @@
 # import * from "scalars.graphql"
 # import * from "directives.graphql"
 # import * from "relay.graphql"
-
+# import * from "capitationContracts.graphql"
 # import * from "contracts.graphql"
 # import * from "capitationContractRequests.graphql"
 # import * from "reimbursementContractRequests.graphql"
+# import * from "reimbursementContracts.graphql"
 # import * from "declarations.graphql"
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
@@ -15,12 +16,12 @@
 The query root of e-Health GraphQL interface.
 """
 type Query {
-  "Reads and enables pagination through a set of `Contract`."
-  contracts(
+  "Reads and enables pagination through a set of `CapitationContract`."
+  capitationContracts(
     "A condition to be used in determining which values should be returned by the collection."
-    filter: ContractFilter
+    filter: CapitationContractFilter
     "The method to use when ordering collection items."
-    orderBy: ContractOrderBy
+    orderBy: CapitationContractOrderBy
     "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
@@ -29,10 +30,29 @@ type Query {
     first: Int
     "Only read the last _n_ values of the set."
     last: Int
-  ): ContractConnection!
+  ): CapitationContractConnection!
 
-  "Reads a single `Contract` using its globally unique ID."
-  contract(id: ID!): Contract
+  "Reads a single `CapitationContract` using its globally unique ID."
+  capitationContract(id: ID!): CapitationContract
+
+  "Reads and enables pagination through a set of `ReimbursementContract`."
+  reimbursementContracts(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ReimbursementContractFilter
+    "The method to use when ordering collection items."
+    orderBy: ReimbursementContractOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ReimbursementContractConnection!
+
+  "Reads a single `ReimbursementContract` using its globally unique ID."
+  reimbursementContract(id: ID!): ReimbursementContract
 
   "Reads and enables pagination through a set of `CapitationContractRequest`."
   capitationContractRequests(

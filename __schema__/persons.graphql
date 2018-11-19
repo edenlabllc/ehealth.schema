@@ -24,7 +24,7 @@ input PersonPersonalFilter {
   "Patients last name."
   lastName: String!
   "Patient birth Date."
-  birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  birthDate: Date!
 }
 
 """

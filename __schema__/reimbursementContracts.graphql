@@ -1,0 +1,180 @@
+# import ConractRequest from "contracts.graphql"
+# import MedicalProgram from "medicalPrograms.graphql"
+"""
+A condition to be used against `ReimbursementContract` object types. All fields are tested for equality and combined with a logical `and`.
+"""
+input ReimbursementContractFilter {
+  "Primary key identifier from the database."
+  databaseId: ID
+
+  "To filter by fields related to contractor Legal Entity"
+  contractorLegalEntity: LegalEntityFilter
+
+  "Human readable number of contract request."
+  contractNumber: String
+
+  "ID of a medical program that is a subject of reimbursement contract"
+  medicalProgramId: ID
+
+  "Name of a medical program that is a subject of reimbursement contract"
+  medicalProgramName: String
+
+  "Status of a medical program that is a subject of reimbursement contract"
+  medicalProgramStatus: Boolean
+
+  "Status of contract request."
+  status: ContractStatus
+
+  "The interval for searching by date when contract takes effect."
+  startDate: DateInterval
+
+  "The interval for searching by date when contract ends."
+  endDate: DateInterval
+
+  "Filter to receive Contract of reorginised legal entities"
+  legalEntityRelation: LegalEntityRelation
+
+  "Whether the contract is active or temporary suspended"
+  isSuspended: Boolean
+}
+
+"""
+Methods to use when ordering `ReimbursementContracts`.
+"""
+enum ReimbursementContractOrderBy {
+  "Sort by edrpou in ascending order."
+  CONTRACTOR_LEGAL_ENTITY_EDRPOU_ASC
+  "Sort by edrpou in descending order."
+  CONTRACTOR_LEGAL_ENTITY_EDRPOU_DESC
+  "Sort by end date in ascending order."
+  END_DATE_ASC
+  "Sort by end date in descending order."
+  END_DATE_DESC
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
+  "Sort by is suspended in ascending order."
+  IS_SUSPENDED_ASC
+  "Sort by is suspended in descending order."
+  IS_SUSPENDED_DESC
+  "Sort by medical_program_name in ascending order."
+  MEDICAL_PROGRAM_NAME_ASC
+  "Sort by medical_program_name in descending order."
+  MEDICAL_PROGRAM_NAME_DESC
+  "Sort by start date in ascending order."
+  START_DATE_ASC
+  "Sort by start date in descending order."
+  START_DATE_DESC
+  "Sort by status in ascending order."
+  STATUS_ASC
+  "Sort by status in descending order."
+  STATUS_DESC
+}
+
+"""
+A connection to a list of `ReimbursementContracts` items.
+"""
+type ReimbursementContractConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ReimbursementContract]
+  "A list of edges."
+  edges: [ReimbursementContractEdge]
+}
+
+"""
+An edge in a connection of `CapitationContract`.
+"""
+type ReimbursementContractEdge {
+  "The item at the end of the edge."
+  node: ReimbursementContract!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+In order to obtain details user must have a scope `contract:read`.
+"""
+type ReimbursementContract implements Node & Contract {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: ID!
+  "Human redable contract number"
+  contractNumber: String
+  "Contract that is prolongated."
+  parentContract: Contract
+  "ContractRequest that was 2 way signed in order to receive a contract"
+  contractRequest: ContractRequest!
+  "Type of contract. Dictionary"
+  idForm: String!
+  "Current contract's status"
+  status: ContractStatus!
+  "The reason of termination contract"
+  statusReason: String
+  "Place of contract"
+  issueCity: String
+  "Html to make a prinout form"
+  printoutContent: String
+  "Contract start date"
+  startDate: Date!
+  "Contract end date"
+  endDate: Date!
+  "Whether the contract is active or temporary suspended"
+  isSuspended: Boolean!
+  "Legal entity which made contract"
+  contractorLegalEntity: LegalEntity!
+  "Representer of legal entity who signed contract"
+  contractorOwner: Employee!
+  "Documents which allows to represent clinic"
+  contractorBase: String!
+  "Information about MSP bank account to make payment"
+  contractorPaymentDetails: ContractorPaymentDetails!
+  "Divisions which were included in contract"
+  contractorDivisions(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: DivisionFilter
+    "The method to use when ordering collection items."
+    orderBy: DivisionOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DivisionConnection!
+  "Representer of NHS who signed contract"
+  nhsSigner: Employee
+  "Information about legal entity from NHS side"
+  nhsLegalEntity: LegalEntity
+  "Documents which allows to represent nhs"
+  nhsSignerBase: String
+  # FIXME: payment method actually does not belong to nhs
+  "Possible ways to pay MSP. Dictionary"
+  nhsPaymentMethod: NhsPaymentMethod
+  "Link to receive attached documents with particular types"
+  attachedDocuments: [ContractDocument]!
+  "Date and time when record was inserted"
+  insertedAt: String!
+  "Date and time when record was updated"
+  updatedAt: String!
+  "Medical program that is a subject of a reimbursement contract."
+  medicalProgram(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: MedicalProgramFilter
+    "The method to use when ordering collection items."
+    orderBy: MedicalProgramOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): MedicalProgramConnection!
+}
