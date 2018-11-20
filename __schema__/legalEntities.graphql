@@ -299,17 +299,17 @@ type LegalEntityLicense {
   "License number."
   licenseNumber: String
   "Institution name where license was obtained."
-  issuedBy: String!
+  issuedBy: String
   "The date when the license was obtained."
-  issuedDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  issuedDate: Date @fake(locale: "uk", method: "date.past", args: [100])
   "The date when the license expires."
   expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
   "The date of transferring this license to archive"
-  activeFromDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  activeFromDate: Date @fake(locale: "uk", method: "date.past", args: [100])
   "License type, what is it granted for."
   whatLicensed: String
   "License order number"
-  orderNo: String!
+  orderNo: String
 }
 
 """
@@ -317,13 +317,13 @@ Legal entity accreditation information.
 """
 type LegalEntityAccreditation {
   "Accreditation category."
-  category: String!
+  category: String
   "The issue date of accreditation."
   issuedDate: Date @fake(locale: "uk", method: "date.past", args: [100])
   "The expiration date of accreditation."
   expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
   "Accreditation order number."
-  orderNo: String!
+  orderNo: String
   "Accreditation order date."
   orderDate: Date @fake(locale: "uk", method: "date.past", args: [100])
 }
