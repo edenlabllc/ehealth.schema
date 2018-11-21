@@ -111,7 +111,7 @@ input NhsReviewLegalEntityInput {
   "Legal entity database unique identifier."
   id: ID!
   "Whether `LegalEntity` was reviewed or not?"
-  nhsReviewed: Boolean
+  nhsReviewed: Boolean!
 }
 
 """
@@ -130,7 +130,7 @@ input NhsCommentLegalEntityInput {
   "Legal entity database unique identifier."
   id: ID!
   "Comment for MSP to change legal entity"
-  comment: String
+  comment: String!
 }
 
 """
