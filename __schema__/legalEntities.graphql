@@ -181,7 +181,7 @@ type LegalEntity implements Node {
   "Dictionary OWNER_PROPERTY_TYPE State or private type of legal entity"
   ownerPropertyType: String!
   "Licenses and accreditation of legal entity."
-  medicalServiceProvider: MedicalServiceProvider!
+  medicalServiceProvider: MedicalServiceProvider
   "In case legal entity is verified by MIS, misVerified = true"
   misVerified: LegalEntityMisVerificationStatus!
   "Change requests for this `LegalEntity` in order to verify it."
