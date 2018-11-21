@@ -130,7 +130,7 @@ input NhsCommentLegalEntityInput {
   "Legal entity database unique identifier."
   id: ID!
   "Comment for MSP to change legal entity"
-  comment: String!
+  nhsComment: String!
 }
 
 """
