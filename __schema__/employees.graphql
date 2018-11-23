@@ -3,7 +3,7 @@ Fields to filter employee in the system.
 """
 input EmployeeFilter {
   "Type of Employee."
-  employeeType: EmployeeType
+  employeeType: [EmployeeType]
   "Employee status."
   status: EmployeeStatus
   "Whether Employee is active or not?"
@@ -84,6 +84,8 @@ enum EmployeeType {
   HR
   "Is a NHS employee."
   NHS
+  "Is a NHS_SIGNER employee."
+  NHS_SIGNER
   "Is a MSP owner."
   OWNER
   "Is a pharmacist."
