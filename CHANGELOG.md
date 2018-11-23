@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/edenlabllc/ehealth.schema/compare/v1.3.4...v1.4.0) (2018-11-23)
+
+
+### Features
+
+* add type of employee to `enum EmployeeType`, allow to filter by array `employeeType: [EmployeeType]` ([#34](https://github.com/edenlabllc/ehealth.schema/issues/34)) ([71a1276](https://github.com/edenlabllc/ehealth.schema/commit/71a1276))
+
+
+
 <a name="1.3.4"></a>
 ## [1.3.4](https://github.com/edenlabllc/ehealth.schema/compare/v1.3.3...v1.3.4) (2018-11-21)
 
