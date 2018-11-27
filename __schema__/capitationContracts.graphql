@@ -1,5 +1,3 @@
-# import Conract from "contracts.graphql"
-
 """
 A condition to be used against `CapitationContract` object types. All fields are tested for equality and combined with a logical `and`.
 """
@@ -95,9 +93,9 @@ type CapitationContract implements Node & Contract {
   "Human redable contract number"
   contractNumber: String
   "Contract that is prolongated."
-  parentContract: Contract
+  parentContract: CapitationContract
   "ContractRequest that was 2 way signed in order to receive a contract"
-  contractRequest: ContractRequest!
+  contractRequest: CapitationContractRequest!
   "Type of contract. Dictionary"
   idForm: String!
   "Current contract's status"
