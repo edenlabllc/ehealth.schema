@@ -1,5 +1,3 @@
-# import ConractRequest from "contracts.graphql"
-# import MedicalProgram from "medicalPrograms.graphql"
 """
 A condition to be used against `ReimbursementContract` object types. All fields are tested for equality and combined with a logical `and`.
 """
@@ -105,9 +103,9 @@ type ReimbursementContract implements Node & Contract {
   "Human redable contract number"
   contractNumber: String
   "Contract that is prolongated."
-  parentContract: Contract
+  parentContract: ReimbursementContract
   "ContractRequest that was 2 way signed in order to receive a contract"
-  contractRequest: ContractRequest!
+  contractRequest: ReimbursementContractRequest!
   "Type of contract. Dictionary"
   idForm: String!
   "Current contract's status"
