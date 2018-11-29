@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/edenlabllc/ehealth.schema/compare/v1.4.0...v1.4.1) (2018-11-29)
+
+
+### Bug Fixes
+
+* capitation and reimbursement contract and ContractRequest ([dc384e0](https://github.com/edenlabllc/ehealth.schema/commit/dc384e0))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/edenlabllc/ehealth.schema/compare/v1.3.4...v1.4.0) (2018-11-23)
 
