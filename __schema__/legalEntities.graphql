@@ -76,6 +76,8 @@ Inputs to verify legal entity by NHS employee.
 input NhsVerifyLegalEntityInput {
   "Legal entity database unique identifier."
   id: ID!
+  "Whether `LegalEntity` was verified or not?"
+  nhsVerified: Boolean!
 }
 
 """
