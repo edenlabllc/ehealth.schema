@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/edenlabllc/ehealth.schema/compare/v1.4.1...v1.5.0) (2018-11-30)
+
+
+### Features
+
+* add `nhsVerified` parameter to `NhsVerifyLegalEntityInput` ([#36](https://github.com/edenlabllc/ehealth.schema/issues/36)) ([fdeeb9f](https://github.com/edenlabllc/ehealth.schema/commit/fdeeb9f))
+
+
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/edenlabllc/ehealth.schema/compare/v1.4.0...v1.4.1) (2018-11-29)
 
