@@ -3,7 +3,7 @@ A condition to be used against `CapitationContractRequest` object types. All fie
 """
 input CapitationContractRequestFilter {
   "Primary key identifier from the database."
-  databaseId: ID
+  databaseId: UUID
 
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   contractorLegalEntityEdrpou: String
@@ -21,7 +21,7 @@ input CapitationContractRequestFilter {
   endDate: DateInterval
 
   "ID of a person who is responsible for the contract."
-  assigneeId: ID
+  assigneeId: UUID
 
   "Name of a person who is responsible for the contract."
   assigneeName: String
@@ -82,9 +82,10 @@ type CapitationContractRequest implements Node & ContractRequest {
   "The ID of an object."
   id: ID!
   "Primary key identifier from the database."
-  databaseId: ID!
+  databaseId: UUID!
   "Human readable number of contract request."
   contractNumber: String
+    @fake(randexp: "\\d{4}-[\\dAEHKMPTX]{4}-[\\dAEHKMPTX]{4}$")
   "Contract that is prolongated."
   parentContract: CapitationContract
   "ContractRequest that is changed."
@@ -96,23 +97,23 @@ type CapitationContractRequest implements Node & ContractRequest {
   "Status of ContractRequest. Is set automatically."
   status: ContractRequestStatus!
   "Text, that is added in case Contract request was declined by NHS employee."
-  statusReason: String
+  statusReason: String @fake(locale: "uk", method: "lorem.sentence")
   "The city where contract is signed."
-  issueCity: String
+  issueCity: String @fake(locale: "uk", method: "address.city")
   "Content od printout form in html format."
-  printoutContent: String
+  printoutContent: String @fake(locale: "uk", method: "lorem.sentences")
   "The day when contract takes effect."
-  startDate: Date! @fake(locale: "uk", method: "date.past")
+  startDate: Date!
   "The day when contract ends."
-  endDate: Date! @fake(locale: "uk", method: "date.past")
+  endDate: Date! @fake(locale: "uk", method: "date.future", args: [10])
   "Block of information about legal entity in the contract."
   contractorLegalEntity: LegalEntity!
   "Additional conditions to contract."
-  miscellaneous: String
+  miscellaneous: String @fake(locale: "uk", method: "lorem.sentences")
   "Information about owner in legal entity that is in the contract."
   contractorOwner: Employee!
   "Proof for the employee to sign contracts."
-  contractorBase: String!
+  contractorBase: String! @fake(locale: "uk", method: "lorem.sentence")
   "Information about MSP bank account to make payment."
   contractorPaymentDetails: ContractorPaymentDetails!
 
@@ -136,16 +137,16 @@ type CapitationContractRequest implements Node & ContractRequest {
   "Information about legal entity from NHS side"
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
-  nhsSignerBase: String
+  nhsSignerBase: String @fake(locale: "uk", method: "lorem.sentence")
   # FIXME: payment method actually does not belong to nhs
   "Payment method for the contract."
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types."
   attachedDocuments: [ContractDocument]!
   "Date and time when record was inserted"
-  insertedAt: String!
+  insertedAt: DateTime!
   "Date and time when record was updated"
-  updatedAt: String!
+  updatedAt: DateTime!
 
   "Information about the red lists for legal entity in contract."
   contractorRmspAmount: Int!
@@ -172,7 +173,7 @@ type CapitationContractRequest implements Node & ContractRequest {
   externalContractors: [ExternalContractor]
   # FIXME: contact price actually does not belong to nhs
   "The price for the contract. Is filled with UAH."
-  nhsContractPrice: Float
+  nhsContractPrice: Float @fake(locale: "uk", method: "finance.amount")
 }
 
 """
@@ -214,7 +215,7 @@ type ContractDocument {
   "type of document which was uploaded"
   type: ContractDocumentsType!
   "url to get the document"
-  url: String!
+  url: String! @fake(method: "image.image")
 }
 
 """
@@ -234,11 +235,11 @@ Information about MPS bank account.
 """
 type ContractorPaymentDetails {
   "Bank name."
-  bankName: String!
+  bankName: String! @fake(locale: "uk", method: "company.companyName")
   "The bank codes used to route money transfers between banks."
-  mfo: String!
+  mfo: String! @fake(randexp: "^[0-9]{6}$")
   "Bank account number."
-  payerAccount: String!
+  payerAccount: String! @fake(randexp: "^[0-9]{16}$")
 }
 
 """
@@ -289,7 +290,7 @@ type ContractorEmployeeDivisionEdge {
 Connection of employees and vivision of legal entity in contract.
 """
 type ContractorEmployeeDivision {
-  "Employee in lagal entity."
+  "Employee in legal entity."
   employee: Employee!
   "Official or work unit provided by the legal entity."
   staffUnits: Float!
@@ -318,9 +319,9 @@ type ExternalContractorContract {
   "Number of a contract."
   number: String!
   "The date when contract with other legal entity takes effect."
-  issuedAt: String!
+  issuedAt: Date!
   "The date when contract with other legal entity ends."
-  expiresAt: String!
+  expiresAt: Date!
 }
 
 """

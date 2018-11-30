@@ -5,7 +5,7 @@ interface Contract {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "Human redable contract number"
   contractNumber: String
   "Contract that is prolongated."
@@ -63,9 +63,9 @@ interface Contract {
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
   "Date and time when record was inserted"
-  insertedAt: String!
+  insertedAt: DateTime!
   "Date and time when record was updated"
-  updatedAt: String!
+  updatedAt: DateTime!
 }
 
 """

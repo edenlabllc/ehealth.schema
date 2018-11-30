@@ -5,27 +5,30 @@ type Address {
   "Type of address."
   type: AddressType!
   "The name of Country."
-  country: String!
+  country: String! @fake(locale: "uk", format: "Україна")
   "The area name in specific country. Should be taken from the state directory."
-  area: String!
+  area: String! @fake(locale: "uk", method: "address.state")
   "The region name in specific area. Should be taken from the state directory."
-  region: String
+  region: String @fake(locale: "uk", method: "address.cityPrefix")
   "The settlement name. Should be taken from the state directory and should fit settlementId."
-  settlement: String!
+  settlement: String! @fake(locale: "uk", method: "address.city")
   "The settlement type. Should fit settlementId and settlement name."
   settlementType: SettlementType!
   "ID of specific settlement. Should fit settlement name."
-  settlementId: ID!
+  settlementId: UUID!
   "The street type."
   streetType: StreetType!
   "The street name."
-  street: String
+  street: String @fake(locale: "uk", method: "address.streetName")
   "The number of a building."
   building: String!
+    @fake(
+      randexp: "^[1-9]((?![ЫЪЭЁыъэё])()([А-ЯҐЇІЄа-яґїіє \\/\\'\\-0-9])){0,20}$"
+    )
   "Apartment number."
-  apartment: String
+  apartment: String @fake(locale: "uk", method: "random.number", args: [1000])
   "Address's zip code."
-  zip: String!
+  zip: String! @fake(locale: "uk", method: "address.zipCode")
 }
 
 """

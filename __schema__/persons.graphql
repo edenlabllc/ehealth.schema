@@ -72,12 +72,12 @@ type PersonEdge {
 }
 
 """
-Inputs to reset patient authentication method. 
+Inputs to reset patient authentication method.
 In order to reset patient authentication method user must have a scope `person:reset_authentication_method`
 """
 input ResetPersonAuthenticationMethodInput {
   "Primary key identifier from the database"
-  personId: ID!
+  personId: UUID!
 }
 
 """
@@ -95,7 +95,7 @@ type Person implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "Patient first name."
   firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
   "Patient last name."
@@ -109,11 +109,11 @@ type Person implements Node {
   "Patient status in the system, is set automatically."
   status: PersonStatus!
   "Patient birth country."
-  birthCountry: String!
+  birthCountry: String! @fake(locale: "uk", format: "Україна")
   "Patient birth settlement."
-  birthSettlement: String!
+  birthSettlement: String! @fake(locale: "uk", method: "address.city")
   "the unique number in Unified State Register"
-  unzr: String
+  unzr: String @fake(randexp: "^[0-9]{8}-[0-9]{5}$")
   "National person identifier."
   taxId: String
     @fake(
@@ -124,9 +124,9 @@ type Person implements Node {
   "Preffered way to communicate with the patient."
   preferredWayCommunication: PersonPreferredWayCommunication
   "Technical information when the patient was inserted into the DB."
-  insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  insertedAt: DateTime!
   "Technical information when the patient was updated in the DB."
-  updatedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  updatedAt: DateTime!
   "The method to verify changes of patient by patient."
   authenticationMethods: [PersonAuthenticationMethod]!
   "Patient identification documents."
@@ -168,12 +168,12 @@ List of person preferred way communication.
 enum PersonPreferredWayCommunication {
   "`EMAIL` as a preferred way of the communication."
   EMAIL
-   "`PHONE` as a preferred way of the communication."
+  "`PHONE` as a preferred way of the communication."
   PHONE
 }
 
 """
-The method to verify changes of patient by patient. 
+The method to verify changes of patient by patient.
 """
 type PersonAuthenticationMethod {
   "Type of authentication method, is taken from dictionary."
@@ -205,5 +205,5 @@ type PersonDocument {
   "authority which issued the document"
   issuedBy: String @fake(locale: "uk", method: "company.companyName")
   "the date when document was issued"
-  issuedAt: Date @fake(locale: "uk", method: "date.past")
+  issuedAt: Date
 }

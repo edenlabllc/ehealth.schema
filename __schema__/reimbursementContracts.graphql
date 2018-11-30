@@ -3,7 +3,7 @@ A condition to be used against `ReimbursementContract` object types. All fields 
 """
 input ReimbursementContractFilter {
   "Primary key identifier from the database."
-  databaseId: ID
+  databaseId: UUID
 
   "To filter by fields related to contractor Legal Entity"
   contractorLegalEntity: LegalEntityFilter
@@ -12,7 +12,7 @@ input ReimbursementContractFilter {
   contractNumber: String
 
   "ID of a medical program that is a subject of reimbursement contract"
-  medicalProgramId: ID
+  medicalProgramId: UUID
 
   "Name of a medical program that is a subject of reimbursement contract"
   medicalProgramName: String
@@ -99,9 +99,10 @@ type ReimbursementContract implements Node & Contract {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "Human redable contract number"
   contractNumber: String
+    @fake(randexp: "\\d{4}-[\\dAEHKMPTX]{4}-[\\dAEHKMPTX]{4}$")
   "Contract that is prolongated."
   parentContract: ReimbursementContract
   "ContractRequest that was 2 way signed in order to receive a contract"
@@ -111,15 +112,15 @@ type ReimbursementContract implements Node & Contract {
   "Current contract's status"
   status: ContractStatus!
   "The reason of termination contract"
-  statusReason: String
+  statusReason: String @fake(locale: "uk", method: "lorem.sentence")
   "Place of contract"
-  issueCity: String
+  issueCity: String @fake(locale: "uk", method: "address.city")
   "Html to make a prinout form"
-  printoutContent: String
+  printoutContent: String @fake(locale: "uk", method: "lorem.sentences")
   "Contract start date"
   startDate: Date!
   "Contract end date"
-  endDate: Date!
+  endDate: Date! @fake(locale: "uk", method: "date.future", args: [10])
   "Whether the contract is active or temporary suspended"
   isSuspended: Boolean!
   "Legal entity which made contract"
@@ -127,7 +128,7 @@ type ReimbursementContract implements Node & Contract {
   "Representer of legal entity who signed contract"
   contractorOwner: Employee!
   "Documents which allows to represent clinic"
-  contractorBase: String!
+  contractorBase: String! @fake(locale: "uk", method: "lorem.sentence")
   "Information about MSP bank account to make payment"
   contractorPaymentDetails: ContractorPaymentDetails!
   "Divisions which were included in contract"
@@ -150,16 +151,16 @@ type ReimbursementContract implements Node & Contract {
   "Information about legal entity from NHS side"
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
-  nhsSignerBase: String
+  nhsSignerBase: String @fake(locale: "uk", method: "lorem.sentence")
   # FIXME: payment method actually does not belong to nhs
   "Possible ways to pay MSP. Dictionary"
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
   "Date and time when record was inserted"
-  insertedAt: String!
+  insertedAt: DateTime!
   "Date and time when record was updated"
-  updatedAt: String!
+  updatedAt: DateTime!
   "Medical program that is a subject of a reimbursement contract."
   medicalProgram(
     "A condition to be used in determining which values should be returned by the collection."

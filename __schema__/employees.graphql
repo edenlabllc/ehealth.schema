@@ -37,9 +37,19 @@ type EmployeeConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of nodes."
-  nodes: [Division]
+  nodes: [Employee]
   "A list of edges."
-  edges: [DivisionEdge]
+  edges: [EmployeeEdge]
+}
+
+"""
+An edge in a connection of `Employee`.
+"""
+type EmployeeEdge {
+  "The item at the end of the edge."
+  node: Employee!
+  "A cursor for use in pagination."
+  cursor: String!
 }
 
 """
@@ -49,13 +59,13 @@ type Employee implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "Employee position."
-  position: String!
+  position: String! @fake(locale: "uk", method: "name.title")
   "First day on the job."
-  startDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  startDate: Date!
   "Last day on the job"
-  endDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  endDate: Date
   "Whether Employee is active or not?"
   isActive: Boolean!
   "Employee type, is choosen from dictionary."
@@ -121,13 +131,13 @@ Personal information of employee, ex. fisrt name, last name etc.
 """
 type Party {
   "Employee's first name."
-  firstName: String!
+  firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
   "Employee's last name."
-  lastName: String!
+  lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
   "Employee's second name, if exists."
-  secondName: String
+  secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
   "employee's birth date."
-  birthDate: Date!
+  birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
   "Employee's gender, is choosen from dictionary."
   gender: Gender!
   "Personal phone number."
@@ -147,7 +157,7 @@ Information about doctor's speciality.
 """
 type Speciality {
   "Speciality title"
-  speciality: String!
+  speciality: String! @fake(locale: "uk", method: "name.jobTitle")
   "In case this speciality is a speciality for job position, speciality Officio should be true."
   specialityOfficio: Boolean!
   "Qualification level."
@@ -159,7 +169,7 @@ type Speciality {
   "The date when qualification was obtained."
   attestationDate: Date!
   "Qualification certificate expiration date."
-  validToDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  validToDate: Date
   "Number of qualification certificate."
-  certificateNumber: String!
+  certificateNumber: String! @fake(randexp: "^[0-9]{10}$")
 }

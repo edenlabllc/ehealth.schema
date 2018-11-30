@@ -3,7 +3,7 @@ Filters for `Declaration`
 """
 input DeclarationFilter {
   "Declaration database identifier."
-  declarationId: ID
+  declarationId: UUID
   "DEclaration human readable unique number."
   declarationNumber: String
   "DEclaration status"
@@ -57,7 +57,7 @@ input TerminateDeclarationInput {
 }
 
 """
-The payload that should be sent in order to terminate declaration. 
+The payload that should be sent in order to terminate declaration.
 """
 type TerminateDeclarationPayload {
   "Payload for `declaration`."
@@ -105,21 +105,21 @@ type Declaration implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "unique human redable number of declaration"
   declarationNumber: String!
   "The date when declaration takes effect"
-  startDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  startDate: Date!
   "The date wher declaration ends."
-  endDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  endDate: Date!
   "The date when declaration is signed by doctor."
-  signedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  signedAt: DateTime!
   "Status ah yhe declaration, is set automatically."
   status: DeclarationStatus!
   "type of declaration, as for now it's only one type =`family_doctor`"
   scope: String!
   "ID od declaration request in DB."
-  declarationRequestId: ID!
+  declarationRequestId: UUID!
   "The reason of declining the declaration, is set automatically on declining declaration."
   reason: String
   "Free text for declining declaration, is filled by the person who declined declaration."
@@ -142,9 +142,9 @@ enum DeclarationStatus {
   ACTIVE
   "Status `PENDING_VERIFICATION` for declaration."
   PENDING_VERIFICATION
-   "Status `REJECTED` for declaration."
+  "Status `REJECTED` for declaration."
   REJECTED
-   "Status `TERMINATED` for declaration."
+  "Status `TERMINATED` for declaration."
   TERMINATED
 }
 

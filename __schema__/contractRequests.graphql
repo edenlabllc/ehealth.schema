@@ -5,7 +5,7 @@ interface ContractRequest {
   "The ID of an object."
   id: ID!
   "Primary key identifier from the database."
-  databaseId: ID!
+  databaseId: UUID!
   "Human readable number of contract request."
   contractNumber: String
   "Contract that is prolongated."
@@ -25,9 +25,9 @@ interface ContractRequest {
   "Content od printout form in html format."
   printoutContent: String
   "The day when contract takes effect."
-  startDate: Date! @fake(locale: "uk", method: "date.past")
+  startDate: Date!
   "The day when contract ends."
-  endDate: Date! @fake(locale: "uk", method: "date.past")
+  endDate: Date!
   "Block of information about legal entity in the contract."
   contractorLegalEntity: LegalEntity!
   "Additional conditions to contract."
@@ -67,9 +67,9 @@ interface ContractRequest {
   "Link to receive attached documents with particular types."
   attachedDocuments: [ContractDocument]!
   "Date and time when record was inserted"
-  insertedAt: String!
+  insertedAt: DateTime!
   "Date and time when record was updated"
-  updatedAt: String!
+  updatedAt: DateTime!
 }
 
 """
@@ -80,7 +80,7 @@ input UpdateContractRequestInput {
   id: ID!
 
   "ID of NHS employee who can sign contracts."
-  nhsSignerId: ID
+  nhsSignerId: UUID
 
   "Proof for the employee to sign contracts."
   nhsSignerBase: String
@@ -113,7 +113,7 @@ input AssignContractRequestInput {
   "Input for a single `contractRequestId` using its globally unique ID."
   id: ID!
   "Input for a single `employeeId` using its globally unique ID."
-  employeeId: ID!
+  employeeId: UUID!
 }
 
 """

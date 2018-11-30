@@ -27,7 +27,7 @@ type Dictionary implements Node {
   "The ID of an object."
   id: ID!
   "Primary key identifier from the database."
-  databaseId: ID!
+  databaseId: UUID!
   "Name of a dictionary."
   name: String!
   "In case dictionary is used isActive = true."

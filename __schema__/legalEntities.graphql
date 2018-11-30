@@ -75,7 +75,7 @@ Inputs to verify legal entity by NHS employee.
 """
 input NhsVerifyLegalEntityInput {
   "Legal entity database unique identifier."
-  id: ID!
+  id: UUID!
   "Whether `LegalEntity` was verified or not?"
   nhsVerified: Boolean!
 }
@@ -94,7 +94,7 @@ Inputs to deactivate legal entity by NHS employee.
 """
 input DeactivateLegalEntityInput {
   "Legal entity database unique identifier."
-  id: ID!
+  id: UUID!
 }
 
 """
@@ -111,7 +111,7 @@ Inputs to review legal entity by NHS employee.
 """
 input NhsReviewLegalEntityInput {
   "Legal entity database unique identifier."
-  id: ID!
+  id: UUID!
   "Whether `LegalEntity` was reviewed or not?"
   nhsReviewed: Boolean!
 }
@@ -130,7 +130,7 @@ Inputs to comment for legal entity by NHS employee.
 """
 input NhsCommentLegalEntityInput {
   "Legal entity database unique identifier."
-  id: ID!
+  id: UUID!
   "Comment for MSP to change legal entity"
   nhsComment: String!
 }
@@ -155,17 +155,18 @@ type LegalEntity implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "full official name of legal entity also the name to show on public sources [as map, portal etc]"
-  name: String!
+  name: String! @fake(locale: "uk", method: "company.companyName")
   "Legal entity short name."
   shortName: String
+    @fake(locale: "uk", method: "company.companyName", args: [0])
   "Legal entity public name."
-  publicName: String
+  publicName: String @fake(locale: "uk", method: "company.companyName")
   "Legal entity type."
   type: LegalEntityType!
   "Unified Register of Businesses and Organizations"
-  edrpou: String!
+  edrpou: String! @fake(randexp: "^[0-9]{8,10}$")
   "Legal entity status, is set automatically"
   status: LegalEntityStatus!
   "Legal entity address."
@@ -173,13 +174,13 @@ type LegalEntity implements Node {
   "Legal entity phone number."
   phones: [Phone]!
   "email to contact person in charge from legal entity"
-  email: String!
+  email: String! @fake(locale: "uk", method: "internet.email")
   "Ukrainian Industry Classification System, there is a check that at least one of next kveds is input: 86.10, 86.21, 47.73."
   kveds: [String]!
   "Business form."
-  legalForm: String
+  legalForm: String @fake(locale: "uk", method: "company.companySuffix")
   "Treasury registration code."
-  receiverFundsCode: String
+  receiverFundsCode: String @fake(randexp: "^[0-9]{14}$")
   "Dictionary OWNER_PROPERTY_TYPE State or private type of legal entity"
   ownerPropertyType: String!
   "Licenses and accreditation of legal entity."
@@ -187,19 +188,20 @@ type LegalEntity implements Node {
   "In case legal entity is verified by MIS, misVerified = true"
   misVerified: LegalEntityMisVerificationStatus!
   "Change requests for this `LegalEntity` in order to verify it."
-  nhsComment: String
+  nhsComment: String @fake(locale: "uk", method: "lorem.sentenses")
   "Whether this `LegalEntity` was reviewed or not?"
   nhsReviewed: Boolean
   "In case legal entity is verified by NHS, nhsVerified = true"
   nhsVerified: Boolean
   "legal entity website"
-  website: String
+  website: String @fake(locale: "uk", method: "internet.url")
   "legal owner of legal entity [нформація про власника ЗОЗ, для ФОП не заповнюється]"
   beneficiary: String
+    @fake(locale: "uk", format: "{{name.findName}} {{name.jobTitle}}")
   "Legal entity archive information, date and place"
   archives: [LegalEntityArchive]
   "System information: date and time when legal entity was inserted to DB."
-  insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  insertedAt: DateTime!
   "First employee with employee_type='OWNER ordered by UPDATED_AT_DESC"
   owner: Employee!
 
@@ -299,19 +301,19 @@ Legal entity license to practice medicine.
 """
 type LegalEntityLicense {
   "License number."
-  licenseNumber: String
+  licenseNumber: String @fake(randexp: "^[0-9]{12}$")
   "Institution name where license was obtained."
-  issuedBy: String
+  issuedBy: String @fake(locale: "uk", method: "company.companyName")
   "The date when the license was obtained."
-  issuedDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  issuedDate: Date
   "The date when the license expires."
-  expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  expiryDate: Date @fake(locale: "uk", method: "date.future", args: [2])
   "The date of transferring this license to archive"
-  activeFromDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  activeFromDate: Date
   "License type, what is it granted for."
   whatLicensed: String
   "License order number"
-  orderNo: String
+  orderNo: String @fake(randexp: "^[0-9]{8}$")
 }
 
 """
@@ -321,13 +323,13 @@ type LegalEntityAccreditation {
   "Accreditation category."
   category: String
   "The issue date of accreditation."
-  issuedDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  issuedDate: Date
   "The expiration date of accreditation."
-  expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  expiryDate: Date @fake(locale: "uk", method: "date.future", args: [2])
   "Accreditation order number."
   orderNo: String
   "Accreditation order date."
-  orderDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  orderDate: Date
 }
 
 """
@@ -335,7 +337,7 @@ Inforamtion of transferring paper documents of legal entities to archive.
 """
 type LegalEntityArchive {
   "the date when paper documents were transferred to archive"
-  date: Date @fake(locale: "uk", method: "date.past", args: [100])
+  date: Date
   "the address of building where paper documents are"
   place: String
 }
