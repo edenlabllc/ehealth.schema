@@ -3,7 +3,7 @@ A condition to be used against `CapitationContract` object types. All fields are
 """
 input CapitationContractFilter {
   "Primary key identifier from the database."
-  databaseId: ID
+  databaseId: UUID
 
   "To filter by fields related to contractor Legal Entity"
   contractorLegalEntity: LegalEntityFilter
@@ -89,9 +89,10 @@ type CapitationContract implements Node & Contract {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "Human redable contract number"
   contractNumber: String
+    @fake(randexp: "\\d{4}-[\\dAEHKMPTX]{4}-[\\dAEHKMPTX]{4}$")
   "Contract that is prolongated."
   parentContract: CapitationContract
   "ContractRequest that was 2 way signed in order to receive a contract"
@@ -101,15 +102,15 @@ type CapitationContract implements Node & Contract {
   "Current contract's status"
   status: ContractStatus!
   "The reason of termination contract"
-  statusReason: String
+  statusReason: String @fake(locale: "uk", method: "lorem.sentence")
   "Place of contract"
-  issueCity: String
+  issueCity: String @fake(locale: "uk", method: "address.city")
   "Html to make a prinout form"
-  printoutContent: String
+  printoutContent: String @fake(locale: "uk", method: "lorem.sentences")
   "Contract start date"
   startDate: Date!
   "Contract end date"
-  endDate: Date!
+  endDate: Date! @fake(locale: "uk", method: "date.future", args: [10])
   "Whether the contract is active or temporary suspended"
   isSuspended: Boolean!
   "Legal entity which made contract"
@@ -140,16 +141,16 @@ type CapitationContract implements Node & Contract {
   "Information about legal entity from NHS side"
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
-  nhsSignerBase: String
+  nhsSignerBase: String @fake(locale: "uk", method: "lorem.sentence")
   # FIXME: payment method actually does not belong to nhs
   "Possible ways to pay MSP. Dictionary"
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
   "Date and time when record was inserted"
-  insertedAt: String!
+  insertedAt: DateTime!
   "Date and time when record was updated"
-  updatedAt: String!
+  updatedAt: DateTime!
 
   "Employees which were included in contract"
   contractorEmployeeDivisions(
@@ -172,7 +173,7 @@ type CapitationContract implements Node & Contract {
   externalContractors: [ExternalContractor]
   # FIXME: contact price actually does not belong to nhs
   "Contract price, UAH"
-  nhsContractPrice: Float
+  nhsContractPrice: Float @fake(locale: "uk", method: "finance.amount")
   "The amount of population which were served by this MSP"
   contractorRmspAmount: Int!
 }

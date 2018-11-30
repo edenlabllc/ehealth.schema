@@ -7,7 +7,7 @@ Fields to filter division in the system.
 """
 input DivisionFilter {
   "Primary key identifier from the database."
-  databaseId: ID
+  databaseId: UUID
   "Division name."
   name: String
 }
@@ -53,15 +53,19 @@ type Division implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "Division name."
   name: String!
+    @fake(
+      locale: "uk"
+      format: "{{company.companyName}} {{company.companySuffix}}"
+    )
   "Division address."
   addresses: [Address]!
   "Division contact phone number."
   phones: [Phone]!
   "Division contact email."
-  email: String!
+  email: String! @fake(locale: "uk", method: "internet.email")
   "Division status, is set automatically."
   status: DivisionStatus!
   "Division type, is choosen from dictionary."
