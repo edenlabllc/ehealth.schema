@@ -3,7 +3,7 @@ Fields to filter reimbursement medical programs in the system.
 """
 input MedicalProgramFilter {
   "Primary key identifier from the database."
-  databaseId: ID
+  databaseId: UUID
   "medical program name."
   name: String
   "is_active status."
@@ -57,7 +57,7 @@ type MedicalProgram implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "MedicalProgram name."
   name: String!
   "is_active status"
