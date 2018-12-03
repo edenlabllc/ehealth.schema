@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/edenlabllc/ehealth.schema/compare/v1.5.0...v2.0.0) (2018-12-03)
+
+
+### Features
+
+* add prop `randexp` to directive `fake` ([ad82cd3](https://github.com/edenlabllc/ehealth.schema/commit/ad82cd3))
+* mocking data in schemas ([8923a17](https://github.com/edenlabllc/ehealth.schema/commit/8923a17))
+
+
+### BREAKING CHANGES
+
+* change scalar type ID to UUID in schemas
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/edenlabllc/ehealth.schema/compare/v1.4.1...v1.5.0) (2018-11-30)
 
