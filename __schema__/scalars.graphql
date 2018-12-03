@@ -1,5 +1,5 @@
 """
-The `UUID` scalar type represents a id which saved in DB. Universally Unique Identifiers (`UUID`) as defined by RFC 4122, ISO/IEC 9834-8:2005, and related standards (https://www.ietf.org/rfc/rfc4122.txt).
+The `UUID` scalar type represents a universally unique identifier as defined by [RFC 4122](https://www.ietf.org/rfc/rfc4122.txt), ISO/IEC 9834-8:2005, and related standards.
 """
 scalar UUID
 
