@@ -8,8 +8,6 @@ input MedicalProgramFilter {
   name: String
   "is_active status."
   isActive: Boolean
-  "Date and time when record was inserted"
-  insertedAt: String
 }
 
 """
