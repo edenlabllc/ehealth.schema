@@ -12,10 +12,10 @@ input LegalEntityFilter {
   nhsVerified: Boolean
   "In case legal entity was reviewed by NHS employee, nhsReview should be true."
   nhsReviewed: Boolean
-  "Area from legal entity address."
-  area: String
-  "settlement from legal entity address."
-  settlement: String
+  # "Area from legal entity address."
+  # area: String
+  # "settlement from legal entity address."
+  # settlement: String
   "The ID of an object"
   id: ID
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
