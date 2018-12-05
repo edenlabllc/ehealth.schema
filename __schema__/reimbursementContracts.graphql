@@ -11,14 +11,8 @@ input ReimbursementContractFilter {
   "Human readable number of contract request."
   contractNumber: String
 
-  "ID of a medical program that is a subject of reimbursement contract"
-  medicalProgramId: UUID
-
-  "Name of a medical program that is a subject of reimbursement contract"
-  medicalProgramName: String
-
-  "Status of a medical program that is a subject of reimbursement contract"
-  medicalProgramStatus: Boolean
+  "To filter by fields related to MedicalProgram"
+  medicalProgram: MedicalProgramFilter
 
   "Status of contract request."
   status: ContractStatus
