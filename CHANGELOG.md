@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.0.0...v2.1.0) (2018-12-05)
+
+
+### Features
+
+* Use `MedicalProgramFilter` in `ReimbursementContractFilter` instead of separate fields ([#39](https://github.com/edenlabllc/ehealth.schema/issues/39)) ([5b5ad18](https://github.com/edenlabllc/ehealth.schema/commit/5b5ad18))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/edenlabllc/ehealth.schema/compare/v1.5.0...v2.0.0) (2018-12-03)
 
