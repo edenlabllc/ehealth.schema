@@ -152,23 +152,10 @@ type ReimbursementContract implements Node & Contract {
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
+  "Medical program that is a subject of a reimbursement contract."
+  medicalProgram: MedicalProgram!
   "Date and time when record was inserted"
   insertedAt: DateTime!
   "Date and time when record was updated"
   updatedAt: DateTime!
-  "Medical program that is a subject of a reimbursement contract."
-  medicalProgram(
-    "A condition to be used in determining which values should be returned by the collection."
-    filter: MedicalProgramFilter
-    "The method to use when ordering collection items."
-    orderBy: MedicalProgramOrderBy
-    "Read all values in the set after (below) this cursor."
-    after: String
-    "Read all values in the set before (above) this cursor."
-    before: String
-    "Only read the first _n_ values of the set."
-    first: Int
-    "Only read the last _n_ values of the set."
-    last: Int
-  ): MedicalProgramConnection!
 }
