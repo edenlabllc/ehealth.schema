@@ -38,30 +38,14 @@ interface ContractRequest {
   contractorBase: String!
   "Information about MSP bank account to make payment."
   contractorPaymentDetails: ContractorPaymentDetails!
-
   "Divisions from legal entity that are in the contract."
-  contractorDivisions(
-    "A condition to be used in determining which values should be returned by the collection."
-    filter: DivisionFilter
-    "The method to use when ordering collection items."
-    orderBy: DivisionOrderBy
-    "Read all values in the set after (below) this cursor."
-    after: String
-    "Read all values in the set before (above) this cursor."
-    before: String
-    "Only read the first _n_ values of the set."
-    first: Int
-    "Only read the last _n_ values of the set."
-    last: Int
-  ): DivisionConnection!
-
+  contractorDivisions: [Division]
   "Employee who will sign contract on NHS side."
   nhsSigner: Employee
   "Information about legal entity from NHS side"
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
   nhsSignerBase: String
-
   "Payment method for the contract."
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types."
