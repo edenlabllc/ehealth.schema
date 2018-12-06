@@ -70,7 +70,7 @@ input UpdateContractRequestInput {
   id: ID!
 
   "ID of NHS employee who can sign contracts."
-  nhsSignerId: UUID
+  nhsSignerId: ID
 
   "Proof for the employee to sign contracts."
   nhsSignerBase: String
@@ -103,7 +103,7 @@ input AssignContractRequestInput {
   "Input for a single `contractRequestId` using its globally unique ID."
   id: ID!
   "Input for a single `employeeId` using its globally unique ID."
-  employeeId: UUID!
+  employeeId: ID!
 }
 
 """
