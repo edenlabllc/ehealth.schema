@@ -112,8 +112,6 @@ Inputs to review legal entity by NHS employee.
 input NhsReviewLegalEntityInput {
   "Legal entity database unique identifier."
   id: UUID!
-  "Whether `LegalEntity` was reviewed or not?"
-  nhsReviewed: Boolean!
 }
 
 """
