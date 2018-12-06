@@ -8,10 +8,6 @@ interface Contract {
   databaseId: UUID!
   "Human redable contract number"
   contractNumber: String
-  "Contract that is prolongated."
-  parentContract: Contract
-  "ContractRequest that was 2 way signed in order to receive a contract"
-  contractRequest: ContractRequest!
   "Type of contract. Dictionary"
   idForm: String!
   "Current contract's status"
