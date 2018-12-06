@@ -5,9 +5,6 @@ input CapitationContractRequestFilter {
   "Primary key identifier from the database."
   databaseId: UUID
 
-  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
-  contractorLegalEntityEdrpou: String
-
   "Human readable number of contract request."
   contractNumber: String
 
@@ -20,11 +17,11 @@ input CapitationContractRequestFilter {
   "The interval for searching by date when contract ends."
   endDate: DateInterval
 
-  "ID of a person who is responsible for the contract."
-  assigneeId: UUID
-
   "Name of a person who is responsible for the contract."
   assigneeName: String
+
+  "Conditions to check on fields of the object’s `contractorLegalEntity` field."
+  contractorLegalEntity: LegalEntityFilter
 }
 
 """
