@@ -8,10 +8,6 @@ interface ContractRequest {
   databaseId: UUID!
   "Human readable number of contract request."
   contractNumber: String
-  "Contract that is prolongated."
-  parentContract: Contract
-  "ContractRequest that is changed."
-  previousRequest: ContractRequest
   "Person who is responsible for the contract."
   assignee: Employee
   "The type of the contract."
