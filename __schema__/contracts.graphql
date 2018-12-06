@@ -36,6 +36,7 @@ interface Contract {
   contractorBase: String!
   "Information about MSP bank account to make payment"
   contractorPaymentDetails: ContractorPaymentDetails!
+
   "Divisions which were included in contract"
   contractorDivisions(
     "A condition to be used in determining which values should be returned by the collection."
@@ -51,13 +52,13 @@ interface Contract {
     "Only read the last _n_ values of the set."
     last: Int
   ): DivisionConnection!
+
   "Representer of NHS who signed contract"
   nhsSigner: Employee
   "Information about legal entity from NHS side"
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
   nhsSignerBase: String
-  # FIXME: payment method actually does not belong to nhs
   "Possible ways to pay MSP. Dictionary"
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types"

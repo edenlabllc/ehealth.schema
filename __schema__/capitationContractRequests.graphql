@@ -133,10 +133,8 @@ type CapitationContractRequest implements Node & ContractRequest {
   toSignContent: JSON
   "Information about the red lists for legal entity in contract."
   contractorRmspAmount: Int!
-
   "Information about employees in the contract, along with the connection each emloyee to divisions in the contract."
   contractorEmployeeDivisions: [ContractorEmployeeDivision]
-
   "Flag to show if external contractors exists in contract."
   externalContractorFlag: Boolean!
   "Block for exretnal contractors."
