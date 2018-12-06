@@ -5,9 +5,6 @@ input ReimbursementContractRequestFilter {
   "Primary key identifier from the database."
   databaseId: UUID
 
-  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
-  contractorLegalEntityEdrpou: String
-
   "Human readable number of contract request."
   contractNumber: String
 
@@ -20,20 +17,14 @@ input ReimbursementContractRequestFilter {
   "The interval for searching by date when contract ends."
   endDate: DateInterval
 
-  "UUID of a person who is responsible for the contract."
-  assigneeId: UUID
-
   "Name of a person who is responsible for the contract."
   assigneeName: String
 
-  "UUID of a medical program that is a subject of reimbursement contract"
-  medicalProgramId: UUID
+  "Conditions to check on fields of the object’s `contractorLegalEntity` field."
+  contractorLegalEntity: LegalEntityFilter
 
-  "Name of a medical program that is a subject of reimbursement contract"
-  medicalProgramName: String
-
-  "Status of a medical program that is a subject of reimbursement contract"
-  medicalProgramStatus: Boolean
+  "Conditions to check on fields of the object’s `medicalProgram` field."
+  medicalProgram: MedicalProgramFilter
 }
 
 """
