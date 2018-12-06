@@ -57,7 +57,7 @@ type MedicalProgram implements Node {
   "is_active status"
   isActive: Boolean!
   "Date and time when record was inserted"
-  insertedAt: String!
+  insertedAt: DateTime!
   "Date and time when record was updated"
-  updatedAt: String!
+  updatedAt: DateTime!
 }
