@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.1.0...v2.1.1) (2018-12-06)
+
+
+### Bug Fixes
+
+* Remove `nhsReviewed` param from NhsReviewLegalEntityInput` ([#41](https://github.com/edenlabllc/ehealth.schema/issues/41)) ([864777d](https://github.com/edenlabllc/ehealth.schema/commit/864777d))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.0.0...v2.1.0) (2018-12-05)
 
