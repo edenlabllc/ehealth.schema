@@ -30,8 +30,6 @@ interface ContractRequest {
   endDate: Date!
   "Block of information about legal entity in the contract."
   contractorLegalEntity: LegalEntity!
-  "Additional conditions to contract."
-  miscellaneous: String
   "Information about owner in legal entity that is in the contract."
   contractorOwner: Employee!
   "Proof for the employee to sign contracts."
@@ -50,6 +48,14 @@ interface ContractRequest {
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types."
   attachedDocuments: [ContractDocument]!
+  "Additional conditions to contract."
+  miscellaneous: String
+  "Data which should be signed by NHS employee in order to approve given `ContractRequest`."
+  toApproveContent: JSON
+  "Data which should be signed by NHS employee in order to decline given `ContractRequest`."
+  toDeclineContent: JSON
+  "Data which should be signed by NHS employee in order to sign given `ContractRequest`."
+  toSignContent: JSON
   "Date and time when record was inserted"
   insertedAt: DateTime!
   "Date and time when record was updated"

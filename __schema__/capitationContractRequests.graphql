@@ -105,8 +105,6 @@ type CapitationContractRequest implements Node & ContractRequest {
   endDate: Date! @fake(locale: "uk", method: "date.future", args: [10])
   "Block of information about legal entity in the contract."
   contractorLegalEntity: LegalEntity!
-  "Additional conditions to contract."
-  miscellaneous: String @fake(locale: "uk", method: "lorem.sentences")
   "Information about owner in legal entity that is in the contract."
   contractorOwner: Employee!
   "Proof for the employee to sign contracts."
@@ -125,11 +123,14 @@ type CapitationContractRequest implements Node & ContractRequest {
   nhsPaymentMethod: NhsPaymentMethod
   "Link to receive attached documents with particular types."
   attachedDocuments: [ContractDocument]!
-  "Date and time when record was inserted"
-  insertedAt: DateTime!
-  "Date and time when record was updated"
-  updatedAt: DateTime!
-
+  "Additional conditions to contract."
+  miscellaneous: String @fake(locale: "uk", method: "lorem.sentences")
+  "Data which should be signed by NHS employee in order to approve given `ContractRequest`."
+  toApproveContent: JSON
+  "Data which should be signed by NHS employee in order to decline given `ContractRequest`."
+  toDeclineContent: JSON
+  "Data which should be signed by NHS employee in order to sign given `ContractRequest`."
+  toSignContent: JSON
   "Information about the red lists for legal entity in contract."
   contractorRmspAmount: Int!
 
@@ -140,9 +141,12 @@ type CapitationContractRequest implements Node & ContractRequest {
   externalContractorFlag: Boolean!
   "Block for exretnal contractors."
   externalContractors: [ExternalContractor]
-  # FIXME: contact price actually does not belong to nhs
   "The price for the contract. Is filled with UAH."
   nhsContractPrice: Float @fake(locale: "uk", method: "finance.amount")
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
 }
 
 """
