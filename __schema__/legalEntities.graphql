@@ -8,18 +8,14 @@
 Fields to filter LegalEntity in the system.
 """
 input LegalEntityFilter {
+  "The ID of an object"
+  databaseId: ID
+  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
+  edrpou: String
   "In case legal entity was verified by NHS employee, nhsVerified should be true."
   nhsVerified: Boolean
   "In case legal entity was reviewed by NHS employee, nhsReview should be true."
   nhsReviewed: Boolean
-  "Area from legal entity address."
-  area: String
-  "settlement from legal entity address."
-  settlement: String
-  "The ID of an object"
-  id: ID
-  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
-  edrpou: String
 }
 
 """
