@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.1.1...v2.2.0) (2018-12-07)
+
+
+### Bug Fixes
+
+* add missing `INSERTED_AT_ASC` and `INSERTED_AT_DESC` values to `MedicalProgramOrderBy` enum ([f651a6b](https://github.com/edenlabllc/ehealth.schema/commit/f651a6b))
+* add missing `toApproveContent`, `toDeclineContent` and `toSignContent` fields to `ContractRequest` types ([2a5e421](https://github.com/edenlabllc/ehealth.schema/commit/2a5e421))
+* reflect actual `contractorDivisions`, `contractorEmployeeDivisions` and `medicalProgram` fields on the `ContractRequest`, `CapitationContractRequest` and `ReimbursementContractRequest` types ([c3d0255](https://github.com/edenlabllc/ehealth.schema/commit/c3d0255))
+* remove `MEDICAL_PROGRAM_NAME_ASC` and `MEDICAL_PROGRAM_NAME_DESC` values from `ReimbursementContractRequestOrderBy` enum ([7dbb12e](https://github.com/edenlabllc/ehealth.schema/commit/7dbb12e))
+* remove conflicting `parentContract`, `previousRequest` and `contractRequest` fields from `Contract` and `ContractRequest` interfaces ([0c353d1](https://github.com/edenlabllc/ehealth.schema/commit/0c353d1))
+* remove unneeded `medicalProgram` connection from `ReimbursementContract` type ([93bac0a](https://github.com/edenlabllc/ehealth.schema/commit/93bac0a))
+* remove unused `area` and `settlement` fields, use proper name for `databaseId` field in `LegalEntityFilter` ([cfcfba8](https://github.com/edenlabllc/ehealth.schema/commit/cfcfba8))
+* remove wrong `insertedAt` field from `MedicalProgramFilter` type ([cd8177c](https://github.com/edenlabllc/ehealth.schema/commit/cd8177c))
+* replace `contractorLegalEntityEdrpou`, `medicalProgramId`, `medicalProgramName` and `medicalProgramStatus` fields in contract request filter inputs with corresponding `LegalEntityFilter` and `MedicalProgramFilter` input objects ([42595af](https://github.com/edenlabllc/ehealth.schema/commit/42595af))
+* use correct types for `MedicalProgram` timestamp fields ([aba3a81](https://github.com/edenlabllc/ehealth.schema/commit/aba3a81))
+* use correct types for contractRequest mutation inputs ([6acd759](https://github.com/edenlabllc/ehealth.schema/commit/6acd759))
+
+
+### Features
+
+* add `medicalPrograms` and `medicalProgram` fields to `Query` type ([0591c5a](https://github.com/edenlabllc/ehealth.schema/commit/0591c5a))
+
+
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.1.0...v2.1.1) (2018-12-06)
 
