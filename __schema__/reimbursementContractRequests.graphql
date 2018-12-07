@@ -39,10 +39,6 @@ enum ReimbursementContractRequestOrderBy {
   INSERTED_AT_ASC
   "Sort by inserted_at in descending order."
   INSERTED_AT_DESC
-  "Sort by medical_program_name in ascending order."
-  MEDICAL_PROGRAM_NAME_ASC
-  "Sort by medical_program_name in descending order."
-  MEDICAL_PROGRAM_NAME_DESC
   "Sort by start date in ascending order."
   START_DATE_ASC
   "Sort by start date in descending order."
