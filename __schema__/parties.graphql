@@ -1,0 +1,35 @@
+"""
+A condition to be used against `Party` object types.
+"""
+input PartyFilter {
+  "Performs full-text search on object's `firstName`, `lastName` and `secondName` fields."
+  fullName: String
+}
+
+"""
+Personal information of employee, ex. fisrt name, last name etc.
+"""
+type Party {
+  "Employee's first name."
+  firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
+  "Employee's last name."
+  lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
+  "Employee's second name, if exists."
+  secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
+  "employee's birth date."
+  birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  "Employee's gender, is choosen from dictionary."
+  gender: Gender!
+  "Personal phone number."
+  phones: [Phone]
+}
+
+"""
+List for party gender.
+"""
+enum Gender {
+  "Gender `FEMALE` for a party."
+  FEMALE
+  "Gender `MALE` for a party."
+  MALE
+}
