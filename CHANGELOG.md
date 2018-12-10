@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.2.0...v2.3.0) (2018-12-10)
+
+
+### Bug Fixes
+
+* remove nested inputs from filters on `Contract` and `ContractRequest` ([495f600](https://github.com/edenlabllc/ehealth.schema/commit/495f600))
+* replace `assigneeName` field on `ContractRequest` filters with `assigneeId` field ([4d92f94](https://github.com/edenlabllc/ehealth.schema/commit/4d92f94))
+
+
+### Features
+
+* add `party` field with full-text search on party's name to `EmployeeFilter` ([efbd6e0](https://github.com/edenlabllc/ehealth.schema/commit/efbd6e0))
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.1.1...v2.2.0) (2018-12-07)
 
