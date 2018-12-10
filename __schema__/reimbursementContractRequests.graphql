@@ -17,8 +17,8 @@ input ReimbursementContractRequestFilter {
   "The interval for searching by date when contract ends."
   endDate: DateInterval
 
-  "Name of a person who is responsible for the contract."
-  assigneeName: String
+  "Checks object’s `assignee` field using its globally unique ID."
+  assigneeId: ID
 
   "Conditions to check on fields of the object’s `contractorLegalEntity` field."
   contractorLegalEntity: LegalEntityFilter
