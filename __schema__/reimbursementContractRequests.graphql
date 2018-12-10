@@ -20,11 +20,11 @@ input ReimbursementContractRequestFilter {
   "Checks object’s `assignee` field using its globally unique ID."
   assigneeId: ID
 
+  "Checks object’s `medicalProgram` field using its globally unique ID."
+  medicalProgramId: ID
+
   "Conditions to check on fields of the object’s `contractorLegalEntity` field."
   contractorLegalEntity: LegalEntityFilter
-
-  "Conditions to check on fields of the object’s `medicalProgram` field."
-  medicalProgram: MedicalProgramFilter
 }
 
 """
