@@ -10,6 +10,8 @@ input EmployeeFilter {
   isActive: Boolean
   "Filter by employee's legal entity."
   legalEntity: LegalEntityFilter
+  "Filter by employee's party."
+  party: PartyFilter
 }
 
 """
@@ -114,34 +116,6 @@ enum EmployeeStatus {
   DISMISSED
   "Status `NEW` for employee."
   NEW
-}
-
-"""
-List for party gender.
-"""
-enum Gender {
-  "Gender `FEMALE` for a party."
-  FEMALE
-  "Gender `MALE` for a party."
-  MALE
-}
-
-"""
-Personal information of employee, ex. fisrt name, last name etc.
-"""
-type Party {
-  "Employee's first name."
-  firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
-  "Employee's last name."
-  lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
-  "Employee's second name, if exists."
-  secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
-  "employee's birth date."
-  birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
-  "Employee's gender, is choosen from dictionary."
-  gender: Gender!
-  "Personal phone number."
-  phones: [Phone]
 }
 
 """
