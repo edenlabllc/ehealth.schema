@@ -20,7 +20,7 @@ input CapitationContractFilter {
   "Whether the contract is active or temporary suspended"
   isSuspended: Boolean
 
-  "To filter by fields related to contractor Legal Entity"
+  "Conditions to check on fields of the object’s `contractorLegalEntity` field."
   contractorLegalEntity: LegalEntityFilter
 
   "Filter to receive Contract of reorginised legal entities"
