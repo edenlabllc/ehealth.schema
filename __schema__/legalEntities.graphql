@@ -16,6 +16,8 @@ input LegalEntityFilter {
   nhsVerified: Boolean
   "In case legal entity was reviewed by NHS employee, nhsReview should be true."
   nhsReviewed: Boolean
+  "Legal entity type."
+  type: LegalEntityType
 }
 
 """
