@@ -21,7 +21,7 @@ type Address {
   "The street name."
   street: String @fake(locale: "uk", method: "address.streetName")
   "The number of a building."
-  building: String!
+  building: String
     @fake(
       randexp: "^[1-9]((?![ЫЪЭЁыъэё])()([А-ЯҐЇІЄа-яґїіє \\/\\'\\-0-9])){0,20}$"
     )
