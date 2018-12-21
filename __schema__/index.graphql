@@ -95,7 +95,7 @@ type Query {
   reimbursementContractRequest(id: ID!): ReimbursementContractRequest
 
   "Reads and enables pagination through a set of `Declaration`."
-  declarations(
+  pendingDeclarations(
     "A condition to be used in determining which values should be returned by the collection."
     filter: DeclarationFilter
     "The method to use when ordering collection items."
@@ -112,6 +112,9 @@ type Query {
 
   "Reads a single `Declaration` using its globally unique ID."
   declaration(id: ID!): Declaration
+
+  "Reads a single `Declaration` using its human readable unique number."
+  declarationByNumber(declarationNumber: String!): Declaration
 
   "Reads a set of `Dictionary`."
   dictionaries(

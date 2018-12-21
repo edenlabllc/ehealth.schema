@@ -121,6 +121,8 @@ type Person implements Node {
       method: "random.number"
       args: [{ min: 1000000000, max: 9999999999 }]
     )
+  "Flag to show whether person rejected to have taxId"
+  noTaxId: Boolean
   "Preffered way to communicate with the patient."
   preferredWayCommunication: PersonPreferredWayCommunication
   "Technical information when the patient was inserted into the DB."
