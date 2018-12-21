@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.5.0"></a>
+# [2.5.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.4.2...v2.5.0) (2018-12-21)
+
+
+### Features
+
+* add `noTaxId` filed to `Person` type, `DeclarationPersonFilter` and `DeclarationOrderBy`, delete `declarationRequestId` from `Declaration` type, add `DeclarationAttachedDocuments` to `Declaration` type, add `pendingDeclarations` and `declarationByNumber` ([fbf08bb](https://github.com/edenlabllc/ehealth.schema/commit/fbf08bb))
+
+
+
 <a name="2.4.2"></a>
 ## [2.4.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.4.1...v2.4.2) (2018-12-20)
 
