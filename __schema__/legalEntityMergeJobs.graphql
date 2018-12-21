@@ -98,7 +98,7 @@ enum LegalEntityMergeJobStatus {
 """
 Metadata of merging legal entities.
 """
-type MergeeLegalEntityMetadata {
+input MergeeLegalEntityMetadata {
   "Primary key identifier from the database"
   id: UUID!
   "full official name of legal entity"
