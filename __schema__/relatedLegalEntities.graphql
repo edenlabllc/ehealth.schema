@@ -4,18 +4,14 @@
 Filters for related legal entity.
 """
 input RelatedLegalEntityFilter {
-  "RelatedLegalEntity edrpou."
-  edrpou: String!
+  "RelatedLegalEntity active status."
+  isActive: Boolean!
 }
 
 """
 List of filters for related legal entity.
 """
 enum RelatedLegalEntityOrderBy {
-  "Sort RelatedLegalEntity by edrpou in ascending order."
-  EDRPOU_ASC
-  "Sort RelatedLegalEntity by edrpou in descending order."
-  EDRPOU_DESC
   "Sort RelatedLegalEntity by inserted at in ascending order."
   INSERTED_AT_ASC
   "Sort RelatedLegalEntity by inserted at in descending order."
@@ -50,13 +46,13 @@ type RelatedLegalEntityEdge {
 
 """
 RelatedLegalEntity is a relationship for reorganized legal entities.
-In order to get RelatedLegalEntity user should have `related_legal_entities:read` scope. 
+In order to get RelatedLegalEntity user should have `related_legal_entities:read` scope.
 """
 type RelatedLegalEntity implements Node {
   "The ID of an object."
   id: ID!
   "Primary key identifier from the database."
-  databaseId: ID!
+  databaseId: UUID!
   "Active or not information about the relationship."
   isActive: Boolean!
   "Reason to merge legal entities."
@@ -66,7 +62,7 @@ type RelatedLegalEntity implements Node {
   "Legator legal entity."
   mergedFromLegalEntity: LegalEntity!
   "The time when informationa about the relationship where inserted to the database."
-  insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
+  insertedAt: DateTime!
   "The user who inserted the informationa about the relationship to the database."
-  insertedBy: String!
+  insertedBy: String! @fake(locale: "uk", method: "random.uuid")
 }

@@ -35,11 +35,11 @@ type Settlement implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "District name"
   district: String
   "District unique ID in DB"
-  districtId: ID
+  districtId: UUID
   "State Classifier of Objects of the Administrative-Territorial Order of Ukraine."
   koatuu: String!
   "Flag whether the village belongs to the mountain group."
@@ -49,11 +49,11 @@ type Settlement implements Node {
   "Parent settlement name."
   parentSettlement: String
   "Parent settlement ID from database."
-  parentSettlementId: ID
+  parentSettlementId: UUID
   "Region name."
   region: String!
   "Region ID in DB."
-  regionId: ID!
+  regionId: UUID!
   "Settlement type."
   type: SettlementType!
 }

@@ -8,16 +8,16 @@
 Fields to filter LegalEntity in the system.
 """
 input LegalEntityFilter {
-  "In case legal entity was verified by NHS employee, nhsVerified should be true."
-  nhsVerified: Boolean
-  "Area from legal entity address."
-  area: String
-  "settlement from legal entity address."
-  settlement: String
   "The ID of an object"
-  id: ID
+  databaseId: ID
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
+  "In case legal entity was verified by NHS employee, nhsVerified should be true."
+  nhsVerified: Boolean
+  "In case legal entity was reviewed by NHS employee, nhsReview should be true."
+  nhsReviewed: Boolean
+  "Legal entity type."
+  type: LegalEntityType
 }
 
 """
@@ -32,6 +32,10 @@ enum LegalEntityOrderBy {
   INSERTED_AT_ASC
   "Sort legal entity by inserted at in descending order."
   INSERTED_AT_DESC
+  "Sort legal entity by nhs review at in ascending order."
+  NHS_REVIEWED_ASC
+  "Sort legal entity by nhs review at in descending order."
+  NHS_REVIEWED_DESC
   "Sort legal entity by nhs verified at in ascending order."
   NHS_VERIFIED_ASC
   "Sort legal entity by nhs verified at in descending order."
@@ -69,12 +73,14 @@ Inputs to verify legal entity by NHS employee.
 """
 input NhsVerifyLegalEntityInput {
   "Legal entity database unique identifier."
-  id: ID!
+  id: UUID!
+  "Whether `LegalEntity` was verified or not?"
+  nhsVerified: Boolean!
 }
 
 """
-Payload that should be sent to verify legal entity. 
-In order to deactivate legal entity user must have a scope `legal_entity:nhs_verify`.
+Payload that should be sent to verify legal entity.
+In order to verify legal entity user must have a scope `legal_entity:nhs_verify`.
 """
 type NhsVerifyLegalEntityPayload {
   "Payload for legal entity."
@@ -86,7 +92,7 @@ Inputs to deactivate legal entity by NHS employee.
 """
 input DeactivateLegalEntityInput {
   "Legal entity database unique identifier."
-  id: ID!
+  id: UUID!
 }
 
 """
@@ -95,6 +101,42 @@ In order to deactivate legal entity user must have a scope `legal_entity:deactiv
 """
 type DeactivateLegalEntityPayload {
   "Payload for legalEntity."
+  legalEntity: LegalEntity
+}
+
+"""
+Inputs to review legal entity by NHS employee.
+"""
+input NhsReviewLegalEntityInput {
+  "Legal entity database unique identifier."
+  id: UUID!
+}
+
+"""
+Payload that should be sent to review legal entity.
+In order to review legal entity user must have a scope `legal_entity:nhs_verify`.
+"""
+type NhsReviewLegalEntityPayload {
+  "Payload for legal entity."
+  legalEntity: LegalEntity
+}
+
+"""
+Inputs to comment for legal entity by NHS employee.
+"""
+input NhsCommentLegalEntityInput {
+  "Legal entity database unique identifier."
+  id: UUID!
+  "Comment for MSP to change legal entity"
+  nhsComment: String!
+}
+
+"""
+Payload that should be sent to comment legal entity.
+In order to comment for legal entity user must have a scope `legal_entity:nhs_verify`.
+"""
+type NhsCommentLegalEntityPayload {
+  "Payload for legal entity."
   legalEntity: LegalEntity
 }
 
@@ -109,17 +151,18 @@ type LegalEntity implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "full official name of legal entity also the name to show on public sources [as map, portal etc]"
-  name: String!
+  name: String! @fake(locale: "uk", method: "company.companyName")
   "Legal entity short name."
   shortName: String
+    @fake(locale: "uk", method: "company.companyName", args: [0])
   "Legal entity public name."
-  publicName: String
+  publicName: String @fake(locale: "uk", method: "company.companyName")
   "Legal entity type."
   type: LegalEntityType!
   "Unified Register of Businesses and Organizations"
-  edrpou: String!
+  edrpou: String! @fake(randexp: "^[0-9]{8,10}$")
   "Legal entity status, is set automatically"
   status: LegalEntityStatus!
   "Legal entity address."
@@ -127,57 +170,82 @@ type LegalEntity implements Node {
   "Legal entity phone number."
   phones: [Phone]!
   "email to contact person in charge from legal entity"
-  email: String!
+  email: String! @fake(locale: "uk", method: "internet.email")
   "Ukrainian Industry Classification System, there is a check that at least one of next kveds is input: 86.10, 86.21, 47.73."
   kveds: [String]!
+  "Business form."
+  legalForm: String @fake(locale: "uk", method: "company.companySuffix")
+  "Treasury registration code."
+  receiverFundsCode: String @fake(randexp: "^[0-9]{14}$")
   "Dictionary OWNER_PROPERTY_TYPE State or private type of legal entity"
   ownerPropertyType: String!
-  "Dictionary LEGAL_FORM - business form [as ТОВ/ФОП/ДП/КП]"
-  legalForm: String!
   "Licenses and accreditation of legal entity."
-  medicalServiceProvider: MedicalServiceProvider!
+  medicalServiceProvider: MedicalServiceProvider
   "In case legal entity is verified by MIS, misVerified = true"
   misVerified: LegalEntityMisVerificationStatus!
+  "Change requests for this `LegalEntity` in order to verify it."
+  nhsComment: String @fake(locale: "uk", method: "lorem.sentenses")
+  "Whether this `LegalEntity` was reviewed or not?"
+  nhsReviewed: Boolean
   "In case legal entity is verified by NHS, nhsVerified = true"
   nhsVerified: Boolean
   "legal entity website"
-  website: String
-  "treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]"
-  receiverFundsCode: String
+  website: String @fake(locale: "uk", method: "internet.url")
   "legal owner of legal entity [нформація про власника ЗОЗ, для ФОП не заповнюється]"
   beneficiary: String
+    @fake(locale: "uk", format: "{{name.findName}} {{name.jobTitle}}")
   "Legal entity archive information, date and place"
   archives: [LegalEntityArchive]
   "System information: date and time when legal entity was inserted to DB."
-  insertedAt: DateTime! @fake(locale: "uk", method: "date.past")
-  "employee with employee_type='OWNER and isActive=true"
+  insertedAt: DateTime!
+  "First employee with employee_type='OWNER ordered by UPDATED_AT_DESC"
   owner: Employee!
-  # employees(
-  #   filter: EmployeeFilter,
-  #   orderBy: EmployeeOrderBy,
-  #   after: String
-  #   before: String
-  #   first: Int
-  #   last: Int
-  # ): EmployeeConnection!
+
+  "Employees wich belong to legal entity"
+  employees(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: EmployeeFilter
+    "The method to use when ordering collection items."
+    orderBy: EmployeeOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): EmployeeConnection!
   "Divisions within this legal entity."
   divisions(
+    "A condition to be used in determining which values should be returned by the collection."
     filter: DivisionFilter
+    "The method to use when ordering collection items."
     orderBy: DivisionOrderBy
+    "Read all values in the set after (below) this cursor."
     after: String
+    "Read all values in the set before (above) this cursor."
     before: String
+    "Only read the first _n_ values of the set."
     first: Int
+    "Only read the last _n_ values of the set."
     last: Int
   ): DivisionConnection!
   "Main/Active legal entity after merging legal entities."
   mergedToLegalEntity: RelatedLegalEntity
   "Legal entities that are not active anymore and that were merged to this one."
   mergedFromLegalEntities(
+    "A condition to be used in determining which values should be returned by the collection."
     filter: RelatedLegalEntityFilter
+    "The method to use when ordering collection items."
     orderBy: RelatedLegalEntityOrderBy
+    "Read all values in the set after (below) this cursor."
     after: String
+    "Read all values in the set before (above) this cursor."
     before: String
+    "Only read the first _n_ values of the set."
     first: Int
+    "Only read the last _n_ values of the set."
     last: Int
   ): RelatedLegalEntityConnection!
 }
@@ -229,19 +297,19 @@ Legal entity license to practice medicine.
 """
 type LegalEntityLicense {
   "License number."
-  licenseNumber: String
+  licenseNumber: String @fake(randexp: "^[0-9]{12}$")
   "Institution name where license was obtained."
-  issuedBy: String!
+  issuedBy: String @fake(locale: "uk", method: "company.companyName")
   "The date when the license was obtained."
-  issuedDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  issuedDate: Date
   "The date when the license expires."
-  expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  expiryDate: Date @fake(locale: "uk", method: "date.future", args: [2])
   "The date of transferring this license to archive"
-  activeFromDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  activeFromDate: Date
   "License type, what is it granted for."
   whatLicensed: String
   "License order number"
-  orderNo: String!
+  orderNo: String @fake(randexp: "^[0-9]{8}$")
 }
 
 """
@@ -249,15 +317,15 @@ Legal entity accreditation information.
 """
 type LegalEntityAccreditation {
   "Accreditation category."
-  category: String!
+  category: String
   "The issue date of accreditation."
-  issuedDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  issuedDate: Date
   "The expiration date of accreditation."
-  expiryDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  expiryDate: Date @fake(locale: "uk", method: "date.future", args: [2])
   "Accreditation order number."
-  orderNo: String!
+  orderNo: String
   "Accreditation order date."
-  orderDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  orderDate: Date
 }
 
 """
@@ -265,7 +333,7 @@ Inforamtion of transferring paper documents of legal entities to archive.
 """
 type LegalEntityArchive {
   "the date when paper documents were transferred to archive"
-  date: Date @fake(locale: "uk", method: "date.past", args: [100])
+  date: Date
   "the address of building where paper documents are"
   place: String
 }

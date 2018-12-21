@@ -1,25 +1,83 @@
 """
+Fields to filter employee in the system.
+"""
+input EmployeeFilter {
+  "Type of Employee."
+  employeeType: [EmployeeType]
+  "Employee status."
+  status: EmployeeStatus
+  "Whether Employee is active or not?"
+  isActive: Boolean
+  "Filter by employee's legal entity."
+  legalEntity: LegalEntityFilter
+  "Filter by employee's party."
+  party: PartyFilter
+}
+
+"""
+Methods to use when ordering `Employee`.
+"""
+enum EmployeeOrderBy {
+  "Sort by employee_type in ascending order."
+  EMPLOYEE_TYPE_ASC
+  "Sort by employee_type in descending order."
+  EMPLOYEE_TYPE_DESC
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
+  "Sort by status in ascending order."
+  STATUS_ASC
+  "Sort by status in descending order."
+  STATUS_DESC
+}
+
+"""
+A connection to a list of `Employee` values.
+"""
+type EmployeeConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Employee]
+  "A list of edges."
+  edges: [EmployeeEdge]
+}
+
+"""
+An edge in a connection of `Employee`.
+"""
+type EmployeeEdge {
+  "The item at the end of the edge."
+  node: Employee!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
 Employee details contain information about Party (personal data) and Employee (proffesional data)
 """
 type Employee implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "Employee position."
-  position: String!
+  position: String! @fake(locale: "uk", method: "name.title")
   "First day on the job."
-  startDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
+  startDate: Date!
   "Last day on the job"
-  endDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  endDate: Date
+  "Whether Employee is active or not?"
+  isActive: Boolean!
+  "Employee type, is choosen from dictionary."
+  employeeType: EmployeeType!
   "Employee status, is choosen from dictionary."
   status: EmployeeStatus!
-  "Employee type, is choosen from dictionary."
-  employeeType: String!
+  "Professional information of employee."
+  additionalInfo: EmployeeAdditionalInfo
   "Personal information of employee."
   party: Party!
-  "Proffesional information of employee."
-  doctor: Doctor
   "Division in which employee works."
   division: Division
   "Legal entity in which employee works."
@@ -27,7 +85,29 @@ type Employee implements Node {
 }
 
 """
-List for employee status.
+List of employee types.
+"""
+enum EmployeeType {
+  "Is a admin."
+  ADMIN
+  "Is a doctor."
+  DOCTOR
+  "Is a HR."
+  HR
+  "Is a NHS employee."
+  NHS
+  "Is a NHS_SIGNER employee."
+  NHS_SIGNER
+  "Is a MSP owner."
+  OWNER
+  "Is a pharmacist."
+  PHARMACIST
+  "Is a pharmacy owner."
+  PHARMACY_OWNER
+}
+
+"""
+List of employee statuses.
 """
 enum EmployeeStatus {
   "Status `APPROVED` for employee."
@@ -39,47 +119,19 @@ enum EmployeeStatus {
 }
 
 """
-List forparty gender.
+Professional information of employee.
 """
-enum Gender {
-  "Gender `FEMALE` for a party."
-  FEMALE
-  "Gender `MALE` for a party."
-  MALE
-}
-
-"""
-Personal information of employee, ex. fisrt name, last name etc.
-"""
-type Party {
-  "Employee's first name."
-  firstName: String!
-  "Employee's last name."
-  lastName: String!
-  "Employee's second name, if exists."
-  secondName: String
-  "employee's birth date."
-  birthDate: Date!
-  "Employee's gender, is choosen from dictionary."
-  gender: Gender!
-  "Personal phone numaber."
-  phones: [Phone]
-}
-
-"""
-Proffesional information of employee.
-"""
-type Doctor {
-  "Doctor's speciality"
+type EmployeeAdditionalInfo {
+  "Employee's specialities"
   specialities: [Speciality]
 }
 
 """
-Information abiut doctor's speciality.
+Information about doctor's speciality.
 """
 type Speciality {
   "Speciality title"
-  speciality: String!
+  speciality: String! @fake(locale: "uk", method: "name.jobTitle")
   "In case this speciality is a speciality for job position, speciality Officio should be true."
   specialityOfficio: Boolean!
   "Qualification level."
@@ -91,7 +143,7 @@ type Speciality {
   "The date when qualification was obtained."
   attestationDate: Date!
   "Qualification certificate expiration date."
-  validToDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  validToDate: Date
   "Number of qualification certificate."
-  certificateNumber: String!
+  certificateNumber: String! @fake(randexp: "^[0-9]{10}$")
 }

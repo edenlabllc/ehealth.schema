@@ -3,12 +3,12 @@ node_js:
   - "10"
 cache:
   directories:
-    - ~/.npm
+    - "~/.npm"
 env:
   global:
     - TRUNK_BRANCH="master"
-    - secure: "KErxu2spmirmB4Ik2pyb4buCCnM9E53JTrhUP3Gig2lxPNq0ngGkHQScr64QtSzmPt9r9SGpq/mgwxKq/8UACg1GT52X06c1uKFazGiW2rOrluETgpqsfHt2Xf7GIX+ZY2Cc7kqIbTZeDrYdaC8YYXlOn21z0hynvZv8LNOSrRvMjFZgaAyAEhtdadEZYW3TjmOtfRF1BtDlb/4/sPcNofVB21UiS5C2CeJIfm4yDVPWiYdH5WQkwxJAzUH5Z2h7dERrBE8oac3fsq9aUEqfmkBq5aght6ZCD8A7CFyngQPxY72tUtKzRGgDDGDiQnoM9SnFqdkas1lmNY/A5/KNu0faKsnVOWZMSVDo9LBnbpYK80REjG30F7VuND+wYFOqNMt0ZCXVJ1BlUtfoIpKsUJel63ka/eUaF91pAVgCD1xv2HIqnApjmu5wuR6ENa3mOMh6nL+wCcZBEAAcPlIZCzia2eX2/W1UJ36CMZdlV5J2oBNqQgDGwQcen1Y4uLh1l9N7oil/5ym5XD7u00LUoUMB7BvVKpVRfd3ki/ncSwZwRjmsiZoNK0k3Y5XX97V93igbnI2F78OGDJdGdinI+S/XGN/BJ42MZuf1HDoYL5sO0Lsg65Sk6mPzW2xf/D1FimgsCfvcnH9AYSoOdPp//Ovk5k+vOVwqVrm4OYoiOkg="
-    - secure: "qVUr5M3d++aoHGk70nB3esSAEKM576TAZ1cWodRQ+ncxtKYuBQqvpLHllmSBZaMPO4+9nVRJbW5MwaNvtmTnvDLZmaxbeBsXL/L6CLo/yd5/gyVQr0/yqwz0fxEGJ7ebpzPw9Pdz3JYAyMsm88YLgl76cqYsZVbCwEQSynigyCyYzIx7VWIQDNvBt3uJjHW8tfXEtscvygvTEuj8c32DmqrsRSoDL5jY5h2KVd9l+4ERkWJQP1mxcP15Rb6qH/PuMpNTqIvr1MAjQ98W9JR57zdyGG6XQNKNLmNG5k+jVS1gXhObaEJv6Z2XSeGvJmHjpgZQT14tBLKqhIGf0r0Z2K+Tq1d1X3sZUy/y+f85ZXqHLxjuxWFDS73QC29iFVFmYvDTWOHlxiZO4T9Pk0NHMFTObaX6JYOAu5Q1WLdePuWcpYF9Wa+rYJazdSo8/K/6B6PIGMIfrHNltc7pV7jyTn8P08F9bqPPq2RyqYvEIv/P6gXJqxKeXPwmxPn9Y8+GHPRqpvDi/Dg+lHC6/2XRS6m7xXR4oqR1HyJLD5BLAtaGGjOKtpJUIQVYrX22qHtB0D3EMZh6vf+w87bDRsWH+9Usp/RonTu0aqEKTDC0zHYLSLhfNmMnCfX5P1bVL/UFza8IxVsOZCgBPWPUbH49p49iHBspzncCXdObGXbQDZQ="
+    - secure: kxD6tQ1unLS2HZjneygOxPlCpKDvR39e1ZbUrxK9JxDpLqxN5YQ9MN1eoqd7XSKeInR5DA9xWPV6lqPPOwTsVq+xX6YX0vmWI/Qa5ltvVZU7EEGtNphyPwEGCJuYShLqNi/ZHIRx86jnxq2mhOhlOKspFdd05n2pT7QgXqJSyvCKmtPQtmfDj+oo/Owk/8FKneSbzF8sIQ9XlmdupqymM/LP5OjFLFxDs7u+cLgqpKPoYwhS7AA9QzDddW+hvGaSFfQ6FOySZH/b0H3+URJz1A5qkzYDOKv+sN8x1hAT//8jtwwsL9T+lk/Ze24fzAgDj4X3vZ2WFXy25BRNVJjGSHSAPw33EM5/NPR0P4Q08JsP2LWwvbgdQ9pYMeb4qSvRcZK5lV4XoqZmXaffI99aD7YWB5AYFDN1v64JIGjpAm9KbqQh49SuOzQGJDa4WIiaFD/nKYoAll8EQIFi8kwH0pGHtVwluIjMwPCgjf5NRBar+o+W33Q3cC0aLMZHvPkxQxMNBGg7tNrHZGS4uR30LlbCa1e74m9ARh1k+CcJmDeJ2IogfZu8KSiuwr0eWZFDYQwLgujMnEF2EnwA3hMI10BVcH9/9N4oHxR5tSkwFXZtKn6NkBLu70v1QYwzeSXKD6cB5HTGnY1FoEE2xhoZmDU8VzNdeNhVoQy5snilKZ4=
+    - secure: a7TV4/i5CYC5dH8SDQEN2pEDtiKp/DuOBZ1a4HtbrV5pAoocwujAscS27cPik/F0oryiOi7PMbEH+TE8nAgxOPrJ11KwD3SJUKfar0alf4QTtC5eNI5CgCVkDdjyN9hzB3bm9NIErdc3lKHwRHoz6UYbLM4HjIU+DRaI4rPGOW7P43Me1WMDVAIMgRhNel/J+IcDfZ4eoYGIcsdRklNPTi00GBAK9T/y7qc8+nvED/gm1VbVeFW+0EJyXbBcfwEEHtBs66ZvgoRS6ceF0oUh1sW/BMTKDdTxLyXpESj5OYAq2XbuoxS/pcuSSWF4trJdw01X+bDM1vb12hwwhvoRRdej+1lU4V4DQGFQmyBvaHj4hnes0AGTjv2zLdTqYqrDjGJ2Ly/W5Ttft6gBKkYFqHO+76NqLUq3CzruWKgCRhquJYhxrF+QqVe40r592Fct78D6XxIjfGWrku8G0WNhUc5KSzz4qkveVXxi9ZyWkgLKIBQov3Gh52TiW6mucZWpDjd1t7M/4tZEf4Ci/uF/Qt6pfIE65mgHDTJvOiAnHDqVFIqKkowPUne7K7Kz8Q8Tml9Wphs3i+TNMPeFmH2D6u+MyRxegapS+ysFQO2PbPHovbMNHFukHEHYQI3/W19ETtvOXzS2JtogPm/6etdmzD+D0htl6tISAKWzlvU97JU=
 install:
   - npm ci
 script: skip
@@ -19,7 +19,7 @@ jobs:
     - stage: release
       if: branch = env(TRUNK_BRANCH) AND type = push
       script:
-        - ./ci/prepare-release.sh || travis_terminate 1
+        - source ./ci/prepare-release.sh || travis_terminate 1
         - npm run release || travis_terminate 1
         - git push --follow-tags origin $TRAVIS_BRANCH || travis_terminate 1
         - npm run github-release || travis_terminate 1

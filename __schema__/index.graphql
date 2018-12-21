@@ -1,24 +1,29 @@
 # import * from "scalars.graphql"
 # import * from "directives.graphql"
 # import * from "relay.graphql"
-
+# import * from "contracts.graphql"
 # import * from "contractRequests.graphql"
+# import * from "capitationContracts.graphql"
+# import * from "capitationContractRequests.graphql"
+# import * from "reimbursementContractRequests.graphql"
+# import * from "reimbursementContracts.graphql"
 # import * from "declarations.graphql"
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
 # import * from "legalEntityMergeJobs.graphql"
+# import * from "medicalPrograms.graphql"
 # import * from "persons.graphql"
 # import * from "settlements.graphql"
 """
 The query root of e-Health GraphQL interface.
 """
 type Query {
-  "the filter must be used to get list of contract request"
-  contractRequests(
+  "Reads and enables pagination through a set of `CapitationContract`."
+  capitationContracts(
     "A condition to be used in determining which values should be returned by the collection."
-    filter: ContractRequestFilter
+    filter: CapitationContractFilter
     "The method to use when ordering collection items."
-    orderBy: ContractRequestOrderBy
+    orderBy: CapitationContractOrderBy
     "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
@@ -27,13 +32,70 @@ type Query {
     first: Int
     "Only read the last _n_ values of the set."
     last: Int
-  ): ContractRequestConnection!
+  ): CapitationContractConnection!
 
-  "Reads a single `contractRequest` using its globally unique ID."
-  contractRequest(id: ID!): ContractRequest
+  "Reads a single `CapitationContract` using its globally unique ID."
+  capitationContract(id: ID!): CapitationContract
 
-  "the filter must be used to get list of declarations which belong to the patient knowing patient ID"
-  declarations(
+  "Reads and enables pagination through a set of `ReimbursementContract`."
+  reimbursementContracts(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ReimbursementContractFilter
+    "The method to use when ordering collection items."
+    orderBy: ReimbursementContractOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ReimbursementContractConnection!
+
+  "Reads a single `ReimbursementContract` using its globally unique ID."
+  reimbursementContract(id: ID!): ReimbursementContract
+
+  "Reads and enables pagination through a set of `CapitationContractRequest`."
+  capitationContractRequests(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: CapitationContractRequestFilter
+    "The method to use when ordering collection items."
+    orderBy: CapitationContractRequestOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): CapitationContractRequestConnection!
+
+  "Reads a single `CapitationContractRequest` using its globally unique ID."
+  capitationContractRequest(id: ID!): CapitationContractRequest
+
+  "Reads and enables pagination through a set of `ReimbursementContract`."
+  reimbursementContractRequests(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ReimbursementContractRequestFilter
+    "The method to use when ordering collection items."
+    orderBy: ReimbursementContractRequestOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ReimbursementContractRequestConnection!
+
+  "Reads a single `ReimbursementContractRequest` using its globally unique ID."
+  reimbursementContractRequest(id: ID!): ReimbursementContractRequest
+
+  "Reads and enables pagination through a set of `Declaration`."
+  pendingDeclarations(
     "A condition to be used in determining which values should be returned by the collection."
     filter: DeclarationFilter
     "The method to use when ordering collection items."
@@ -51,27 +113,52 @@ type Query {
   "Reads a single `Declaration` using its globally unique ID."
   declaration(id: ID!): Declaration
 
-  "the filter must be used to get exactly one declaration knowing its' number"
-  declarationByNumber(number: String!): Declaration
+  "Reads a single `Declaration` using its human readable unique number."
+  declarationByNumber(declarationNumber: String!): Declaration
 
-  "Filter for a dictionary."
-  dictionaries(filter: DictionaryFilter): [Dictionary]
+  "Reads a set of `Dictionary`."
+  dictionaries(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: DictionaryFilter
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DictionaryConnection!
 
-  "the filter must be used to get exactly one declaration knowing its' name"
+  "Reads a single `Dictionary` using its name."
   dictionary(name: String!): Dictionary
 
-  "Reads a single `LegalEntity` using its globally unique ID."
-  legalEntity(id: ID!): LegalEntity
+  "Reads and enables pagination through a set of `Employee`."
+  employees(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: EmployeeFilter
+    "The method to use when ordering collection items."
+    orderBy: EmployeeOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): EmployeeConnection!
 
-  "the filter must be used to get exactly one legal entity knowing its' EDRPOU"
-  legalEntityByEdrpou(edrpou: String!): LegalEntity
+  "Reads a single `Employee` using its globally unique ID."
+  employee(id: ID!): Employee
 
-  "the filter must be used to get list of legal entities"
+  "Reads and enables pagination through a set of `LegalEntity`."
   legalEntities(
     "A condition to be used in determining which values should be returned by the collection."
     filter: LegalEntityFilter
     "The method to use when ordering collection items."
     orderBy: LegalEntityOrderBy
+    "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
     before: String
@@ -81,7 +168,10 @@ type Query {
     last: Int
   ): LegalEntityConnection!
 
-"Reads and enables pagination through a set of `legalEntityMergeJobs`."
+  "Reads a single `LegalEntity` using its globally unique ID."
+  legalEntity(id: ID!): LegalEntity
+
+  "Reads and enables pagination through a set of `LegalEntityMergeJob`."
   legalEntityMergeJobs(
     "A condition to be used in determining which values should be returned by the collection."
     filter: LegalEntityMergeJobFilter
@@ -97,8 +187,27 @@ type Query {
     last: Int
   ): LegalEntityMergeJobConnection!
 
-  "Reads a single `Person` using its globally unique ID."
-  person(id: ID!): Person
+  "Reads a single `LegalEntityMergeJob` using its globally unique ID."
+  legalEntityMergeJob(id: ID!): LegalEntityMergeJob
+
+  "Reads and enables pagination through a set of `MedicalProgram`."
+  medicalPrograms(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: MedicalProgramFilter
+    "The method to use when ordering collection items."
+    orderBy: MedicalProgramOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): MedicalProgramConnection!
+
+  "Reads a single `MedicalProgram` using its globally unique ID."
+  medicalProgram(id: ID!): MedicalProgram
 
   "Reads and enables pagination through a set of `Person`."
   persons(
@@ -115,6 +224,9 @@ type Query {
     "Only read the last _n_ values of the set."
     last: Int
   ): PersonConnection!
+
+  "Reads a single `Person` using its globally unique ID."
+  person(id: ID!): Person
 
   "the filter must be used to get list of settlements"
   settlements(
@@ -135,6 +247,14 @@ type Query {
 The root query for implementing GraphQL mutations.
 """
 type Mutation {
+  """
+  Autogenerated input type of terminateContract.
+  """
+  terminateContract(input: TerminateContractInput!): TerminateContractPayload
+  """
+  Autogenerated input type of prolongateContract.
+  """
+  prolongateContract(input: ProlongateContractInput!): ProlongateContractPayload
   """
   Autogenerated input type of updateContractRequest.
   """
@@ -200,6 +320,19 @@ type Mutation {
   ): NhsVerifyLegalEntityPayload
 
   """
+  Autogenerated input type of nhsReviewLegalEntity.
+  """
+  nhsReviewLegalEntity(
+    input: NhsReviewLegalEntityInput!
+  ): NhsReviewLegalEntityPayload
+  """
+  Autogenerated input type of nhsCommentLegalEntity.
+  """
+  nhsCommentLegalEntity(
+    input: NhsCommentLegalEntityInput!
+  ): NhsCommentLegalEntityPayload
+
+  """
   Autogenerated input type of deactivateLegalEntity.
   """
   deactivateLegalEntity(
@@ -209,7 +342,7 @@ type Mutation {
   """
   Autogenerated input type of mergeLegalEntities.
   """
-  mergeLegalEntities(input: MergeLegalEntityInput!): MergeLegalEntityPayload
+  mergeLegalEntities(input: MergeLegalEntitiesInput!): MergeLegalEntitiesPayload
 
   """
   Autogenerated input type of resetPersonAuthenticationMethod.
@@ -223,7 +356,7 @@ type Mutation {
 The query root of Subscription.
 """
 type Subscription {
-  "Reads and enables pagination through a set of `legalEntityMergeJobs`."
+  "Reads and enables pagination through a set of `LegalEntityMergeJob`."
   legalEntityMergeJobs(
     "A condition to be used in determining which values should be returned by the collection."
     filter: LegalEntityMergeJobFilter

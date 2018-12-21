@@ -1,6 +1,6 @@
 # import SignedContent from "signedContent.graphql"
 """
-Filter for Legal entity merge job. 
+Filter for Legal entity merge job.
 """
 input LegalEntityMergeJobFilter {
   "Legal entity merge job filters."
@@ -44,7 +44,7 @@ type LegalEntityMergeJobEdge {
 """
 Inputs for merge legal entity.
 """
-input MergeLegalEntityInput {
+input MergeLegalEntitiesInput {
   "Input for Signed Content"
   signedContent: SignedContent!
 }
@@ -52,7 +52,7 @@ input MergeLegalEntityInput {
 """
 Payload for merge legal entity.
 """
-type MergeLegalEntityPayload {
+type MergeLegalEntitiesPayload {
   "payload legalEntityMergeJob."
   legalEntityMergeJob: LegalEntityMergeJob
 }
@@ -64,7 +64,7 @@ type LegalEntityMergeJob implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ID!
+  databaseId: UUID!
   "Legal Entity Merge Job status."
   status: LegalEntityMergeJobStatus!
   "Date and time when the job starts."
@@ -83,13 +83,15 @@ type LegalEntityMergeJob implements Node {
 List of statuses for LegalEntityMergeJob.
 """
 enum LegalEntityMergeJobStatus {
-  "Status `FAILED` for LegalEntityMergeJob is set when job has been failed and could not be finished successfully."
+  "Is set when job has been failed and could not be finished successfully."
   FAILED
-  "Status `FAILED_WITH_ERROR` for LegalEntityMergeJob is set when job has an error and could not be finished successfully."
+  "Is set when job has an error and could not be finished successfully."
   FAILED_WITH_ERROR
-  "Status `PENDING` for LegalEntityMergeJob is set when job is in a queue."
+  "Is set when job has an error and could not be finished successfully."
+  ERROR
+  "Is set when job is in a queue."
   PENDING
-  "Status `PROCESSED` for LegalEntityMergeJob is set when job is finished successfully."
+  "Is set when job is finished successfully."
   PROCESSED
 }
 
@@ -98,7 +100,7 @@ Metadata of merging legal entities.
 """
 type MergeeLegalEntityMetadata {
   "Primary key identifier from the database"
-  id: ID!
+  id: UUID!
   "full official name of legal entity"
   name: String!
   "Legal entity edrpou."
