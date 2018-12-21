@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.4.2"></a>
+## [2.4.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.4.1...v2.4.2) (2018-12-20)
+
+
+
+<a name="2.4.1"></a>
+## [2.4.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.4.0...v2.4.1) (2018-12-20)
+
+
+
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.3.1...v2.4.0) (2018-12-20)
+
+
+### Bug Fixes
+
+* address building not required ([#48](https://github.com/edenlabllc/ehealth.schema/issues/48)) ([78780b6](https://github.com/edenlabllc/ehealth.schema/commit/78780b6))
+* use nested input objects in `CapitationContractRequestFilter` and `ReimbursementContractRequestFilter` ([#47](https://github.com/edenlabllc/ehealth.schema/issues/47)) ([feb7599](https://github.com/edenlabllc/ehealth.schema/commit/feb7599))
+
+
+### Features
+
+* Add `type` field to `LegalEntityFilter` ([#46](https://github.com/edenlabllc/ehealth.schema/issues/46)) ([21f37fb](https://github.com/edenlabllc/ehealth.schema/commit/21f37fb))
+
+
+
 <a name="2.3.1"></a>
 ## [2.3.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.3.0...v2.3.1) (2018-12-18)
 

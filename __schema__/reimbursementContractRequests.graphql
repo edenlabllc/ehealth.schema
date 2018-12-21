@@ -17,14 +17,14 @@ input ReimbursementContractRequestFilter {
   "The interval for searching by date when contract ends."
   endDate: DateInterval
 
-  "Checks object’s `assignee` field using its globally unique ID."
-  assigneeId: ID
-
-  "Checks object’s `medicalProgram` field using its globally unique ID."
-  medicalProgramId: ID
+  "Conditions to check on fields of the object’s `assignee` field."
+  assignee: EmployeeFilter
 
   "Conditions to check on fields of the object’s `contractorLegalEntity` field."
   contractorLegalEntity: LegalEntityFilter
+
+  "Conditions to check on fields of the object’s `medicalProgram` field."
+  medicalProgram: MedicalProgramFilter
 }
 
 """
