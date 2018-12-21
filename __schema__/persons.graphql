@@ -5,26 +5,30 @@
 Fields to filter Person in the system.
 """
 input PersonFilter {
-  "National person identifier."
-  taxId: String
-  "Unique person number in govetnmental register."
-  unzr: String
-  "Patient personal phone number."
-  phoneNumber: String
+  "Information about docouments which can identify a patient"
+  documents: PersonDocumentsFilter!
   "Personal patient information."
-  personal: PersonPersonalFilter
+  personal: PersonPersonalFilter!
 }
 
 """
 Personal patient information.
 """
 input PersonPersonalFilter {
-  "Patient first name."
-  firstName: String!
-  "Patients last name."
-  lastName: String!
   "Patient birth Date."
-  birthDate: Date!
+  birthDate: Date
+  "Patient authentication phone number with authentication type OTP."
+  phoneNumber: String
+}
+
+"""
+Information about documents to indetify the patient.
+"""
+input PersonDocumentsFilter {
+  "National person identifier."
+  taxId: String
+  "Number of document with DOCUMENT_TYPE=PASSPORT"
+  number: String
 }
 
 """
