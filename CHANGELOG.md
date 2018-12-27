@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.0"></a>
+# [2.6.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.5.1...v2.6.0) (2018-12-27)
+
+
+### Features
+
+* add filter for `DeclarationPersonFilter` by person `databaseId` ([9df37cf](https://github.com/edenlabllc/ehealth.schema/commit/9df37cf))
+
+
+
 <a name="2.5.1"></a>
 ## [2.5.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.5.0...v2.5.1) (2018-12-27)
 
