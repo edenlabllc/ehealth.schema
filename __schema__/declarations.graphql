@@ -12,6 +12,8 @@ Fields to filter Declarations by Persons.
 input DeclarationPersonFilter {
   "Flag to show whether person rejected to have taxId"
   noTaxId: Boolean
+  "Primary key identifier for person from the database"
+  databaseId: UUID
 }
 
 """
