@@ -212,7 +212,7 @@ type Query {
   "Reads and enables pagination through a set of `Person`."
   persons(
     "A condition to be used in determining which values should be returned by the collection."
-    filter: PersonFilter
+    filter: PersonFilter!
     "The method to use when ordering collection items."
     orderBy: PersonOrderBy
     "Read all values in the set after (below) this cursor."
