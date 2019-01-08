@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.1"></a>
+## [2.6.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.0...v2.6.1) (2019-01-08)
+
+
+### Bug Fixes
+
+* delete sorty by `UNZR_ASC` and `UNZR_DESC` from `PersonOrderBy`, make PersonFilter required ([#52](https://github.com/edenlabllc/ehealth.schema/issues/52)) ([536b9ba](https://github.com/edenlabllc/ehealth.schema/commit/536b9ba))
+
+
+
 <a name="2.6.0"></a>
 # [2.6.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.5.1...v2.6.0) (2018-12-27)
 
