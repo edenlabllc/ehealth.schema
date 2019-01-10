@@ -147,9 +147,19 @@ type Person implements Node {
   phones: [Phone]
   "Person's declarations."
   declarations(
+    "A condition to be used in determining which values should be returned by the collection."
     filter: DeclarationFilter
+    "The method to use when ordering collection items."
     orderBy: DeclarationOrderBy
-  ): [Declaration]
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DeclarationConnection!
 }
 
 """
