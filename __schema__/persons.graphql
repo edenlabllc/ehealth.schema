@@ -17,6 +17,14 @@ Personal patient information.
 input PersonPersonalFilter {
   "Patient birth Date."
   birthDate: Date
+  "Filter by patient's authentication phone number with type OTP."
+  authenticationMethod: AuthenticationMethodFilter
+}
+
+"""
+Information about authentication.
+"""
+input AuthenticationMethodFilter {
   "Patient authentication phone number with authentication type OTP."
   phoneNumber: String
 }
