@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.3"></a>
+## [2.6.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.2...v2.6.3) (2019-01-10)
+
+
+### Bug Fixes
+
+* Replace `phoneNumber` with `AuthenticationMethodFilter` in `PersonPersonalFilter` ([#53](https://github.com/edenlabllc/ehealth.schema/issues/53)) ([418eae5](https://github.com/edenlabllc/ehealth.schema/commit/418eae5))
+
+
+
 <a name="2.6.2"></a>
 ## [2.6.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.1...v2.6.2) (2019-01-10)
 
