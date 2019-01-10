@@ -17,7 +17,7 @@ type Address {
   "ID of specific settlement. Should fit settlement name."
   settlementId: UUID!
   "The street type."
-  streetType: StreetType!
+  streetType: StreetType
   "The street name."
   street: String @fake(locale: "uk", method: "address.streetName")
   "The number of a building."
@@ -28,7 +28,7 @@ type Address {
   "Apartment number."
   apartment: String @fake(locale: "uk", method: "random.number", args: [1000])
   "Address's zip code."
-  zip: String! @fake(locale: "uk", method: "address.zipCode")
+  zip: String @fake(locale: "uk", method: "address.zipCode")
 }
 
 """
