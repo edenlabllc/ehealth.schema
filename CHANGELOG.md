@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.4"></a>
+## [2.6.4](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.3...v2.6.4) (2019-01-10)
+
+
+### Bug Fixes
+
+* change `zip` and `streetType` from required to optional fields in `Address` type ([#55](https://github.com/edenlabllc/ehealth.schema/issues/55)) ([af488a8](https://github.com/edenlabllc/ehealth.schema/commit/af488a8))
+
+
+
 <a name="2.6.3"></a>
 ## [2.6.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.2...v2.6.3) (2019-01-10)
 
