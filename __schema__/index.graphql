@@ -11,6 +11,7 @@
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
 # import * from "legalEntityMergeJobs.graphql"
+# import * from "LegalEntityDeactivateJobs.graphql"
 # import * from "medicalPrograms.graphql"
 # import * from "persons.graphql"
 # import * from "settlements.graphql"
@@ -189,6 +190,22 @@ type Query {
 
   "Reads a single `LegalEntityMergeJob` using its globally unique ID."
   legalEntityMergeJob(id: ID!): LegalEntityMergeJob
+
+  "Reads and enables pagination through a set of `LegalEntityDeactivateJob`."
+  LegalEntityDeactivateJobs(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: LegalEntityDeactivateJobFilter
+    "The method to use when ordering collection items."
+    orderBy: LegalEntityDeactivateJobOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): LegalEntityDeactivateJobConnection!
 
   "Reads and enables pagination through a set of `MedicalProgram`."
   medicalPrograms(
