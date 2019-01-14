@@ -12,6 +12,7 @@
 # import * from "legalEntities.graphql"
 # import * from "legalEntityMergeJobs.graphql"
 # import * from "medicalPrograms.graphql"
+# import * from "parties.graphql"
 # import * from "persons.graphql"
 # import * from "settlements.graphql"
 """
