@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.5"></a>
+## [2.6.5](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.4...v2.6.5) (2019-01-14)
+
+
+### Bug Fixes
+
+* import parties to the index.graphql ([ccde38b](https://github.com/edenlabllc/ehealth.schema/commit/ccde38b))
+
+
+
 <a name="2.6.4"></a>
 ## [2.6.4](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.3...v2.6.4) (2019-01-10)
 
