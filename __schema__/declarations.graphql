@@ -3,13 +3,13 @@ Fields to filter Pending Declarations.
 """
 input PendingDeclarationFilter {
   "Values to show whether person rejected to have taxId"
-  reason: AllowedPendingDeclarationReason
+  reason: PendingDeclarationReason
 }
 
 """
-List of allowed values to filter reason in Pending Declarations`.
+List of values to filter reason in Pending Declarations`.
 """
-enum AllowedPendingDeclarationReason {
+enum PendingDeclarationReason {
   "Sort declaration by no tax id in ascending order."
   NO_TAX_ID
 }
