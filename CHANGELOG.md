@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.6"></a>
+## [2.6.6](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.5...v2.6.6) (2019-01-15)
+
+
+### Bug Fixes
+
+* change filter by `no_tax_id` for declarations in status `pending_verification` ([19d05a1](https://github.com/edenlabllc/ehealth.schema/commit/19d05a1))
+
+
+
 <a name="2.6.5"></a>
 ## [2.6.5](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.4...v2.6.5) (2019-01-14)
 
