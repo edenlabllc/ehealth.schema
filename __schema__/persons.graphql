@@ -147,8 +147,6 @@ type Person implements Node {
   phones: [Phone]
   "Person's declarations."
   declarations(
-    "A condition to be used in determining which values should be returned by the collection."
-    filter: DeclarationFilter
     "The method to use when ordering collection items."
     orderBy: DeclarationOrderBy
     "Read all values in the set after (below) this cursor."
