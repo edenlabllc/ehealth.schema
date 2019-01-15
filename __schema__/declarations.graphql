@@ -1,20 +1,4 @@
 """
-Filters for `Declaration`
-"""
-input DeclarationFilter {
-  "search by declarations using personal information"
-  person: DeclarationPersonFilter
-}
-
-"""
-Fields to filter Declarations by Persons.
-"""
-input DeclarationPersonFilter {
-  "Primary key identifier for person from the database"
-  databaseId: UUID
-}
-
-"""
 Fields to filter Pending Declarations.
 """
 input PendingDeclarationFilter {
