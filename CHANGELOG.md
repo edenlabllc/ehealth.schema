@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.8"></a>
+## [2.6.8](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.7...v2.6.8) (2019-01-17)
+
+
+### Bug Fixes
+
+* rename no_tax_id order to reason in `DeclarationOrderBy`; Add closed status to `DeclarationStatus` ([#60](https://github.com/edenlabllc/ehealth.schema/issues/60)) ([d2e4ec7](https://github.com/edenlabllc/ehealth.schema/commit/d2e4ec7))
+
+
+
+<a name="2.6.7"></a>
+## [2.6.7](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.6...v2.6.7) (2019-01-15)
+
+
+
+<a name="2.6.6"></a>
+## [2.6.6](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.5...v2.6.6) (2019-01-15)
+
+
+### Bug Fixes
+
+* change filter by `no_tax_id` for declarations in status `pending_verification` ([19d05a1](https://github.com/edenlabllc/ehealth.schema/commit/19d05a1))
+
+
+
+<a name="2.6.5"></a>
+## [2.6.5](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.4...v2.6.5) (2019-01-14)
+
+
+### Bug Fixes
+
+* import parties to the index.graphql ([ccde38b](https://github.com/edenlabllc/ehealth.schema/commit/ccde38b))
+
+
+
 <a name="2.6.4"></a>
 ## [2.6.4](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.3...v2.6.4) (2019-01-10)
 

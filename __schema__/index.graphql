@@ -13,6 +13,7 @@
 # import * from "legalEntityMergeJobs.graphql"
 # import * from "legalEntityDeactivateJobs.graphql"
 # import * from "medicalPrograms.graphql"
+# import * from "parties.graphql"
 # import * from "persons.graphql"
 # import * from "settlements.graphql"
 """
@@ -98,7 +99,7 @@ type Query {
   "Reads and enables pagination through a set of `Declaration`."
   pendingDeclarations(
     "A condition to be used in determining which values should be returned by the collection."
-    filter: DeclarationFilter
+    filter: PendingDeclarationFilter
     "The method to use when ordering collection items."
     orderBy: DeclarationOrderBy
     "Read all values in the set after (below) this cursor."

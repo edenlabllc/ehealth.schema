@@ -1,29 +1,27 @@
 """
-Filters for `Declaration`
+Fields to filter Pending Declarations.
 """
-input DeclarationFilter {
-  "search by declarations using personal information"
-  person: DeclarationPersonFilter
+input PendingDeclarationFilter {
+  "Values to show whether person rejected to have taxId"
+  reason: PendingDeclarationReason
 }
 
 """
-Fields to filter Declarations by Persons.
+List of values to filter reason in Pending Declarations`.
 """
-input DeclarationPersonFilter {
-  "Flag to show whether person rejected to have taxId"
-  noTaxId: Boolean
-  "Primary key identifier for person from the database"
-  databaseId: UUID
+enum PendingDeclarationReason {
+  "Sort declaration by no tax id in ascending order."
+  NO_TAX_ID
 }
 
 """
 List of fields to filter both ask and desc side `Declaration`.
 """
 enum DeclarationOrderBy {
-  "Sort declaration by no tax id in ascending order."
-  NO_TAX_ID_ASC
-  "Sort declaration by no tax id in ascending order."
-  NO_TAX_ID_DESC
+  "Sort declaration by reason in ascending order."
+  REASON_ASC
+  "Sort declaration by reason in ascending order."
+  REASON_DESC
   "Sort declaration by start date in ascending order."
   START_DATE_ASC
   "Sort declaration by start date in descending order."
@@ -150,6 +148,8 @@ List of declaration statuses.
 enum DeclarationStatus {
   "Status `Active` for declaration."
   ACTIVE
+  "Status `CLOSED` for declaration."
+  CLOSED
   "Status `PENDING_VERIFICATION` for declaration."
   PENDING_VERIFICATION
   "Status `REJECTED` for declaration."
