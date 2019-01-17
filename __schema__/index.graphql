@@ -11,7 +11,7 @@
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
 # import * from "legalEntityMergeJobs.graphql"
-# import * from "LegalEntityDeactivateJobs.graphql"
+# import * from "legalEntityDeactivateJobs.graphql"
 # import * from "medicalPrograms.graphql"
 # import * from "persons.graphql"
 # import * from "settlements.graphql"
@@ -192,7 +192,7 @@ type Query {
   legalEntityMergeJob(id: ID!): LegalEntityMergeJob
 
   "Reads and enables pagination through a set of `LegalEntityDeactivateJob`."
-  LegalEntityDeactivateJobs(
+  legalEntityDeactivateJobs(
     "A condition to be used in determining which values should be returned by the collection."
     filter: LegalEntityDeactivateJobFilter
     "The method to use when ordering collection items."
