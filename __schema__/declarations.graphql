@@ -18,10 +18,10 @@ enum PendingDeclarationReason {
 List of fields to filter both ask and desc side `Declaration`.
 """
 enum DeclarationOrderBy {
-  "Sort declaration by no tax id in ascending order."
-  NO_TAX_ID_ASC
-  "Sort declaration by no tax id in ascending order."
-  NO_TAX_ID_DESC
+  "Sort declaration by reason in ascending order."
+  REASON_ASC
+  "Sort declaration by reason in ascending order."
+  REASON_DESC
   "Sort declaration by start date in ascending order."
   START_DATE_ASC
   "Sort declaration by start date in descending order."
@@ -148,6 +148,8 @@ List of declaration statuses.
 enum DeclarationStatus {
   "Status `Active` for declaration."
   ACTIVE
+  "Status `CLOSED` for declaration."
+  CLOSED
   "Status `PENDING_VERIFICATION` for declaration."
   PENDING_VERIFICATION
   "Status `REJECTED` for declaration."
