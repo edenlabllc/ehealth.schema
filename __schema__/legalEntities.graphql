@@ -90,7 +90,7 @@ type NhsVerifyLegalEntityPayload {
 """
 Inputs to deactivate legal entity by NHS employee.
 """
-input DeactivateLegalEntityInput {
+input DeactivationLegalEntityInput {
   "Legal entity database unique identifier."
   id: UUID!
 }
@@ -99,7 +99,7 @@ input DeactivateLegalEntityInput {
 Payload that should be sent to deactivate legal entity.
 In order to deactivate legal entity user must have a scope `legal_entity:deactivate`.
 """
-type DeactivateLegalEntityPayload {
+type DeactivationLegalEntityPayload {
   "Payload for legalEntity."
   legalEntity: LegalEntity
 }

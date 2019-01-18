@@ -1,59 +1,59 @@
 """
-Filter for Legal entity Deactivate job.
+Filter for Legal entity deactivation job.
 """
-input LegalEntityDeactivateJobFilter {
-  "Legal entity deactivate job status."
-  status: LegalEntityDeactivateJobStatus
+input LegalEntityDeactivationJobFilter {
+  "Legal entity deactivation job status."
+  status: LegalEntityDeactivationJobStatus
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
 }
 
 """
-List of fields to filter both ask and desc side `LegalEntityDeactivateJob`.
+List of fields to filter both ask and desc side `LegalEntityDeactivationJob`.
 """
-enum LegalEntityDeactivateJobOrderBy {
+enum LegalEntityDeactivationJobOrderBy {
   "Time of duration on the job in ascending order"
   RUNTIME_ASC
   "Time of duration on the job in descending order"
   RUNTIME_DESC
-  "Sort legal entity deactivate job by started at in ascending order"
+  "Sort legal entity deactivation job by started at in ascending order"
   STARTED_AT_ASC
-  "Sort legal entity deactivate job by started at in descending order"
+  "Sort legal entity deactivation job by started at in descending order"
   STARTED_AT_DESC
 }
 
 """
-A connection to a list of `LegalEntityDeactivateJob` values.
+A connection to a list of `LegalEntityDeactivationJob` values.
 """
-type LegalEntityDeactivateJobConnection {
+type LegalEntityDeactivationJobConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of nodes."
-  nodes: [LegalEntityDeactivateJob]
+  nodes: [LegalEntityDeactivationJob]
   "A list of edges."
-  edges: [LegalEntityDeactivateJobEdge]
+  edges: [LegalEntityDeactivationJobEdge]
 }
 
 """
-Reads and enables pagination through a set of `LegalEntityDeactivateJob`.
+Reads and enables pagination through a set of `LegalEntityDeactivationJob`.
 """
-type LegalEntityDeactivateJobEdge {
+type LegalEntityDeactivationJobEdge {
   "The item at the end of the edge."
-  node: LegalEntityDeactivateJob!
+  node: LegalEntityDeactivationJob!
   "A cursor for use in pagination."
   cursor: String!
 }
 
 """
-An object for LegalEntityDeactivateJob.
+An object for LegalEntityDeactivationJob.
 """
-type LegalEntityDeactivateJob implements Node {
+type LegalEntityDeactivationJob implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
   databaseId: UUID!
-  "Legal Entity Deactivate Job status."
-  status: LegalEntityDeactivateJobStatus!
+  "Legal Entity deactivation job status."
+  status: LegalEntityDeactivationJobStatus!
   "Date and time when the job starts."
   startedAt: DateTime!
   "Date and time when the job ends."
@@ -75,9 +75,9 @@ type DeactivatedLegalEntityMetadata {
 }
 
 """
-List of statuses for LegalEntityDeactivateJob.
+List of statuses for LegalEntityDeactivationJob.
 """
-enum LegalEntityDeactivateJobStatus {
+enum LegalEntityDeactivationJobStatus {
   "Is set when job has an error and could not be finished successfully."
   ERROR
   "Is set when job is in a queue."
