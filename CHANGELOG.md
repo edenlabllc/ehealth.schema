@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.10"></a>
+## [2.6.10](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.9...v2.6.10) (2019-01-21)
+
+
+### Bug Fixes
+
+* rename deactivateJob to DeactivationJob ([a4d6741](https://github.com/edenlabllc/ehealth.schema/commit/a4d6741))
+
+
+
 <a name="2.6.9"></a>
 
 ## [2.6.9](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.8...v2.6.9) (2019-01-17)
