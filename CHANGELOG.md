@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.11"></a>
+## [2.6.11](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.10...v2.6.11) (2019-01-21)
+
+
+
 <a name="2.6.10"></a>
 ## [2.6.10](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.9...v2.6.10) (2019-01-21)
 
