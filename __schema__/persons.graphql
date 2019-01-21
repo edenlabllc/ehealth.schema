@@ -5,7 +5,7 @@
 Fields to filter Person in the system.
 """
 input PersonFilter {
-  "Information about docouments which can identify a patient"
+  "Information about documents which can identify a patient"
   documents: PersonDocumentsFilter!
   "Personal patient information."
   personal: PersonPersonalFilter!
@@ -30,7 +30,7 @@ input AuthenticationMethodFilter {
 }
 
 """
-Information about documents to indetify the patient.
+Information about documents to identify the patient.
 """
 input PersonDocumentsFilter {
   "National person identifier."
@@ -92,7 +92,7 @@ input ResetPersonAuthenticationMethodInput {
 Payload for reseting patient authentication method.
 """
 type ResetPersonAuthenticationMethodPayload {
-  "person infirmation."
+  "person information."
   person: Person!
 }
 
@@ -131,7 +131,7 @@ type Person implements Node {
     )
   "Flag to show whether person rejected to have taxId"
   noTaxId: Boolean
-  "Preffered way to communicate with the patient."
+  "Preferred way to communicate with the patient."
   preferredWayCommunication: PersonPreferredWayCommunication
   "Technical information when the patient was inserted into the DB."
   insertedAt: DateTime!
@@ -213,7 +213,7 @@ enum PersonAuthenticationMethodType {
 }
 
 """
-Person indentifier documents.
+Person identifier documents.
 """
 type PersonDocument {
   "Dictionary DOCUMENT_TYPE"
