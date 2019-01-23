@@ -18,6 +18,10 @@ enum PendingDeclarationReason {
 List of fields to filter both ask and desc side `Declaration`.
 """
 enum DeclarationOrderBy {
+  "Sort declaration by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort declaration by inserted_at in descending order."
+  INSERTED_AT_DESC
   "Sort declaration by reason in ascending order."
   REASON_ASC
   "Sort declaration by reason in ascending order."
