@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.7.0"></a>
+# [2.7.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.11...v2.7.0) (2019-01-23)
+
+
+### Features
+
+* add `inserted_at` sort to `DeclarationOrderBy` ([#63](https://github.com/edenlabllc/ehealth.schema/issues/63)) ([cafeafa](https://github.com/edenlabllc/ehealth.schema/commit/cafeafa))
+
+
+
 <a name="2.6.11"></a>
 ## [2.6.11](https://github.com/edenlabllc/ehealth.schema/compare/v2.6.10...v2.6.11) (2019-01-21)
 
