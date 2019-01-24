@@ -4,6 +4,14 @@ Filter for Legal entity deactivation job.
 input LegalEntityDeactivationJobFilter {
   "Legal entity deactivation job status."
   status: LegalEntityDeactivationJobStatus
+  "Legal entity that was deactivated."
+  deactivatedLegalEntity: deactivatedLegalEntityFilter
+}
+
+"""
+Filter for Deactivated Legal entity.
+"""
+input deactivatedLegalEntityFilter {
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
 }
@@ -58,7 +66,7 @@ type LegalEntityDeactivationJob implements Node {
   startedAt: DateTime!
   "Date and time when the job ends."
   endedAt: DateTime
-  "Legal entity that is deactivatea."
+  "Legal entity that was deactivated."
   deactivatedLegalEntity: DeactivatedLegalEntityMetadata!
 }
 
