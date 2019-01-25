@@ -112,12 +112,14 @@ type Person implements Node {
   secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
   "Patient birth date."
   birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
-  "Patient gender."
-  gender: PersonGender!
-  "Patient status in the system, is set automatically."
-  status: PersonStatus!
   "Patient birth country."
   birthCountry: String! @fake(locale: "uk", format: "Україна")
+  "Patient gender."
+  gender: PersonGender!
+  "Patient's email"
+  email: String
+  "Patient status in the system, is set automatically."
+  status: PersonStatus!
   "Patient birth settlement."
   birthSettlement: String! @fake(locale: "uk", method: "address.city")
   "the unique number in Unified State Register"
@@ -145,6 +147,10 @@ type Person implements Node {
   addresses: [Address]!
   "The way how a patient wants to be reached."
   phones: [Phone]
+  "Patient's contract person in case of emergency"
+  emergencyContact: EmergencyContact!
+  "The person(s) who is(are) responsible for the patient"
+  confidantPerson: [ConfidantPerson]
   "Person's declarations."
   declarations(
     "The method to use when ordering collection items."
@@ -224,4 +230,69 @@ type PersonDocument {
   issuedBy: String @fake(locale: "uk", method: "company.companyName")
   "the date when document was issued"
   issuedAt: Date
+}
+
+"""
+Patient's contract person in case of emergency.
+"""
+type EmergencyContact {
+  "Person first name."
+  firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
+  "Person last name."
+  lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
+  "Person second name, is exists."
+  secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
+  "The way how a perons wants to be reached."
+  phones: [Phone]!
+}
+
+"""
+The person who is responsible for the patient.
+"""
+type ConfidantPerson {
+  "Priority of persons"
+  relationType: ConfidantPersonRelationType!
+  "Person first name."
+  firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
+  "Person last name."
+  lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
+  "Person second name, is exists."
+  secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
+  "Person birth date."
+  birthDate: Date @fake(locale: "uk", method: "date.past", args: [100])
+  "Person birth country."
+  birthCountry: String! @fake(locale: "uk", format: "Україна")
+  "Person birth settlement."
+  birthSettlement: String! @fake(locale: "uk", method: "address.city")
+  "Patient gender."
+  gender: PersonGender!
+  "the unique number in Unified State Register"
+  unzr: String @fake(randexp: "^[0-9]{8}-[0-9]{5}$")
+  "National person identifier."
+  taxId: String
+    @fake(
+      locale: "uk"
+      method: "random.number"
+      args: [{ min: 1000000000, max: 9999999999 }]
+    )
+  "Person's email"
+  email: String
+  "ConfidantPerson identification documents."
+  documents: [PersonDocument]!
+  "Documents which show relationship with the patient"
+  documentsRelationship: [PersonDocument]!
+  "The way how a perons wants to be reached."
+  phones: [Phone]
+  "Preferred way to communicate with the confident person."
+  preferredWayCommunication: PersonPreferredWayCommunication
+}
+
+"""
+List of relation types
+"""
+enum ConfidantPersonRelationType {
+  "Is set when a person has higher priority"
+  PRIMARY
+  "Is set when a person has lower priority"
+  SECONDARY
 }
