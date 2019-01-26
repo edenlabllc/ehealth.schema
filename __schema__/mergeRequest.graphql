@@ -1,0 +1,158 @@
+# import Address from "addresses.graphql"
+# import Phone from "phones.graphql"
+# import Phone from "persons.graphql"
+
+"""
+Fields to filter Merge Requests in the system.
+"""
+input MergeRequestFilter {
+  "Information about status of Merge Request"
+  status: MergeRequestStatus!
+}
+
+"""
+Methods to use when ordering `Merge Request`.
+"""
+enum MergeRequestOrderBy {
+  "Sort Person by inserted at in ascending order."
+  INSERTED_AT_ASC
+  "Sort Person by inserted at in descending order."
+  INSERTED_AT_DESC
+  "Sort Person by birth date in ascending order."
+  STATUS_ASC
+  "Sort Person by birth date in descending order."
+  STATUS_DESC
+}
+
+"""
+A connection to a list of `MergeRequest` values.
+"""
+type MergeRequestConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [MergeRequest]
+  "A list of edges."
+  edges: [MergeRequestEdge]
+}
+
+"""
+Reads and enables pagination through a set of `MergeRequest`.
+"""
+type MergeRequestEdge {
+  "The item at the end of the edge."
+  node: MergeRequest!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Inputs to update status of Merge request.
+In order to update status user must have a scope `merge_request:write`
+"""
+input UpdateMergeRequestInput {
+  "Primary key identifier from the database"
+  id: ID!
+  "next status of merge request"
+  status: MergeRequestStatus!
+  "comment which user can leave"
+  comment: String
+}
+
+"""
+Payload for merge request mutations.
+"""
+type MergeRequestPayload {
+  "information of pair of persons which can be same."
+  mergeRequest: MergeRequest!
+}
+
+"""
+This is Merge Request details. In order to obtain details user must have a scope **merge_request:read**
+"""
+type MergeRequest implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "The pair of persons which is considerated to be the same person"
+  manualMergeCandidate: ManualMergeCandidate!
+  "the user who reviews merge request"
+  assignee: User!
+  "status of merge request"
+  status: MergeRequestStatus!
+  "comment which user can leave"
+  comment: String
+  "Technical information when the patient was inserted into the DB."
+  insertedAt: DateTime!
+  "Technical information when the patient was updated in the DB."
+  updatedAt: DateTime!
+}
+
+"""
+List of MergeRequest statuses.
+"""
+enum MergeRequestStatus {
+  "Status `MERGE` for a merge request"
+  MERGE
+  "Status `NEW` for a merge request"
+  NEW
+  "Status `POSTPONE` for a merge request"
+  POSTPONE
+  "Status `SPLIT` for a merge request"
+  SPLIT
+  "Status `TRASH` for a merge request"
+  TRASH
+}
+
+"""
+Information about User.
+"""
+type User {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+}
+
+"""
+Information about Manual Merge Candidate.
+"""
+type ManualMergeCandidate {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "The pair of persons which is considerated to be the same person"
+  mergeCandidate: MergeCandidate!
+  "status of merge candidate"
+  status: ManualMergeCandidateStatus
+  "Technical information when the patient was inserted into the DB."
+  insertedAt: DateTime!
+  "Technical information when the patient was updated in the DB."
+  updatedAt: DateTime!
+}
+
+"""
+Information about Merge  Candidate.
+"""
+type MergeCandidate {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseMergeCandidateId: UUID!
+  "The person wich will be deactivated"
+  person: Person!
+  "The person wich will remain"
+  masterPerson: Person!
+}
+
+"""
+List of Merge candidate statuses
+"""
+enum ManualMergeCandidateStatus {
+  "Status `NEW` for a merge request"
+  NEW
+  "Status `PROCESSED` for a merge request"
+  PROCESSED
+}
