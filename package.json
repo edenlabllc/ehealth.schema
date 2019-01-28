@@ -1,6 +1,6 @@
 {
   "name": "@ehealth-ua/schema",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "description": "Type definitions of the eHealth GraphQL API",
   "main": "index.js",
   "scripts": {
