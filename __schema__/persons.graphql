@@ -240,7 +240,7 @@ type EmergencyContact {
   firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
   "Person last name."
   lastName: String! @fake(locale: "uk", method: "name.lastName", args: [1])
-  "Person second name, is exists."
+  "Person second name, if exists."
   secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
   "The way how a perons wants to be reached."
   phones: [Phone]!
