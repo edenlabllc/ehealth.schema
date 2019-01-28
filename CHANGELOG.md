@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.9.0"></a>
+# [2.9.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.8.0...v2.9.0) (2019-01-28)
+
+
+### Features
+
+* add `MergeRequest` type and related mutations: `AssignMergeCanidate` and `UpdateMergeRequest` ([c8444ec](https://github.com/edenlabllc/ehealth.schema/commit/c8444ec))
+
+
+
 <a name="2.8.0"></a>
 # [2.8.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.7.1...v2.8.0) (2019-01-28)
 
