@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.9.1"></a>
+## [2.9.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.9.0...v2.9.1) (2019-01-30)
+
+
+### Bug Fixes
+
+* rename mergeRequest.graphql to mergeRequests.graphql ([#67](https://github.com/edenlabllc/ehealth.schema/issues/67)) ([ae8bc9d](https://github.com/edenlabllc/ehealth.schema/commit/ae8bc9d))
+
+
+
 <a name="2.9.0"></a>
 # [2.9.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.8.0...v2.9.0) (2019-01-28)
 
