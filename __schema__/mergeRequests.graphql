@@ -87,6 +87,8 @@ type MergeRequest implements Node {
   insertedAt: DateTime!
   "Technical information when the patient was updated in the DB."
   updatedAt: DateTime!
+  "Frag which shows whether NEW merge candidate can be assigned to User"
+  newMergeRequestAllowed: Boolean!
 }
 
 """
