@@ -30,6 +30,8 @@ A connection to a list of `MergeRequest` values.
 type MergeRequestConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
+  "Flag which shows whether NEW merge candidate can be assigned to the User"
+  canAssignNew: Boolean!
   "A list of nodes."
   nodes: [MergeRequest]
   "A list of edges."
