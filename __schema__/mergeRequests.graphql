@@ -79,8 +79,6 @@ type MergeRequest implements Node {
   databaseId: UUID!
   "The pair of persons which is considerated to be the same person"
   manualMergeCandidate: ManualMergeCandidate!
-  "the user who reviews merge request"
-  assignee: User!
   "status of merge request"
   status: MergeRequestStatus!
   "comment which user can leave"
@@ -105,16 +103,6 @@ enum MergeRequestStatus {
   SPLIT
   "Status `TRASH` for a merge request"
   TRASH
-}
-
-"""
-Information about User.
-"""
-type User {
-  "The ID of an object"
-  id: ID!
-  "Primary key identifier from the database"
-  databaseId: UUID!
 }
 
 """
