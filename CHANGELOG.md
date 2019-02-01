@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.10.2"></a>
+## [2.10.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.1...v2.10.2) (2019-02-01)
+
+
+### Bug Fixes
+
+* rename assignMergeCanidate key to assignMergeCandidate ([#70](https://github.com/edenlabllc/ehealth.schema/issues/70)) ([e85c246](https://github.com/edenlabllc/ehealth.schema/commit/e85c246))
+
+
+
 <a name="2.10.1"></a>
 ## [2.10.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.0...v2.10.1) (2019-02-01)
 
