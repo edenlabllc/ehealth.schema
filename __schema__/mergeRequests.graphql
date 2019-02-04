@@ -130,7 +130,7 @@ type MergeCandidate {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseMergeCandidateId: UUID!
+  databaseId: UUID!
   "The person wich will be deactivated"
   person: Person!
   "The person wich will remain"
