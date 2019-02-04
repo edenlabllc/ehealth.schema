@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.10.3"></a>
+## [2.10.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.2...v2.10.3) (2019-02-04)
+
+
+### Bug Fixes
+
+* Rename `databaseMergeCandidateId` to `databaseId` in `MergeCandidate` ([#71](https://github.com/edenlabllc/ehealth.schema/issues/71)) ([43ac1d5](https://github.com/edenlabllc/ehealth.schema/commit/43ac1d5))
+
+
+
 <a name="2.10.2"></a>
 ## [2.10.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.1...v2.10.2) (2019-02-01)
 
