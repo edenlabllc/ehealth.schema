@@ -3,14 +3,6 @@
 # import Phone from "persons.graphql"
 
 """
-Fields to filter Merge Requests in the system.
-"""
-input MergeRequestFilter {
-  "Information about status of Merge Request"
-  status: MergeRequestStatus!
-}
-
-"""
 Methods to use when ordering `Merge Request`.
 """
 enum MergeRequestOrderBy {
@@ -124,7 +116,7 @@ type ManualMergeCandidate {
 }
 
 """
-Information about Merge  Candidate.
+Information about Merge Candidate.
 """
 type MergeCandidate {
   "The ID of an object"
