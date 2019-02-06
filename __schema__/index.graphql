@@ -229,7 +229,7 @@ type Query {
   medicalProgram(id: ID!): MedicalProgram
 
   "Reads and enables pagination through a set of `MergeRequest`."
-  pendingMergeRequests(
+  mergeRequests(
     "The method to use when ordering collection items."
     orderBy: MergeRequestOrderBy
     "Read all values in the set after (below) this cursor."
