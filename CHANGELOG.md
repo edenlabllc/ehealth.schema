@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.10.5"></a>
+## [2.10.5](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.4...v2.10.5) (2019-02-06)
+
+
+### Bug Fixes
+
+* remane `pendingMergeRequests` to `mergeRequests` ([#73](https://github.com/edenlabllc/ehealth.schema/issues/73)) ([18309da](https://github.com/edenlabllc/ehealth.schema/commit/18309da))
+
+
+
 <a name="2.10.4"></a>
 ## [2.10.4](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.3...v2.10.4) (2019-02-05)
 
