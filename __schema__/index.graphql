@@ -264,10 +264,12 @@ type Query {
   "Reads a single `Person` using its globally unique ID."
   person(id: ID!): Person
 
-  "the filter must be used to get list of settlements"
+  "Reads and enables pagination through a set of `Settlement`."
   settlements(
     "A condition to be used in determining which values should be returned by the collection."
     filter: SettlementFilter
+    "The method to use when ordering collection items."
+    orderBy: SettlementOrderBy
     "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."

@@ -1,0 +1,34 @@
+"""
+A primary administrative division of Ukraine.
+"""
+type Region implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: ID!
+  "Region name."
+  name: String!
+  "State Classifier of Objects of the Administrative-Territorial Order of Ukraine."
+  koatuu: String!
+
+  "Reads and enables pagination through a set of `District`."
+  districts(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: DistrictFilter
+    "The method to use when ordering collection items."
+    orderBy: DistrictOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DistrictConnection!
+
+  "Date and time when record was inserted."
+  insertedAt: DateTime!
+  "Date and time when record was updated."
+  updatedAt: DateTime!
+}
