@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.10.6"></a>
+## [2.10.6](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.5...v2.10.6) (2019-02-08)
+
+
+### Bug Fixes
+
+* rename `confidantPerson` field in type `Person` to `confidantPersons`, rename `documentsRelationship` field in `ConfidantPerson` type to `relationshipDocuments` ([93122ab](https://github.com/edenlabllc/ehealth.schema/commit/93122ab))
+
+
+
 <a name="2.10.5"></a>
 ## [2.10.5](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.4...v2.10.5) (2019-02-06)
 
