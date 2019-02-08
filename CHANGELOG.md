@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.10.6"></a>
+## [2.10.6](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.5...v2.10.6) (2019-02-08)
+
+
+### Bug Fixes
+
+* rename `confidantPerson` field in type `Person` to `confidantPersons`, rename `documentsRelationship` field in `ConfidantPerson` type to `relationshipDocuments` ([93122ab](https://github.com/edenlabllc/ehealth.schema/commit/93122ab))
+
+
+
+<a name="2.10.5"></a>
+## [2.10.5](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.4...v2.10.5) (2019-02-06)
+
+
+### Bug Fixes
+
+* remane `pendingMergeRequests` to `mergeRequests` ([#73](https://github.com/edenlabllc/ehealth.schema/issues/73)) ([18309da](https://github.com/edenlabllc/ehealth.schema/commit/18309da))
+
+
+
+<a name="2.10.4"></a>
+## [2.10.4](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.3...v2.10.4) (2019-02-05)
+
+
+
+<a name="2.10.3"></a>
+## [2.10.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.2...v2.10.3) (2019-02-04)
+
+
+### Bug Fixes
+
+* Rename `databaseMergeCandidateId` to `databaseId` in `MergeCandidate` ([#71](https://github.com/edenlabllc/ehealth.schema/issues/71)) ([43ac1d5](https://github.com/edenlabllc/ehealth.schema/commit/43ac1d5))
+
+
+
 <a name="2.10.2"></a>
 ## [2.10.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.1...v2.10.2) (2019-02-01)
 
