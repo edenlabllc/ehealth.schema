@@ -62,7 +62,7 @@ type LegalEntityMergeJob implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: UUID!
+  databaseId: ObjectId!
   "Legal Entity Merge Job status."
   status: LegalEntityMergeJobStatus!
   "Date and time when the job starts."
