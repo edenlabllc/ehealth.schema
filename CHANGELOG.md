@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.12.0"></a>
+# [2.12.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.11.0...v2.12.0) (2019-02-13)
+
+
+### Features
+
+* add `ObjectId` scalar ([#77](https://github.com/edenlabllc/ehealth.schema/issues/77)) ([aa00324](https://github.com/edenlabllc/ehealth.schema/commit/aa00324))
+
+
+
 <a name="2.11.0"></a>
 # [2.11.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.6...v2.11.0) (2019-02-08)
 
