@@ -9,7 +9,7 @@ Fields to filter LegalEntity in the system.
 """
 input LegalEntityFilter {
   "The ID of an object"
-  databaseId: ID
+  databaseId: UUID
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
   "In case legal entity was verified by NHS employee, nhsVerified should be true."
