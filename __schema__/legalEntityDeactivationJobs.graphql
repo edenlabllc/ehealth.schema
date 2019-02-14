@@ -59,7 +59,7 @@ type LegalEntityDeactivationJob implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: UUID!
+  databaseId: ObjectId!
   "Legal Entity deactivation job status."
   status: LegalEntityDeactivationJobStatus!
   "Date and time when the job starts."

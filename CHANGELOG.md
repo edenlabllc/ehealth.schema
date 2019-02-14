@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.12.0"></a>
+# [2.12.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.11.0...v2.12.0) (2019-02-13)
+
+
+### Features
+
+* add `ObjectId` scalar ([#77](https://github.com/edenlabllc/ehealth.schema/issues/77)) ([aa00324](https://github.com/edenlabllc/ehealth.schema/commit/aa00324))
+
+
+
+<a name="2.11.0"></a>
+# [2.11.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.6...v2.11.0) (2019-02-08)
+
+
+### Features
+
+* add `expirationDate` field to `PersonDocument` type ([e26f897](https://github.com/edenlabllc/ehealth.schema/commit/e26f897))
+
+
+
+<a name="2.10.6"></a>
+## [2.10.6](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.5...v2.10.6) (2019-02-08)
+
+
+### Bug Fixes
+
+* rename `confidantPerson` field in type `Person` to `confidantPersons`, rename `documentsRelationship` field in `ConfidantPerson` type to `relationshipDocuments` ([93122ab](https://github.com/edenlabllc/ehealth.schema/commit/93122ab))
+
+
+
 <a name="2.10.5"></a>
 ## [2.10.5](https://github.com/edenlabllc/ehealth.schema/compare/v2.10.4...v2.10.5) (2019-02-06)
 

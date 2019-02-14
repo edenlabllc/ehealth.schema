@@ -150,7 +150,7 @@ type Person implements Node {
   "Patient's contract person in case of emergency"
   emergencyContact: EmergencyContact!
   "The person(s) who is(are) responsible for the patient"
-  confidantPerson: [ConfidantPerson]
+  confidantPersons: [ConfidantPerson]
   "Person's declarations."
   declarations(
     "The method to use when ordering collection items."
@@ -230,6 +230,8 @@ type PersonDocument {
   issuedBy: String @fake(locale: "uk", method: "company.companyName")
   "the date when document was issued"
   issuedAt: Date
+  "document expiration date"
+  expirationDate: Date
 }
 
 """
@@ -279,8 +281,8 @@ type ConfidantPerson {
   email: String
   "ConfidantPerson identification documents."
   documents: [PersonDocument]!
-  "Documents which show relationship with the patient"
-  documentsRelationship: [PersonDocument]!
+  "Documents which prove relationship with the patient"
+  relationshipDocuments: [PersonDocument]!
   "The way how a perons wants to be reached."
   phones: [Phone]
   "Preferred way to communicate with the confident person."
