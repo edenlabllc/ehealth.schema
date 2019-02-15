@@ -5,10 +5,54 @@
 Fields to filter Person in the system.
 """
 input PersonFilter {
-  "Information about documents which can identify a patient"
-  documents: PersonDocumentsFilter!
   "Personal patient information."
   personal: PersonPersonalFilter!
+  "Person identity information."
+  identity: PersonIdentityFilter!
+}
+
+"""
+Fields to filter PersonIndentity in the system.
+"""
+input PersonIdentityFilter {
+  "National person identifier."
+  taxId: String
+  "National person identifier."
+  unzr: String
+  "Information about documents which can identify a patient"
+  document: PersonDocumentFilter
+}
+
+"""
+Information about documents to identify the patient.
+"""
+input PersonDocumentFilter {
+  "Type of document."
+  type: PersonDocumentType!
+  "Number of document."
+  number: String!
+}
+
+"""
+Person document types.
+"""
+enum PersonDocumentType {
+  "Document type birth_certificate."
+  BIRTH_CERTIFICATE
+  "Document type complementary_protection_certificate."
+  COMPLEMENTARY_PROTECTION_CERTIFICATE
+  "Document type national_id."
+  NATIONAL_ID
+  "Document type passport."
+  PASSPORT
+  "Document type permanent_residence_permit."
+  PERMANENT_RESIDENCE_PERMIT
+  "Document type refugee_certificate."
+  REFUGEE_CERTIFICATE
+  "Document type temporary_certificate."
+  TEMPORARY_CERTIFICATE
+  "Document type temporary_passport."
+  TEMPORARY_PASSPORT
 }
 
 """
@@ -27,16 +71,6 @@ Information about authentication.
 input AuthenticationMethodFilter {
   "Patient authentication phone number with authentication type OTP."
   phoneNumber: String
-}
-
-"""
-Information about documents to identify the patient.
-"""
-input PersonDocumentsFilter {
-  "National person identifier."
-  taxId: String
-  "Number of document with DOCUMENT_TYPE=PASSPORT"
-  number: String
 }
 
 """
