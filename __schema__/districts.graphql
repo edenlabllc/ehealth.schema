@@ -1,0 +1,76 @@
+"""
+A condition to be used against `District` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input DistrictFilter {
+  "Checks for equality with the object’s `name` field."
+  name: String
+}
+
+"""
+Methods to use when ordering `District`.
+"""
+enum DistrictOrderBy {
+  "Orders by the object’s `name` field in the ascending order."
+  NAME_ASC
+  "Orders by the object’s `name` field in the descending order."
+  NAME_DESC
+}
+
+"""
+A connection to a list of `District` values.
+"""
+type DistrictConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [District]
+  "A list of edges."
+  edges: [DistrictEdge]
+}
+
+"""
+Reads and enables pagination through a set of `District`.
+"""
+type DistrictEdge {
+  "The item at the end of the edge."
+  node: District!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+A second-level administrative division of Ukraine.
+"""
+type District implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: ID!
+  "District name."
+  name: String!
+  "State Classifier of Objects of the Administrative-Territorial Order of Ukraine."
+  koatuu: String!
+  "Region to which district belongs."
+  region: Region!
+
+  "Reads and enables pagination through a set of `Settlement`."
+  settlements(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: SettlementFilter
+    "The method to use when ordering collection items."
+    orderBy: SettlementOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): SettlementConnection!
+
+  "Date and time when record was inserted."
+  insertedAt: DateTime!
+  "Date and time when record was updated."
+  updatedAt: DateTime!
+}
