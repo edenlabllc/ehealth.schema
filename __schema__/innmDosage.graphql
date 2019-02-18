@@ -1,0 +1,142 @@
+# import Innm from "innm.graphql"
+input InnmDosageFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+}
+
+"""
+Methods to use when ordering `InnmDosage`.
+"""
+enum InnmDosageOrderBy {
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `InnmDosage` items.
+"""
+type InnmDosageConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [InnmDosage]
+  "A list of edges."
+  edges: [InnmDosageEdge]
+}
+
+"""
+An edge in a connection of `InnmDosage`.
+"""
+type InnmDosageEdge {
+  "The item at the end of the edge."
+  node: Ingredients!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+A component part of medication. User must have a scope **innm_dosage:read**
+"""
+type InnmDosage implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  name: String!
+  "InnmDosage form"
+  form: InnmDosageForm!
+  ingredients: Ingredients!
+  "is_active status."
+  is_active: Boolean!
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}
+
+enum InnmDosageForm {
+  "A small mass of solid medicine for swallowing whole"
+  TABLET
+  "A solid disc of one or more pharmaceutic agents that is coated with sugar or a flavoring"
+  COATED_TABLET
+  "A device that delivers medication to the lungs in the form of a dry powder "
+  INHALATION_POWDER
+  "Tablets which easily melt in the mouth"
+  SUBLINGVAL_TABLET
+  "A thin polymer based coat applied to a solid dosage form such as a tablet"
+  FILM_COATED_TABLET
+  "A drug delivery device used to administer medication in the form of a mist inhaled into the lungs"
+  NEBULISER_SUSPENSION
+  "A colloid system in which solid or liquid particles are suspended in a gas"
+  AEROSOL_FOR_INHALATION
+  "A pressurized canister of medication that fits into a mouthpiece"
+  PRESSURISED_INHALATION
+  "a mechanism that delivers a drug with a delay after its administration or for a prolonged period of time or to a specific target in the body"
+  MODIFIEDRELEASE_TABLET
+  "Aerosole with a dose"
+  AEROSOL_FOR_INHALATION_DOSED
+}
+
+
+"""
+A component part of InnmDosage.
+"""
+type Ingredients implements Node {
+  "International Nonproprietary Name"
+  innm: Innm!
+  "The size or frequency of a dose of a medicine or drug."
+  dosage: Dosage!
+  "Is the component primary or not"
+  isPrimary: Boolean!
+}
+
+"""
+Dosage for ingredients
+"""
+type dosage {
+  "numeratorUnit"
+  numeratorUnit: MedicationUnit!
+  "numeratorValue"
+  numeratorValue: String!
+  "denumeratorUnit"
+  denumeratorUnit: MedicationUnit!
+  "denumeratorValue"
+  denumeratorValue: String!
+}
+
+enum MedicationType {
+  "Trade name"
+  BRAND
+  "Medicinal forms"
+  INNMDOSAGE
+}
+
+"""
+List of medication Units
+"""
+enum MedicationUnit {
+  "International unit"
+  IE
+  "Milligram"
+  MG
+  "Milliliter"
+  ML
+  "Microgram"
+  MKG
+  "Dose"
+  DOSE
+  "Pill"
+  PILL
+  "Syringe"
+  VIAL
+  "Bottle"
+  BOTTLE
+  "Aerosol"
+  AEROSOL
+  "Ampoule"
+  AMPOULE
+  "Container"
+  CONTAINER
+}

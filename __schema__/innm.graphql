@@ -1,0 +1,58 @@
+input InnmFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+}
+
+"""
+Methods to use when ordering `Innm`.
+"""
+enum InnmOrderBy {
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `Innm` items.
+"""
+type InnmConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Innm]
+  "A list of edges."
+  edges: [InnmEdge]
+}
+
+"""
+An edge in a connection of `Innm`. User must have a scope **innm:read**
+"""
+type InnmEdge {
+  "The item at the end of the edge."
+  node: Ingredients!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+International Nonproprietary Name
+"""
+type Innm implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "innm local name"
+  Name: String!
+  "innm CNOMED code"
+  sctid: String
+  "innm original name"
+  nameOriginal: String!
+  "is_active status."
+  is_active: Boolean!
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}
