@@ -1,4 +1,5 @@
 # import innmDosage from "innmDosage.graphql"
+# import MedicationUnit from "innmDosage.graphql"  
 """
 Fields to filter medication in the system.
 """
@@ -144,34 +145,6 @@ type Container {
   denumeratorUnit: MedicationUnit!
   "denumeratorValue"
   denumeratorValue: String!
-}
-
-"""
-List of medication Units
-"""
-enum MedicationUnit {
-  "International unit"
-  IE
-  "Milligram"
-  MG
-  "Milliliter"
-  ML
-  "Microgram"
-  MKG
-  "Dose"
-  DOSE
-  "Pill"
-  PILL
-  "Syringe"
-  VIAL
-  "Bottle"
-  BOTTLE
-  "Aerosol"
-  AEROSOL
-  "Ampoule"
-  AMPOULE
-  "Container"
-  CONTAINER
 }
 
 """
