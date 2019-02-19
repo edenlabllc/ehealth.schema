@@ -1,5 +1,5 @@
-# import InnmDosage from "innmDosage.graphql"
-# import MedicationUnit from "innmDosage.graphql"
+# import InnmDosage, InnmDosageFilter from "innmDosages.graphql"
+# import MedicationUnit from "innmDosages.graphql"
 
 """
 Fields to filter medication in the system.
@@ -11,12 +11,20 @@ input MedicationFilter {
   name: String
   "Activeness status."
   isActive: Boolean
-  "Medicatio form"
+  "Medication form."
   form: String
-  "Medication innm dosage name"
-  innmDosageName: String
+  "InnmDosage filter."
+  innmDosage: InnmDosageFilter
+  "Manufacturer filter."
+  manufacturerFilter: ManufacturerFilter
+}
+
+"""
+Manufacturer filter.
+"""
+input ManufacturerFilter {
   "Manufactorer name"
-  manufacturerName: String
+  name: String
 }
 
 """
@@ -74,7 +82,7 @@ type Medication implements Node {
   "A container in medication (vacuum packed box, jar, etc.)"
   container: Container!
   "Quantity of pills in medication"
-  packageqty: String
+  packageQty: String
   "A minimum quantity that could be sold"
   packageMinQty: String
   "Certificate number"

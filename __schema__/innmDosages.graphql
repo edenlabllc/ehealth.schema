@@ -1,4 +1,4 @@
-# import Innm from "innm.graphql"
+# import Innm from "innms.graphql"
 
 """
 InnmDosage filter.
@@ -6,6 +6,8 @@ InnmDosage filter.
 input InnmDosageFilter {
   "Primary key identifier from the database."
   databaseId: UUID
+  "Medication innm dosage name"
+  name: String
 }
 
 """
