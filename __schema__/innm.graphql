@@ -1,3 +1,6 @@
+"""
+Innm filter.
+"""
 input InnmFilter {
   "Primary key identifier from the database."
   databaseId: UUID
@@ -30,13 +33,13 @@ An edge in a connection of `Innm`. User must have a scope **innm:read**
 """
 type InnmEdge {
   "The item at the end of the edge."
-  node: Ingredients!
+  node: Innm!
   "A cursor for use in pagination."
   cursor: String!
 }
 
 """
-International Nonproprietary Name
+International Nonproprietary Name.
 """
 type Innm implements Node {
   "The ID of an object"
@@ -44,13 +47,13 @@ type Innm implements Node {
   "Primary key identifier from the database"
   databaseId: UUID!
   "innm local name"
-  Name: String!
+  name: String!
   "innm CNOMED code"
   sctid: String
   "innm original name"
   nameOriginal: String!
   "is_active status."
-  is_active: Boolean!
+  isActive: Boolean!
   "Date and time when record was inserted"
   insertedAt: DateTime!
   "Date and time when record was updated"

@@ -1,20 +1,21 @@
-# import innmDosage from "innmDosage.graphql"
-# import MedicationUnit from "innmDosage.graphql"  
+# import InnmDosage from "innmDosage.graphql"
+# import MedicationUnit from "innmDosage.graphql"
+
 """
 Fields to filter medication in the system.
 """
-input ProgramMedicationFilter {
+input MedicationFilter {
   "Primary key identifier from the database."
   databaseId: UUID
-  "medicalation name."
+  "Medicalation name."
   name: String
-  "is_active status."
+  "Activeness status."
   isActive: Boolean
-  "medicatio form"
+  "Medicatio form"
   form: String
-  "medication innm dosage name"
-  innmDosageName:String
-  "manifactorer name"
+  "Medication innm dosage name"
+  innmDosageName: String
+  "Manufactorer name"
   manufacturerName: String
 }
 
@@ -63,11 +64,11 @@ type Medication implements Node {
   "Primary key identifier from the database"
   databaseId: UUID!
   "Medication name"
-  name:String!
+  name: String!
   "Company that creates medication"
   manufacturer: Manufacturer
   "Anatomical Therapeutic Chemical Classification System"
-  code_atc: [Code_atc]!
+  codeAtc: [CodeAtc]!
   "form of medication"
   form: MedicationForm
   "A container in medication (vacuum packed box, jar, etc.)"
@@ -81,8 +82,8 @@ type Medication implements Node {
   "A day when certificate expired"
   certificateExpiredAt: DateTime
   "Ingredients in medication"
-  ingredients: [Ingredients]!
-  "is_active status."
+  ingredients: [InnmDosageIngredient]!
+  "is_active status"
   isActive: Boolean!
   "type od medication"
   type: MedicationType
@@ -97,60 +98,63 @@ A company that makes medication.
 """
 type Manufacturer {
   "Manufacturer name"
-  name:String!
+  name: String!
   "Manufacturer country"
-  country:String!
+  country: String!
 }
 
+"""
+Medication form.
+"""
 enum MedicationForm {
-  "A small mass of solid medicine for swallowing whole"
-  TABLET
-  "A solid disc of one or more pharmaceutic agents that is coated with sugar or a flavoring"
-  COATED_TABLET
-  "A device that delivers medication to the lungs in the form of a dry powder "
-  INHALATION_POWDER
-  "Tablets which easily melt in the mouth"
-  SUBLINGVAL_TABLET
-  "A thin polymer based coat applied to a solid dosage form such as a tablet"
-  FILM_COATED_TABLET
-  "A drug delivery device used to administer medication in the form of a mist inhaled into the lungs"
-  NEBULISER_SUSPENSION
   "A colloid system in which solid or liquid particles are suspended in a gas"
   AEROSOL_FOR_INHALATION
-  "A pressurized canister of medication that fits into a mouthpiece"
-  PRESSURISED_INHALATION
-  "a mechanism that delivers a drug with a delay after its administration or for a prolonged period of time or to a specific target in the body"
-  MODIFIEDRELEASE_TABLET
   "Aerosole with a dose"
   AEROSOL_FOR_INHALATION_DOSED
+  "A solid disc of one or more pharmaceutic agents that is coated with sugar or a flavoring"
+  COATED_TABLET
+  "A thin polymer based coat applied to a solid dosage form such as a tablet"
+  FILM_COATED_TABLET
+  "A device that delivers medication to the lungs in the form of a dry powder "
+  INHALATION_POWDER
+  "a mechanism that delivers a drug with a delay after its administration or for a prolonged period of time or to a specific target in the body"
+  MODIFIEDRELEASE_TABLET
+  "A drug delivery device used to administer medication in the form of a mist inhaled into the lungs"
+  NEBULISER_SUSPENSION
+  "A pressurized canister of medication that fits into a mouthpiece"
+  PRESSURISED_INHALATION
+  "Tablets which easily melt in the mouth"
+  SUBLINGVAL_TABLET
+  "A small mass of solid medicine for swallowing whole"
+  TABLET
 }
 
 """
-Anatomical Therapeutic Chemical Classification System
+Anatomical Therapeutic Chemical Classification System.
 """
-type Code_atc {
-  "code atc"
-  code_atc: String!
+type CodeAtc {
+  "Code atc"
+  codeAtc: String!
 }
 
 """
 The kind of container that this package comes as.
 """
 type Container {
-  "numeratorUnit"
+  "Numerator unit"
   numeratorUnit: MedicationUnit!
-  "numeratorValue"
+  "Numerator value"
   numeratorValue: String!
-  "denumeratorUnit"
+  "Denumerator unit"
   denumeratorUnit: MedicationUnit!
-  "denumeratorValue"
+  "Denumerator value"
   denumeratorValue: String!
 }
 
 """
 A component part of medication.
 """
-type Ingredients implements Node {
+type InnmDosageIngredient {
   "International Nonproprietary Name"
   innmDosage: InnmDosage!
   "The size or frequency of a dose of a medicine or drug."
@@ -160,19 +164,22 @@ type Ingredients implements Node {
 }
 
 """
-Dosage for ingredients
+Dosage for ingredients.
 """
-type dosage {
-  "numeratorUnit"
+type Dosage {
+  "Numerator unit"
   numeratorUnit: MedicationUnit!
-  "numeratorValue"
+  "Numerator value"
   numeratorValue: String!
-  "denumeratorUnit"
+  "Denumerator unit"
   denumeratorUnit: MedicationUnit!
-  "denumeratorValue"
+  "Denumerator value"
   denumeratorValue: String!
 }
 
+"""
+Medication type.
+"""
 enum MedicationType {
   "Trade name"
   BRAND
