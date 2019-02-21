@@ -268,12 +268,12 @@ type Query {
   "Reads a single `Medication` using its globally unique ID."
   medication(id: ID!): Medication
 
-  "Reads and enables pagination through a set of `InnmDosage`."
+  "Reads and enables pagination through a set of `INNMDosage`."
   innmDosages(
     "A condition to be used in determining which values should be returned by the collection."
-    filter: InnmDosageFilter
+    filter: INNMDosageFilter
     "The method to use when ordering collection items."
-    orderBy: InnmDosageOrderBy
+    orderBy: INNMDosageOrderBy
     "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
@@ -282,17 +282,17 @@ type Query {
     first: Int
     "Only read the last _n_ values of the set."
     last: Int
-  ): InnmDosageConnection!
+  ): INNMDosageConnection!
 
-  "Reads a single `InnmDosage` using its globally unique ID."
-  innmDosage(id: ID!): InnmDosage
+  "Reads a single `INNMDosage` using its globally unique ID."
+  innmDosage(id: ID!): INNMDosage
 
-  "Reads and enables pagination through a set of `Innm`."
+  "Reads and enables pagination through a set of `INNM`."
   innms(
     "A condition to be used in determining which values should be returned by the collection."
-    filter: InnmFilter
+    filter: INNMFilter
     "The method to use when ordering collection items."
-    orderBy: InnmOrderBy
+    orderBy: INNMOrderBy
     "Read all values in the set after (below) this cursor."
     after: String
     "Read all values in the set before (above) this cursor."
@@ -301,10 +301,10 @@ type Query {
     first: Int
     "Only read the last _n_ values of the set."
     last: Int
-  ): InnmConnection!
+  ): INNMConnection!
 
-  "Reads a single `Innm` using its globally unique ID."
-  innm(id: ID!): Innm
+  "Reads a single `INNM` using its globally unique ID."
+  innm(id: ID!): INNM
 
   "Reads and enables pagination through a set of `MergeRequest`."
   mergeRequests(

@@ -1,15 +1,15 @@
 """
-Innm filter.
+INNM filter.
 """
-input InnmFilter {
+input INNMFilter {
   "Primary key identifier from the database."
   databaseId: UUID
 }
 
 """
-Methods to use when ordering `Innm`.
+Methods to use when ordering `INNM`.
 """
-enum InnmOrderBy {
+enum INNMOrderBy {
   "Sort by inserted_at in ascending order."
   INSERTED_AT_ASC
   "Sort by inserted_at in descending order."
@@ -17,31 +17,31 @@ enum InnmOrderBy {
 }
 
 """
-A connection to a list of `Innm` items.
+A connection to a list of `INNM` items.
 """
-type InnmConnection {
+type INNMConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of nodes."
-  nodes: [Innm]
+  nodes: [INNM]
   "A list of edges."
-  edges: [InnmEdge]
+  edges: [INNMEdge]
 }
 
 """
-An edge in a connection of `Innm`. User must have a scope **innm:read**
+An edge in a connection of `INNM`. User must have a scope **innm:read**
 """
-type InnmEdge {
+type INNMEdge {
   "The item at the end of the edge."
-  node: Innm!
+  node: INNM!
   "A cursor for use in pagination."
   cursor: String!
 }
 
 """
-International Nonproprietary Name.
+International Nonproprietary Name Modified.
 """
-type Innm implements Node {
+type INNM implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"

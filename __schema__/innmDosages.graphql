@@ -1,9 +1,9 @@
-# import Innm from "innms.graphql"
+# import INNM from "innms.graphql"
 
 """
-InnmDosage filter.
+INNMDosage filter.
 """
-input InnmDosageFilter {
+input INNMDosageFilter {
   "Primary key identifier from the database."
   databaseId: UUID
   "Medication innm dosage name"
@@ -11,9 +11,9 @@ input InnmDosageFilter {
 }
 
 """
-Methods to use when ordering `InnmDosage`.
+Methods to use when ordering `INNMDosage`.
 """
-enum InnmDosageOrderBy {
+enum INNMDosageOrderBy {
   "Sort by inserted_at in ascending order."
   INSERTED_AT_ASC
   "Sort by inserted_at in descending order."
@@ -21,23 +21,23 @@ enum InnmDosageOrderBy {
 }
 
 """
-A connection to a list of `InnmDosage` items.
+A connection to a list of `INNMDosage` items.
 """
-type InnmDosageConnection {
+type INNMDosageConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of nodes."
-  nodes: [InnmDosage]
+  nodes: [INNMDosage]
   "A list of edges."
-  edges: [InnmDosageEdge]
+  edges: [INNMDosageEdge]
 }
 
 """
-An edge in a connection of `InnmDosage`.
+An edge in a connection of `INNMDosage`.
 """
-type InnmDosageEdge {
+type INNMDosageEdge {
   "The item at the end of the edge."
-  node: InnmDosage!
+  node: INNMDosage!
   "A cursor for use in pagination."
   cursor: String!
 }
@@ -45,16 +45,16 @@ type InnmDosageEdge {
 """
 A component part of medication. User must have a scope **innm_dosage:read**
 """
-type InnmDosage implements Node {
+type INNMDosage implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
   databaseId: UUID!
-  "InnmDosage name"
+  "INNMDosage name"
   name: String!
-  "InnmDosage form"
-  form: InnmDosageForm!
-  "InnmDosage ingredients"
+  "INNMDosage form"
+  form: INNMDosageForm!
+  "INNMDosage ingredients"
   ingredients: [DosageIngredient]!
   "is_active status."
   isActive: Boolean!
@@ -65,9 +65,9 @@ type InnmDosage implements Node {
 }
 
 """
-InnmDosage form.
+INNMDosage form.
 """
-enum InnmDosageForm {
+enum INNMDosageForm {
   "A colloid system in which solid or liquid particles are suspended in a gas"
   AEROSOL_FOR_INHALATION
   "Aerosole with a dose"
@@ -91,11 +91,11 @@ enum InnmDosageForm {
 }
 
 """
-A component part of InnmDosage.
+A component part of INNMDosage.
 """
 type DosageIngredient {
   "International Nonproprietary Name"
-  innm: Innm!
+  innm: INNM!
   "The size or frequency of a dose of a medicine or drug."
   dosage: Dosage!
   "Is the component primary or not"

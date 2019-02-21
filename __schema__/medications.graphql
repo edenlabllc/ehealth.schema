@@ -1,4 +1,4 @@
-# import InnmDosage, InnmDosageFilter from "innmDosages.graphql"
+# import INNMDosage, INNMDosageFilter from "innmDosages.graphql"
 # import MedicationUnit from "innmDosages.graphql"
 
 """
@@ -13,8 +13,8 @@ input MedicationFilter {
   isActive: Boolean
   "Medication form."
   form: String
-  "InnmDosage filter."
-  innmDosage: InnmDosageFilter
+  "INNMDosage filter."
+  innmDosage: INNMDosageFilter
   "Manufacturer filter."
   manufacturerFilter: ManufacturerFilter
 }
@@ -76,7 +76,7 @@ type Medication implements Node {
   "Company that creates medication"
   manufacturer: Manufacturer
   "Anatomical Therapeutic Chemical Classification System"
-  codeAtc: [CodeAtc]!
+  codeAtc: [CodeATC]!
   "form of medication"
   form: MedicationForm
   "A container in medication (vacuum packed box, jar, etc.)"
@@ -90,7 +90,7 @@ type Medication implements Node {
   "A day when certificate expired"
   certificateExpiredAt: DateTime
   "Ingredients in medication"
-  ingredients: [InnmDosageIngredient]!
+  ingredients: [INNMDosageIngredient]!
   "is_active status"
   isActive: Boolean!
   "type od medication"
@@ -140,7 +140,7 @@ enum MedicationForm {
 """
 Anatomical Therapeutic Chemical Classification System.
 """
-type CodeAtc {
+type CodeATC {
   "Code atc"
   codeAtc: String!
 }
@@ -162,9 +162,9 @@ type Container {
 """
 A component part of medication.
 """
-type InnmDosageIngredient {
+type INNMDosageIngredient {
   "International Nonproprietary Name"
-  innmDosage: InnmDosage!
+  innmDosage: INNMDosage!
   "The size or frequency of a dose of a medicine or drug."
   dosage: Dosage!
   "Is the component primary or not"
