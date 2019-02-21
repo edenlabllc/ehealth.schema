@@ -89,6 +89,10 @@ enum PersonOrderBy {
   TAX_ID_ASC
   "Sort Person by tax id in descending order."
   TAX_ID_DESC
+  "Sort Person by unzr in ascending order."
+  UNZR_ASC
+  "Sort Person by unzr in descending order."
+  UNZR_DESC
 }
 
 """
