@@ -14,6 +14,7 @@
 # import * from "legalEntityDeactivationJobs.graphql"
 # import * from "medicalPrograms.graphql"
 # import * from "programMedications.graphql"
+# import * from "ingredients.graphql"
 # import * from "medications.graphql"
 # import * from "innmDosages.graphql"
 # import * from "innms.graphql"
