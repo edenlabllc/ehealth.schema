@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.15.0"></a>
+# [2.15.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.14.0...v2.15.0) (2019-02-21)
+
+
+### Features
+
+* add `Medication`, `ProgramMedication`, `INNM` and `INNMDosage` types ([#79](https://github.com/edenlabllc/ehealth.schema/issues/79)) ([602a385](https://github.com/edenlabllc/ehealth.schema/commit/602a385)), closes [edenlabllc/ehealth.web#734](https://github.com/edenlabllc/ehealth.web/issues/734)
+
+
+
 <a name="2.14.0"></a>
 # [2.14.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.13.1...v2.14.0) (2019-02-21)
 
