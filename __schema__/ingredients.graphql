@@ -1,0 +1,51 @@
+"""
+A substance that forms part of a mixture.
+"""
+interface Ingredient {
+  "The size or frequency of a dose of a medicine or drug."
+  dosage: Dosage!
+  "Is the component primary or not"
+  isPrimary: Boolean!
+}
+
+"""
+Dosage for ingredients.
+"""
+type Dosage {
+  "Numerator unit"
+  numeratorUnit: MedicationUnit!
+  "Numerator value"
+  numeratorValue: String!
+  "Denumerator unit"
+  denumeratorUnit: MedicationUnit!
+  "Denumerator value"
+  denumeratorValue: String!
+}
+
+"""
+List of medication Units
+"""
+enum MedicationUnit {
+  "Aerosol"
+  AEROSOL
+  "Ampoule"
+  AMPOULE
+  "Bottle"
+  BOTTLE
+  "Container"
+  CONTAINER
+  "Dose"
+  DOSE
+  "International unit"
+  IE
+  "Milligram"
+  MG
+  "Microgram"
+  MKG
+  "Milliliter"
+  ML
+  "Pill"
+  PILL
+  "Syringe"
+  VIAL
+}
