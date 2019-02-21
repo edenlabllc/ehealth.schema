@@ -7,16 +7,14 @@ Fields to filter reimbursement program medication in the system.
 input ProgramMedicationFilter {
   "Primary key identifier from the database."
   databaseId: UUID
-  "ProgramMedication name."
-  name: String
+  "Medical program filter."
+  medicalProgram: MedicalProgramFilter
   "is_active status."
   isActive: Boolean
   "Medication request allowed status"
   medicationRequestAllowed: Boolean
-  "Medication Brand name"
-  brandName: String
-  "Medication innm dosage name"
-  innmDosageName: String
+  "Medication filter"
+  medication: MedicationFilter
 }
 
 """
