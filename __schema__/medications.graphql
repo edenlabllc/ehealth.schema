@@ -90,7 +90,7 @@ type Medication implements Node {
   "A day when certificate expired"
   certificateExpiredAt: DateTime
   "Ingredients in medication"
-  ingredients: [INNMDosageIngredient]!
+  ingredients: [MedicationIngredient]!
   "is_active status"
   isActive: Boolean!
   "type od medication"
