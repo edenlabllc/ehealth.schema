@@ -93,7 +93,7 @@ enum INNMDosageForm {
 """
 A component part of INNMDosage.
 """
-type DosageIngredient {
+type INNMDosageIngredient {
   "International Nonproprietary Name"
   innm: INNM!
   "The size or frequency of a dose of a medicine or drug."
