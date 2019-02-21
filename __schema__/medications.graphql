@@ -162,7 +162,7 @@ type Container {
 """
 A component part of medication.
 """
-type INNMDosageIngredient {
+type MedicationIngredient {
   "International Nonproprietary Name"
   innmDosage: INNMDosage!
   "The size or frequency of a dose of a medicine or drug."
