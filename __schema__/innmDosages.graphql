@@ -55,7 +55,7 @@ type INNMDosage implements Node {
   "INNMDosage form"
   form: INNMDosageForm!
   "INNMDosage ingredients"
-  ingredients: [DosageIngredient]!
+  ingredients: [INNMDosageIngredient]!
   "is_active status."
   isActive: Boolean!
   "Date and time when record was inserted"
