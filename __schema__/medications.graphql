@@ -13,7 +13,7 @@ input MedicationFilter {
   "INNMDosage filter."
   innmDosage: INNMDosageFilter
   "Manufacturer filter."
-  manufacturerFilter: ManufacturerFilter
+  manufacturer: ManufacturerFilter
 }
 
 """
@@ -175,5 +175,5 @@ enum MedicationType {
   "Trade name"
   BRAND
   "Medicinal forms"
-  INNMDOSAGE
+  INNM_DOSAGE
 }
