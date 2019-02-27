@@ -123,7 +123,7 @@ enum ContractStatus {
 }
 
 """
-Input fields to `ProlongateContract`. User must have scope `contract:update` in order to perform this action
+Input fields to `SuspendContract`. User must have scope `contract:update` in order to perform this action
 """
 input SuspendContractInput {
   "Input for a single `contractId` using its globally unique ID."
