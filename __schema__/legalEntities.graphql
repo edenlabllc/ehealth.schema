@@ -12,6 +12,8 @@ input LegalEntityFilter {
   databaseId: UUID
   "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
   edrpou: String
+  "Official name of legal entity"
+  name: String
   "In case legal entity was verified by NHS employee, nhsVerified should be true."
   nhsVerified: Boolean
   "In case legal entity was reviewed by NHS employee, nhsReview should be true."
@@ -152,7 +154,7 @@ type LegalEntity implements Node {
   id: ID!
   "Primary key identifier from the database"
   databaseId: UUID!
-  "full official name of legal entity also the name to show on public sources [as map, portal etc]"
+  "Full official name of legal entity also the name to show on public sources [as map, portal etc]"
   name: String! @fake(locale: "uk", method: "company.companyName")
   "Legal entity short name."
   shortName: String
