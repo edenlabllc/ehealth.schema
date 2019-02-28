@@ -20,6 +20,8 @@ input LegalEntityFilter {
   nhsReviewed: Boolean
   "Legal entity type."
   type: LegalEntityType
+  "Conditions to check on fields of the object’s `addresses` field."
+  addresses: AddressFilter
 }
 
 """
