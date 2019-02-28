@@ -50,32 +50,104 @@ type ProgramMedicationEdge {
 }
 
 """
+Input for `createProgramMedication` mutation.
+"""
+input CreateProgramMedicationInput {
+  "Id of medication"
+  medicationId: ID!
+  "Medical program Identifier"
+  medicalProgramId: ID!
+  "Reimbursement information"
+  reimbursement: CreateReimbursementInput!
+  "Factory gate price for package of medications"
+  wholesalePrice: Float!
+  "Consumer price for package of medications"
+  consumerPrice: Float!
+  "Reimbuersement amount for recommended daily dosage of medication"
+  reimbursementDailyDosage: Float!
+  "The estimatied amount which patient should pay for package of medications after reimbursement"
+  estimatedPaymentAmount: Float!
+}
+
+"""
+Input for `Reimbursement` of `createProgramMedication` mutation.
+
+User must have a scope **program_medication:write**
+"""
+input CreateReimbursementInput {
+  "Reimbursement type"
+  type: ReimbursementType!
+  "Reimbursement amount"
+  reimbursementAmount: Float!
+}
+
+"""
+Return type for `createProgramMedication` mutation.
+"""
+type CreateProgramMedicationPayload {
+  "Created `ProgramMedication`."
+  programMedication: ProgramMedication
+}
+
+"""
+Input for `updateProgramMedication` mutation.
+
+User must have a scope **program_medication:write**
+"""
+input UpdateProgramMedicationInput {
+  "The ID of an object."
+  id: ID!
+  "Whether `ProgramMedication` is active or not?"
+  isActive: Boolean
+  "Whether requesting medications allowed for the `ProgramMedication` or not?"
+  medicationRequestAllowed: Boolean
+  "Reimbursement information."
+  reimbursement: UpdateReimbursementInput
+}
+
+"""
+Input for `Reimbursement` of `updateProgramMedication` mutation.
+"""
+input UpdateReimbursementInput {
+  "Amount to reimburse for medication package by `MedicalProgram`."
+  reimbursementAmount: Float
+}
+
+"""
+Return type for `updateProgramMedication` mutation.
+"""
+type UpdateProgramMedicationPayload {
+  "Updated `ProgramMedication`."
+  programMedication: ProgramMedication
+}
+
+"""
 Program Medication linkes medication and medical program.
 
 In order to obtain details user must have a scope **program_medication:read**
 """
 type ProgramMedication implements Node {
-  "The ID of an object"
+  "The ID of an object."
   id: ID!
-  "Primary key identifier from the database"
+  "Primary key identifier from the database."
   databaseId: UUID!
   "MedicalProgram."
   medicalProgram: MedicalProgram!
   "Medication"
   medication: Medication!
-  "Reimbursement information"
+  "Reimbursement information."
   reimbursement: Reimbursement!
   "Factory gate price for package of medications"
-  wholesalePrice: String!
+  wholesalePrice: Float!
   "Consumer price for package of medications"
-  consumerPrice: String!
+  consumerPrice: Float!
   "Reimbuersement amount for recommended daily dosage of medication"
-  reimbursementDailyDosage: String!
+  reimbursementDailyDosage: Float!
   "The estimatied amount which patient should pay for package of medications after reimbursement"
-  estimatedPaymentAmount: String!
-  "Is_active status"
+  estimatedPaymentAmount: Float!
+  "Whether `ProgramMedication` is active or not?"
   isActive: Boolean!
-  "Medication request allowed status"
+  "Whether requesting medications allowed for the `ProgramMedication` or not?"
   medicationRequestAllowed: Boolean!
   "Date and time when record was inserted"
   insertedAt: DateTime!
@@ -89,103 +161,14 @@ Reimbursement information for current program medication.
 type Reimbursement {
   "Fixed or external type of reimbursement"
   type: ReimbursementType!
-  "Amount to reimburse for medication package by medicalProgram"
-  reimbursementAmount: String!
+  "Amount to reimburse for medication package by `MedicalProgram`."
+  reimbursementAmount: Float!
 }
 
 """
 List of reimbursement types.
 """
 enum ReimbursementType {
-  "Denotes that reimbursement type is external"
-  EXTERNAL
   "Denotes that reimbursement type is fixed."
   FIXED
-}
-
-"""
-Inputs that should be send in order to create ProgramMedication. User must have a scope **program_medication:write**
-"""
-input CreateProgramMedicationInput {
-  "Id of medication"
-  medicationId: ID!
-  "Medical program Identifier"
-  medicalProgramId: ID!
-  "Reimbursement information"
-  reimbursement: ReimbursementInput!
-  "Factory gate price for package of medications"
-  wholesalePrice: Float!
-  "Consumer price for package of medications"
-  consumerPrice: Float!
-  "Reimbuersement amount for recommended daily dosage of medication"
-  reimbursementDailyDosage: Float!
-  "The estimatied amount which patient should pay for package of medications after reimbursement"
-  estimatedPaymentAmount: Float!
-}
-
-"""
-Reimbursement input.
-"""
-input ReimbursementInput {
-  "Reimbursement type"
-  type: ReimbursementType!
-  "Reimbursement amount"
-  reimbursementAmount: Float!
-}
-
-"""
-Return type for `createProgramMedication` mutation.
-"""
-type CreateProgramMedicationPayload {
-  "Payload for a ProgramMedication."
-  programMedication: ProgramMedication
-}
-
-"""
-Change status `is_active` for program medication. User must have a scope **program_medication:write**
-"""
-input StatusUpdateProgramMedicationInput {
-  "ProgramMedication id."
-  id: ID!
-}
-
-"""
-Autogenerated return type of `statusUpdateProgramMedication`
-"""
-type StatusUpdateProgramMedicationPayload {
-  "Payload for a ProgramMedication."
-  programMedication: ProgramMedication
-}
-
-"""
-Change status `MedicationRequestAllowed` for program medication. User must have a scope **program_medication:write**
-"""
-input UpdateMedicationRequestAllowedInput {
-  "ProgramMedication id."
-  id: ID!
-}
-
-"""
-Autogenerated return type of `updateMedicationRequestAllowed`
-"""
-type UpdateMedicationRequestAllowedPayload {
-  "Payload for a ProgramMedication."
-  programMedication: ProgramMedication
-}
-
-"""
-Change reimbursement amount for program medication. User must have a scope **program_medication:write**
-"""
-input UpdateReimbursementAmountInput {
-  "ProgramMedication id."
-  programMedicationId: ID!
-  "Reimbursement amount."
-  reimbursementAmount: Float!
-}
-"""
-Autogenerated return type of `updateReimbursementAmount`
-"""
-type UpdateReimbursementAmountPayload {
-  "Payload for a ProgramMedication."
-  programMedication: ProgramMedication
 }

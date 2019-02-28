@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.17.0"></a>
+# [2.17.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.16.0...v2.17.0) (2019-02-28)
+
+
+### Bug Fixes
+
+* remove unused `EXTERNAL` value from `ReimbursementType` enum ([3e2208b](https://github.com/edenlabllc/ehealth.schema/commit/3e2208b))
+* use correct types for `Medication` and `ProgramMedication` fields ([630fc3b](https://github.com/edenlabllc/ehealth.schema/commit/630fc3b))
+
+
+### Features
+
+* consolidate `ProgramMedication` update mutations ([9cb21b4](https://github.com/edenlabllc/ehealth.schema/commit/9cb21b4))
+
+
+
 <a name="2.16.0"></a>
 # [2.16.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.15.2...v2.16.0) (2019-02-27)
 
