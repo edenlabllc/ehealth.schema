@@ -11,7 +11,7 @@ input MedicationFilter {
   "Medication form."
   form: String
   "INNMDosage filter."
-  innmDosage: INNMDosageFilter
+  innmDosages: INNMDosageFilter
   "Manufacturer filter."
   manufacturer: ManufacturerFilter
 }
@@ -79,13 +79,13 @@ type Medication implements Node {
   "A container in medication (vacuum packed box, jar, etc.)"
   container: Container!
   "Quantity of pills in medication"
-  packageQty: String
+  packageQty: Int
   "A minimum quantity that could be sold"
-  packageMinQty: String
+  packageMinQty: Int
   "Certificate number"
   certificate: String
   "A day when certificate expired"
-  certificateExpiredAt: DateTime
+  certificateExpiredAt: Date
   "Ingredients in medication"
   ingredients: [MedicationIngredient]!
   "is_active status"
