@@ -66,13 +66,13 @@ type ProgramMedication implements Node {
   "Reimbursement information"
   reimbursement: Reimbursement!
   "Factory gate price for package of medications"
-  wholesalePrice: String!
+  wholesalePrice: Float!
   "Consumer price for package of medications"
-  consumerPrice: String!
+  consumerPrice: Float!
   "Reimbuersement amount for recommended daily dosage of medication"
-  reimbursementDailyDosage: String!
+  reimbursementDailyDosage: Float!
   "The estimatied amount which patient should pay for package of medications after reimbursement"
-  estimatedPaymentAmount: String!
+  estimatedPaymentAmount: Float!
   "Is_active status"
   isActive: Boolean!
   "Medication request allowed status"
@@ -90,7 +90,7 @@ type Reimbursement {
   "Fixed or external type of reimbursement"
   type: ReimbursementType!
   "Amount to reimburse for medication package by medicalProgram"
-  reimbursementAmount: String!
+  reimbursementAmount: Float!
 }
 
 """
