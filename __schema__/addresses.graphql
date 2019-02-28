@@ -1,4 +1,14 @@
 """
+A condition to be used against `Address` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input AddressFilter {
+  "Checks for equality with the object’s `id` field."
+  id: ID
+  "Checks for equality with the object’s `type` field."
+  type: AddressType
+}
+
+"""
 The `Address` type represents the physical location of a building, apartment, or other structure.
 """
 type Address {
