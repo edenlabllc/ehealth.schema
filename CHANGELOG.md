@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.18.3"></a>
+## [2.18.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.18.2...v2.18.3) (2019-03-01)
+
+
+### Bug Fixes
+
+* add new type  to legal_entity ([ca7c341](https://github.com/edenlabllc/ehealth.schema/commit/ca7c341))
+
+
+
 <a name="2.18.2"></a>
 ## [2.18.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.18.1...v2.18.2) (2019-03-01)
 
