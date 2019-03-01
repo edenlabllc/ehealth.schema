@@ -73,7 +73,7 @@ type Medication implements Node {
   "Company that creates medication"
   manufacturer: Manufacturer
   "Anatomical Therapeutic Chemical Classification System"
-  codeAtc: [String]!
+  atcCodes: [String]!
   "form of medication"
   form: MedicationForm
   "A container in medication (vacuum packed box, jar, etc.)"
