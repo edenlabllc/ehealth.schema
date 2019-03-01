@@ -60,13 +60,13 @@ input CreateProgramMedicationInput {
   "Reimbursement information"
   reimbursement: CreateReimbursementInput!
   "Factory gate price for package of medications"
-  wholesalePrice: Float!
+  wholesalePrice: Float
   "Consumer price for package of medications"
-  consumerPrice: Float!
+  consumerPrice: Float
   "Reimbuersement amount for recommended daily dosage of medication"
-  reimbursementDailyDosage: Float!
+  reimbursementDailyDosage: Float
   "The estimatied amount which patient should pay for package of medications after reimbursement"
-  estimatedPaymentAmount: Float!
+  estimatedPaymentAmount: Float
 }
 
 """
@@ -138,13 +138,13 @@ type ProgramMedication implements Node {
   "Reimbursement information."
   reimbursement: Reimbursement!
   "Factory gate price for package of medications"
-  wholesalePrice: Float!
+  wholesalePrice: Float
   "Consumer price for package of medications"
-  consumerPrice: Float!
+  consumerPrice: Float
   "Reimbuersement amount for recommended daily dosage of medication"
-  reimbursementDailyDosage: Float!
+  reimbursementDailyDosage: Float
   "The estimatied amount which patient should pay for package of medications after reimbursement"
-  estimatedPaymentAmount: Float!
+  estimatedPaymentAmount: Float
   "Whether `ProgramMedication` is active or not?"
   isActive: Boolean!
   "Whether requesting medications allowed for the `ProgramMedication` or not?"

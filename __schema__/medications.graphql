@@ -73,7 +73,7 @@ type Medication implements Node {
   "Company that creates medication"
   manufacturer: Manufacturer
   "Anatomical Therapeutic Chemical Classification System"
-  codeAtc: [CodeATC]!
+  codeAtc: [String]!
   "form of medication"
   form: MedicationForm
   "A container in medication (vacuum packed box, jar, etc.)"
@@ -132,14 +132,6 @@ enum MedicationForm {
   SUBLINGVAL_TABLET
   "A small mass of solid medicine for swallowing whole"
   TABLET
-}
-
-"""
-Anatomical Therapeutic Chemical Classification System.
-"""
-type CodeATC {
-  "Code atc"
-  codeAtc: String!
 }
 
 """
