@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.18.1"></a>
+## [2.18.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.18.0...v2.18.1) (2019-03-01)
+
+
+### Bug Fixes
+
+* `programMedication` new prices; remove `Medication` `codeAtc` ([#87](https://github.com/edenlabllc/ehealth.schema/issues/87)) ([4d215fb](https://github.com/edenlabllc/ehealth.schema/commit/4d215fb))
+
+
+
 <a name="2.18.0"></a>
 # [2.18.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.17.0...v2.18.0) (2019-02-28)
 
