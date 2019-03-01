@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.18.2"></a>
+## [2.18.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.18.1...v2.18.2) (2019-03-01)
+
+
+### Bug Fixes
+
+* codeAtc to atcCodes ([#88](https://github.com/edenlabllc/ehealth.schema/issues/88)) ([0790c42](https://github.com/edenlabllc/ehealth.schema/commit/0790c42))
+
+
+
 <a name="2.18.1"></a>
 ## [2.18.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.18.0...v2.18.1) (2019-03-01)
 
