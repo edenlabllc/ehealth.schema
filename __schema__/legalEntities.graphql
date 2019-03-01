@@ -262,6 +262,8 @@ enum LegalEntityType {
   MIS
   "Is a medical service provider."
   MSP
+  "Is pharmacy and msp"
+  MSP_PHARMACY
   "Is a pharmacy."
   PHARMACY
 }
