@@ -9,6 +9,8 @@ input PersonFilter {
   personal: PersonPersonalFilter!
   "Person identity information."
   identity: PersonIdentityFilter!
+  "Person status."
+  status: PersonStatus
 }
 
 """
