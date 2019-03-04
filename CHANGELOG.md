@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.19.0"></a>
+# [2.19.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.18.3...v2.19.0) (2019-03-04)
+
+
+### Features
+
+* add `status` to `PersonFilter` ([#90](https://github.com/edenlabllc/ehealth.schema/issues/90)) ([071427a](https://github.com/edenlabllc/ehealth.schema/commit/071427a))
+
+
+
 <a name="2.18.3"></a>
 ## [2.18.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.18.2...v2.18.3) (2019-03-01)
 
