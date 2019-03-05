@@ -103,6 +103,8 @@ type CapitationContract implements Node & Contract {
   status: ContractStatus!
   "The reason of termination contract"
   statusReason: String @fake(locale: "uk", method: "lorem.sentence")
+  "Free text to reason of termination contract"
+  reason: String
   "Place of contract"
   issueCity: String @fake(locale: "uk", method: "address.city")
   "Html to make a prinout form"
