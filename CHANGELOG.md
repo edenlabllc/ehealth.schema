@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.20.0"></a>
+# [2.20.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.19.0...v2.20.0) (2019-03-05)
+
+
+### Features
+
+* add `suspendContract` mutation ([#83](https://github.com/edenlabllc/ehealth.schema/issues/83)) ([78ec6f8](https://github.com/edenlabllc/ehealth.schema/commit/78ec6f8))
+
+
+
 <a name="2.19.0"></a>
 # [2.19.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.18.3...v2.19.0) (2019-03-04)
 
