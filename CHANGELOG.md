@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.21.0"></a>
+# [2.21.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.20.0...v2.21.0) (2019-03-06)
+
+
+### Features
+
+* change `LegalEntityType` to list ([#91](https://github.com/edenlabllc/ehealth.schema/issues/91)) ([740f1dd](https://github.com/edenlabllc/ehealth.schema/commit/740f1dd))
+
+
+
 <a name="2.20.0"></a>
 # [2.20.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.19.0...v2.20.0) (2019-03-05)
 
