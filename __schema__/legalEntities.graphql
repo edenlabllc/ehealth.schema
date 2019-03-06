@@ -19,7 +19,7 @@ input LegalEntityFilter {
   "In case legal entity was reviewed by NHS employee, nhsReview should be true."
   nhsReviewed: Boolean
   "Legal entity type."
-  type: LegalEntityType
+  type: [LegalEntityType]
   "Conditions to check on fields of the object’s `addresses` field."
   addresses: AddressFilter
 }
