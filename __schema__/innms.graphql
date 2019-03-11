@@ -4,6 +4,14 @@ INNM filter.
 input INNMFilter {
   "Primary key identifier from the database."
   databaseId: UUID
+  "innm local name."
+  name: String
+  "is_active status."
+  isActive: Boolean
+  "innm original name."
+  nameOriginal: String
+  "innm CNOMED code."
+  sctid: String
 }
 
 """
