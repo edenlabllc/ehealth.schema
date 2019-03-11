@@ -30,10 +30,18 @@ input ManufacturerFilter {
 Methods to use when ordering `Medication`.
 """
 enum MedicationOrderBy {
-  "Sort by inserted_at in ascending order."
+  "Sort Medication by form in ascending order."
+  FORM_ASC
+  "Sort Medication by form in descending order."
+  FORM_DESC
+  "Sort Medication by inserted_at in ascending order."
   INSERTED_AT_ASC
-  "Sort by inserted_at in descending order."
+  "Sort Medication by inserted_at in descending order."
   INSERTED_AT_DESC
+  "Sort Medication by manufacturer in ascending order."
+  MANUFACTURER_ASC
+  "Sort Medication by manufacturer in descending order."
+  MANUFACTURER_DESC
   "Sort Medication by name in ascending order."
   NAME_ASC
   "Sort Medication by name in descending order."
