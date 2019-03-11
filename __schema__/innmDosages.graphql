@@ -30,10 +30,18 @@ input INNMDosageIngredientFilter {
 Methods to use when ordering `INNMDosage`.
 """
 enum INNMDosageOrderBy {
+  "Sort by form type in ascending order."
+  FORM_ASC
+  "Sort by form type in descending order."
+  FORM_DESC
   "Sort by inserted_at in ascending order."
   INSERTED_AT_ASC
   "Sort by inserted_at in descending order."
   INSERTED_AT_DESC
+  "Sort by name in ascending order."
+  NAME_ASC
+  "Sort by name in descending order."
+  NAME_DESC
 }
 
 """
