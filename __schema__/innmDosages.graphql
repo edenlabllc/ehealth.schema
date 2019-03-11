@@ -8,6 +8,22 @@ input INNMDosageFilter {
   databaseId: UUID
   "Medication innm dosage name"
   name: String
+  "is_active status."
+  isActive: Boolean
+  "MedicationForm form"
+  form: MedicationForm
+  "INNMDosage ingredients"
+  ingredients: INNMDosageIngredientFilter
+}
+
+"""
+INNMDosageIngredient filter.
+"""
+input INNMDosageIngredientFilter {
+  "Is the component primary or not"
+  isPrimary: Boolean
+  "International Nonproprietary Name"
+  innm: INNMFilter
 }
 
 """
