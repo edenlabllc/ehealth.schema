@@ -61,6 +61,108 @@ type MedicationEdge {
 }
 
 """
+Input for `createMedication` mutation. User must have scopes **medication:write**
+"""
+input CreateMedicationInput {
+  "Certificate number"
+  certificate: String
+  "A day when certificate expired"
+  certificateExpiredAt: Date
+  "Anatomical Therapeutic Chemical Classification System"
+  atcCodes: [String]!
+  "A container in medication (vacuum packed box, jar, etc.)"
+  container: CreateContainerInput!
+  "Daily dose of medication, recommended by WHO"
+  dailyDosage: Float
+  "Form of medication"
+  form: MedicationForm!
+  "Ingredients in medication"
+  ingredients: [CreateMedicationIngredientInput]!
+  "Company that creates medication"
+  manufacturer: CreateManufacturerInput
+  "Medication name"
+  name: String!
+  "A minimum quantity that could be sold"
+  packageMinQty: Int
+  "Quantity of pills in medication"
+  packageQty: Int
+}
+
+"""
+Input for `CreateMedicationInput.container`.
+"""
+input CreateContainerInput {
+  "Numerator unit"
+  numeratorUnit: MedicationUnit!
+  "Numerator value"
+  numeratorValue: String!
+  "Denumerator unit"
+  denumeratorUnit: MedicationUnit!
+  "Denumerator value"
+  denumeratorValue: String!
+}
+
+"""
+Input for `medicationIngredient` mutation.
+"""
+input CreateMedicationIngredientInput {
+  "The size or frequency of a dose of a medicine or drug."
+  dosage: CreateDosageInput!
+  "Is the component primary or not"
+  isPrimary: Boolean!
+  "International Nonproprietary Name"
+  innmDosage: CreateINNMDosageInput!
+}
+
+"""
+Input for `Dosage` mutation.
+"""
+input CreateDosageInput {
+  "Numerator unit"
+  numeratorUnit: MedicationUnit!
+  "Numerator value"
+  numeratorValue: String!
+  "Denumerator unit"
+  denumeratorUnit: MedicationUnit!
+  "Denumerator value"
+  denumeratorValue: String!
+}
+
+"""
+Input for `manufacturer` mutation
+"""
+input CreateManufacturerInput {
+  "Manufacturer country"
+  country: String!
+  "Manufacturer name"
+  name: String!
+}
+
+"""
+Return type for `createMedication` mutation.
+"""
+type CreateMedicationPayload {
+  "Created `Medication`."
+  medication: Medication
+}
+
+"""
+Input for `Medication` mutation. User must have scopes **medication:deactivate**
+"""
+input DeactivateMedicationInput {
+  "The ID of an object"
+  id: ID!
+}
+
+"""
+Return type for `Medication` mutation.
+"""
+type DeactivateMedicationPayload {
+  "Deactivated `Medication`."
+  medication: Medication
+}
+
+"""
 Trade mark medication. User must have a scope **medication:read**
 """
 type Medication implements Node {

@@ -529,6 +529,18 @@ type Mutation {
   deactivateINNMDosage(
     input: DeactivateINNMDosageInput!
   ): DeactivateINNMDosagePayload
+
+  """
+  Creates new `Medication` with given field values.
+  """
+  createMedication(input: CreateMedicationInput!): CreateMedicationPayload
+
+  """
+  Deactivate `Medication` with given field values.
+  """
+  deactivateMedication(
+    input: DeactivateMedicationInput!
+  ): DeactivateMedicationPayload
 }
 
 """
