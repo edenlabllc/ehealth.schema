@@ -194,6 +194,8 @@ type Medication implements Node {
   packageQty: Int
   "A minimum quantity that could be sold"
   packageMinQty: Int
+  "Daily dose of medication, recommended by WHO"
+  dailyDosage: Float
   "Certificate number"
   certificate: String
   "A day when certificate expired"
