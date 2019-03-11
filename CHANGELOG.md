@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.22.0"></a>
+# [2.22.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.21.0...v2.22.0) (2019-03-11)
+
+
+### Features
+
+* add `atcCode` field to `INNMDosageFilter` type ([1e18500](https://github.com/edenlabllc/ehealth.schema/commit/1e18500))
+* add `createINNM` mutation ([c213cfb](https://github.com/edenlabllc/ehealth.schema/commit/c213cfb))
+* add `createINNMDosage` and `createINNMDosage` mutations ([7659fa2](https://github.com/edenlabllc/ehealth.schema/commit/7659fa2))
+* add `createMedication` and `deactivateMedication` mutations ([cff4f70](https://github.com/edenlabllc/ehealth.schema/commit/cff4f70))
+* add `dailyDosage` field to `Medication` type ([17b62ad](https://github.com/edenlabllc/ehealth.schema/commit/17b62ad))
+* add `FORM_ASC`, `FORM_DESC`, `MANUFACTURER_ASC` and `MANUFACTURER_DESC` values to `MedicationOrderBy` enum ([8c4ce4c](https://github.com/edenlabllc/ehealth.schema/commit/8c4ce4c))
+* add `FORM_ASC`, `FORM_DESC`, `NAME_ASC` and `NAME_DESC` values to `INNMDosageOrderBy` enum ([9569212](https://github.com/edenlabllc/ehealth.schema/commit/9569212))
+* add `isActive`, `form` and `ingredients` fields to `INNMDosageFilter` type ([33f7c94](https://github.com/edenlabllc/ehealth.schema/commit/33f7c94))
+* add `name`, `isActive`, `nameOriginal` and `sctid` fields to `INNMFilter` type ([c1dc75c](https://github.com/edenlabllc/ehealth.schema/commit/c1dc75c))
+
+
+
 <a name="2.21.0"></a>
 # [2.21.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.20.0...v2.21.0) (2019-03-06)
 
