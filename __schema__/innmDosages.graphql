@@ -43,6 +43,54 @@ type INNMDosageEdge {
 }
 
 """
+Input for `createINNMDosage` mutation. User must have scopes **innm_dosage:write**
+"""
+input CreateINNMDosageInput {
+  "INNMDosage name"
+  name: String!
+  "MedicationForm form"
+  form: MedicationForm!
+  "INNMDosage ingredients"
+  ingredients: [CreateINNMDosageIngredientInput]!
+}
+
+"""
+Input for `INNMDosageIngredient` mutation.
+"""
+input CreateINNMDosageIngredientInput {
+  "The size or frequency of a dose of a medicine or drug."
+  dosage: CreateDosageInput!
+  "Is the component primary or not"
+  isPrimary: Boolean!
+  "International Nonproprietary Name"
+  innm: CreateINNMInput!
+}
+
+"""
+Return type for `createINNMDosage` mutation.
+"""
+type CreateINNMDosagePayload {
+  "Created `INNMDosage`."
+  innmDosage: INNMDosage
+}
+
+"""
+Input for `deactivateINNMDosage` mutation. User must have scopes **innm_dosage:deactivate**
+"""
+input DeactivateINNMDosageInput {
+  "The ID of an object"
+  id: ID!
+}
+
+"""
+Return type for `deactivateINNMDosage` mutation.
+"""
+type DeactivateINNMDosagePayload {
+  "Deactivated `INNMDosage`."
+  innmDosage: INNMDosage
+}
+
+"""
 A component part of medication. User must have a scope **innm_dosage:read**
 """
 type INNMDosage implements Node {

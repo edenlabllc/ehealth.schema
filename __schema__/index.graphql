@@ -517,6 +517,18 @@ type Mutation {
   Creates new `INNM` with given field values.
   """
   createINNM(input: CreateINNMInput!): CreateINNMPayload
+
+  """
+  Creates new `INNMDosage` with given field values.
+  """
+  createINNMDosage(input: CreateINNMDosageInput!): CreateINNMDosagePayload
+
+  """
+  Deactivate `INNMDosage` with given field values.
+  """
+  deactivateINNMDosage(
+    input: DeactivateINNMDosageInput!
+  ): DeactivateINNMDosagePayload
 }
 
 """
