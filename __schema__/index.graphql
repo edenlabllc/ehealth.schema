@@ -512,6 +512,11 @@ type Mutation {
   updateProgramMedication(
     input: UpdateProgramMedicationInput!
   ): UpdateProgramMedicationPayload
+
+  """
+  Creates new `INNM` with given field values.
+  """
+  createINNM(input: CreateINNMInput!): CreateINNMPayload
 }
 
 """

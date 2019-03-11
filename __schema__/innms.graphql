@@ -39,6 +39,26 @@ type INNMEdge {
 }
 
 """
+Input for `createINNM` mutation. User must have scopes **innm:write**
+"""
+input CreateINNMInput {
+  "innm local name"
+  name: String!
+  "innm original name"
+  nameOriginal: String!
+  "innm CNOMED code"
+  sctid: String
+}
+
+"""
+Return type for `createINNM` mutation.
+"""
+type CreateINNMPayload {
+  "Created `INNM`."
+  innm: INNM
+}
+
+"""
 International Nonproprietary Name Modified.
 """
 type INNM implements Node {
