@@ -85,8 +85,10 @@ NHS admin can prolongate contract  Contract Request having a scope `contract:upd
 input TerminateContractInput {
   "Input for a single `contractId` using its globally unique ID."
   id: ID!
-  "Input string field to update the reason of termination contract"
-  statusReason: String
+  "Input string field to update the status_reason of termination contract"
+  statusReason: ContractStatusReason!
+  "Free text to reason of termination contract"
+  reason: String
 }
 
 """
