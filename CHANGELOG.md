@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.23.0"></a>
+# [2.23.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.22.0...v2.23.0) (2019-03-12)
+
+
+### Features
+
+* add `reason` to `TerminateContractInput` change statusReason type to `ContractStatusReason` ([cf9e417](https://github.com/edenlabllc/ehealth.schema/commit/cf9e417))
+
+
+
 <a name="2.22.0"></a>
 # [2.22.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.21.0...v2.22.0) (2019-03-11)
 
