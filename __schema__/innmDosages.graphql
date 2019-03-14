@@ -86,8 +86,8 @@ input CreateINNMDosageIngredientInput {
   dosage: CreateDosageInput!
   "Is the component primary or not"
   isPrimary: Boolean!
-  "International Nonproprietary Name"
-  innm: CreateINNMInput!
+  "International Nonproprietary Name ID"
+  innmId: ID!
 }
 
 """
