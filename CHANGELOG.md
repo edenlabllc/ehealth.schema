@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.23.2"></a>
+## [2.23.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.1...v2.23.2) (2019-03-14)
+
+
+### Bug Fixes
+
+* set `numeratorValue`, `denumeratorValue` as integers in `CreateDosageInput` ([dbadfc5](https://github.com/edenlabllc/ehealth.schema/commit/dbadfc5))
+
+
+
 <a name="2.23.1"></a>
 ## [2.23.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.0...v2.23.1) (2019-03-14)
 
