@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.23.1"></a>
+## [2.23.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.0...v2.23.1) (2019-03-14)
+
+
+### Bug Fixes
+
+* replace `CreateINNMDosageIngredientInput.innm` with `innmId` ([#94](https://github.com/edenlabllc/ehealth.schema/issues/94)) ([9a16fe2](https://github.com/edenlabllc/ehealth.schema/commit/9a16fe2))
+
+
+
 <a name="2.23.0"></a>
 # [2.23.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.22.0...v2.23.0) (2019-03-12)
 
