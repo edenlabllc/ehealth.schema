@@ -131,11 +131,11 @@ input CreateDosageInput {
   "Numerator unit"
   numeratorUnit: MedicationUnit!
   "Numerator value"
-  numeratorValue: String!
+  numeratorValue: Int!
   "Denumerator unit"
   denumeratorUnit: MedicationUnit!
   "Denumerator value"
-  denumeratorValue: String!
+  denumeratorValue: Int!
 }
 
 """
