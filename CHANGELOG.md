@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.23.4"></a>
+## [2.23.4](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.3...v2.23.4) (2019-03-15)
+
+
+### Bug Fixes
+
+* normalize names of `createInnm`, `createInnmDosage` and `deactivateInnmDosage` mutation fields ([1f9be1e](https://github.com/edenlabllc/ehealth.schema/commit/1f9be1e))
+
+
+
 <a name="2.23.3"></a>
 ## [2.23.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.2...v2.23.3) (2019-03-15)
 
