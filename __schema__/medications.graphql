@@ -75,9 +75,9 @@ Input for `createMedication` mutation. User must have scopes **medication:write*
 """
 input CreateMedicationInput {
   "Certificate number"
-  certificate: String
+  certificate: String!
   "A day when certificate expired"
-  certificateExpiredAt: Date
+  certificateExpiredAt: Date!
   "Anatomical Therapeutic Chemical Classification System"
   atcCodes: [String]!
   "A container in medication (vacuum packed box, jar, etc.)"
@@ -89,13 +89,13 @@ input CreateMedicationInput {
   "Ingredients in medication"
   ingredients: [CreateMedicationIngredientInput]!
   "Company that creates medication"
-  manufacturer: CreateManufacturerInput
+  manufacturer: CreateManufacturerInput!
   "Medication name"
   name: String!
   "A minimum quantity that could be sold"
-  packageMinQty: Int
+  packageMinQty: Int!
   "Quantity of pills in medication"
-  packageQty: Int
+  packageQty: Int!
 }
 
 """
@@ -105,11 +105,11 @@ input CreateContainerInput {
   "Numerator unit"
   numeratorUnit: MedicationUnit!
   "Numerator value"
-  numeratorValue: String!
+  numeratorValue: Int!
   "Denumerator unit"
   denumeratorUnit: MedicationUnit!
   "Denumerator value"
-  denumeratorValue: String!
+  denumeratorValue: Int!
 }
 
 """
@@ -120,8 +120,8 @@ input CreateMedicationIngredientInput {
   dosage: CreateDosageInput!
   "Is the component primary or not"
   isPrimary: Boolean!
-  "International Nonproprietary Name"
-  innmDosage: CreateINNMDosageInput!
+  "innmDosage ID"
+  innmDosage: ID!
 }
 
 """
@@ -131,11 +131,11 @@ input CreateDosageInput {
   "Numerator unit"
   numeratorUnit: MedicationUnit!
   "Numerator value"
-  numeratorValue: String!
+  numeratorValue: Int!
   "Denumerator unit"
   denumeratorUnit: MedicationUnit!
   "Denumerator value"
-  denumeratorValue: String!
+  denumeratorValue: Int!
 }
 
 """
@@ -183,7 +183,7 @@ type Medication implements Node {
   "Medication name"
   name: String!
   "Company that creates medication"
-  manufacturer: Manufacturer
+  manufacturer: Manufacturer!
   "Anatomical Therapeutic Chemical Classification System"
   atcCodes: [String]!
   "form of medication"
@@ -191,15 +191,15 @@ type Medication implements Node {
   "A container in medication (vacuum packed box, jar, etc.)"
   container: Container!
   "Quantity of pills in medication"
-  packageQty: Int
+  packageQty: Int!
   "A minimum quantity that could be sold"
-  packageMinQty: Int
+  packageMinQty: Int!
   "Daily dose of medication, recommended by WHO"
   dailyDosage: Float
   "Certificate number"
-  certificate: String
+  certificate: String!
   "A day when certificate expired"
-  certificateExpiredAt: Date
+  certificateExpiredAt: Date!
   "Ingredients in medication"
   ingredients: [MedicationIngredient]!
   "is_active status"
