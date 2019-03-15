@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.23.3"></a>
+## [2.23.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.2...v2.23.3) (2019-03-15)
+
+
+### Bug Fixes
+
+* change innmDosageDreate to ID of innmDosage in createMadication ([#96](https://github.com/edenlabllc/ehealth.schema/issues/96)) ([32d24c5](https://github.com/edenlabllc/ehealth.schema/commit/32d24c5))
+
+
+
 <a name="2.23.2"></a>
 ## [2.23.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.1...v2.23.2) (2019-03-14)
 
