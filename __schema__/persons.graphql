@@ -29,32 +29,10 @@ input PersonIdentityFilter {
 Information about documents to identify the patient.
 """
 input PersonDocumentFilter {
-  "Type of document."
-  type: PersonDocumentType!
+  "Dictionary: DOCUMENT_TYPE. Type of document."
+  type: String!
   "Number of document."
   number: String!
-}
-
-"""
-Person document types.
-"""
-enum PersonDocumentType {
-  "Document type birth_certificate."
-  BIRTH_CERTIFICATE
-  "Document type complementary_protection_certificate."
-  COMPLEMENTARY_PROTECTION_CERTIFICATE
-  "Document type national_id."
-  NATIONAL_ID
-  "Document type passport."
-  PASSPORT
-  "Document type permanent_residence_permit."
-  PERMANENT_RESIDENCE_PERMIT
-  "Document type refugee_certificate."
-  REFUGEE_CERTIFICATE
-  "Document type temporary_certificate."
-  TEMPORARY_CERTIFICATE
-  "Document type temporary_passport."
-  TEMPORARY_PASSPORT
 }
 
 """
@@ -154,8 +132,8 @@ type Person implements Node {
   birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
   "Patient birth country."
   birthCountry: String! @fake(locale: "uk", format: "Україна")
-  "Patient gender."
-  gender: PersonGender!
+  "Dictionary: GENDER. Patient gender."
+  gender: String!
   "Patient's email"
   email: String
   "Patient status in the system, is set automatically."
@@ -217,16 +195,6 @@ enum PersonStatus {
 }
 
 """
-List of person Gender.
-"""
-enum PersonGender {
-  "Gender `FEMALE` for a person."
-  FEMALE
-  "Gender `MALE` for a person."
-  MALE
-}
-
-"""
 List of person preferred way communication.
 """
 enum PersonPreferredWayCommunication {
@@ -240,22 +208,10 @@ enum PersonPreferredWayCommunication {
 The method to verify changes of patient by patient.
 """
 type PersonAuthenticationMethod {
-  "Type of authentication method, is taken from dictionary."
-  type: PersonAuthenticationMethodType!
+  "Dictionary: AUTHENTICATION_METHOD. Type of authentication method."
+  type: String!
   "Person's mobile phone number when the authentication method type is `OTP`."
   phoneNumber: String
-}
-
-"""
-List of authentication method type
-"""
-enum PersonAuthenticationMethodType {
-  "Is set when a person does not have any authentication method or authentication method was reset by NHS."
-  NA
-  "Is set when the person does not have cell phone number. In that case, the person should provide its documents."
-  OFFLINE
-  "Is set when the person has a cell phone number."
-  OTP
 }
 
 """
@@ -292,8 +248,8 @@ type EmergencyContact {
 The person who is responsible for the patient.
 """
 type ConfidantPerson {
-  "Priority of persons"
-  relationType: ConfidantPersonRelationType!
+  "Dictionary: CONFIDANT_PERSON_TYPE. Priority of persons"
+  relationType: String!
   "Person first name."
   firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
   "Person last name."
@@ -306,8 +262,8 @@ type ConfidantPerson {
   birthCountry: String! @fake(locale: "uk", format: "Україна")
   "Person birth settlement."
   birthSettlement: String! @fake(locale: "uk", method: "address.city")
-  "Patient gender."
-  gender: PersonGender!
+  "Dictionary: GENDER. Patient gender."
+  gender: String!
   "the unique number in Unified State Register"
   unzr: String @fake(randexp: "^[0-9]{8}-[0-9]{5}$")
   "National person identifier."
@@ -327,14 +283,4 @@ type ConfidantPerson {
   phones: [Phone]
   "Preferred way to communicate with the confident person."
   preferredWayCommunication: PersonPreferredWayCommunication
-}
-
-"""
-List of relation types
-"""
-enum ConfidantPersonRelationType {
-  "Is set when a person has higher priority"
-  PRIMARY
-  "Is set when a person has lower priority"
-  SECONDARY
 }

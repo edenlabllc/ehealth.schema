@@ -18,8 +18,8 @@ input LegalEntityFilter {
   nhsVerified: Boolean
   "In case legal entity was reviewed by NHS employee, nhsReview should be true."
   nhsReviewed: Boolean
-  "Legal entity type."
-  type: [LegalEntityType]
+  "Dictionary: LEGAL_ENTITY_TYPE. Legal entity type."
+  type: [String]
   "Conditions to check on fields of the object’s `addresses` field."
   addresses: AddressFilter
   "Whether the legal entity is present in a unified state register or not?"
@@ -165,8 +165,8 @@ type LegalEntity implements Node {
     @fake(locale: "uk", method: "company.companyName", args: [0])
   "Legal entity public name."
   publicName: String @fake(locale: "uk", method: "company.companyName")
-  "Legal entity type."
-  type: LegalEntityType!
+  "Dictionary: LEGAL_ENTITY_TYPE. Legal entity type."
+  type: String!
   "Unified Register of Businesses and Organizations"
   edrpou: String! @fake(randexp: "^[0-9]{8,10}$")
   "Legal entity status, is set automatically"
@@ -256,20 +256,6 @@ type LegalEntity implements Node {
     "Only read the last _n_ values of the set."
     last: Int
   ): RelatedLegalEntityConnection!
-}
-
-"""
-Denotes the type of legal entity.
-"""
-enum LegalEntityType {
-  "Is a medical information system."
-  MIS
-  "Is a medical service provider."
-  MSP
-  "Is pharmacy and msp"
-  MSP_PHARMACY
-  "Is a pharmacy."
-  PHARMACY
 }
 
 """

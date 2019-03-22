@@ -123,8 +123,8 @@ type ReimbursementContractRequest implements Node & ContractRequest {
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
   nhsSignerBase: String @fake(locale: "uk", method: "lorem.sentence")
-  "Payment method for the contract."
-  nhsPaymentMethod: NhsPaymentMethod
+  "Dictionary: CONTRACT_PAYMENT_METHOD. Payment method for the contract."
+  nhsPaymentMethod: String
   "Link to receive attached documents with particular types."
   attachedDocuments: [ContractDocument]!
   "Additional conditions to contract."

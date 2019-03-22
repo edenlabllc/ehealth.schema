@@ -84,8 +84,8 @@ input CreateMedicationInput {
   container: CreateContainerInput!
   "Daily dose of medication, recommended by WHO"
   dailyDosage: Float
-  "Form of medication"
-  form: MedicationForm!
+  "Dictionary: MEDICATION_FORM. Form of medication"
+  form: String!
   "Ingredients in medication"
   ingredients: [CreateMedicationIngredientInput]!
   "Company that creates medication"
@@ -102,12 +102,12 @@ input CreateMedicationInput {
 Input for `CreateMedicationInput.container`.
 """
 input CreateContainerInput {
-  "Numerator unit"
-  numeratorUnit: MedicationUnit!
+  "Dictionary: MEDICATION_UNIT. Numerator unit"
+  numeratorUnit: String!
   "Numerator value"
   numeratorValue: Int!
-  "Denumerator unit"
-  denumeratorUnit: MedicationUnit!
+  "Dictionary: MEDICATION_UNIT. Denumerator unit"
+  denumeratorUnit: String!
   "Denumerator value"
   denumeratorValue: Int!
 }
@@ -128,12 +128,12 @@ input CreateMedicationIngredientInput {
 Input for `Dosage` mutation.
 """
 input CreateDosageInput {
-  "Numerator unit"
-  numeratorUnit: MedicationUnit!
+  "Dictionary: MEDICATION_UNIT. Numerator unit"
+  numeratorUnit: String!
   "Numerator value"
   numeratorValue: Int!
-  "Denumerator unit"
-  denumeratorUnit: MedicationUnit!
+  "Dictionary: MEDICATION_UNIT. Denumerator unit"
+  denumeratorUnit: String!
   "Denumerator value"
   denumeratorValue: Int!
 }
@@ -186,8 +186,8 @@ type Medication implements Node {
   manufacturer: Manufacturer!
   "Anatomical Therapeutic Chemical Classification System"
   atcCodes: [String]!
-  "form of medication"
-  form: MedicationForm
+  "Dictionary: MEDICATION_FORM. Form of medication"
+  form: String
   "A container in medication (vacuum packed box, jar, etc.)"
   container: Container!
   "Quantity of pills in medication"
@@ -223,41 +223,15 @@ type Manufacturer {
 }
 
 """
-Medication form.
-"""
-enum MedicationForm {
-  "A colloid system in which solid or liquid particles are suspended in a gas"
-  AEROSOL_FOR_INHALATION
-  "Aerosole with a dose"
-  AEROSOL_FOR_INHALATION_DOSED
-  "A solid disc of one or more pharmaceutic agents that is coated with sugar or a flavoring"
-  COATED_TABLET
-  "A thin polymer based coat applied to a solid dosage form such as a tablet"
-  FILM_COATED_TABLET
-  "A device that delivers medication to the lungs in the form of a dry powder "
-  INHALATION_POWDER
-  "a mechanism that delivers a drug with a delay after its administration or for a prolonged period of time or to a specific target in the body"
-  MODIFIEDRELEASE_TABLET
-  "A drug delivery device used to administer medication in the form of a mist inhaled into the lungs"
-  NEBULISER_SUSPENSION
-  "A pressurized canister of medication that fits into a mouthpiece"
-  PRESSURISED_INHALATION
-  "Tablets which easily melt in the mouth"
-  SUBLINGVAL_TABLET
-  "A small mass of solid medicine for swallowing whole"
-  TABLET
-}
-
-"""
 The kind of container that this package comes as.
 """
 type Container {
-  "Numerator unit"
-  numeratorUnit: MedicationUnit!
+  "Dictionary: MEDICATION_UNIT. Numerator unit"
+  numeratorUnit: String!
   "Numerator value"
   numeratorValue: String!
-  "Denumerator unit"
-  denumeratorUnit: MedicationUnit!
+  "Dictionary: MEDICATION_UNIT. Denumerator unit"
+  denumeratorUnit: String!
   "Denumerator value"
   denumeratorValue: String!
 }

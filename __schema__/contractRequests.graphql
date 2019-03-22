@@ -40,8 +40,8 @@ interface ContractRequest {
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
   nhsSignerBase: String
-  "Payment method for the contract."
-  nhsPaymentMethod: NhsPaymentMethod
+  "Dictionary: CONTRACT_PAYMENT_METHOD. Payment method for the contract."
+  nhsPaymentMethod: String
   "Link to receive attached documents with particular types."
   attachedDocuments: [ContractDocument]!
   "Additional conditions to contract."
@@ -64,22 +64,16 @@ Inputs that should be filled for update contract request. ContractRequest is upd
 input UpdateContractRequestInput {
   "Contract Request ID"
   id: ID!
-
   "ID of NHS employee who can sign contracts."
   nhsSignerId: ID
-
   "Proof for the employee to sign contracts."
   nhsSignerBase: String
-
   "The price for the contract. Is filled with UAH"
   nhsContractPrice: Float
-
-  "The payment method for contract."
-  nhsPaymentMethod: NhsPaymentMethod
-
+  "Dictionary: CONTRACT_PAYMENT_METHOD. The payment method for contract."
+  nhsPaymentMethod: String
   "The city where contract is signed."
   issueCity: String
-
   "Additional information in contract."
   miscellaneous: String
 }

@@ -150,8 +150,8 @@ type ReimbursementContract implements Node & Contract {
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
   nhsSignerBase: String @fake(locale: "uk", method: "lorem.sentence")
-  "Possible ways to pay MSP. Dictionary"
-  nhsPaymentMethod: NhsPaymentMethod
+  "Dictionary: CONTRACT_PAYMENT_METHOD. Possible ways to pay MSP."
+  nhsPaymentMethod: String
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
   "Medical program that is a subject of a reimbursement contract."

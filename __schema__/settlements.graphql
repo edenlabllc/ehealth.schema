@@ -56,8 +56,8 @@ type Settlement implements Node {
   koatuu: String!
   "Whether the village belongs to the mountain group?"
   mountainGroup: Boolean!
-  "Settlement type."
-  type: SettlementType!
+  "Dictionary: SETTLEMENT_TYPE. Settlement type."
+  type: String!
   "Region to which settlement belongs."
   region: Region!
   "District to which settlement belongs."
@@ -68,16 +68,4 @@ type Settlement implements Node {
   insertedAt: DateTime!
   "Date and time when record was updated."
   updatedAt: DateTime!
-}
-
-"List of settlements type."
-enum SettlementType {
-  "A large town."
-  CITY
-  "A place where people establish a community."
-  SETTLEMENT
-  "A small town."
-  TOWNSHIP
-  "A group of houses and associated buildings, larger than a hamlet and smaller than a town, situated in a rural area."
-  VILLAGE
 }

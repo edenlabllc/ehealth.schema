@@ -4,16 +4,16 @@ A condition to be used against `Address` object types. All fields are tested for
 input AddressFilter {
   "Checks for equality with the object’s `id` field."
   id: ID
-  "Checks for equality with the object’s `type` field."
-  type: AddressType
+  "Dictionary: ADDRESS_TYPE. Checks for equality with the object’s `type` field."
+  type: String
 }
 
 """
 The `Address` type represents the physical location of a building, apartment, or other structure.
 """
 type Address {
-  "Type of address."
-  type: AddressType!
+  "Dictionary: ADDRESS_TYPE. Type of address."
+  type: String!
   "The name of Country."
   country: String! @fake(locale: "uk", format: "Україна")
   "The area name in specific country. Should be taken from the state directory."
@@ -22,12 +22,12 @@ type Address {
   region: String @fake(locale: "uk", method: "address.cityPrefix")
   "The settlement name. Should be taken from the state directory and should fit settlementId."
   settlement: String! @fake(locale: "uk", method: "address.city")
-  "The settlement type. Should fit settlementId and settlement name."
-  settlementType: SettlementType!
+  "Dictionary: SETTLEMENT_TYPE. The settlement type. Should fit settlementId and settlement name."
+  settlementType: String!
   "ID of specific settlement. Should fit settlement name."
   settlementId: UUID!
-  "The street type."
-  streetType: StreetType
+  "Dictionary: STREET_TYPE. The street type."
+  streetType: String
   "The street name."
   street: String @fake(locale: "uk", method: "address.streetName")
   "The number of a building."
@@ -39,104 +39,4 @@ type Address {
   apartment: String @fake(locale: "uk", method: "random.number", args: [1000])
   "Address's zip code."
   zip: String @fake(locale: "uk", method: "address.zipCode")
-}
-
-"""
-List of possible addresses types.
-"""
-enum AddressType {
-  "Person's registration address."
-  REGISTRATION
-  "An actual address of living."
-  RESIDENCE
-}
-
-"""
-List of possible street types.
-"""
-enum StreetType {
-  "A narrow road or path between buildings."
-  ALLEY
-  "A road that goes up."
-  ASCENT
-  "A wide road with trees or tall buildings on both sides."
-  AVENUE
-  "A street with a dead end."
-  BLIND_STREET
-  "A square group of buildings or houses with roads on each side."
-  BLOCK
-  "A family home."
-  BOARGING_HOUSE
-  "A wide road in a city, usually with trees on each side or along the centre."
-  BOULEVARD
-  "A narrow road with little vehicular traffic."
-  COUNTRY_LANE
-  "An at-grade junction where two or more roads meet or cross."
-  CROSSROADS
-  "A post-Soviet cities country cottage used especially in the summer."
-  DACHA_COOPERATIVE
-  "A kind of street in a city."
-  ENTRANCE
-  "A forest site as an economic unit, as well as an institution in charge of this site."
-  FORESTRY
-  "A communal garden in an urban area."
-  GARDEN_SQUARE
-  "A small group of trees."
-  GROVE
-  "A small settlement, smaller than a village."
-  HAMLET
-  "A main road, especially one connecting major towns or cities."
-  HIGHWAY
-  "A group of homes and other buildings built together as a single development."
-  HOUSING_AREA
-  "A piece of sub-continental land that is surrounded by water."
-  ISLAND
-  "A narrow road, especially in a rural area."
-  LANE
-  "A kind of street in a city."
-  LINE
-  "A square in the city."
-  MAIDAN
-  "An area of a city that has been given fixed borders for official purposes."
-  MICRODISTRICT
-  "Is a facility directly owned and operated by a military or one of its branches."
-  MILITARY_BASE
-  "An excavation in the earth for extracting coal or other minerals."
-  MINE
-  "A large public garden or area of land used for recreation."
-  PARK
-  "A path or road between or over mountains."
-  PASS
-  "A long and narrow part of a building with rooms on one or both sides."
-  PASSAGE
-  "A place on a single line railway or tramway, often located at a station, where trains or trams can pass each other."
-  PASSING_LOOP
-  "The street along the edges of a river."
-  RIVER_SIDE
-  "Road ( abbreviation Rd.) is often used in the names of roads."
-  ROAD
-  "A public road or a road that joins cities or towns together."
-  ROADWAY
-  "An establishment for the medical treatment of people."
-  SANATORIUM
-  "The building or place surrounded it where animals or plants are kept in order to breed from them."
-  SELECTION_BASE
-  "A place where people establish a community."
-  SETTLEMENT
-  "An area of land in a city or a town, often including the buildings that surround it."
-  SQUARE
-  "A state farming enterprise."
-  STATE_FARM
-  "A building or buildings and the surrounding area where a particular service or activity takes place."
-  STATION
-  "A settlement near the station."
-  STATION_SETTLEMENT
-  "A road in a city or town that has buildings that are usually close together along one or both sides."
-  STREET
-  "A rough path or road, typically one beaten by use rather than constructed."
-  TRACK
-  "A large area of land."
-  TRACT
-  "A road, track, or path for travelling along."
-  WAY
 }
