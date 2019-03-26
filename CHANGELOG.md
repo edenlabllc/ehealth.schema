@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.26.2"></a>
+## [2.26.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.26.1...v2.26.2) (2019-03-26)
+
+
+### Bug Fixes
+
+* add `id` and `databaseId` to `Employee` type ([#101](https://github.com/edenlabllc/ehealth.schema/issues/101)) ([da3957e](https://github.com/edenlabllc/ehealth.schema/commit/da3957e))
+
+
+
 <a name="2.26.1"></a>
 ## [2.26.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.26.0...v2.26.1) (2019-03-26)
 
