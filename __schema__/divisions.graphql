@@ -10,7 +10,7 @@ input DivisionFilter {
   databaseId: UUID
   "Division name."
   name: String
-  "verification acording to State Service of Ukraine for drug control"
+  "Verification according to State Service of Ukraine for drug control."
   dlsVerified: Boolean
 }
 
@@ -78,10 +78,10 @@ type Division implements Node {
   legalEntity: LegalEntity!
   "Division working hours."
   workingHours: DivisionWorkingHours
-  "verification acording to State Service of Ukraine for drug control"
+  "Verification according to State Service of Ukraine for drug control."
   dlsVerified: Boolean
-  "Id in the registery of State Service of Ukraine for drug control"
-  dlsID: UUID!
+  "Id in the registery of State Service of Ukraine for drug control."
+  dlsId: UUID
 }
 
 """
