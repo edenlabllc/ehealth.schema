@@ -12,40 +12,12 @@ interface Ingredient {
 Dosage for ingredients.
 """
 type Dosage {
-  "Numerator unit"
-  numeratorUnit: MedicationUnit!
+  "Numerator unit. The value should be present in the `MEDICATION_UNIT` dictionary."
+  numeratorUnit: String!
   "Numerator value"
   numeratorValue: String!
-  "Denumerator unit"
-  denumeratorUnit: MedicationUnit!
+  "Denumerator unit. The value should be present in the `MEDICATION_UNIT` dictionary."
+  denumeratorUnit: String!
   "Denumerator value"
   denumeratorValue: String!
-}
-
-"""
-List of medication Units
-"""
-enum MedicationUnit {
-  "Aerosol"
-  AEROSOL
-  "Ampoule"
-  AMPOULE
-  "Bottle"
-  BOTTLE
-  "Container"
-  CONTAINER
-  "Dose"
-  DOSE
-  "International unit"
-  IE
-  "Milligram"
-  MG
-  "Microgram"
-  MKG
-  "Milliliter"
-  ML
-  "Pill"
-  PILL
-  "Syringe"
-  VIAL
 }

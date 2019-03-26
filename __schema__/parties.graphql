@@ -22,8 +22,8 @@ type Party {
   secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
   "employee's birth date."
   birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
-  "Employee's gender, is choosen from dictionary."
-  gender: Gender!
+  "Employee's gender, is choosen from dictionary. The value should be present in the `GENDER` dictionary."
+  gender: String!
   "Personal phone number."
   phones: [Phone]!
   "National person identifier."
@@ -38,16 +38,6 @@ type Party {
   aboutMyself: String
   "Amount of time during which a party holds its career, in years."
   workingExperience: Int
-}
-
-"""
-List for party gender.
-"""
-enum Gender {
-  "Gender `FEMALE` for a party."
-  FEMALE
-  "Gender `MALE` for a party."
-  MALE
 }
 
 """
