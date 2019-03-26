@@ -163,11 +163,6 @@ type Query {
   "Reads a single `Employee` using its globally unique ID."
   employee(id: ID!): Employee
 
-  """
-  Deactivate `Employee` with given field values.
-  """
-  deactivateEmployee(input: DeactivateEmployeeInput!): DeactivateEmployeePayload
-
   "Reads and enables pagination through a set of `LegalEntity`."
   legalEntities(
     "A condition to be used in determining which values should be returned by the collection."
@@ -546,6 +541,13 @@ type Mutation {
   deactivateMedication(
     input: DeactivateMedicationInput!
   ): DeactivateMedicationPayload
+  
+  """
+  Deactivate `Employee` with given field values.
+  """
+  deactivateEmployee(
+    input: DeactivateEmployeeInput!
+  ): DeactivateEmployeePayload
 }
 
 """
