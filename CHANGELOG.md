@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.24.0"></a>
+# [2.24.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.4...v2.24.0) (2019-03-26)
+
+
+### Features
+
+* add additional fields for `Employee` and related types ([#98](https://github.com/edenlabllc/ehealth.schema/issues/98)) ([a8eb94a](https://github.com/edenlabllc/ehealth.schema/commit/a8eb94a))
+
+
+
 <a name="2.23.4"></a>
 ## [2.23.4](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.3...v2.23.4) (2019-03-15)
 
