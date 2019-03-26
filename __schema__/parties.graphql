@@ -30,9 +30,9 @@ type Party {
   documents: [PartyDocument]!
   "Party's email"
   email: String!
-  "Introdaction about party"
+  "Party self-description"
   aboutMyself: String
-  "Experience in working"
+  "Amount of time during which a party holds its career, in years."
   workingExperience: Int
 }
 
@@ -50,12 +50,12 @@ enum Gender {
 Party identifier documents.
 """
 type PartyDocument {
-  "Dictionary DOCUMENT_TYPE"
+  "Document type. The value should be present in the `DOCUMENT_TYPE` dictionary."
   type: String!
-  "document issue number"
+  "An issue number of the document."
   number: String!
-  "authority which issued the document"
+  "Authority which issued the document."
   issuedBy: String @fake(locale: "uk", method: "company.companyName")
-  "the date when document was issued"
+  "The date when the document was issued."
   issuedAt: Date
 }

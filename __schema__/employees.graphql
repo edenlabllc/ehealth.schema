@@ -68,12 +68,12 @@ type EmployeeEdge {
 Input fields to `DeactivateEmployee`. User must have scope `employee:deactivate`
 """
 input DeactivateEmployeeInput {
-  "Input for a single `contractId` using its globally unique ID."
+  "Globally unique ID of the `Employee` which should be deactivated."
   id: ID!
 }
 
 """
-Employee details contain information about Party (personal data) and Employee (proffesional data)
+Employee details contain information about Party (personal data) and Employee (professional data)
 """
 type Employee implements Node {
   "The ID of an object"
@@ -198,7 +198,7 @@ Information about employee's qualification
 type Qualification {
   "Number of qualification certificate."
   certificateNumber: String
-  "Oficial name of institution"
+  "Official name of institution"
   institutionName: String!
   "The date when qualification was obtained."
   issuedDate: Date
@@ -220,7 +220,7 @@ type ScienceDegree {
   degree: String!
   "Name science degree diploma"
   diplomaNumber: String!
-  "Oficial name of institution"
+  "Official name of institution"
   institutionName: String!
   "The date when science degree was obtained."
   issuedDate: Date

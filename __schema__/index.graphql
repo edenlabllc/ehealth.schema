@@ -543,7 +543,7 @@ type Mutation {
   ): DeactivateMedicationPayload
   
   """
-  Deactivate `Employee` with given field values.
+  Deactivates a single `Employee` using its globally unique ID.
   """
   deactivateEmployee(
     input: DeactivateEmployeeInput!
