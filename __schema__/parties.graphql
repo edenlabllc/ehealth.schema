@@ -10,6 +10,10 @@ input PartyFilter {
 Personal information of employee, ex. fisrt name, last name etc.
 """
 type Party {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
   "Employee's first name."
   firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
   "Employee's last name."
