@@ -18,7 +18,7 @@ type Party {
   secondName: String @fake(locale: "uk", method: "name.firstName", args: [0])
   "employee's birth date."
   birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
-  "Dictionary: GENDER. Employee's gender, is choosen from dictionary."
+  "Employee's gender, is choosen from dictionary. The value should be present in the `GENDER` dictionary."
   gender: String!
   "Personal phone number."
   phones: [Phone]!

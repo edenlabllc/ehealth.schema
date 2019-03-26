@@ -29,7 +29,7 @@ input PersonIdentityFilter {
 Information about documents to identify the patient.
 """
 input PersonDocumentFilter {
-  "Dictionary: DOCUMENT_TYPE. Type of document."
+  "Type of document. The value should be present in the `DOCUMENT_TYPE` dictionary."
   type: String!
   "Number of document."
   number: String!
@@ -132,7 +132,7 @@ type Person implements Node {
   birthDate: Date! @fake(locale: "uk", method: "date.past", args: [100])
   "Patient birth country."
   birthCountry: String! @fake(locale: "uk", format: "Україна")
-  "Dictionary: GENDER. Patient gender."
+  "Patient gender. The value should be present in the `GENDER` dictionary."
   gender: String!
   "Patient's email"
   email: String
@@ -208,7 +208,7 @@ enum PersonPreferredWayCommunication {
 The method to verify changes of patient by patient.
 """
 type PersonAuthenticationMethod {
-  "Dictionary: AUTHENTICATION_METHOD. Type of authentication method."
+  "Type of authentication method. The value should be present in the `AUTHENTICATION_METHOD` dictionary."
   type: String!
   "Person's mobile phone number when the authentication method type is `OTP`."
   phoneNumber: String
@@ -248,7 +248,7 @@ type EmergencyContact {
 The person who is responsible for the patient.
 """
 type ConfidantPerson {
-  "Dictionary: CONFIDANT_PERSON_TYPE. Priority of persons"
+  "Priority of persons. The value should be present in the `CONFIDANT_PERSON_TYPE` dictionary."
   relationType: String!
   "Person first name."
   firstName: String! @fake(locale: "uk", method: "name.firstName", args: [1])
@@ -262,7 +262,7 @@ type ConfidantPerson {
   birthCountry: String! @fake(locale: "uk", format: "Україна")
   "Person birth settlement."
   birthSettlement: String! @fake(locale: "uk", method: "address.city")
-  "Dictionary: GENDER. Patient gender."
+  "Patient gender. The value should be present in the `GENDER` dictionary."
   gender: String!
   "the unique number in Unified State Register"
   unzr: String @fake(randexp: "^[0-9]{8}-[0-9]{5}$")

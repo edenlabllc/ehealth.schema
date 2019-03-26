@@ -68,9 +68,9 @@ type Division implements Node {
   phones: [Phone]!
   "Division contact email."
   email: String! @fake(locale: "uk", method: "internet.email")
-  "Dictionary: DIVISION_STATUS. Division status, is set automatically."
+  "Division status, is set automatically. The value should be present in the `DIVISION_STATUS` dictionary."
   status: String!
-  "Dictionary: DIVISION_TYPE. Division type, is choosen from dictionary."
+  "Division type, is choosen from dictionary. The value should be present in the `DIVISION_TYPE` dictionary."
   type: String!
   "In case division address in mountain group, mountainGroup=true. Is set automatically according to division address."
   mountainGroup: Boolean!

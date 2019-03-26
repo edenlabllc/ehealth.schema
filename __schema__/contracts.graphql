@@ -57,7 +57,7 @@ interface Contract {
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
   nhsSignerBase: String
-  "Dictionary: CONTRACT_PAYMENT_METHOD. Possible ways to pay MSP."
+  "Possible ways to pay MSP. The value should be present in the `CONTRACT_PAYMENT_METHOD` dictionary."
   nhsPaymentMethod: String
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
@@ -85,7 +85,7 @@ NHS admin can prolongate contract  Contract Request having a scope `contract:upd
 input TerminateContractInput {
   "Input for a single `contractId` using its globally unique ID."
   id: ID!
-  "Dictionary: CONTRACT_STATUS_REASON. Input string field to update the status_reason of termination contract"
+  "Input string field to update the status_reason of termination contract. The value should be present in the `CONTRACT_STATUS_REASON` dictionary."
   statusReason: String!
   "Free text to reason of termination contract"
   reason: String
@@ -136,7 +136,7 @@ input SuspendContractInput {
   isSuspended: Boolean!
   "Free text to reason of termination contract"
   reason: String
-  "Dictionary: CONTRACT_STATUS_REASON. The reason of termination contract"
+  "The reason of termination contract. The value should be present in the `CONTRACT_STATUS_REASON` dictionary."
   statusReason: String!
 }
 

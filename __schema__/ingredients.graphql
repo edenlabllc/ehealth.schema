@@ -12,11 +12,11 @@ interface Ingredient {
 Dosage for ingredients.
 """
 type Dosage {
-  "Dictionary: MEDICATION_UNIT. Numerator unit"
+  "Numerator unit. The value should be present in the `MEDICATION_UNIT` dictionary."
   numeratorUnit: String!
   "Numerator value"
   numeratorValue: String!
-  "Dictionary: MEDICATION_UNIT. Denumerator unit"
+  "Denumerator unit. The value should be present in the `MEDICATION_UNIT` dictionary."
   denumeratorUnit: String!
   "Denumerator value"
   denumeratorValue: String!

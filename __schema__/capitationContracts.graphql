@@ -146,7 +146,7 @@ type CapitationContract implements Node & Contract {
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
   nhsSignerBase: String @fake(locale: "uk", method: "lorem.sentence")
-  "Dictionary: CONTRACT_PAYMENT_METHOD. Payment method for the contract."
+  "Payment method for the contract. The value should be present in the `CONTRACT_PAYMENT_METHOD` dictionary."
   nhsPaymentMethod: String
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!

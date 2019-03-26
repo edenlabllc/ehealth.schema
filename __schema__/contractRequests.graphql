@@ -40,7 +40,7 @@ interface ContractRequest {
   nhsLegalEntity: LegalEntity
   "Documents which allows to represent nhs"
   nhsSignerBase: String
-  "Dictionary: CONTRACT_PAYMENT_METHOD. Payment method for the contract."
+  "Payment method for the contract. The value should be present in the `CONTRACT_PAYMENT_METHOD` dictionary."
   nhsPaymentMethod: String
   "Link to receive attached documents with particular types."
   attachedDocuments: [ContractDocument]!
@@ -70,7 +70,7 @@ input UpdateContractRequestInput {
   nhsSignerBase: String
   "The price for the contract. Is filled with UAH"
   nhsContractPrice: Float
-  "Dictionary: CONTRACT_PAYMENT_METHOD. The payment method for contract."
+  "The payment method for contract. The value should be present in the `CONTRACT_PAYMENT_METHOD` dictionary."
   nhsPaymentMethod: String
   "The city where contract is signed."
   issueCity: String

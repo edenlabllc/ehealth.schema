@@ -4,7 +4,7 @@ A condition to be used against `Address` object types. All fields are tested for
 input AddressFilter {
   "Checks for equality with the object’s `id` field."
   id: ID
-  "Dictionary: ADDRESS_TYPE. Checks for equality with the object’s `type` field."
+  "Checks for equality with the object’s `type` field. The value should be present in the `ADDRESS_TYPE` dictionary."
   type: String
 }
 
@@ -12,7 +12,7 @@ input AddressFilter {
 The `Address` type represents the physical location of a building, apartment, or other structure.
 """
 type Address {
-  "Dictionary: ADDRESS_TYPE. Type of address."
+  "Type of address. The value should be present in the `ADDRESS_TYPE` dictionary."
   type: String!
   "The name of Country."
   country: String! @fake(locale: "uk", format: "Україна")
@@ -22,11 +22,11 @@ type Address {
   region: String @fake(locale: "uk", method: "address.cityPrefix")
   "The settlement name. Should be taken from the state directory and should fit settlementId."
   settlement: String! @fake(locale: "uk", method: "address.city")
-  "Dictionary: SETTLEMENT_TYPE. The settlement type. Should fit settlementId and settlement name."
+  "The settlement type. Should fit settlementId and settlement name. The value should be present in the `SETTLEMENT_TYPE` dictionary."
   settlementType: String!
   "ID of specific settlement. Should fit settlement name."
   settlementId: UUID!
-  "Dictionary: STREET_TYPE. The street type."
+  "The street type. The value should be present in the `STREET_TYPE` dictionary."
   streetType: String
   "The street name."
   street: String @fake(locale: "uk", method: "address.streetName")

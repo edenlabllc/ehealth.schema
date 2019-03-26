@@ -4,7 +4,7 @@ Fields to filter employee in the system.
 input EmployeeFilter {
   "Type of Employee."
   employeeType: [EmployeeType]
-  "Dictionary: EMPLOYEE_STATUS. Employee status."
+  "Employee status. The value should be present in the `EMPLOYEE_STATUS` dictionary."
   status: String
   "Whether Employee is active or not?"
   isActive: Boolean
@@ -90,7 +90,7 @@ type Employee implements Node {
   isActive: Boolean!
   "Employee type, is choosen from dictionary."
   employeeType: EmployeeType!
-  "Dictionary: EMPLOYEE_STATUS. Employee status, is choosen from dictionary."
+  "Employee status, is choosen from dictionary. The value should be present in the `EMPLOYEE_STATUS` dictionary."
   status: String!
   "Professional information of employee."
   additionalInfo: EmployeeAdditionalInfo

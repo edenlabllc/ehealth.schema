@@ -56,7 +56,7 @@ type Settlement implements Node {
   koatuu: String!
   "Whether the village belongs to the mountain group?"
   mountainGroup: Boolean!
-  "Dictionary: SETTLEMENT_TYPE. Settlement type."
+  "Settlement type. The value should be present in the `SETTLEMENT_TYPE` dictionary."
   type: String!
   "Region to which settlement belongs."
   region: Region!

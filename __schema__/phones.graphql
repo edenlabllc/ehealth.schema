@@ -2,7 +2,7 @@
 Phone structure. At least one of type must be present.
 """
 type Phone {
-  "Dictionary: PHONE_TYPE. Denotes type of the phone. In the collection, each type can be represented only once."
+  "Denotes type of the phone. In the collection, each type can be represented only once. The value should be present in the `PHONE_TYPE` dictionary."
   type: String!
   "Phone number as specified by [E.164](https://en.wikipedia.org/wiki/E.164)."
   number: String! @fake(randexp: "^\\+380[0-9]{9}$")

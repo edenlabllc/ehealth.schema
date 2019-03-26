@@ -18,7 +18,7 @@ input LegalEntityFilter {
   nhsVerified: Boolean
   "In case legal entity was reviewed by NHS employee, nhsReview should be true."
   nhsReviewed: Boolean
-  "Dictionary: LEGAL_ENTITY_TYPE. Legal entity type."
+  "Legal entity type. The value should be present in the `LEGAL_ENTITY_TYPE` dictionary."
   type: [String]
   "Conditions to check on fields of the object’s `addresses` field."
   addresses: AddressFilter
@@ -165,7 +165,7 @@ type LegalEntity implements Node {
     @fake(locale: "uk", method: "company.companyName", args: [0])
   "Legal entity public name."
   publicName: String @fake(locale: "uk", method: "company.companyName")
-  "Dictionary: LEGAL_ENTITY_TYPE. Legal entity type."
+  "Legal entity type. The value should be present in the `LEGAL_ENTITY_TYPE` dictionary."
   type: String!
   "Unified Register of Businesses and Organizations"
   edrpou: String! @fake(randexp: "^[0-9]{8,10}$")
