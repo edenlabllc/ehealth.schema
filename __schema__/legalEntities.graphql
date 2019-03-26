@@ -22,7 +22,7 @@ input LegalEntityFilter {
   type: [LegalEntityType]
   "Conditions to check on fields of the object’s `addresses` field."
   addresses: AddressFilter
-  "Unified state register"
+  "Whether the legal entity is present in a unified state register or not?"
   edrVerified: Boolean
 }
 
@@ -206,7 +206,7 @@ type LegalEntity implements Node {
   insertedAt: DateTime!
   "First employee with employee_type='OWNER ordered by UPDATED_AT_DESC"
   owner: Employee!
-  "Unified state register"
+  "Whether the legal entity is present in a unified state register or not?"
   edrVerified: Boolean
 
   "Employees wich belong to legal entity"
