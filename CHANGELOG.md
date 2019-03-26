@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.26.1"></a>
+## [2.26.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.26.0...v2.26.1) (2019-03-26)
+
+
+### Bug Fixes
+
+* replace enum type with string, for values that are present in dictionaries ([#97](https://github.com/edenlabllc/ehealth.schema/issues/97)) ([7f20635](https://github.com/edenlabllc/ehealth.schema/commit/7f20635))
+
+
+
 <a name="2.26.0"></a>
 # [2.26.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.25.0...v2.26.0) (2019-03-26)
 
