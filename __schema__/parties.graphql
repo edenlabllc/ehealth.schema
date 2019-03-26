@@ -9,7 +9,7 @@ input PartyFilter {
 """
 Personal information of employee, ex. fisrt name, last name etc.
 """
-type Party {
+type Party implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
