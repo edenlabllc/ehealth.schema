@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.25.0"></a>
+# [2.25.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.24.0...v2.25.0) (2019-03-26)
+
+
+### Features
+
+* add dls info to divisions ([#100](https://github.com/edenlabllc/ehealth.schema/issues/100)) ([54fe7e5](https://github.com/edenlabllc/ehealth.schema/commit/54fe7e5))
+
+
+
 <a name="2.24.0"></a>
 # [2.24.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.23.4...v2.24.0) (2019-03-26)
 
