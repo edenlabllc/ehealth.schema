@@ -10,8 +10,8 @@ input INNMDosageFilter {
   name: String
   "is_active status."
   isActive: Boolean
-  "MedicationForm form"
-  form: MedicationForm
+  "MedicationForm form. The value should be present in the `MEDICATION_FORM` dictionary."
+  form: String
   "INNMDosage ingredients"
   ingredients: INNMDosageIngredientFilter
 }
@@ -72,8 +72,8 @@ Input for `createINNMDosage` mutation. User must have scopes **innm_dosage:write
 input CreateINNMDosageInput {
   "INNMDosage name"
   name: String!
-  "MedicationForm form"
-  form: MedicationForm!
+  "MedicationForm form. The value should be present in the `MEDICATION_FORM` dictionary."
+  form: String!
   "INNMDosage ingredients"
   ingredients: [CreateINNMDosageIngredientInput]!
 }
@@ -124,8 +124,8 @@ type INNMDosage implements Node {
   databaseId: UUID!
   "INNMDosage name"
   name: String!
-  "MedicationForm form"
-  form: MedicationForm!
+  "MedicationForm form. The value should be present in the `MEDICATION_FORM` dictionary."
+  form: String!
   "INNMDosage ingredients"
   ingredients: [INNMDosageIngredient]!
   "is_active status."

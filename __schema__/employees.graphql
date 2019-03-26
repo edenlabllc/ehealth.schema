@@ -4,8 +4,8 @@ Fields to filter employee in the system.
 input EmployeeFilter {
   "Type of Employee."
   employeeType: [EmployeeType]
-  "Employee status."
-  status: EmployeeStatus
+  "Employee status. The value should be present in the `EMPLOYEE_STATUS` dictionary."
+  status: String
   "Whether Employee is active or not?"
   isActive: Boolean
   "Filter by employee's legal entity."
@@ -90,8 +90,8 @@ type Employee implements Node {
   isActive: Boolean!
   "Employee type, is choosen from dictionary."
   employeeType: EmployeeType!
-  "Employee status, is choosen from dictionary."
-  status: EmployeeStatus!
+  "Employee status, is choosen from dictionary. The value should be present in the `EMPLOYEE_STATUS` dictionary."
+  status: String!
   "Professional information of employee."
   additionalInfo: EmployeeAdditionalInfo
   "Personal information of employee."
@@ -122,18 +122,6 @@ enum EmployeeType {
   PHARMACIST
   "Is a pharmacy owner."
   PHARMACY_OWNER
-}
-
-"""
-List of employee statuses.
-"""
-enum EmployeeStatus {
-  "Status `APPROVED` for employee."
-  APPROVED
-  "Status `DISMISSED` for employee."
-  DISMISSED
-  "Status `NEW` for employee."
-  NEW
 }
 
 """

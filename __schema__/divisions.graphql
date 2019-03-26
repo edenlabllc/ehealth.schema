@@ -68,10 +68,10 @@ type Division implements Node {
   phones: [Phone]!
   "Division contact email."
   email: String! @fake(locale: "uk", method: "internet.email")
-  "Division status, is set automatically."
-  status: DivisionStatus!
-  "Division type, is choosen from dictionary."
-  type: DivisionType!
+  "Division status, is set automatically. The value should be present in the `DIVISION_STATUS` dictionary."
+  status: String!
+  "Division type, is choosen from dictionary. The value should be present in the `DIVISION_TYPE` dictionary."
+  type: String!
   "In case division address in mountain group, mountainGroup=true. Is set automatically according to division address."
   mountainGroup: Boolean!
   "Information about legal_entity"
@@ -82,28 +82,6 @@ type Division implements Node {
   dlsVerified: Boolean
   "Id in the registery of State Service of Ukraine for drug control."
   dlsId: UUID
-}
-
-"""
-List for division statuses.
-"""
-enum DivisionStatus {
-  "Status `ACTIVE` for Division"
-  ACTIVE
-  "Status `INACTIVE` for Division"
-  INACTIVE
-}
-
-"""
-List for division tyoes.
-"""
-enum DivisionType {
-  "Type `AMBULANT_CLINIC` for division."
-  AMBULANT_CLINIC
-  "Type `CLINIC` for division."
-  CLINIC
-  "Type `FAP` for division."
-  FAP
 }
 
 """
