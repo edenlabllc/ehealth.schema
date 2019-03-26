@@ -21,7 +21,19 @@ type Party {
   "Employee's gender, is choosen from dictionary."
   gender: Gender!
   "Personal phone number."
-  phones: [Phone]
+  phones: [Phone]!
+  "National person identifier."
+  taxId: String!
+  "Flag to show whether person rejected to have taxId"
+  noTaxId: Boolean
+  "Party identification documents."
+  documents: [PartyDocument]!
+  "Party's email"
+  email: String!
+  "Party self-description"
+  aboutMyself: String
+  "Amount of time during which a party holds its career, in years."
+  workingExperience: Int
 }
 
 """
@@ -32,4 +44,18 @@ enum Gender {
   FEMALE
   "Gender `MALE` for a party."
   MALE
+}
+
+"""
+Party identifier documents.
+"""
+type PartyDocument {
+  "Document type. The value should be present in the `DOCUMENT_TYPE` dictionary."
+  type: String!
+  "An issue number of the document."
+  number: String!
+  "Authority which issued the document."
+  issuedBy: String @fake(locale: "uk", method: "company.companyName")
+  "The date when the document was issued."
+  issuedAt: Date
 }

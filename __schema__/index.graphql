@@ -541,6 +541,13 @@ type Mutation {
   deactivateMedication(
     input: DeactivateMedicationInput!
   ): DeactivateMedicationPayload
+  
+  """
+  Deactivates a single `Employee` using its globally unique ID.
+  """
+  deactivateEmployee(
+    input: DeactivateEmployeeInput!
+  ): DeactivateEmployeePayload
 }
 
 """
