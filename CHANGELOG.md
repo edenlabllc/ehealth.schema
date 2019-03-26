@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.26.3"></a>
+## [2.26.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.26.2...v2.26.3) (2019-03-26)
+
+
+### Bug Fixes
+
+* set `Party` as `Node` type ([#102](https://github.com/edenlabllc/ehealth.schema/issues/102)) ([ec9b739](https://github.com/edenlabllc/ehealth.schema/commit/ec9b739))
+
+
+
 <a name="2.26.2"></a>
 ## [2.26.2](https://github.com/edenlabllc/ehealth.schema/compare/v2.26.1...v2.26.2) (2019-03-26)
 
