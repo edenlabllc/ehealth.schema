@@ -76,8 +76,6 @@ input DeactivateEmployeeInput {
 Employee details contain information about Party (personal data) and Employee (professional data)
 """
 type Employee implements Node {
-  "The ID of an object"
-  id: ID!
   "Primary key identifier from the database"
   databaseId: UUID!
   "Employee position."
