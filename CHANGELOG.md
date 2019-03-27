@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.27.0"></a>
+# [2.27.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.26.3...v2.27.0) (2019-03-27)
+
+
+### Features
+
+* add commitlint ([d33785b](https://github.com/edenlabllc/ehealth.schema/commit/d33785b))
+
+
+
 <a name="2.26.3"></a>
 ## [2.26.3](https://github.com/edenlabllc/ehealth.schema/compare/v2.26.2...v2.26.3) (2019-03-26)
 
