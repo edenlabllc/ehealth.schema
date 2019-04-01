@@ -1,0 +1,7 @@
+"""
+The person who is responsible for the patient.
+"""
+input CreateUserInput {
+  "user login"
+  email: String!
+}

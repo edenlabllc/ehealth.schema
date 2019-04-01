@@ -163,6 +163,22 @@ type Query {
   "Reads a single `Employee` using its globally unique ID."
   employee(id: ID!): Employee
 
+  "Reads and enables pagination through a set of `EmployeeRequest`."
+  employeeRequests(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: EmployeeRequestFilter
+    "The method to use when ordering collection items."
+    orderBy: EmployeeRequestOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): EmployeeRequestConnection!
+
   "Reads and enables pagination through a set of `LegalEntity`."
   legalEntities(
     "A condition to be used in determining which values should be returned by the collection."
@@ -541,13 +557,18 @@ type Mutation {
   deactivateMedication(
     input: DeactivateMedicationInput!
   ): DeactivateMedicationPayload
-  
+
   """
   Deactivates a single `Employee` using its globally unique ID.
   """
-  deactivateEmployee(
-    input: DeactivateEmployeeInput!
-  ): DeactivateEmployeePayload
+  deactivateEmployee(input: DeactivateEmployeeInput!): DeactivateEmployeePayload
+
+  """
+  Creates `EmployeeRequest` with given field values.
+  """
+  createEmployeeRequest(
+    input: CreateEmployeeRequestInput!
+  ): CreateEmployeeRequestPayload
 }
 
 """

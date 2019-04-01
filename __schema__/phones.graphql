@@ -7,3 +7,13 @@ type Phone {
   "Phone number as specified by [E.164](https://en.wikipedia.org/wiki/E.164)."
   number: String! @fake(randexp: "^\\+380[0-9]{9}$")
 }
+
+"""
+Inputs that should be send in order to create phones.
+"""
+input CreatePhonesInput {
+  "Denotes type of the phone. In the collection, each type can be represented only once. The value should be present in the `PHONE_TYPE` dictionary."
+  type: String!
+  "Phone number as specified by [E.164](https://en.wikipedia.org/wiki/E.164)."
+  number: String!
+}
