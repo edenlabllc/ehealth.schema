@@ -32,8 +32,6 @@ type Party implements Node {
   noTaxId: Boolean
   "Party identification documents."
   documents: [PartyDocument]!
-  "Party's email"
-  email: String!
   "Party self-description"
   aboutMyself: String
   "Amount of time during which a party holds its career, in years."
@@ -52,4 +50,6 @@ type PartyDocument {
   issuedBy: String @fake(locale: "uk", method: "company.companyName")
   "The date when the document was issued."
   issuedAt: Date
+  "Document expiration date."
+  expirationDate: Date
 }
