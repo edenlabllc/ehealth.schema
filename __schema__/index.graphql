@@ -569,13 +569,6 @@ type Mutation {
   createEmployeeRequest(
     input: CreateEmployeeRequestInput!
   ): CreateEmployeeRequestPayload
-
-  """
-  Creates `EmployeeRequest` via signed datas.
-  """
-  createEmployeeRequestSigned(
-    input: CreateEmployeeRequestSignedInput!
-  ): CreateEmployeeRequestPayload
 }
 
 """

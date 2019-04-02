@@ -1,6 +1,5 @@
 # import Phone from "phones.graphql"
-# import CreatePhonesInput from "phones.graphql"
-# import CreateUserInput from "users.graphql"
+
 """
 A condition to be used against `Party` object types.
 """
@@ -55,44 +54,4 @@ type PartyDocument {
   issuedAt: Date
   "document expiration date"
   expirationDate: Date
-}
-
-"""
-Inputs that should be send in order to create party.
-"""
-input CreatePartyInput {
-  "Party birth date."
-  birthDate: Date!
-  "Party identifier documents"
-  documents: [CreatePartyDocumentInput]!
-  "Party email, user login"
-  email: CreateUserInput!
-  "Party first name."
-  firstName: String!
-  "Party gender. The value should be present in the `GENDER` dictionary."
-  gender: String!
-  "Party last name."
-  lastName: String!
-  "Flag to show whether person rejected to have taxId"
-  noTaxId: Boolean
-  "Party phones"
-  phones: [CreatePhonesInput]!
-  "Party second name"
-  secondName: String
-  "National person identifier."
-  taxId: String!
-}
-
-"""
-Party identifier documents.
-"""
-input CreatePartyDocumentInput {
-  "Document type. The value should be present in the `DOCUMENT_TYPE` dictionary."
-  type: String!
-  "An issue number of the document."
-  number: String!
-  "Authority which issued the document."
-  issuedBy: String
-  "The date when the document was issued."
-  issuedAt: Date
 }

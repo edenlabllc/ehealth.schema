@@ -87,25 +87,9 @@ type EmployeeRequest implements Node {
 }
 
 """
-Inputs that should be send in order to create employee request. User must have a scope **employee_request:create**
-"""
-input CreateEmployeeRequestInput {
-  "Employee working address"
-  divisionId: ID
-  "Type of employee, is connected with user'd role. The value should be present in the `EMPLOYEE_TYPE` dictionary."
-  employeeType: String!
-  "Personal information of employee"
-  party: CreatePartyInput!
-  "A job post of employee. The value should be present in the `POSITION` dictionary."
-  position: String!
-  "First working day of employee"
-  startDate: Date!
-}
-
-"""
 Inputs that should be send in order to create employee request via signed data.
 """
-input CreateEmployeeRequestSignedInput {
+input CreateEmployeeRequestInput {
   "Signed data to create employee request"
   signedContent: SignedContent!
 }
