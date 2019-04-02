@@ -13,7 +13,7 @@ input EmployeeRequestFilter {
 }
 
 """
-Methods to use when ordering `Employee`.
+Methods to use when ordering `EmployeeRequest`.
 """
 enum EmployeeRequestOrderBy {
   "Sort by full name in ascending order."
@@ -68,20 +68,22 @@ type EmployeeRequest implements Node {
   employeeType: String!
   "First name of a person"
   firstName: String!
-  "Day diapason when employeeRequest was created."
-  insertedAt: Date
+  "Second name of a person"
+  secondName: String
   "Surname of a person"
   lastName: String!
   "Legal entity in which employee will work."
   legalEntityId: LegalEntity!
   "Flag to show whether person rejected to have taxId"
   noTaxId: Boolean
-  "Second name of a person"
-  secondName: String
   "Status of employee request. The value should be present in the `EMPLOYEE_REQUEST_STATUS` dictionary."
   status: String!
   "National person identifier."
   taxId: String!
+  "Date and time when record was created."
+  insertedAt: DateTime
+  "Date and time when record was updated"
+  updatedAt: DateTime!
 }
 
 """
@@ -89,7 +91,7 @@ Inputs that should be send in order to create employee request. User must have a
 """
 input CreateEmployeeRequestInput {
   "Employee working address"
-  division: ID
+  divisionId: ID
   "Type of employee, is connected with user'd role. The value should be present in the `EMPLOYEE_TYPE` dictionary."
   employeeType: String!
   "Personal information of employee"
