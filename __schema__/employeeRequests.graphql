@@ -9,7 +9,7 @@ input EmployeeRequestFilter {
   "EmployeeRequest status. The value should be present in the `EMPLOYEE_REQUEST_STATUS` dictionary."
   status: String
   "Legal entity in which employee works."
-  legalEntityId: UUID
+  legalEntityId: ID
 }
 
 """
@@ -95,7 +95,7 @@ input CreateEmployeeRequestInput {
   "Type of employee, is connected with user'd role. The value should be present in the `EMPLOYEE_TYPE` dictionary."
   employeeType: String!
   "Personal information of employee"
-  party: CreatePartytInput!
+  party: CreatePartyInput!
   "A job post of employee. The value should be present in the `POSITION` dictionary."
   position: String!
   "First working day of employee"

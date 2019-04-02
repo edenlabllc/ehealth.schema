@@ -60,7 +60,7 @@ type PartyDocument {
 """
 Inputs that should be send in order to create party.
 """
-input CreatePartytInput {
+input CreatePartyInput {
   "Party birth date."
   birthDate: Date!
   "Party identifier documents"
