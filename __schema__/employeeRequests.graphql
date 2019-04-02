@@ -72,14 +72,14 @@ type EmployeeRequest implements Node {
   secondName: String
   "Surname of a person"
   lastName: String!
-  "Legal entity in which employee will work."
-  legalEntityId: LegalEntity!
   "Flag to show whether person rejected to have taxId"
   noTaxId: Boolean
   "Status of employee request. The value should be present in the `EMPLOYEE_REQUEST_STATUS` dictionary."
   status: String!
   "National person identifier."
   taxId: String!
+  "Legal entity in which employee will work."
+  legalEntity: LegalEntity!
   "Date and time when record was created."
   insertedAt: DateTime
   "Date and time when record was updated"
