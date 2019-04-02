@@ -81,7 +81,7 @@ type EmployeeRequest implements Node {
   "Legal entity in which employee will work."
   legalEntity: LegalEntity!
   "Date and time when record was created."
-  insertedAt: DateTime
+  insertedAt: DateTime!
   "Date and time when record was updated"
   updatedAt: DateTime!
 }
