@@ -1,5 +1,3 @@
-# import Phone from "phones.graphql"
-
 """
 A condition to be used against `Party` object types.
 """
@@ -44,14 +42,14 @@ type Party implements Node {
 Party identifier documents.
 """
 type PartyDocument {
-  "Dictionary DOCUMENT_TYPE"
+  "Document type. The value should be present in the `DOCUMENT_TYPE` dictionary."
   type: String!
-  "document issue number"
+  "An issue number of the document."
   number: String!
-  "authority which issued the document"
+  "Authority which issued the document."
   issuedBy: String @fake(locale: "uk", method: "company.companyName")
-  "the date when document was issued"
+  "The date when the document was issued."
   issuedAt: Date
-  "document expiration date"
+  "Document expiration date."
   expirationDate: Date
 }
