@@ -59,6 +59,36 @@ interface ContractRequest {
 }
 
 """
+Inputs to create contract request by NHS
+"""
+input CreateContractRequestInput {
+  "NHS admin that is responsible for a contract."
+  assigneeId: ID!
+  "Signed content to create contract request by NHS."
+  signedContent: SignedContent!
+  "Contract request type."
+  type: ContractRequestType!
+}
+
+"""
+The payload that received when created contractRequest by NHS
+"""
+type CreateContractRequestPayload {
+  "Payload for a ContractRequest created by NHS."
+  contractRequest: ContractRequest
+}
+
+"""
+ContractRequest types
+"""
+enum ContractRequestType {
+  "Type for capitation contract created by MSP"
+  CAPITATION
+  "Type fo reinmbursement contract created by PHARMACY"
+  REIMBURSEMENT
+}
+
+"""
 Inputs that should be filled for update contract request. ContractRequest is updated by NHS employee through NHS Admin portal.
 """
 input UpdateContractRequestInput {
