@@ -3,6 +3,7 @@
 # import DivisionFilter, DivisionOrderBy, DivisionConnection from "divisions.graphql"
 # import Employee from "employees.graphql"
 # import RelatedLegalEntityFilter, RelatedLegalEntityOrderBy, RelatedLegalEntityConnection from "relatedLegalEntities.graphql"
+# import LegalEntityActivityType from "activityTYpe.graphql"
 
 """
 Fields to filter LegalEntity in the system.
@@ -185,8 +186,12 @@ type LegalEntity implements Node {
   receiverFundsCode: String @fake(randexp: "^[0-9]{14}$")
   "Dictionary OWNER_PROPERTY_TYPE State or private type of legal entity"
   ownerPropertyType: String!
-  "Licenses and accreditation of legal entity."
-  medicalServiceProvider: MedicalServiceProvider
+  "Licenses of lehal entity."
+  licenses: [LegalEntityLicense]
+  "Accreditation of  legal entity."
+  accreditation: [LegalEntityAccreditation]
+  "activityTypes of ledal entity"
+  activityTypes: [LegalEntityActivityType]
   "In case legal entity is verified by MIS, misVerified = true"
   misVerified: LegalEntityMisVerificationStatus!
   "Change requests for this `LegalEntity` in order to verify it."
@@ -279,25 +284,25 @@ enum LegalEntityMisVerificationStatus {
 }
 
 """
-Inforamtion about licenses and accreditations of legal entity.
-"""
-type MedicalServiceProvider {
-  "legal entity medical licenses."
-  licenses: [LegalEntityLicense]
-  "legal entity accreditation information."
-  accreditation: LegalEntityAccreditation
-}
-
-"""
 Legal entity license to practice medicine.
 """
 type LegalEntityLicense {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Link with legalEntity"
+  legalEntity: ID!
   "License number."
   licenseNumber: String @fake(randexp: "^[0-9]{12}$")
+  "LicenseType. The value should be present in the `LICENSE_TYPE` dictionary."
+  licenseType: String
   "Institution name where license was obtained."
   issuedBy: String @fake(locale: "uk", method: "company.companyName")
   "The date when the license was obtained."
   issuedDate: Date
+  "Status of issuer."
+  issuerStatus: String
   "The date when the license expires."
   expiryDate: Date @fake(locale: "uk", method: "date.future", args: [2])
   "The date of transferring this license to archive"
@@ -306,6 +311,8 @@ type LegalEntityLicense {
   whatLicensed: String
   "License order number"
   orderNo: String @fake(randexp: "^[0-9]{8}$")
+  "Flag that shows if license is active."
+  isActive: Boolean!
 }
 
 """

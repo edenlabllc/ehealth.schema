@@ -24,6 +24,7 @@
 # import * from "regions.graphql"
 # import * from "districts.graphql"
 # import * from "settlements.graphql"
+# import * from "activityType.graphql"
 
 """
 The query root of e-Health GraphQL interface.
@@ -197,6 +198,22 @@ type Query {
 
   "Reads a single `LegalEntity` using its globally unique ID."
   legalEntity(id: ID!): LegalEntity
+
+  "Reads through a set of `LegalEntityActivityType`."
+  legalEntityActivityType(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: LegalEntityActivityTypeFilter
+    "The method to use when ordering collection items."
+    orderBy: LegalEntityActivityTypeOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): LegalEntityActivityTypeConnection!
 
   "Reads and enables pagination through a set of `LegalEntityMergeJob`."
   legalEntityMergeJobs(
@@ -576,6 +593,20 @@ type Mutation {
   createEmployeeRequest(
     input: CreateEmployeeRequestInput!
   ): CreateEmployeeRequestPayload
+
+  """
+  Creates `NhsVerifyActivityType` with given field values.
+  """
+  nhsVerifyActivityType(
+    input: NhsVerifyActivityTypeInput!
+  ): NhsVerifyActivityTypePayload
+
+  """
+  Creates `ActivityTypeStatusChange` with given field values.
+  """
+  activityTypeStatusChange(
+    input: ActivityTypeStatusChangeInput!
+  ): ActivityTypeStatusChangePayload
 }
 
 """

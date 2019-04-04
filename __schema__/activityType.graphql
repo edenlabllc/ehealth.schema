@@ -1,0 +1,107 @@
+"""
+Fields to filter LegalEntityActivityType in the system.
+"""
+input LegalEntityActivityTypeFilter {
+  "The ID of an object"
+  databaseId: UUID
+  "If activity type is active"
+  isActive: Boolean
+  "In case activity type was verified by NHS employee, nhsVerified should be true."
+  nhsVerified: Boolean
+  "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
+  type: [String]
+}
+
+"""
+Methods to use when ordering `LegalEntityActivityType`.
+"""
+enum LegalEntityActivityTypeOrderBy {
+  "Sort legal entity by nhs verified at in ascending order."
+  NHS_VERIFIED_ASC
+  "Sort legal entity by nhs verified at in descending order."
+  NHS_VERIFIED_DESC
+  "Sort legal entity by status at in ascending order."
+  STATUS_ASC
+  "Sort legal entity by status at in descending order."
+  STATUS_DESC
+}
+
+"""
+A connection to a list of `LegalEntityActivityType` values.
+"""
+type LegalEntityActivityTypeConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [LegalEntityActivityType]
+  "A list of edges."
+  edges: [LegalEntityActivityTypeEdge]
+}
+
+"""
+Reads and enables pagination through a set of `LegalEntityActivityType`.
+"""
+type LegalEntityActivityTypeEdge {
+  "The item at the end of the edge."
+  node: LegalEntityActivityType!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Type of activity that legal entity performs.
+"""
+type LegalEntityActivityType {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Link with legalEntity"
+  legalEntity: ID!
+  "Type of activity. The value should be present in the `ACTIVITY_TYPE` dictionary."
+  type: String!
+  "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
+  status: String!
+  "Reason of the status"
+  statusReason: String
+  "If activity type is verified by NHS"
+  nhsVerified: Boolean!
+  "If activity type is active"
+  isActive: Boolean!
+}
+
+"""
+Inputs to verify `LegalEntityActivityType` by NHS employee.
+"""
+input NhsVerifyActivityTypeInput {
+  "Activity type database unique identifier."
+  id: UUID!
+  "Whether `LegalEntityActivityType` was verified or not?"
+  nhsVerified: Boolean!
+}
+
+"""
+Payload that should be sent to verify `LegalEntityActivityType`.
+"""
+type NhsVerifyActivityTypePayload {
+  "Payload for activity type."
+  legalEntityActivityType: LegalEntityActivityType
+}
+
+"""
+Inputs to change status of `LegalEntityActivityType` by NHS employee.
+"""
+input ActivityTypeStatusChangeInput {
+  "Activity type database unique identifier."
+  id: UUID!
+  "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
+  status: String!
+}
+
+"""
+Payload that should be sent to `LegalEntityActivityType` status changed.
+"""
+type ActivityTypeStatusChangePayload {
+  "Payload for activity type."
+  legalEntityActivityType: LegalEntityActivityType
+}
