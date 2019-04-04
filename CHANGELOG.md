@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.29.0"></a>
+# [2.29.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.28.0...v2.29.0) (2019-04-04)
+
+
+### Features
+
+* add `createContractRequest` mutation ([b7502f0](https://github.com/edenlabllc/ehealth.schema/commit/b7502f0))
+
+
+
 <a name="2.28.0"></a>
 # [2.28.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.27.0...v2.28.0) (2019-04-02)
 
