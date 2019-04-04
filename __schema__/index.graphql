@@ -595,18 +595,9 @@ type Mutation {
   ): CreateEmployeeRequestPayload
 
   """
-  Creates `NhsVerifyActivityType` with given field values.
+  Creates `ChangeActivityType` with given field values.
   """
-  nhsVerifyActivityType(
-    input: NhsVerifyActivityTypeInput!
-  ): NhsVerifyActivityTypePayload
-
-  """
-  Creates `ActivityTypeStatusChange` with given field values.
-  """
-  activityTypeStatusChange(
-    input: ActivityTypeStatusChangeInput!
-  ): ActivityTypeStatusChangePayload
+  changeActivityType(input: ChangeActivityTypeInput!): ChangeActivityTypePayload
 }
 
 """

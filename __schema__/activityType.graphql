@@ -73,35 +73,19 @@ type LegalEntityActivityType {
 """
 Inputs to verify `LegalEntityActivityType` by NHS employee.
 """
-input NhsVerifyActivityTypeInput {
+input ChangeActivityTypeInput {
   "Activity type database unique identifier."
   id: UUID!
   "Whether `LegalEntityActivityType` was verified or not?"
   nhsVerified: Boolean!
-}
-
-"""
-Payload that should be sent to verify `LegalEntityActivityType`.
-"""
-type NhsVerifyActivityTypePayload {
-  "Payload for activity type."
-  legalEntityActivityType: LegalEntityActivityType
-}
-
-"""
-Inputs to change status of `LegalEntityActivityType` by NHS employee.
-"""
-input ActivityTypeStatusChangeInput {
-  "Activity type database unique identifier."
-  id: UUID!
   "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
   status: String!
 }
 
 """
-Payload that should be sent to `LegalEntityActivityType` status changed.
+Payload that should be sent to verify `LegalEntityActivityType`.
 """
-type ActivityTypeStatusChangePayload {
+type ChangeActivityTypePayload {
   "Payload for activity type."
   legalEntityActivityType: LegalEntityActivityType
 }
