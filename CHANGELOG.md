@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.29.1"></a>
+## [2.29.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.29.0...v2.29.1) (2019-04-09)
+
+
+### Bug Fixes
+
+* remove `EmployeeType` enum since it is present in the dictionary ([e2c0f8a](https://github.com/edenlabllc/ehealth.schema/commit/e2c0f8a))
+
+
+
 <a name="2.29.0"></a>
 # [2.29.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.28.0...v2.29.0) (2019-04-04)
 
