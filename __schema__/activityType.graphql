@@ -57,7 +57,6 @@ type LegalEntityActivityType {
   "Primary key identifier from the database"
   databaseId: UUID!
   "Link with legalEntity"
-  legalEntity: ID!
   "Type of activity. The value should be present in the `ACTIVITY_TYPE` dictionary."
   type: String!
   "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
@@ -73,7 +72,7 @@ type LegalEntityActivityType {
 """
 Inputs to verify `LegalEntityActivityType` by NHS employee.
 """
-input ChangeActivityTypeInput {
+input UpdateLegalEntityActivityTypeInput {
   "Activity type database unique identifier."
   id: UUID!
   "Whether `LegalEntityActivityType` was verified or not?"
@@ -85,7 +84,7 @@ input ChangeActivityTypeInput {
 """
 Payload that should be sent to verify `LegalEntityActivityType`.
 """
-type ChangeActivityTypePayload {
+type UpdateLegalEntityActivityTypePayload {
   "Payload for activity type."
   legalEntityActivityType: LegalEntityActivityType
 }

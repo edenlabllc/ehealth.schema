@@ -595,9 +595,9 @@ type Mutation {
   ): CreateEmployeeRequestPayload
 
   """
-  Creates `ChangeActivityType` with given field values.
+  Updates `LegalEntityActivityType` using its globally unique ID and given field values.
   """
-  changeActivityType(input: ChangeActivityTypeInput!): ChangeActivityTypePayload
+  updateLegalEntityActivityType(input: UpdateLegalEntityActivityTypeInput!): UpdateLegalEntityActivityTypePayload
 }
 
 """

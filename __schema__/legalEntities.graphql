@@ -3,7 +3,7 @@
 # import DivisionFilter, DivisionOrderBy, DivisionConnection from "divisions.graphql"
 # import Employee from "employees.graphql"
 # import RelatedLegalEntityFilter, RelatedLegalEntityOrderBy, RelatedLegalEntityConnection from "relatedLegalEntities.graphql"
-# import LegalEntityActivityType from "activityTYpe.graphql"
+# import LegalEntityActivityType from "activityType.graphql"
 
 """
 Fields to filter LegalEntity in the system.
@@ -189,9 +189,9 @@ type LegalEntity implements Node {
   "Licenses of lehal entity."
   licenses: [LegalEntityLicense]
   "Accreditation of  legal entity."
-  accreditation: [LegalEntityAccreditation]
+  accreditations: [LegalEntityAccreditation]
   "activityTypes of ledal entity"
-  activityTypes: [LegalEntityActivityType]
+  activityTypes: LegalEntityActivityTypeConnection!
   "In case legal entity is verified by MIS, misVerified = true"
   misVerified: LegalEntityMisVerificationStatus!
   "Change requests for this `LegalEntity` in order to verify it."
