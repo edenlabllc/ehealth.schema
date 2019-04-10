@@ -1,5 +1,5 @@
 """
-Fields to filter LegalEntityActivityType in the system.
+A condition to be used against `LegalEntityActivityType` object types. All fields are tested for equality and combined with a logical ‘and.’
 """
 input LegalEntityActivityTypeFilter {
   "The ID of an object"
@@ -49,31 +49,10 @@ type LegalEntityActivityTypeEdge {
 }
 
 """
-Type of activity that legal entity performs.
-"""
-type LegalEntityActivityType {
-  "The ID of an object"
-  id: ID!
-  "Primary key identifier from the database"
-  databaseId: UUID!
-  "Link with legalEntity"
-  "Type of activity. The value should be present in the `ACTIVITY_TYPE` dictionary."
-  type: String!
-  "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
-  status: String!
-  "Reason of the status"
-  statusReason: String
-  "If activity type is verified by NHS"
-  nhsVerified: Boolean!
-  "If activity type is active"
-  isActive: Boolean!
-}
-
-"""
-Inputs to verify `LegalEntityActivityType` by NHS employee.
+Input for `updateLegalEntityActivityType` mutation.
 """
 input UpdateLegalEntityActivityTypeInput {
-  "Activity type database unique identifier."
+  "Activity type globally unique identifier."
   id: UUID!
   "Whether `LegalEntityActivityType` was verified or not?"
   nhsVerified: Boolean!
@@ -82,9 +61,33 @@ input UpdateLegalEntityActivityTypeInput {
 }
 
 """
-Payload that should be sent to verify `LegalEntityActivityType`.
+Return type for `updateLegalEntityActivityType` mutation.
 """
 type UpdateLegalEntityActivityTypePayload {
-  "Payload for activity type."
+  "Updated `LegalEntityActivityType`."
   legalEntityActivityType: LegalEntityActivityType
+}
+
+"""
+Type of activity that legal entity performs.
+"""
+type LegalEntityActivityType implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: UUID!
+  "Type of activity. The value should be present in the `ACTIVITY_TYPE` dictionary."
+  type: String!
+  "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
+  status: String!
+  "Reason of the status"
+  statusReason: String
+  "Whether `LegalEntityActivityType` was verified or not?"
+  nhsVerified: Boolean!
+  "Whether `LegalEntityActivityType` is active or not?"
+  isActive: Boolean!
+  "Date and time when record was inserted."
+  insertedAt: DateTime!
+  "Date and time when record was updated."
+  updatedAt: DateTime!
 }
