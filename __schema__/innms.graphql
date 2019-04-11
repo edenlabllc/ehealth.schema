@@ -47,7 +47,9 @@ type INNMEdge {
 }
 
 """
-Input for `createINNM` mutation. User must have scopes **innm:write**
+Input for `createInnm` mutation.
+
+User must have scopes **innm:write**
 """
 input CreateINNMInput {
   "innm local name"
@@ -59,7 +61,7 @@ input CreateINNMInput {
 }
 
 """
-Return type for `createINNM` mutation.
+Return type for `createInnm` mutation.
 """
 type CreateINNMPayload {
   "Created `INNM`."

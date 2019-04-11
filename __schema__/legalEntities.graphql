@@ -76,7 +76,7 @@ type LegalEntityEdge {
 }
 
 """
-Inputs to verify legal entity by NHS employee.
+Input for `nhsVerifyLegalEntity` mutation.
 """
 input NhsVerifyLegalEntityInput {
   "Legal entity database unique identifier."
@@ -86,7 +86,8 @@ input NhsVerifyLegalEntityInput {
 }
 
 """
-Payload that should be sent to verify legal entity.
+Return type for `nhsVerifyLegalEntity` mutation.
+
 In order to verify legal entity user must have a scope `legal_entity:nhs_verify`.
 """
 type NhsVerifyLegalEntityPayload {
@@ -95,24 +96,25 @@ type NhsVerifyLegalEntityPayload {
 }
 
 """
-Inputs to deactivate legal entity by NHS employee.
+Input for `deactivateLegalEntity` mutation.
 """
-input DeactivationLegalEntityInput {
+input DeactivateLegalEntityInput {
   "Legal entity database unique identifier."
   id: UUID!
 }
 
 """
-Payload that should be sent to deactivate legal entity.
+Return type for `deactivateLegalEntity` mutation.
+
 In order to deactivate legal entity user must have a scope `legal_entity:deactivate`.
 """
-type DeactivationLegalEntityPayload {
+type DeactivateLegalEntityPayload {
   "Payload for legalEntity."
   legalEntity: LegalEntity
 }
 
 """
-Inputs to review legal entity by NHS employee.
+Input for `nhsReviewLegalEntity` mutation.
 """
 input NhsReviewLegalEntityInput {
   "Legal entity database unique identifier."
@@ -120,7 +122,8 @@ input NhsReviewLegalEntityInput {
 }
 
 """
-Payload that should be sent to review legal entity.
+Return type for `nhsReviewLegalEntity` mutation.
+
 In order to review legal entity user must have a scope `legal_entity:nhs_verify`.
 """
 type NhsReviewLegalEntityPayload {
@@ -129,7 +132,7 @@ type NhsReviewLegalEntityPayload {
 }
 
 """
-Inputs to comment for legal entity by NHS employee.
+Input for `nhsCommentLegalEntity` mutation.
 """
 input NhsCommentLegalEntityInput {
   "Legal entity database unique identifier."
@@ -139,7 +142,8 @@ input NhsCommentLegalEntityInput {
 }
 
 """
-Payload that should be sent to comment legal entity.
+Return type for `nhsCommentLegalEntity` mutation.
+
 In order to comment for legal entity user must have a scope `legal_entity:nhs_verify`.
 """
 type NhsCommentLegalEntityPayload {

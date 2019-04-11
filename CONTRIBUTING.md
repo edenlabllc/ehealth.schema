@@ -49,7 +49,31 @@ A connection to a list of `[TYPE NAME]` values.
 
 ```graphql
 """
-Reads and enables pagination through a set of `LegalEntity`.
+Reads and enables pagination through a set of `[TYPE NAME]`.
+"""
+```
+
+###### Mutation input types
+
+```graphql
+"""
+Input for `[FIELD NAME]` mutation.
+"""
+```
+
+In case if input nested in another input:
+
+```graphql
+"""
+Input for `[TYPE NAME]` of `[FIELD NAME]` mutation.
+"""
+```
+
+###### Mutation payload types
+
+```graphql
+"""
+Return type for `[FIELD NAME]` mutation.
 """
 ```
 
@@ -76,13 +100,13 @@ Reads and enables pagination through a set of `LegalEntity`.
 ###### Update mutation fields
 
 ```graphql
-"Updates a single `[TYPE NAME]` using its globally unique id and a patch."
+"Updates a single `[TYPE NAME]` using its globally unique ID and a patch."
 ```
 
 ###### Generic mutation fields
 
 ```graphql
-"[ACTION] a single `[TYPE NAME]` using its globally unique id."
+"[ACTION] a single `[TYPE NAME]` using its globally unique ID."
 ```
 
 ###### Filter type fields
