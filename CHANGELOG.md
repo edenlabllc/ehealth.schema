@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.30.0"></a>
+# [2.30.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.29.1...v2.30.0) (2019-04-11)
+
+
+### Features
+
+* add `LegalEntityActivityType`, `LegalEntityLicense` and `LegalEntityAccreditation` types ([#107](https://github.com/edenlabllc/ehealth.schema/issues/107)) ([190156e](https://github.com/edenlabllc/ehealth.schema/commit/190156e))
+
+
+
 <a name="2.29.1"></a>
 ## [2.29.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.29.0...v2.29.1) (2019-04-09)
 
