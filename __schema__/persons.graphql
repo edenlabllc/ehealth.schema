@@ -98,16 +98,17 @@ type PersonEdge {
 }
 
 """
-Inputs to reset patient authentication method.
+Input for `resetPersonAuthenticationMethod` mutation.
+
 In order to reset patient authentication method user must have a scope `person:reset_authentication_method`
 """
 input ResetPersonAuthenticationMethodInput {
   "Primary key identifier from the database"
-  personId: UUID!
+  personId: ID!
 }
 
 """
-Payload for reseting patient authentication method.
+Return type for `resetPersonAuthenticationMethod` mutation.
 """
 type ResetPersonAuthenticationMethodPayload {
   "person information."

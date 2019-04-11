@@ -71,7 +71,9 @@ type MedicationEdge {
 }
 
 """
-Input for `createMedication` mutation. User must have scopes **medication:write**
+Input for `createMedication` mutation.
+
+User must have scopes **medication:write**
 """
 input CreateMedicationInput {
   "Certificate number"
@@ -99,7 +101,7 @@ input CreateMedicationInput {
 }
 
 """
-Input for `CreateMedicationInput.container`.
+Input for `Container` of `createMedication` mutation.
 """
 input CreateContainerInput {
   "Numerator unit. The value should be present in the `MEDICATION_UNIT` dictionary."
@@ -113,7 +115,7 @@ input CreateContainerInput {
 }
 
 """
-Input for `medicationIngredient` mutation.
+Input for `MedicationIngredient` of `createMedication` mutation.
 """
 input CreateMedicationIngredientInput {
   "The size or frequency of a dose of a medicine or drug."
@@ -125,7 +127,7 @@ input CreateMedicationIngredientInput {
 }
 
 """
-Input for `Dosage` mutation.
+Input for `Dosage` of `createMedication` mutation.
 """
 input CreateDosageInput {
   "Numerator unit. The value should be present in the `MEDICATION_UNIT` dictionary."
@@ -139,7 +141,7 @@ input CreateDosageInput {
 }
 
 """
-Input for `manufacturer` mutation
+Input for `Manufacturer` of `createMedication` mutation.
 """
 input CreateManufacturerInput {
   "Manufacturer country"
@@ -157,7 +159,9 @@ type CreateMedicationPayload {
 }
 
 """
-Input for `Medication` mutation. User must have scopes **medication:deactivate**
+Input for `deactivateMedication` mutation.
+
+User must have scopes **medication:deactivate**
 """
 input DeactivateMedicationInput {
   "The ID of an object"
@@ -165,7 +169,7 @@ input DeactivateMedicationInput {
 }
 
 """
-Return type for `Medication` mutation.
+Return type for `deactivateMedication` mutation.
 """
 type DeactivateMedicationPayload {
   "Deactivated `Medication`."

@@ -41,7 +41,16 @@ type MergeRequestEdge {
 }
 
 """
-Inputs to update status of Merge request.
+Return type for `assignMergeCandidate` mutation.
+"""
+type AssignMergeCandidatePayload {
+  "information of pair of persons which can be same."
+  mergeRequest: MergeRequest!
+}
+
+"""
+Input for `updateMergeRequest` mutation.
+
 In order to update status user must have a scope `merge_request:write`
 """
 input UpdateMergeRequestInput {
@@ -54,9 +63,9 @@ input UpdateMergeRequestInput {
 }
 
 """
-Payload for merge request mutations.
+Return type for `updateMergeRequest` mutation.
 """
-type MergeRequestPayload {
+type UpdateMergeRequestPayload {
   "information of pair of persons which can be same."
   mergeRequest: MergeRequest!
 }

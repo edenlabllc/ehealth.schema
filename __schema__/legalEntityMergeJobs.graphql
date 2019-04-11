@@ -40,7 +40,7 @@ type LegalEntityMergeJobEdge {
 }
 
 """
-Inputs for merge legal entity.
+Input for `mergeLegalEntities` mutation.
 """
 input MergeLegalEntitiesInput {
   "Input for Signed Content"
@@ -48,7 +48,7 @@ input MergeLegalEntitiesInput {
 }
 
 """
-Payload for merge legal entity.
+Return type for `mergeLegalEntities` mutation.
 """
 type MergeLegalEntitiesPayload {
   "payload legalEntityMergeJob."
