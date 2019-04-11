@@ -53,7 +53,7 @@ Input for `updateLegalEntityActivityType` mutation.
 """
 input UpdateLegalEntityActivityTypeInput {
   "Activity type globally unique identifier."
-  id: UUID!
+  id: ID!
   "Whether `LegalEntityActivityType` was verified or not?"
   nhsVerified: Boolean!
   "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."

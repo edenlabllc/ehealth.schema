@@ -219,7 +219,7 @@ type LegalEntity implements Node {
     last: Int
   ): LegalEntityLicenseConnection!
 
-  "Accreditation of  legal entity."
+  "Accreditation of legal entity."
   accreditations: [LegalEntityAccreditation]
 
   "In case legal entity is verified by MIS, misVerified = true"
