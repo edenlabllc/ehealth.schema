@@ -2,10 +2,11 @@
 # import Phone from "phones.graphql"
 # import DivisionFilter, DivisionOrderBy, DivisionConnection from "divisions.graphql"
 # import Employee from "employees.graphql"
+# import LegalEntityLicenseFilter, LegalEntityLicenseOrderBy, LegalEntityLicenseConnection from "legalEntityLicenses.graphql"
 # import RelatedLegalEntityFilter, RelatedLegalEntityOrderBy, RelatedLegalEntityConnection from "relatedLegalEntities.graphql"
 
 """
-Fields to filter LegalEntity in the system.
+A condition to be used against `LegalEntity` object types. All fields are tested for equality and combined with a logical ‘and.’
 """
 input LegalEntityFilter {
   "The ID of an object"
@@ -185,8 +186,42 @@ type LegalEntity implements Node {
   receiverFundsCode: String @fake(randexp: "^[0-9]{14}$")
   "Dictionary OWNER_PROPERTY_TYPE State or private type of legal entity"
   ownerPropertyType: String!
-  "Licenses and accreditation of legal entity."
-  medicalServiceProvider: MedicalServiceProvider
+
+  "Reads through a set of associated `LegalEntityActivityType`."
+  activityTypes(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: LegalEntityActivityTypeFilter
+    "The method to use when ordering collection items."
+    orderBy: LegalEntityActivityTypeOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): LegalEntityActivityTypeConnection!
+
+  "Reads through a set of associated `LegalEntityLicense`."
+  licenses(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: LegalEntityLicenseFilter
+    "The method to use when ordering collection items."
+    orderBy: LegalEntityLicenseOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): LegalEntityLicenseConnection!
+
+  "Accreditation of legal entity."
+  accreditations: [LegalEntityAccreditation]
+
   "In case legal entity is verified by MIS, misVerified = true"
   misVerified: LegalEntityMisVerificationStatus!
   "Change requests for this `LegalEntity` in order to verify it."
@@ -224,6 +259,7 @@ type LegalEntity implements Node {
     "Only read the last _n_ values of the set."
     last: Int
   ): EmployeeConnection!
+
   "Divisions within this legal entity."
   divisions(
     "A condition to be used in determining which values should be returned by the collection."
@@ -239,8 +275,10 @@ type LegalEntity implements Node {
     "Only read the last _n_ values of the set."
     last: Int
   ): DivisionConnection!
+
   "Main/Active legal entity after merging legal entities."
   mergedToLegalEntity: RelatedLegalEntity
+
   "Legal entities that are not active anymore and that were merged to this one."
   mergedFromLegalEntities(
     "A condition to be used in determining which values should be returned by the collection."
@@ -276,36 +314,6 @@ enum LegalEntityMisVerificationStatus {
   NOT_VERIFIED
   "Status for verified legal entity by MIS"
   VERIFIED
-}
-
-"""
-Inforamtion about licenses and accreditations of legal entity.
-"""
-type MedicalServiceProvider {
-  "legal entity medical licenses."
-  licenses: [LegalEntityLicense]
-  "legal entity accreditation information."
-  accreditation: LegalEntityAccreditation
-}
-
-"""
-Legal entity license to practice medicine.
-"""
-type LegalEntityLicense {
-  "License number."
-  licenseNumber: String @fake(randexp: "^[0-9]{12}$")
-  "Institution name where license was obtained."
-  issuedBy: String @fake(locale: "uk", method: "company.companyName")
-  "The date when the license was obtained."
-  issuedDate: Date
-  "The date when the license expires."
-  expiryDate: Date @fake(locale: "uk", method: "date.future", args: [2])
-  "The date of transferring this license to archive"
-  activeFromDate: Date
-  "License type, what is it granted for."
-  whatLicensed: String
-  "License order number"
-  orderNo: String @fake(randexp: "^[0-9]{8}$")
 }
 
 """

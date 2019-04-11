@@ -1,0 +1,93 @@
+"""
+A condition to be used against `LegalEntityActivityType` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input LegalEntityActivityTypeFilter {
+  "The ID of an object"
+  databaseId: UUID
+  "If activity type is active"
+  isActive: Boolean
+  "In case activity type was verified by NHS employee, nhsVerified should be true."
+  nhsVerified: Boolean
+  "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
+  type: [String]
+}
+
+"""
+Methods to use when ordering `LegalEntityActivityType`.
+"""
+enum LegalEntityActivityTypeOrderBy {
+  "Sort legal entity by nhs verified at in ascending order."
+  NHS_VERIFIED_ASC
+  "Sort legal entity by nhs verified at in descending order."
+  NHS_VERIFIED_DESC
+  "Sort legal entity by status at in ascending order."
+  STATUS_ASC
+  "Sort legal entity by status at in descending order."
+  STATUS_DESC
+}
+
+"""
+A connection to a list of `LegalEntityActivityType` values.
+"""
+type LegalEntityActivityTypeConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [LegalEntityActivityType]
+  "A list of edges."
+  edges: [LegalEntityActivityTypeEdge]
+}
+
+"""
+Reads and enables pagination through a set of `LegalEntityActivityType`.
+"""
+type LegalEntityActivityTypeEdge {
+  "The item at the end of the edge."
+  node: LegalEntityActivityType!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Input for `updateLegalEntityActivityType` mutation.
+"""
+input UpdateLegalEntityActivityTypeInput {
+  "Activity type globally unique identifier."
+  id: ID!
+  "Whether `LegalEntityActivityType` was verified or not?"
+  nhsVerified: Boolean!
+  "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
+  status: String!
+}
+
+"""
+Return type for `updateLegalEntityActivityType` mutation.
+"""
+type UpdateLegalEntityActivityTypePayload {
+  "Updated `LegalEntityActivityType`."
+  legalEntityActivityType: LegalEntityActivityType
+}
+
+"""
+Type of activity that legal entity performs.
+"""
+type LegalEntityActivityType implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: UUID!
+  "Type of activity. The value should be present in the `ACTIVITY_TYPE` dictionary."
+  type: String!
+  "Status of activity type. The value should be present in the `ACTIVITY_TYPE_STATUS` dictionary."
+  status: String!
+  "Reason of the status"
+  statusReason: String
+  "Whether `LegalEntityActivityType` was verified or not?"
+  nhsVerified: Boolean!
+  "Whether `LegalEntityActivityType` is active or not?"
+  isActive: Boolean!
+  "Date and time when record was inserted."
+  insertedAt: DateTime!
+  "Date and time when record was updated."
+  updatedAt: DateTime!
+}
