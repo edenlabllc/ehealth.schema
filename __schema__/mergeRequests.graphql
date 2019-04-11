@@ -44,7 +44,7 @@ type MergeRequestEdge {
 Return type for `assignMergeCandidate` mutation.
 """
 type AssignMergeCandidatePayload {
-  "information of pair of persons which can be same."
+  "Information of pair of persons which can be same."
   mergeRequest: MergeRequest!
 }
 
@@ -66,7 +66,7 @@ input UpdateMergeRequestInput {
 Return type for `updateMergeRequest` mutation.
 """
 type UpdateMergeRequestPayload {
-  "information of pair of persons which can be same."
+  "Information of pair of persons which can be same."
   mergeRequest: MergeRequest!
 }
 

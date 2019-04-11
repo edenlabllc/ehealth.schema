@@ -103,7 +103,7 @@ type TerminateContractPayload {
 Input for `prolongateContract` mutation.
 
 NHS admin can prolongate contract having a scope `contract:update`.
-Prolongate contract is possible in case legal entity was reorginised.
+Prolongate contract is possible in case the legal entity was reorganized.
 """
 input ProlongateContractInput {
   "Input for a single `contractId` using its globally unique ID."
