@@ -1,0 +1,33 @@
+"""
+Legal entity license to practice medicine.
+"""
+type LegalEntityLicense implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "License number."
+  licenseNumber: String @fake(randexp: "^[0-9]{12}$")
+  "LicenseType. The value should be present in the `LICENSE_TYPE` dictionary."
+  licenseType: String
+  "Institution name where license was obtained."
+  issuedBy: String @fake(locale: "uk", method: "company.companyName")
+  "The date when the license was obtained."
+  issuedDate: Date
+  "Status of issuer."
+  issuerStatus: String
+  "The date when the license expires."
+  expiryDate: Date @fake(locale: "uk", method: "date.future", args: [2])
+  "The date of transferring this license to archive"
+  activeFromDate: Date
+  "License type, what is it granted for."
+  whatLicensed: String
+  "License order number"
+  orderNo: String @fake(randexp: "^[0-9]{8}$")
+  "Flag that shows if license is active."
+  isActive: Boolean!
+  "Date and time when record was inserted."
+  insertedAt: DateTime!
+  "Date and time when record was updated."
+  updatedAt: DateTime!
+}
