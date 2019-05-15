@@ -80,7 +80,7 @@ Input for `nhsVerifyLegalEntity` mutation.
 """
 input NhsVerifyLegalEntityInput {
   "Legal entity database unique identifier."
-  id: UUID!
+  id: ID!
   "Whether `LegalEntity` was verified or not?"
   nhsVerified: Boolean!
 }
@@ -96,29 +96,11 @@ type NhsVerifyLegalEntityPayload {
 }
 
 """
-Input for `deactivateLegalEntity` mutation.
-"""
-input DeactivateLegalEntityInput {
-  "Legal entity database unique identifier."
-  id: UUID!
-}
-
-"""
-Return type for `deactivateLegalEntity` mutation.
-
-In order to deactivate legal entity user must have a scope `legal_entity:deactivate`.
-"""
-type DeactivateLegalEntityPayload {
-  "Payload for legalEntity."
-  legalEntity: LegalEntity
-}
-
-"""
 Input for `nhsReviewLegalEntity` mutation.
 """
 input NhsReviewLegalEntityInput {
   "Legal entity database unique identifier."
-  id: UUID!
+  id: ID!
 }
 
 """
@@ -136,7 +118,7 @@ Input for `nhsCommentLegalEntity` mutation.
 """
 input NhsCommentLegalEntityInput {
   "Legal entity database unique identifier."
-  id: UUID!
+  id: ID!
   "Comment for MSP to change legal entity"
   nhsComment: String!
 }
@@ -151,6 +133,55 @@ type NhsCommentLegalEntityPayload {
   legalEntity: LegalEntity
 }
 
+"""
+Input for `updateLegalEntityStatus` mutation.
+"""
+input UpdateLegalEntityStatusInput {
+  "Legal entity database unique identifier."
+  id: ID!
+  "Legal entity status"
+  status: LegalEntityUpdateableStatus!
+  "Why `LegalEntity` status is changing?"
+  reason: String!
+}
+
+"""
+List of legal entities statuses allowed to update by NHS.
+"""
+enum LegalEntityUpdateableStatus {
+  "Denotes that legal entity is active."
+  ACTIVE
+  "Denotes that legal entity is suspended and has limited rights for actions in ehealth system."
+  SUSPENDED
+}
+
+"""
+Return type for `UpdateLegalEntityStatus` mutation.
+
+In order to suspend legal entity user must have a scope `legal_entity:update`.
+"""
+type UpdateLegalEntityStatusPayload {
+  "Payload for legalEntity."
+  legalEntity: LegalEntity
+}
+
+"""
+Input for `deactivateLegalEntity` mutation.
+"""
+input DeactivateLegalEntityInput {
+  "Legal entity database unique identifier."
+  id: ID!
+}
+
+"""
+Return type for `deactivateLegalEntity` mutation.
+
+In order to deactivate legal entity user must have a scope `legal_entity:deactivate`.
+"""
+type DeactivateLegalEntityPayload {
+  "Payload for legalEntity."
+  legalEntity: LegalEntity
+}
 """
 Legal Entity contains data about medical service providers, pharamcies and MISes.
 In order to obtain details user must have a scope `legal_entity:read`.
@@ -308,6 +339,10 @@ enum LegalEntityStatus {
   ACTIVE
   "Denotes that legal entity is closed. This state is irreversible."
   CLOSED
+  "Denotes that legal entity is reorganised."
+  REORGANISED
+  "Denotes that legal entity is suspended and has limited rights for actions in ehealth system."
+  SUSPENDED
 }
 
 """
