@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.31.0"></a>
+# [2.31.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.30.1...v2.31.0) (2019-05-19)
+
+
+### Features
+
+* add `updateLegalEntityStatus` mutation ([0c42ff2](https://github.com/edenlabllc/ehealth.schema/commit/0c42ff2))
+
+
+
 <a name="2.30.1"></a>
 ## [2.30.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.30.0...v2.30.1) (2019-05-13)
 
