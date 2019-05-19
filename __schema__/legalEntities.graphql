@@ -158,7 +158,7 @@ enum LegalEntityUpdateableStatus {
 """
 Return type for `UpdateLegalEntityStatus` mutation.
 
-In order to suspend legal entity user must have a scope `legal_entity:update`.
+In order to update the legal entity status user must have a scope `legal_entity:update`.
 """
 type UpdateLegalEntityStatusPayload {
   "Payload for legalEntity."
