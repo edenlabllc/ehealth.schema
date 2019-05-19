@@ -456,6 +456,11 @@ type Mutation {
     input: UpdateLegalEntityActivityTypeInput!
   ): UpdateLegalEntityActivityTypePayload
 
+  "Updates status of a single `LegalEntity` using its globally unique ID."
+  updateLegalEntityStatus(
+    input: UpdateLegalEntityStatusInput!
+  ): UpdateLegalEntityStatusPayload
+
   "Deactivates a single `LegalEntity` using its globally unique ID."
   deactivateLegalEntity(
     input: DeactivateLegalEntityInput!
