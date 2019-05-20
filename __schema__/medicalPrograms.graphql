@@ -1,26 +1,28 @@
 """
-Fields to filter reimbursement medical programs in the system.
+Fields to filter medical programs in the system.
 """
 input MedicalProgramFilter {
-  "Primary key identifier from the database."
+  "Checks for equality with the object’s `databaseId` field."
   databaseId: UUID
-  "MedicalProgram name."
+  "Checks for matching with the object’s `name` field."
   name: String
-  "is_active status."
+  "Checks for equality with the object’s `isActive` field."
   isActive: Boolean
+  "Checks for equality with the object’s `type` field."
+  type: String
 }
 
 """
 Methods to use when ordering `MedicalProgram`.
 """
 enum MedicalProgramOrderBy {
-  "Sort by inserted_at in ascending order."
+  "Orders by the object’s `insertedAt` field in the ascending order."
   INSERTED_AT_ASC
-  "Sort by inserted_at in descending order."
+  "Orders by the object’s `insertedAt` field in the descending order."
   INSERTED_AT_DESC
-  "Sort MedicalProgram by name in ascending order."
+  "Orders by the object’s `name` field in the ascending order."
   NAME_ASC
-  "Sort MedicalProgram by name in descending order."
+  "Orders by the object’s `name` field in the descending order."
   NAME_DESC
 }
 
@@ -47,22 +49,24 @@ type MedicalProgramEdge {
 }
 
 """
-MedicalProgram contains details about medical program for reimbursement.
+MedicalProgram contains details about medical program for reimbursement and services.
 
 In order to obtain details user must have a scope **medical_program:read**
 """
 type MedicalProgram implements Node {
-  "The ID of an object"
+  "The ID of an object."
   id: ID!
-  "Primary key identifier from the database"
+  "Primary key identifier from the database."
   databaseId: UUID!
-  "MedicalProgram name."
+  "The name of the `MedicalProgram`."
   name: String!
-  "is_active status"
+  "Type of the `MedicalProgram`."
+  type: String!
+  "Whether the `MediaclProgram` is active or not?"
   isActive: Boolean!
-  "Date and time when record was inserted"
+  "Date and time when record was inserted."
   insertedAt: DateTime!
-  "Date and time when record was updated"
+  "Date and time when record was updated."
   updatedAt: DateTime!
 }
 
@@ -72,15 +76,17 @@ Input for `createMedicalProgram` mutation.
 User must have a scope **medical_program:write**
 """
 input CreateMedicalProgramInput {
-  "Medical Program name"
+  "The name of the `MedicalProgram`."
   name: String!
+  "Type of the `MedicalProgram`. The value should be present in the `MEDICAL_PROGRAM_TYPE` dictionary."
+  type: String!
 }
 
 """
 Return type for `createMedicalProgram` mutation.
 """
 type CreateMedicalProgramPayload {
-  "Payload for a ContractRequest."
+  "Created `MedicalProgram`."
   medicalProgram: MedicalProgram
 }
 
@@ -90,7 +96,7 @@ Input for `deactivateMedicalProgram` mutation.
 User must have a scope **medical_program:deactivate**
 """
 input DeactivateMedicalProgramInput {
-  "The ID of an object"
+  "The ID of a `MedicalProgram` to deactivate."
   id: ID!
 }
 
@@ -98,6 +104,6 @@ input DeactivateMedicalProgramInput {
 Return type for `deactivateMedicalProgram` mutation.
 """
 type DeactivateMedicalProgramPayload {
-  "Payload for a ContractRequest."
+  "Deactivated `MedicalProgram`."
   medicalProgram: MedicalProgram
 }
