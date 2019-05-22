@@ -1,0 +1,154 @@
+# import MedicalProgram from "medicalPrograms.graphql"
+# import Service from "services.graphql"
+# import ServiceGroup from "serviceGroup.graphql"
+"""
+Fields to filter program services in the system.
+"""
+input ProgramServiceFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+  "Medical program filter."
+  medicalProgram: MedicalProgramFilter
+  "Flag whether `ProgramService` is active or not?"
+  isActive: Boolean
+  "Service request allowed status"
+  requestAllowed: Boolean
+  "Service filter"
+  service: ServiceFilter
+  "Service Group filter"
+  serviceGroup: ServiceGroupFilter
+}
+
+"""
+Methods to use when ordering `ProgramService`.
+"""
+enum ProgramServiceOrderBy {
+  "Sort by consumerPrice in ascending order"
+  CONSUMER_PRICE_ASC
+  "Sort by consumerPrice in descending order"
+  CONSUMER_PRICE_DESC
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `ProgramService` items.
+"""
+type ProgramServiceConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ProgramService]
+  "A list of edges."
+  edges: [ProgramServiceEdge]
+}
+
+"""
+An edge in a connection of `ProgramService`.
+"""
+type ProgramServiceEdge {
+  "The item at the end of the edge."
+  node: ProgramService!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Input for `CreateProgramService` mutation.
+
+User must have scope **program_service:write** to perform this action.
+"""
+input CreateProgramServiceInput {
+  "Id of service"
+  serviceId: ID
+  "Id of service group"
+  serviceGroupId: ID
+  "Service program Identifier"
+  medicalProgramId: ID!
+  "Whether requesting medications allowed for the `ProgramService` or not?"
+  requestAllowed: Boolean!
+  "Consumer price for service or service group"
+  consumerPrice: Float!
+  "Description of un-automated conditions which should be checked for program member vs patient qualification"
+  description: String
+}
+
+"""
+Return type for `CreateProgramService` mutation.
+"""
+type CreateProgramServicePayload {
+  "Created `ProgramService`."
+  programService: ProgramService
+}
+
+"""
+Input for `updateProgramService` mutation.
+
+User must have a scope **program_service:write**
+"""
+input UpdateProgramServiceInput {
+  "The ID of an object."
+  id: ID!
+  "Whether requesting medications allowed for the `ProgramService` or not?"
+  requestAllowed: Boolean
+  "Description of un-automated conditions which should be checked for program member vs patient qualification"
+  description: String
+}
+
+"""
+Return type for `updateProgramService` mutation.
+"""
+type UpdateProgramServicePayload {
+  "Updated `ProgramService`."
+  programService: ProgramService
+}
+
+"""
+Input for `deactivateProgramService` mutation.
+
+User must have a scope **program_service:write*
+"""
+input DeactivateProgramServiceInput {
+  "The ID of an object"
+  id: ID!
+}
+
+"""
+Return type for `deactivateProgramService` mutation.
+"""
+type DeactivateProgramServicePayload {
+  "Deactivated `ProgramService`."
+  programService: ProgramService
+}
+
+"""
+Program Service connects service, serviceGroup and medical program.
+
+In order to obtain details user must have a scope **program_service:read**
+"""
+type ProgramService implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: UUID!
+  "MedicalProgram."
+  medicalProgram: MedicalProgram!
+  "Service"
+  service: Service
+  "Service group"
+  serviceGroup: ServiceGroup
+  "Consumer price for service or service group"
+  consumerPrice: Float
+  "Description of un-automated conditions which should be checked for program member vs patient qualification"
+  description: String
+  "Whether `ProgramService` is active or not?"
+  isActive: Boolean!
+  "Whether requesting services allowed for the `ProgramService` or not?"
+  requestAllowed: Boolean!
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}

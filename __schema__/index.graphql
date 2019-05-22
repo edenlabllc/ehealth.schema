@@ -25,6 +25,9 @@
 # import * from "regions.graphql"
 # import * from "districts.graphql"
 # import * from "settlements.graphql"
+# import * from "services.graphql"
+# import * from "serviceGroup.graphql"
+# import * from "programServices.graphql"
 
 """
 The query root of e-Health GraphQL interface.
@@ -377,6 +380,63 @@ type Query {
     "Only read the last _n_ values of the set."
     last: Int
   ): SettlementConnection!
+
+  "Reads and enables pagination through a set of `Service`."
+  services(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ServiceFilter
+    "The method to use when ordering collection items."
+    orderBy: ServiceOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ServiceConnection!
+
+  "Reads a single `Service` using its globally unique ID."
+  service(id: ID!): Service
+
+  "Reads and enables pagination through a set of `ServiceGroup`."
+  serviceGroups(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ServiceGroupFilter
+    "The method to use when ordering collection items."
+    orderBy: ServiceGroupOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ServiceGroupConnection!
+
+  "Reads a single `ServiceGroup` using its globally unique ID."
+  serviceGroup(id: ID!): ServiceGroup
+
+  "Reads and enables pagination through a set of `ProgramService`."
+  programServices(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ProgramServiceFilter
+    "The method to use when ordering collection items."
+    orderBy: ProgramServiceOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ProgramServiceConnection!
+
+  "Reads a single `ProgramService` using its globally unique ID."
+  programService(id: ID!): ProgramService
 }
 
 """
@@ -526,6 +586,49 @@ type Mutation {
 
   "Deactivates a single `Employee` using its globally unique ID."
   deactivateEmployee(input: DeactivateEmployeeInput!): DeactivateEmployeePayload
+
+  "Creates a single `Service`."
+  createService(input: CreateServiceInput!): CreateServicePayload
+
+  "Deactivates a single `Service` using its globally unique ID."
+  deactivateService(input: DeactivateServiceInput!): DeactivateServicePayload
+
+  "Updates a single `Service` using its globally unique ID."
+  updateService(input: UpdateServiceInput!): UpdateServicePayload
+
+  "Creates a single `ServiceGroup`."
+  createServiceGroup(input: CreateServiceGroupInput!): CreateServiceGroupPayload
+
+  "Deactivates a single `ServiceGroup` using its globally unique ID."
+  deactivateServiceGroup(
+    input: DeactivateServiceGroupInput!
+  ): DeactivateServiceGroupPayload
+
+  "Add `Service` to `ServiceGroup`."
+  addServiceToGroup(input: AddServiceToGroupInput!): AddServiceToGroupPayload
+
+  "Delete `Service` from `ServiceGroup`."
+  deleteServiceFromGroup(
+    input: DeleteServiceFromGroupInput!
+  ): DeleteServiceFromGroupPayload
+
+  "Updates a single `ServiceGroup` using its globally unique ID."
+  updateServiceGroup(input: UpdateServiceGroupInput!): UpdateServiceGroupPayload
+
+  "Creates a single `ProgramService`."
+  createProgramService(
+    input: CreateProgramServiceInput!
+  ): CreateProgramServicePayload
+
+  "Updates a single `ProgramService` using its globally unique ID and a patch."
+  updateProgramService(
+    input: UpdateProgramServiceInput!
+  ): UpdateProgramServicePayload
+
+  "Deactivates a single `ProgramService` using its globally unique ID."
+  deactivateProgramService(
+    input: DeactivateProgramServiceInput!
+  ): DeactivateProgramServicePayload
 }
 
 """
