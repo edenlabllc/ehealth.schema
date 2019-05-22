@@ -1,0 +1,217 @@
+# import Service from "services.graphql"
+
+"""
+Fields to filter service group in the system.
+"""
+input ServiceGroupFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+  "Service group name."
+  name: String
+  "Service group code."
+  code: String
+  "Flag whether `Service group` is active or not?"
+  isActive: Boolean
+  "Applies conditions to object’s `parentGroup` field."
+  parentGroup: ServiceGroupFilter
+}
+
+"""
+Methods to use when ordering `ServicesGroup`.
+"""
+enum ServiceGroupOrderBy {
+  "Orders by the object’s `code` field in the ascending order."
+  CODE_ASC
+  "Orders by the object’s `code` field in the descending order."
+  CODE_DESC
+  "Sort ServiceGroup by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort ServiceGroup by inserted_at in descending order."
+  INSERTED_AT_DESC
+  "Sort Services by name in ascending order."
+  NAME_ASC
+  "Sort Services by name in descending order."
+  NAME_DESC
+}
+
+"""
+A connection to a list of `ServiceGroup` items.
+"""
+type ServiceGroupConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ServiceGroup]
+  "A list of edges."
+  edges: [ServiceGroupEdge]
+}
+
+"""
+An edge in a connection of `ServiceGroup`.
+"""
+type ServiceGroupEdge {
+  "The item at the end of the edge."
+  node: ServiceGroup!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Input for `createServiceGroup` mutation.
+
+User must have scopes **service_catalog:write**
+"""
+input CreateServiceGroupInput {
+  "Service group name"
+  name: String!
+  "Service group code"
+  code: String!
+  "Whether requesting service groups allowed for the `ServiceGroup` or not?"
+  requestAllowed: Boolean!
+  "Id of connected service group."
+  parentGroupId: ID
+}
+
+"""
+Return type for `createServiceGroup` mutation.
+"""
+type CreateServiceGroupPayload {
+  "Created `Service Group`."
+  serviceGroup: ServiceGroup
+}
+
+"""
+Input for `deactivateServiceGroup` mutation.
+
+User must have scopes **service_catalog:write**
+"""
+input DeactivateServiceGroupInput {
+  "The ID of an object"
+  id: ID!
+}
+
+"""
+Return type for `deactivateServiceGroup` mutation.
+"""
+type DeactivateServiceGroupPayload {
+  "Deactivated `ServiceGroup`."
+  serviceGroup: ServiceGroup
+}
+
+"""
+Input for `addServiceToGroup` mutation.
+
+User must have scopes **service_catalog:write**
+"""
+input AddServiceToGroupInput {
+  "Service Id"
+  serviceId: ID!
+  "Service group Id"
+  serviceGroupId: ID!
+}
+
+"""
+Return type for `addServiceToGroup` mutation.
+"""
+type AddServiceToGroupPayload {
+  "Updated `Service Group`."
+  serviceGroup: ServiceGroup
+}
+
+"""
+Input for `updateServiceGroup` mutation.
+
+User must have scopes **service_catalog:write**
+"""
+input UpdateServiceGroupInput {
+  "The ID of an object"
+  id: ID!
+  "Whether requesting allowed for the `ServiceGroup` or not?"
+  requestAllowed: Boolean
+}
+
+"""
+Return type for `updateServiceGroup` mutation.
+"""
+type UpdateServiceGroupPayload {
+  "Update `ServiceGroup`."
+  serviceGroup: ServiceGroup
+}
+
+"""
+Input for `deleteServiceFromGroup` mutation.
+
+User must have scopes **service_catalog:write**
+"""
+input DeleteServiceFromGroupInput {
+  "Service Id"
+  serviceId: ID!
+  "Service group Id"
+  serviceGroupId: ID!
+}
+
+"""
+Return type for `deleteServiceFromGroup` mutation.
+"""
+type DeleteServiceFromGroupPayload {
+  "Updated `Service Group`."
+  serviceGroup: ServiceGroup
+}
+
+"""
+Service group that provided by legal entity. User must have a scope **service_catalog:read**
+"""
+type ServiceGroup implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Service group name"
+  name: String!
+  "Service group code"
+  code: String!
+  "Whether the `ServiceGroup` is active or not?"
+  isActive: Boolean!
+  "Parent service group"
+  parentGroup: ServiceGroup
+
+  "Reads through a set of associated `ServiceGroup`."
+  subGroups(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ServiceGroupFilter
+    "The method to use when ordering collection items."
+    orderBy: ServiceGroupOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ServiceGroupConnection!
+
+  "Whether requesting service groups allowed for the `ServiceGroup` or not?"
+  requestAllowed: Boolean!
+
+  "Reads through a set of associated `ServiceGroup`."
+  services(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ServiceFilter
+    "The method to use when ordering collection items."
+    orderBy: ServiceOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): Service
+
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}

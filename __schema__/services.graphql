@@ -1,0 +1,158 @@
+"""
+Fields to filter service in the system.
+"""
+input ServiceFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+  "Service name."
+  name: String
+  "Service code."
+  code: String
+  "Flag whether `Service` is active or not?"
+  isActive: Boolean
+  "Service category. The value should be present in the `SERVICE_CATEGORY` dictionary."
+  category: String
+}
+
+"""
+Methods to use when ordering `Services`.
+"""
+enum ServiceOrderBy {
+  "Orders by the object’s `code` field in the ascending order."
+  CODE_ASC
+  "Orders by the object’s `code` field in the descending order."
+  CODE_DESC
+  "Sort Service by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort Service by inserted_at in descending order."
+  INSERTED_AT_DESC
+  "Sort Services by name in ascending order."
+  NAME_ASC
+  "Sort Services by name in descending order."
+  NAME_DESC
+}
+
+"""
+A connection to a list of `Service` items.
+"""
+type ServiceConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Service]
+  "A list of edges."
+  edges: [ServiceEdge]
+}
+
+"""
+An edge in a connection of `Service`.
+"""
+type ServiceEdge {
+  "The item at the end of the edge."
+  node: Service!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Input for `createService` mutation.
+
+User must have scopes **service_catalog:write**
+"""
+input CreateServiceInput {
+  "Service name"
+  name: String!
+  "Service code"
+  code: String!
+  "Service category. The value should be present in the `SERVICE_CATEGORY` dictionary."
+  category: String
+}
+
+"""
+Return type for `createService` mutation.
+"""
+type CreateServicePayload {
+  "Created `Service`."
+  service: Service
+}
+
+"""
+Input for `updateService` mutation.
+
+User must have scopes **service_catalog:write**
+"""
+input UpdateServiceInput {
+  "The ID of an object"
+  id: ID!
+  "Whether requesting allowed for the `Service` or not?"
+  requestAllowed: Boolean
+}
+
+"""
+Return type for `updateService` mutation.
+"""
+type UpdateServicePayload {
+  "Update `Service`."
+  service: Service
+}
+
+"""
+Input for `deactivateService` mutation.
+
+User must have scopes **service_catalog:write**
+"""
+input DeactivateServiceInput {
+  "The ID of an object"
+  id: ID!
+}
+
+"""
+Return type for `deactivateService` mutation.
+"""
+type DeactivateServicePayload {
+  "Deactivated `Service`."
+  service: Service
+}
+
+"""
+Services that provided by legal entity. User must have a scope **service_catalog:read**
+"""
+type Service implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Service name"
+  name: String!
+  "Service code"
+  code: String!
+  "Service category. The value should be present in the `SERVICE_CATEGORY` dictionary."
+  category: String
+  "Whether `Service` is active or not?"
+  isActive: Boolean!
+  "Whether requesting services allowed for the `Service` or not?"
+  requestAllowed: Boolean
+  "Whether the `Service` is composion or not?"
+  isComposition: Boolean
+
+  "Reads and enables pagination through a set of parent `ServiceGroup`."
+  parentGroups(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ServiceGroupFilter
+    "The method to use when ordering collection items."
+    orderBy: ServiceGroupOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ServiceGroupConnection!
+
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}
