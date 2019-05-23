@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.32.0"></a>
+# [2.32.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.31.0...v2.32.0) (2019-05-23)
+
+
+### Features
+
+* add `ProgramService`, `ServiceGroup` and `Service` types ([60e4160](https://github.com/edenlabllc/ehealth.schema/commit/60e4160))
+* add `type` field to `MedicalProgram` type ([f20ed2a](https://github.com/edenlabllc/ehealth.schema/commit/f20ed2a))
+
+
+
 <a name="2.31.0"></a>
 # [2.31.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.30.1...v2.31.0) (2019-05-19)
 
