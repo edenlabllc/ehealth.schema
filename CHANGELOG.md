@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.32.1"></a>
+## [2.32.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.32.0...v2.32.1) (2019-05-24)
+
+
+### Bug Fixes
+
+* import employeeRequests to the index.graphql ([#113](https://github.com/edenlabllc/ehealth.schema/issues/113)) ([4488f23](https://github.com/edenlabllc/ehealth.schema/commit/4488f23))
+
+
+
 <a name="2.32.0"></a>
 # [2.32.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.31.0...v2.32.0) (2019-05-23)
 
