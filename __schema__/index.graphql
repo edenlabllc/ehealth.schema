@@ -28,6 +28,7 @@
 # import * from "services.graphql"
 # import * from "serviceGroup.graphql"
 # import * from "programServices.graphql"
+# import * from "employeeRequests.graphql"
 
 """
 The query root of e-Health GraphQL interface.
