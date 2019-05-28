@@ -208,7 +208,7 @@ type ServiceGroup implements Node {
     first: Int
     "Only read the last _n_ values of the set."
     last: Int
-  ): Service
+  ): ServiceConnection!
 
   "Date and time when record was inserted"
   insertedAt: DateTime!
