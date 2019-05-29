@@ -7,11 +7,13 @@
     "lint": "graphql-schema-linter __schema__/*.graphql",
     "release": "standard-version -m \"chore(release): publish %s [skip ci]\"",
     "github-release": "conventional-github-releaser -p angular",
-    "postinstall": "graphql-codegen"
+    "prepublish": "graphql-codegen"
   },
   "license": "Apache-2.0",
   "files": [
-    "__schema__"
+    "__schema__",
+    "index.js.flow",
+    "types.js.flow"
   ],
   "publishConfig": {
     "access": "public"
