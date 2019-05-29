@@ -1,0 +1,3 @@
+declare module "@ehealth-ua/schema" {
+  declare export * from "./types.js.flow";
+}
