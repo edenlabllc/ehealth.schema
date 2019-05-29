@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.33.1"></a>
+## [2.33.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.33.0...v2.33.1) (2019-05-29)
+
+
+### Bug Fixes
+
+* add types.js.flow to .gitignore and change npm script to prepublish ([bb60cbb](https://github.com/edenlabllc/ehealth.schema/commit/bb60cbb))
+
+
+
 <a name="2.33.0"></a>
 # [2.33.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.32.2...v2.33.0) (2019-05-29)
 
