@@ -101,11 +101,11 @@ type LegalEntityMergeJob implements Node {
 List of statuses for LegalEntityMergeJob.
 """
 enum LegalEntityMergeJobStatus {
-  "Is set when job has an error and could not be finished successfully."
-  ERROR
-  "Is set when job is in a queue."
+  "Status determines that job was failed with logical error."
+  FAILED
+  "Status determines that job was created in database."
   PENDING
-  "Is set when job is finished successfully."
+  "Status determines that job was successfully processed."
   PROCESSED
 }
 
@@ -113,9 +113,9 @@ enum LegalEntityMergeJobStatus {
 Metadata of merging legal entities.
 """
 type MergeeLegalEntityMetadata {
-  "Primary key identifier from the database"
+  "Primary key identifier from the database."
   id: UUID!
-  "full official name of legal entity"
+  "full official name of legal entity."
   name: String!
   "Legal entity edrpou."
   edrpou: String!
