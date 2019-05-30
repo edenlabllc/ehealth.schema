@@ -1,4 +1,5 @@
 # import SignedContent from "signedContent.graphql"
+# import TaskFilter, TaskOrderBy, TaskConnection from "tasks.graphql"
 """
 Filter for Legal entity merge job.
 """
@@ -63,12 +64,31 @@ type LegalEntityMergeJob implements Node {
   id: ID!
   "Primary key identifier from the database"
   databaseId: ObjectId!
+  "Job name."
+  name: String!
   "Legal Entity Merge Job status."
   status: LegalEntityMergeJobStatus!
+  "Job execution strategy."
+  strategy: String!
   "Date and time when the job starts."
   startedAt: DateTime!
   "Date and time when the job ends."
   endedAt: DateTime
+  "Tasks within this job."
+  tasks(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: TaskFilter
+    "The method to use when ordering collection items."
+    orderBy: TaskOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): TaskConnection!
   "The main legal entity that is active after merging."
   mergedToLegalEntity: MergeeLegalEntityMetadata!
   "Legal entity that is merged."

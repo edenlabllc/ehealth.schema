@@ -1,0 +1,89 @@
+"""
+Fields to filter task in the system.
+"""
+input TaskFilter {
+  "Checks for equality with the object’s status field."
+  status: TaskStatus
+}
+
+"""
+Methods to use when ordering "Task".
+"""
+enum TaskOrderBy {
+  "Orders by the object’s `inserted_at` field in the ascending order."
+  INSERTED_AT_ASC
+  "Orders by the object’s `inserted_at` field in the descending order."
+  INSERTED_AT_DESC
+  "Orders by the object’s `status` field in the ascending order."
+  STATUS_ASC
+  "Orders by the object’s `status` field in the descending order."
+  STATUS_DESC
+}
+
+"""
+A connection to a list of "Task" items.
+"""
+type TaskConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Task]
+  "A list of edges."
+  edges: [TaskEdge]
+}
+
+"""
+An edge in a connection of "Task".
+"""
+type TaskEdge {
+  "The item at the end of the edge."
+  node: Task!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Task is a child of Jobs, that contains contains the result of task execution
+"""
+type Task implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Task name."
+  name: String!
+    @fake(
+      locale: "uk"
+      format: "{{company.companyName}} {{company.companySuffix}}"
+    )
+  "Task priority. Default is 0"
+  priority: Int! @fake(locale: "uk", format: "{{random.number}}")
+  "Task status, is set automatically."
+  status: TaskStatus!
+  "Date and time when task was executed."
+  endedAt: DateTime
+  "Technical information when task was inserted into the DB."
+  insertedAt: DateTime!
+  "Technical information when task was updated in the DB."
+  updatedAt: DateTime!
+}
+
+"""
+List of task statuses.
+"""
+enum TaskStatus {
+  "Status determines that task was aborted because previous task in queue was failed"
+  ABORTED
+  "Status determines that task was consumed by queue consumer"
+  CONSUMED
+  "Status determines that task was failed with logical error"
+  FAILED
+  "Status determines that task was successfully created"
+  NEW
+  "Status determines that task is already in queue waiting for processing"
+  PENDING
+  "Status determines that task was successfully"
+  PROCESSED
+  "Status determines that an exception was raised during task execution"
+  RESCUED
+}
