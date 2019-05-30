@@ -72,18 +72,18 @@ type Task implements Node {
 List of task statuses.
 """
 enum TaskStatus {
-  "Status determines that task was aborted because previous task in queue was failed"
+  "Status determines that task was aborted because previous task in queue was failed."
   ABORTED
-  "Status determines that task was consumed by queue consumer"
+  "Status determines that task was consumed by queue consumer."
   CONSUMED
   "Status determines that task was failed with logical error"
   FAILED
-  "Status determines that task was successfully created"
+  "Status determines that task was created."
   NEW
-  "Status determines that task is already in queue waiting for processing"
+  "Status determines that task is already in queue waiting for processing."
   PENDING
-  "Status determines that task was successfully"
+  "Status determines that task was successfully processed."
   PROCESSED
-  "Status determines that an exception was raised during task execution"
+  "Status determines that an exception was raised during task execution."
   RESCUED
 }

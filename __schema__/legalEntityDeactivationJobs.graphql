@@ -93,9 +93,9 @@ type LegalEntityDeactivationJob implements Node {
 Metadata of Deactivated legal entities.
 """
 type DeactivatedLegalEntityMetadata {
-  "Primary key identifier from the database"
+  "Primary key identifier from the database."
   id: UUID!
-  "full official name of legal entity"
+  "full official name of legal entity."
   name: String!
   "Legal entity edrpou."
   edrpou: String!
@@ -105,10 +105,10 @@ type DeactivatedLegalEntityMetadata {
 List of statuses for LegalEntityDeactivationJob.
 """
 enum LegalEntityDeactivationJobStatus {
-  "Is set when job has an error and could not be finished successfully."
-  ERROR
-  "Is set when job is in a queue."
+  "Status determines that job was failed."
+  FAILED
+  "Status determines that job was created in database."
   PENDING
-  "Is set when job is finished successfully."
+  "Status determines that job was successfully processed."
   PROCESSED
 }
