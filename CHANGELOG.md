@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.34.0"></a>
+# [2.34.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.33.1...v2.34.0) (2019-05-30)
+
+
+### Features
+
+* added Task type, added `name`, `strategy` to jobs types ([#117](https://github.com/edenlabllc/ehealth.schema/issues/117)) ([7a13ab4](https://github.com/edenlabllc/ehealth.schema/commit/7a13ab4))
+
+
+
 <a name="2.33.1"></a>
 ## [2.33.1](https://github.com/edenlabllc/ehealth.schema/compare/v2.33.0...v2.33.1) (2019-05-29)
 
