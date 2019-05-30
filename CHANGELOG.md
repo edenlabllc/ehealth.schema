@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.35.0"></a>
+# [2.35.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.34.0...v2.35.0) (2019-05-30)
+
+
+### Features
+
+* updated Job statuses, string format ([#118](https://github.com/edenlabllc/ehealth.schema/issues/118)) ([eb5332c](https://github.com/edenlabllc/ehealth.schema/commit/eb5332c))
+
+
+
 <a name="2.34.0"></a>
 # [2.34.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.33.1...v2.34.0) (2019-05-30)
 
