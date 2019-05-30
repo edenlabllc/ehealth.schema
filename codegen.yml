@@ -1,0 +1,6 @@
+overwrite: true
+schema: "./__schema__/index.graphql"
+generates:
+  types.js.flow:
+    plugins:
+      - "flow"
