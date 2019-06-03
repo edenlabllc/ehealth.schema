@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.36.0...v3.0.0) (2019-06-03)
+
+
+### Features
+
+* add `EDRData` type, deprecate related to EDR fields of `LegalEntity` type ([5251b26](https://github.com/edenlabllc/ehealth.schema/commit/5251b26))
+
+
+### Reverts
+
+* "feat: add `LegalEntityActivityType`, `LegalEntityLicense` and `LegalEntityAccreditation` types ([#107](https://github.com/edenlabllc/ehealth.schema/issues/107))" ([4e0922e](https://github.com/edenlabllc/ehealth.schema/commit/4e0922e))
+
+
+### BREAKING CHANGES
+
+* these changes make some fields from `LegalEntity` type optional since next version of legal entity processes will use `EDRData` type to store their content
+
+
+
 <a name="2.36.0"></a>
 # [2.36.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.35.0...v2.36.0) (2019-06-03)
 
