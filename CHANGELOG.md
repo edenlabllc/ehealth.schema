@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.36.0"></a>
+# [2.36.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.35.0...v2.36.0) (2019-06-03)
+
+
+### Features
+
+* added requestAllowed and isComposition field to CreateServiceInput ([#119](https://github.com/edenlabllc/ehealth.schema/issues/119)) ([bcacd80](https://github.com/edenlabllc/ehealth.schema/commit/bcacd80))
+
+
+
 <a name="2.35.0"></a>
 # [2.35.0](https://github.com/edenlabllc/ehealth.schema/compare/v2.34.0...v2.35.0) (2019-05-30)
 
