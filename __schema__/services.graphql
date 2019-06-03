@@ -66,6 +66,10 @@ input CreateServiceInput {
   code: String!
   "Service category. The value should be present in the `SERVICE_CATEGORY` dictionary."
   category: String
+  "Service isComposition flag"
+  isComposition: Boolean
+  "Service requestAllowed flag"
+  requestAllowed: Boolean
 }
 
 """
