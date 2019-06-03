@@ -10,7 +10,6 @@
 # import * from "declarations.graphql"
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
-# import * from "legalEntityActivityTypes.graphql"
 # import * from "legalEntityMergeJobs.graphql"
 # import * from "legalEntityDeactivationJobs.graphql"
 # import * from "medicalPrograms.graphql"
@@ -511,11 +510,6 @@ type Mutation {
   nhsCommentLegalEntity(
     input: NhsCommentLegalEntityInput!
   ): NhsCommentLegalEntityPayload
-
-  "Updates a single `LegalEntityActivityType` using its globally unique ID and a patch."
-  updateLegalEntityActivityType(
-    input: UpdateLegalEntityActivityTypeInput!
-  ): UpdateLegalEntityActivityTypePayload
 
   "Updates status of a single `LegalEntity` using its globally unique ID."
   updateLegalEntityStatus(
