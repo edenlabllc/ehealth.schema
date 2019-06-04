@@ -401,7 +401,7 @@ type EDRData {
   "Ukrainian Industry Classification System, there is a check that at least one of next kveds is input: 86.10, 86.21, 47.73."
   kveds: [EDRkved]!
   "Official registraction address of legalEntity"
-  registrationAddress: Address!
+  registrationAddress: EDRAddress
   "Flag whether `edr_data` is actual or not?"
   isActive: Boolean!
   "Legal entity status in governmantal database"
@@ -420,4 +420,42 @@ type EDRkved {
   code: String
   "Flag if `kved` is promary or not"
   isPrimary: Boolean
+}
+
+"""
+Address structure in EDR.
+"""
+type EDRAddress {
+  "Full address"
+  address: String
+  "Address's zip code"
+  zip: String
+  "The name of Country"
+  country: String
+  "Structured full address"
+  parts: EDRAddressParts
+}
+
+"""
+Structured full address in EDR
+"""
+type EDRAddressParts {
+  "Administrative Territorial Unit"
+  atu: String
+  "Room number"
+  num: String
+  "Building number"
+  building: String
+  "House number"
+  house: String
+  "Administrative Territorial Unit Code"
+  atuCode: String
+  "House type"
+  houseType: String
+  "Name of the street"
+  street: String
+  "Building type"
+  buildingType: String
+  "Room Type"
+  numType: String
 }
