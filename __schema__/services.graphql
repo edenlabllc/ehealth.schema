@@ -140,7 +140,7 @@ type Service implements Node {
   isComposition: Boolean
 
   "Reads and enables pagination through a set of parent `ServiceGroup`."
-  parentGroups(
+  serviceGroups(
     "A condition to be used in determining which values should be returned by the collection."
     filter: ServiceGroupFilter
     "The method to use when ordering collection items."
