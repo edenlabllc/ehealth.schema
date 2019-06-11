@@ -11,6 +11,8 @@ A condition to be used against `LegalEntity` object types. All fields are tested
 input LegalEntityFilter {
   "The ID of an object"
   databaseId: UUID
+  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
+  edrpou: String
   "In case legal entity was verified by NHS employee, nhsVerified should be true."
   nhsVerified: Boolean
   "In case legal entity was reviewed by NHS employee, nhsReview should be true."
@@ -223,6 +225,8 @@ type LegalEntity implements Node {
   kveds: [String] @deprecated(reason: "Use `kveds` from type `EDRData`.")
   "Legal entity type. The value should be present in the `LEGAL_ENTITY_TYPE` dictionary."
   type: String!
+  "A unique identification number of a legal entity in the State Register of Enterprises and Organizations of Ukraine."
+  edrpou: String! @fake(randexp: "^[0-9]{8,10}$")
   "Legal entity status, is set automatically"
   status: LegalEntityStatus!
   "Reason why status was set"
