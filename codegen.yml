@@ -4,3 +4,6 @@ generates:
   types.js.flow:
     plugins:
       - "flow"
+  ./introspection-result.js:
+    plugins:
+      - "fragment-matcher"

@@ -73,5 +73,6 @@ typings/
 # Serverless directories
 .serverless
 
-# Flow types
+# Flow types and introspection result
 types.js.flow
+introspection-result.js
