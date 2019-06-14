@@ -76,3 +76,6 @@ typings/
 # Flow types and introspection result
 types.js.flow
 introspection-result.js
+
+# JetBrains IDE files
+.idea
