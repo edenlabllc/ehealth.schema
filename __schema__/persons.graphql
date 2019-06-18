@@ -6,19 +6,23 @@ Fields to filter Person in the system.
 """
 input PersonFilter {
   "Personal patient information."
-  personal: PersonPersonalFilter!
+  personal: PersonPersonalFilter
   "Person identity information."
-  identity: PersonIdentityFilter!
+  identity: PersonIdentityFilter
   "Person status."
   status: PersonStatus
+  "National person identifier."
+  taxId: String
+  "Primary key identifier from the database"
+  databaseId: UUID
 }
 
 """
 Fields to filter PersonIndentity in the system.
 """
 input PersonIdentityFilter {
-  "National person identifier."
-  taxId: String
+  "Performs full-text search on object's `firstName`, `lastName` and `secondName` fields."
+  fullName: String
   "National person identifier."
   unzr: String
   "Information about documents which can identify a patient"
