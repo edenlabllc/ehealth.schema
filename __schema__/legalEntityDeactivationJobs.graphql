@@ -1,9 +1,11 @@
+# import JobStatus, JobStrategy from "jobs.graphql"
+# import TaskFilter, TaskOrderBy, TaskConnection from "tasks.graphql"
 """
 Filter for Legal entity deactivation job.
 """
 input LegalEntityDeactivationJobFilter {
   "Legal entity deactivation job status."
-  status: LegalEntityDeactivationJobStatus
+  status: JobStatus
   "Legal entity that was deactivated."
   deactivatedLegalEntity: deactivatedLegalEntityFilter
 }
@@ -59,13 +61,13 @@ type LegalEntityDeactivationJob implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ObjectId!
+  databaseId: UUID!
   "Job name."
-  name: String!
+  name: String
   "Legal Entity deactivation job status."
-  status: LegalEntityDeactivationJobStatus!
+  status: JobStatus!
   "Job execution strategy."
-  strategy: String!
+  strategy: JobStrategy!
   "Date and time when the job starts."
   startedAt: DateTime!
   "Date and time when the job ends."
@@ -99,16 +101,4 @@ type DeactivatedLegalEntityMetadata {
   name: String!
   "Legal entity edrpou."
   edrpou: String!
-}
-
-"""
-List of statuses for LegalEntityDeactivationJob.
-"""
-enum LegalEntityDeactivationJobStatus {
-  "Status determines that job was failed."
-  FAILED
-  "Status determines that job was created in database."
-  PENDING
-  "Status determines that job was successfully processed."
-  PROCESSED
 }
