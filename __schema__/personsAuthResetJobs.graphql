@@ -60,7 +60,7 @@ type ResetPersonsAuthPayload {
 """
 An object for PersonsAuthResetJob.
 """
-type PersonsAuthResetJob implements Node & Job {
+type PersonsAuthResetJob implements Node {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
@@ -89,5 +89,63 @@ type PersonsAuthResetJob implements Node & Job {
     first: Int
     "Only read the last _n_ values of the set."
     last: Int
-  ): TaskConnection!
+  ): PersonsAuthResetTaskConnection!
+}
+
+"""
+A connection to a list of "PersonsAuthResetTask" items.
+"""
+type PersonsAuthResetTaskConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [PersonsAuthResetTask]
+  "A list of edges."
+  edges: [PersonsAuthResetTaskEdge]
+}
+
+"""
+An edge in a connection of "PersonsAuthResetTask".
+"""
+type PersonsAuthResetTaskEdge {
+  "The item at the end of the edge."
+  node: PersonsAuthResetTask!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Task is a child of Jobs, that contains contains the result of task execution
+"""
+type PersonsAuthResetTask implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Task name."
+  name: String
+    @fake(
+      locale: "uk"
+      format: "{{company.companyName}} {{company.companySuffix}}"
+    )
+  "Task status, is set automatically."
+  status: TaskStatus!
+  "Task meta data."
+  meta: PersonsAuthResetTaskMeta
+  "Date and time when task was executed."
+  endedAt: DateTime
+  "Task error."
+  error: TaskError
+  "Technical information when task was inserted into the DB."
+  insertedAt: DateTime!
+  "Technical information when task was updated in the DB."
+  updatedAt: DateTime!
+}
+
+"""
+Task is a meta data of PersonsAuthResetTask, that contains id for a Person
+"""
+type PersonsAuthResetTaskMeta {
+  "The ID of a Person"
+  id: UUID!
 }
