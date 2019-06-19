@@ -43,7 +43,7 @@ type TaskEdge {
 }
 
 """
-Task is a child of Jobs, that contains contains the result of task execution
+Task is a child of Jobs, that contains the result of task execution
 """
 type Task implements Node {
   "The ID of an object"
