@@ -21,8 +21,12 @@ input PersonFilter {
 Fields to filter PersonIndentity in the system.
 """
 input PersonIdentityFilter {
-  "Performs full-text search on object's `firstName`, `lastName` and `secondName` fields."
-  fullName: String
+  "Performs search on object's `lastName` field."
+  lastName: String
+  "Performs search on object's `firstName` field."
+  firstName: String
+  "Performs search on object's `secondName` field."
+  secondName: String
   "National person identifier."
   unzr: String
   "Information about documents which can identify a patient"
