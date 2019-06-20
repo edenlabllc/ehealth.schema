@@ -1,0 +1,57 @@
+# import TaskConnection from "tasks.graphql"
+"""
+Interface for Jabba Jobs.
+"""
+interface Job {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Job name."
+  name: String
+  "Job status."
+  status: JobStatus!
+  "Job execution strategy."
+  strategy: JobStrategy!
+  "Date and time when the job starts."
+  startedAt: DateTime!
+  "Date and time when the job ends."
+  endedAt: DateTime
+  "Tasks within this job."
+  tasks(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: TaskFilter
+    "The method to use when ordering collection items."
+    orderBy: TaskOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): TaskConnection!
+}
+
+"""
+List of statuses for LegalEntityDeactivationJob.
+"""
+enum JobStatus {
+  "Status determines that job was failed."
+  FAILED
+  "Status determines that job was created in database."
+  PENDING
+  "Status determines that job was successfully processed."
+  PROCESSED
+}
+
+"""
+List of available job stategies in Jabba
+"""
+enum JobStrategy {
+  "Strategy determines that job tasks processed concurrently."
+  CONCURRENT
+  "Strategy determines that job tasks processed sequentially."
+  SEQUENTIALLY
+}

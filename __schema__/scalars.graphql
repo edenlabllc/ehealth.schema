@@ -4,11 +4,6 @@ The `UUID` scalar type represents a universally unique identifier as defined by 
 scalar UUID
 
 """
-The `ObjectId` scalar type represents a [MongoDB ObjectId](https://docs.mongodb.com/manual/reference/bson-types/#objectid)
-"""
-scalar ObjectId
-
-"""
 The `Date` scalar type represents a date. The Date appears in a JSON response as an ISO8601 formatted string.
 """
 scalar Date

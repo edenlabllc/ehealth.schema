@@ -1,11 +1,12 @@
 # import SignedContent from "signedContent.graphql"
+# import JobStatus, JobStrategy from "jobs.graphql"
 # import TaskFilter, TaskOrderBy, TaskConnection from "tasks.graphql"
 """
 Filter for Legal entity merge job.
 """
 input LegalEntityMergeJobFilter {
   "Legal entity merge job filters."
-  status: LegalEntityMergeJobStatus
+  status: JobStatus
 }
 
 """
@@ -59,17 +60,17 @@ type MergeLegalEntitiesPayload {
 """
 An object for LegalEntityMergeJob.
 """
-type LegalEntityMergeJob implements Node {
+type LegalEntityMergeJob implements Node & Job {
   "The ID of an object"
   id: ID!
   "Primary key identifier from the database"
-  databaseId: ObjectId!
+  databaseId: UUID!
   "Job name."
-  name: String!
+  name: String
   "Legal Entity Merge Job status."
-  status: LegalEntityMergeJobStatus!
+  status: JobStatus!
   "Job execution strategy."
-  strategy: String!
+  strategy: JobStrategy!
   "Date and time when the job starts."
   startedAt: DateTime!
   "Date and time when the job ends."
@@ -93,20 +94,6 @@ type LegalEntityMergeJob implements Node {
   mergedToLegalEntity: MergeeLegalEntityMetadata!
   "Legal entity that is merged."
   mergedFromLegalEntity: MergeeLegalEntityMetadata!
-  # TBD
-  # error: LegalEntityMergeJobError
-}
-
-"""
-List of statuses for LegalEntityMergeJob.
-"""
-enum LegalEntityMergeJobStatus {
-  "Status determines that job was failed with logical error."
-  FAILED
-  "Status determines that job was created in database."
-  PENDING
-  "Status determines that job was successfully processed."
-  PROCESSED
 }
 
 """

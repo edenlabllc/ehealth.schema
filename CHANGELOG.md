@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.1"></a>
+## [4.1.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.1.0...v4.1.1) (2019-06-20)
+
+
+### Bug Fixes
+
+* renamed ids to databaseIds in ResetPersonsAuthInput ([1c75e63](https://github.com/edenlabllc/ehealth.schema/commit/1c75e63))
+
+
+
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.0.0...v4.1.0) (2019-06-19)
+
+
+### Features
+
+* added PersonsAuthResetJobTask ([d62411d](https://github.com/edenlabllc/ehealth.schema/commit/d62411d))
+
+
+
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/edenlabllc/ehealth.schema/compare/v3.3.0...v4.0.0) (2019-06-19)
+
+
+### Features
+
+* added PersonsAuthResetJob, added interface Job ([fc138b2](https://github.com/edenlabllc/ehealth.schema/commit/fc138b2))
+
+
+### BREAKING CHANGES
+
+* renamed resetPersonAuthenticationMethod to resetPersonAuth
+
+
+
 <a name="3.3.0"></a>
 # [3.3.0](https://github.com/edenlabllc/ehealth.schema/compare/v3.2.1...v3.3.0) (2019-06-18)
 

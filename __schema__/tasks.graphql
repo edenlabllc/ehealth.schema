@@ -43,7 +43,7 @@ type TaskEdge {
 }
 
 """
-Task is a child of Jobs, that contains contains the result of task execution
+Task is a child of Jobs, that contains the result of task execution
 """
 type Task implements Node {
   "The ID of an object"
@@ -51,7 +51,7 @@ type Task implements Node {
   "Primary key identifier from the database"
   databaseId: UUID!
   "Task name."
-  name: String!
+  name: String
     @fake(
       locale: "uk"
       format: "{{company.companyName}} {{company.companySuffix}}"
@@ -62,10 +62,30 @@ type Task implements Node {
   status: TaskStatus!
   "Date and time when task was executed."
   endedAt: DateTime
+  "Task error."
+  error: TaskError
   "Technical information when task was inserted into the DB."
   insertedAt: DateTime!
   "Technical information when task was updated in the DB."
   updatedAt: DateTime!
+}
+
+"""
+An object for Error.
+"""
+type TaskError {
+  "Error reason message."
+  message: String!
+  "Error extension."
+  extensions: TaskErrorExtension!
+}
+
+"""
+An object for Error extension.
+"""
+type TaskErrorExtension {
+  "Error code."
+  code: String!
 }
 
 """
