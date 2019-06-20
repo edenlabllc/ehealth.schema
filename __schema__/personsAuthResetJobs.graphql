@@ -45,8 +45,8 @@ type PersonsAuthResetJobEdge {
 Input for `resetPersonsAuth` mutation.
 """
 input ResetPersonsAuthInput {
-  "List of persons ids for persons Authentication reset"
-  ids: [UUID!]!
+  "List of persons database ids for persons Authentication reset"
+  databaseIds: [UUID!]!
 }
 
 """
