@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.1.1...v4.2.0) (2019-06-25)
+
+
+### Bug Fixes
+
+* change fullName search to the search by first, last and second name ([ceb9291](https://github.com/edenlabllc/ehealth.schema/commit/ceb9291))
+
+
+### Features
+
+* add taxId and BDID to person's filter ([2156bcb](https://github.com/edenlabllc/ehealth.schema/commit/2156bcb))
+
+
+
 <a name="4.1.1"></a>
 ## [4.1.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.1.0...v4.1.1) (2019-06-20)
 
