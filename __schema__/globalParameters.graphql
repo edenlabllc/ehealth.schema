@@ -1,0 +1,63 @@
+"""
+List of global parameters
+"""
+type GlobalParameters {
+  "Age of an adult"
+  adultAge: Int!
+  "Calculation date"
+  billingDate: Int!
+  "Number of days of validity of a request for a declaration"
+  declarationRequestExpiration: Int!
+  "The number of days the employee request has expired"
+  employeeRequestExpiration: Int!
+  "Verification request expiration"
+  verificationRequestExpiration: Int!
+  "Term of verification request"
+  verificationRequestTerm: Int!
+  "Maximum number of declarations"
+  declarationLimit: Int!
+  "Term of declaration (years)"
+  declarationTerm: Int!
+  "Phone number limit for authentication"
+  phoneNumberAuthLimit: Int!
+  "Medication dispense period"
+  medicationDispensePeriod: Int!
+  "BI URL"
+  biUrl: String!
+}
+
+"""
+Input for `UpdateGlobalParameters` mutation.
+"""
+input UpdateGlobalParametersInput {
+  "Age of an adult"
+  adultAge: Int
+  "Calculation date"
+  billingDate: Int
+  "Number of days of validity of a request for a declaration"
+  declarationRequestExpiration: Int
+  "The number of days the employee request has expired"
+  employeeRequestExpiration: Int
+  "Verification request expiration"
+  verificationRequestExpiration: Int
+  "Term of verification request"
+  verificationRequestTerm: Int
+  "Maximum number of declarations"
+  declarationLimit: Int
+  "Term of declaration (years)"
+  declarationTerm: Int
+  "Phone number limit for authentication"
+  phoneNumberAuthLimit: Int
+  "Medication dispense period"
+  medicationDispensePeriod: Int
+  "BI URL"
+  biUrl: String
+}
+
+"""
+Return type for `UpdateGlobalParameters` mutation.
+"""
+type UpdateGlobalParametersPayload {
+  "Update `GlobalParameters`."
+  globalParameters: GlobalParameters
+}

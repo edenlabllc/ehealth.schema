@@ -29,6 +29,7 @@
 # import * from "serviceGroup.graphql"
 # import * from "programServices.graphql"
 # import * from "employeeRequests.graphql"
+# import * from "globalParameters.graphql"
 
 """
 The query root of e-Health GraphQL interface.
@@ -645,6 +646,11 @@ type Mutation {
   deactivateProgramService(
     input: DeactivateProgramServiceInput!
   ): DeactivateProgramServicePayload
+
+  "Updates fields of `GlobalParameters`."
+  updateGlobalParameters(
+    input: UpdateGlobalParametersInput!
+  ): UpdateGlobalParametersPayload
 }
 
 """
