@@ -18,11 +18,11 @@ type GlobalParameters {
   declarationLimit: Int!
   "Term of declaration (years)"
   declarationTerm: Int!
-  "Phone number limit for authentication"
+  "Maximum amount of a persons who can use the same phone number"
   phoneNumberAuthLimit: Int!
   "Medication dispense period"
   medicationDispensePeriod: Int!
-  "BI URL"
+  "Power BI URL"
   biUrl: String!
 }
 
@@ -46,7 +46,7 @@ input UpdateGlobalParametersInput {
   declarationLimit: Int
   "Term of declaration (years)"
   declarationTerm: Int
-  "Phone number limit for authentication"
+  "Maximum amount of a persons who can use the same phone number"
   phoneNumberAuthLimit: Int
   "Medication dispense period"
   medicationDispensePeriod: Int
