@@ -1,0 +1,178 @@
+# import JobStatus, JobStrategy from "jobs.graphql"
+# import TaskFilter, TaskOrderBy, TaskConnection from "tasks.graphql"
+"""
+Filter for person deactivation merge job.
+"""
+input PersonsDeactivationJobFilter {
+  "Person deactivation merge job filters."
+  status: JobStatus
+}
+
+"""
+List of fields to filter both ask and desc side `PersonsDeactivationJob`.
+"""
+enum PersonsDeactivationJobOrderBy {
+  "Sort person deactivation merge job by started at in ascending order"
+  STARTED_AT_ASC
+  "Sort person deactivation merge job by started at in descending order"
+  STARTED_AT_DESC
+}
+
+"""
+A connection to a list of `PersonsDeactivationJob` values.
+"""
+type PersonsDeactivationJobConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [PersonsDeactivationJob]
+  "A list of edges."
+  edges: [PersonsDeactivationJobEdge]
+}
+
+"""
+Reads and enables pagination through a set of `PersonsDeactivationJob`.
+"""
+type PersonsDeactivationJobEdge {
+  "The item at the end of the edge."
+  node: PersonsDeactivationJob!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Input for `deactivatePersons` mutation.
+"""
+input DeactivatePersonsInput {
+  "Type of register originating deactivation data. The value should be present in the `REGISTER_TYPE` dictionary."
+  registerType: String!
+  "Deactivation reason description."
+  reasonDescription: String!
+  "Parameters to identify a set of `Person` to deactivate."
+  deactivationParams: [PersonDeactivationParams]!
+}
+
+"""
+Parameters to identify a `Person` to deactivate.
+"""
+input PersonDeactivationParams {
+  "Person's identitier type. The value should be present in the `PERSONS_DEACTIVATION_IDENTITIES` dictionary."
+  type: String!
+  "Value to identify a person."
+  number: String!
+  "Person's date of death."
+  deathDate: Date
+}
+
+"""
+Return type for `deactivatePersons` mutation.
+"""
+type DeactivatePersonsPayload {
+  "A job to deactivate a set of specified `Person`."
+  personsDeactivationJob: PersonsDeactivationJob
+}
+
+"""
+An object for PersonsDeactivationJob.
+"""
+type PersonsDeactivationJob implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Job name."
+  name: String
+  "Persons Deactivation Job status."
+  status: JobStatus!
+  "Job execution strategy."
+  strategy: JobStrategy!
+  "Job metadata."
+  meta: PersonsDeactivationJobMeta
+  "Date and time when the job starts."
+  startedAt: DateTime!
+  "Date and time when the job ends."
+  endedAt: DateTime
+  "Tasks within this job."
+  tasks(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: TaskFilter
+    "The method to use when ordering collection items."
+    orderBy: TaskOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): PersonsDeactivationTaskConnection!
+}
+
+"""
+Metadata of a `PersonsDeactivationJob`.
+"""
+type PersonsDeactivationJobMeta {
+  "Person's identitier type. The value should be present in the `PERSONS_DEACTIVATION_IDENTITIES` dictionary."
+  type: String!
+  "Value to identify a person."
+  number: String!
+}
+
+"""
+A connection to a list of `PersonsDeactivationTask` values.
+"""
+type PersonsDeactivationTaskConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [PersonsDeactivationTask]
+  "A list of edges."
+  edges: [PersonsDeactivationTaskEdge]
+}
+
+"""
+Reads and enables pagination through a set of `PersonsDeactivationTask`.
+"""
+type PersonsDeactivationTaskEdge {
+  "The item at the end of the edge."
+  node: PersonsDeactivationTask!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+A child of a `PersonsDeactivationJob`, contains the result of task execution.
+"""
+type PersonsDeactivationTask implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Task name."
+  name: String
+  "Task status, is set automatically."
+  status: TaskStatus!
+  "Task meta data."
+  meta: PersonsDeactivationTaskMeta
+  "Date and time when task was executed."
+  endedAt: DateTime
+  "Task error."
+  error: TaskError
+  "Technical information when task was inserted into the DB."
+  insertedAt: DateTime!
+  "Technical information when task was updated in the DB."
+  updatedAt: DateTime!
+}
+
+"""
+Metadata of a `PersonsDeactivationTask`.
+"""
+type PersonsDeactivationTaskMeta {
+  "Person's identitier type."
+  type: String!
+  "Value to identify a person."
+  number: String!
+  "Person's date of death."
+  deathDate: Date
+}

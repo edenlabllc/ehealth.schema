@@ -13,6 +13,7 @@
 # import * from "legalEntityMergeJobs.graphql"
 # import * from "legalEntityDeactivationJobs.graphql"
 # import * from "personsAuthResetJobs.graphql"
+# import * from "personsDeactivationJobs.graphql"
 # import * from "medicalPrograms.graphql"
 # import * from "programMedications.graphql"
 # import * from "ingredients.graphql"
@@ -255,8 +256,27 @@ type Query {
     last: Int
   ): PersonsAuthResetJobConnection!
 
-  "Reads a single `  PersonsAuthResetJob` using its globally unique ID."
+  "Reads a single `PersonsAuthResetJob` using its globally unique ID."
   personsAuthResetJob(id: ID!): PersonsAuthResetJob
+
+  "Reads and enables pagination through a set of `PersonsDeactivationJob`."
+  personsDeactivationJobs(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: PersonsDeactivationJobFilter
+    "The method to use when ordering collection items."
+    orderBy: PersonsDeactivationJobOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): PersonsDeactivationJobConnection!
+
+  "Reads a single `PersonsDeactivationJob` using its globally unique ID."
+  personsDeactivationJob(id: ID!): PersonsDeactivationJob
 
   "Reads and enables pagination through a set of `MedicalProgram`."
   medicalPrograms(
@@ -550,6 +570,9 @@ type Mutation {
 
   "Resets an authentication method for a list of `Person` using its Database IDs."
   resetPersonsAuth(input: ResetPersonsAuthInput!): ResetPersonsAuthPayload
+
+  "Deactivates a list of `Person` using their unique parameters."
+  deactivatePersons(input: DeactivatePersonsInput!): DeactivatePersonsPayload
 
   "Updates a single `MergeRequest` using its globally unique ID and a patch."
   updateMergeRequest(input: UpdateMergeRequestInput!): UpdateMergeRequestPayload

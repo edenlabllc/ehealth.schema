@@ -93,7 +93,7 @@ type PersonsAuthResetJob implements Node {
 }
 
 """
-A connection to a list of "PersonsAuthResetTask" items.
+A connection to a list of `PersonsAuthResetTask` values.
 """
 type PersonsAuthResetTaskConnection {
   "Information to aid in pagination."
@@ -105,7 +105,7 @@ type PersonsAuthResetTaskConnection {
 }
 
 """
-An edge in a connection of "PersonsAuthResetTask".
+Reads and enables pagination through a set of `PersonsAuthResetTask`.
 """
 type PersonsAuthResetTaskEdge {
   "The item at the end of the edge."
@@ -115,7 +115,7 @@ type PersonsAuthResetTaskEdge {
 }
 
 """
-Task is a child of Jobs, that contains contains the result of task execution
+A child of a `PersonsAuthResetJob`, contains the result of task execution.
 """
 type PersonsAuthResetTask implements Node {
   "The ID of an object"
@@ -143,7 +143,7 @@ type PersonsAuthResetTask implements Node {
 }
 
 """
-Task is a meta data of PersonsAuthResetTask, that contains id for a Person
+Meta data of a `PersonsAuthResetTask`.
 """
 type PersonsAuthResetTaskMeta {
   "The ID of a Person"
