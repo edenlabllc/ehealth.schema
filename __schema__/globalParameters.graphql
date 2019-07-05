@@ -31,7 +31,7 @@ type GlobalParameters {
 """
 Input for `UpdateGlobalParameters` mutation.
 
-User must have scopes **global_parameters:write**
+User must have a scope **global_parameters:write**
 """
 input UpdateGlobalParametersInput {
   "Age of an adult"
