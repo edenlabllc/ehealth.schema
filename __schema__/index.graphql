@@ -458,6 +458,9 @@ type Query {
 
   "Reads a single `ProgramService` using its globally unique ID."
   programService(id: ID!): ProgramService
+
+  "Reads global parameters."
+  globalParameters: GlobalParameters
 }
 
 """

@@ -1,5 +1,7 @@
 """
-List of global parameters
+Represents global parameters of eHealth.
+
+User must have a scope **global_parameters:read**
 """
 type GlobalParameters {
   "Age of an adult"
@@ -28,6 +30,8 @@ type GlobalParameters {
 
 """
 Input for `UpdateGlobalParameters` mutation.
+
+User must have a scope **global_parameters:write**
 """
 input UpdateGlobalParametersInput {
   "Age of an adult"
