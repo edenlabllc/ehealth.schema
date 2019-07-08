@@ -1,5 +1,5 @@
 """
-List of global parameters.
+Represents global parameters of eHealth.
 
 User must have a scope **global_parameters:read**
 """
