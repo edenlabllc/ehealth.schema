@@ -31,6 +31,7 @@
 # import * from "programServices.graphql"
 # import * from "employeeRequests.graphql"
 # import * from "globalParameters.graphql"
+# import * from "declarationsTerminationJobs.graphql"
 
 """
 The query root of e-Health GraphQL interface.
@@ -277,6 +278,25 @@ type Query {
 
   "Reads a single `PersonsDeactivationJob` using its globally unique ID."
   personsDeactivationJob(id: ID!): PersonsDeactivationJob
+
+  "Reads and enables pagination through a set of `DeclarationsTerminationJob`."
+  declarationsTerminationJobs(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: DeclarationsTerminationJobFilter
+    "The method to use when ordering collection items."
+    orderBy: DeclarationsTerminationJobOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DeclarationsTerminationJobConnection!
+
+  "Reads a single `DeclarationsTerminationJob` using its globally unique ID."
+  declarationsTerminationJob(id: ID!): DeclarationsTerminationJob
 
   "Reads and enables pagination through a set of `MedicalProgram`."
   medicalPrograms(
@@ -530,6 +550,9 @@ type Mutation {
   terminateDeclaration(
     input: TerminateDeclarationInput!
   ): TerminateDeclarationPayload
+
+  "Terminate a list of `Declaration` using its Database IDs."
+  terminateDeclarations(input: TerminateDeclarationsInput!): TerminateDeclarationsPayload
 
   "Approves a single `Declaration` using its globally unique ID."
   approveDeclaration(input: ApproveDeclarationInput!): ApproveDeclarationPayload
