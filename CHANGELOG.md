@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.4.0"></a>
+# [4.4.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.3.1...v4.4.0) (2019-07-10)
+
+
+### Features
+
+* add `PersonsDeactivationJob` type ([349e8a5](https://github.com/edenlabllc/ehealth.schema/commit/349e8a5))
+
+
+
 <a name="4.3.1"></a>
 ## [4.3.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.3.0...v4.3.1) (2019-07-08)
 
