@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.5.0"></a>
+# [4.5.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.4.0...v4.5.0) (2019-07-10)
+
+
+### Features
+
+* add `DeclarationsTerminationJob` ([9197b1d](https://github.com/edenlabllc/ehealth.schema/commit/9197b1d))
+
+
+
 <a name="4.4.0"></a>
 # [4.4.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.3.1...v4.4.0) (2019-07-10)
 
