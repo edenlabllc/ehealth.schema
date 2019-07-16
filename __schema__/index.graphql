@@ -552,7 +552,9 @@ type Mutation {
   ): TerminateDeclarationPayload
 
   "Terminate a list of `Declaration` using its Database IDs."
-  terminateDeclarations(input: TerminateDeclarationsInput!): TerminateDeclarationsPayload
+  terminateDeclarations(
+    input: TerminateDeclarationsInput!
+  ): TerminateDeclarationsPayload
 
   "Approves a single `Declaration` using its globally unique ID."
   approveDeclaration(input: ApproveDeclarationInput!): ApproveDeclarationPayload
@@ -639,6 +641,9 @@ type Mutation {
 
   "Creates a single `Medication`."
   createMedication(input: CreateMedicationInput!): CreateMedicationPayload
+
+  "Update a single `Medication`."
+  updateMedication(input: UpdateMedicationInput!): UpdateMedicationPayload
 
   "Deactivates a single `Medication` using its globally unique ID."
   deactivateMedication(
