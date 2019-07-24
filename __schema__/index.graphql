@@ -634,6 +634,9 @@ type Mutation {
   "Creates a single `INNMDosage`."
   createInnmDosage(input: CreateINNMDosageInput!): CreateINNMDosagePayload
 
+  "Update a single `INNMDosage`."
+  updateINNMDosage(input: UpdateINNMDosageInput!): UpdateINNMDosagePayload
+
   "Deactivates a single `INNMDosage` using its globally unique ID."
   deactivateInnmDosage(
     input: DeactivateINNMDosageInput!
@@ -641,9 +644,6 @@ type Mutation {
 
   "Creates a single `Medication`."
   createMedication(input: CreateMedicationInput!): CreateMedicationPayload
-
-  "Update a single `Medication`."
-  updateMedication(input: UpdateMedicationInput!): UpdateMedicationPayload
 
   "Deactivates a single `Medication` using its globally unique ID."
   deactivateMedication(

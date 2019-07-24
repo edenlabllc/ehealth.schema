@@ -86,8 +86,6 @@ input CreateMedicationInput {
   container: CreateContainerInput!
   "Daily dose of medication, recommended by WHO"
   dailyDosage: Float
-  "Max Daily dose of medication, limited by WHO"
-  maxDailyDosage: Float
   "Form of medication. The value should be present in the `MEDICATION_FORM` dictionary."
   form: String!
   "Ingredients in medication"
@@ -171,28 +169,6 @@ input DeactivateMedicationInput {
 }
 
 """
-Input for `updateMedication` mutation.
-
-User must have scopes **medication:write**
-"""
-input UpdateMedicationInput {
-  "The ID of an object"
-  id: ID!
-  "Daily dose of medication, recommended by WHO"
-  dailyDosage: Float
-  "Max Daily dose of medication, limited by WHO"
-  maxDailyDosage: Float
-}
-
-"""
-Return type for `UpdateMedication` mutation.
-"""
-type UpdateMedicationPayload {
-  "Updated `Medication`."
-  medication: Medication
-}
-
-"""
 Return type for `deactivateMedication` mutation.
 """
 type DeactivateMedicationPayload {
@@ -224,8 +200,6 @@ type Medication implements Node {
   packageMinQty: Int!
   "Daily dose of medication, recommended by WHO"
   dailyDosage: Float
-  "Max Daily dose of medication, limited by WHO"
-  maxDailyDosage: Float
   "Certificate number"
   certificate: String!
   "A day when certificate expired"

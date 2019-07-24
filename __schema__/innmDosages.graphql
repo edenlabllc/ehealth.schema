@@ -76,6 +76,10 @@ input CreateINNMDosageInput {
   name: String!
   "MedicationForm form. The value should be present in the `MEDICATION_FORM` dictionary."
   form: String!
+  "Daily dose of medication, recommended by WHO"
+  dailyDosage: Float
+  "Max Daily dose of medication, limited by WHO"
+  maxDailyDosage: Float
   "INNMDosage ingredients"
   ingredients: [CreateINNMDosageIngredientInput]!
 }
@@ -97,6 +101,28 @@ Return type for `createInnmDosage` mutation.
 """
 type CreateINNMDosagePayload {
   "Created `INNMDosage`."
+  innmDosage: INNMDosage
+}
+
+"""
+Input for `updateINNMDosage` mutation.
+
+User must have scopes **innm_dosage:write**
+"""
+input UpdateINNMDosageInput {
+  "The ID of an object"
+  id: ID!
+  "Daily dose of medication, recommended by WHO"
+  dailyDosage: Float
+  "Max Daily dose of medication, limited by WHO"
+  maxDailyDosage: Float
+}
+
+"""
+Return type for `UpdateINNMDosage` mutation.
+"""
+type UpdateINNMDosagePayload {
+  "Updated `INNMDosage`."
   innmDosage: INNMDosage
 }
 
@@ -130,6 +156,10 @@ type INNMDosage implements Node {
   name: String!
   "MedicationForm form. The value should be present in the `MEDICATION_FORM` dictionary."
   form: String!
+  "Daily dose of medication, recommended by WHO"
+  dailyDosage: Float
+  "Max Daily dose of medication, limited by WHO"
+  maxDailyDosage: Float
   "INNMDosage ingredients"
   ingredients: [INNMDosageIngredient]!
   "is_active status."
