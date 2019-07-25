@@ -174,5 +174,5 @@ type PersonsDeactivationTaskMeta {
   "Value to identify a person."
   number: String!
   "Person's date of death."
-  deathDate: Date
+  deathDate: String
 }
