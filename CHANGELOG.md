@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.6.1"></a>
+## [4.6.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.6.0...v4.6.1) (2019-07-25)
+
+
+### Bug Fixes
+
+* change type of `deathDate` in `PersonsDeactivationTaskMeta` to `String` ([0cc44bc](https://github.com/edenlabllc/ehealth.schema/commit/0cc44bc))
+
+
+
 <a name="4.6.0"></a>
 # [4.6.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.5.1...v4.6.0) (2019-07-25)
 
