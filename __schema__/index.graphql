@@ -635,7 +635,7 @@ type Mutation {
   createInnmDosage(input: CreateINNMDosageInput!): CreateINNMDosagePayload
 
   "Update a single `INNMDosage`."
-  updateINNMDosage(input: UpdateINNMDosageInput!): UpdateINNMDosagePayload
+  updateInnmDosage(input: UpdateINNMDosageInput!): UpdateINNMDosagePayload
 
   "Deactivates a single `INNMDosage` using its globally unique ID."
   deactivateInnmDosage(

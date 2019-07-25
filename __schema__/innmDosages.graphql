@@ -105,7 +105,7 @@ type CreateINNMDosagePayload {
 }
 
 """
-Input for `updateINNMDosage` mutation.
+Input for `updateInnmDosage` mutation.
 
 User must have scopes **innm_dosage:write**
 """
