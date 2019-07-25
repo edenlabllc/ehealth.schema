@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.6.0"></a>
+# [4.6.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.5.1...v4.6.0) (2019-07-25)
+
+
+### Features
+
+* add `dailyDosage` and `maxDailyDosage` fields to INNM dosage types, add `updateINNMDosage` mutation ([#137](https://github.com/edenlabllc/ehealth.schema/issues/137)) ([a127507](https://github.com/edenlabllc/ehealth.schema/commit/a127507))
+
+
+
 <a name="4.5.1"></a>
 ## [4.5.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.5.0...v4.5.1) (2019-07-10)
 
