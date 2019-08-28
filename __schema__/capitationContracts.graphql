@@ -96,7 +96,7 @@ type CapitationContract implements Node & Contract {
   "Contract that is prolongated."
   parentContract: CapitationContract
   "ContractRequest that was 2 way signed in order to receive a contract"
-  contractRequest: CapitationContractRequest!
+  contractRequest: CapitationContractRequest
   "Type of contract. Dictionary"
   idForm: String!
   "Current contract's status"
