@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.6.2"></a>
+## [4.6.2](https://github.com/edenlabllc/ehealth.schema/compare/v4.6.1...v4.6.2) (2019-08-28)
+
+
+### Bug Fixes
+
+* make contract_request_id optional for all type of contracts ([#140](https://github.com/edenlabllc/ehealth.schema/issues/140)) ([38e5067](https://github.com/edenlabllc/ehealth.schema/commit/38e5067))
+
+
+
 <a name="4.6.1"></a>
 ## [4.6.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.6.0...v4.6.1) (2019-07-25)
 
