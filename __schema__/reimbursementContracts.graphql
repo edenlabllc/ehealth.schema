@@ -100,7 +100,7 @@ type ReimbursementContract implements Node & Contract {
   "Contract that is prolongated."
   parentContract: ReimbursementContract
   "ContractRequest that was 2 way signed in order to receive a contract"
-  contractRequest: ReimbursementContractRequest!
+  contractRequest: ReimbursementContractRequest
   "Type of contract. Dictionary"
   idForm: String!
   "Current contract's status"
