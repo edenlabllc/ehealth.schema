@@ -188,7 +188,7 @@ type ContractorPaymentDetails {
   "The bank codes used to route money transfers between banks."
   mfo: String @fake(randexp: "^[0-9]{6}$")
   "Bank account number."
-  payerAccount: String! @fake(randexp: "^[0-9]{16}$")
+  payerAccount: String! @fake(randexp: "^(UA[0-9]{22}|UA[0-9]{27}|[0-9]+)$")
 }
 
 """
