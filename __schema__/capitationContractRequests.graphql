@@ -186,7 +186,7 @@ type ContractorPaymentDetails {
   "Bank name."
   bankName: String! @fake(locale: "uk", method: "company.companyName")
   "The bank codes used to route money transfers between banks."
-  mfo: String! @fake(randexp: "^[0-9]{6}$")
+  mfo: String @fake(randexp: "^[0-9]{6}$")
   "Bank account number."
   payerAccount: String! @fake(randexp: "^[0-9]{16}$")
 }
