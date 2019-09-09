@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.7.0"></a>
+# [4.7.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.6.2...v4.7.0) (2019-09-09)
+
+
+### Features
+
+* mfo is optional ([d0fcb83](https://github.com/edenlabllc/ehealth.schema/commit/d0fcb83))
+* payerAccount's regex is changed for iban ([94070b3](https://github.com/edenlabllc/ehealth.schema/commit/94070b3))
+
+
+
 <a name="4.6.2"></a>
 ## [4.6.2](https://github.com/edenlabllc/ehealth.schema/compare/v4.6.1...v4.6.2) (2019-08-28)
 
