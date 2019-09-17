@@ -160,7 +160,7 @@ input UpdateLegalEntityStatusInput {
   "Legal entity status"
   status: LegalEntityUpdateableStatus!
   "Why `LegalEntity` status is changing?"
-  reason: String!
+  reason: String
 }
 
 """
