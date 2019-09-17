@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.7.1"></a>
+## [4.7.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.7.0...v4.7.1) (2019-09-17)
+
+
+### Bug Fixes
+
+* make `reason` in `UpdateLegalEntityStatusInput` optional ([d4aa1e9](https://github.com/edenlabllc/ehealth.schema/commit/d4aa1e9))
+
+
+
 <a name="4.7.0"></a>
 # [4.7.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.6.2...v4.7.0) (2019-09-09)
 
