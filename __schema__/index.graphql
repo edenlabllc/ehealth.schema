@@ -32,6 +32,8 @@
 # import * from "employeeRequests.graphql"
 # import * from "globalParameters.graphql"
 # import * from "declarationsTerminationJobs.graphql"
+# import * from "healthcareServices.graphql"
+# import * from "employeeRoles.graphql"
 
 """
 The query root of e-Health GraphQL interface.

@@ -1,3 +1,6 @@
+# import LegalEntity from "legalEntities.graphql"
+# import Division from "Divisions.graphql"
+
 """
 Fields to filter Healthcare service in the system.
 """
@@ -50,9 +53,9 @@ type HealthcareService implements Node {
   division: Division!
   "Information about legal_entity"
   legalEntity: LegalEntity!
-  "Speciality type, is choosen from dictionary. The value should be present in the `` dictionary."
+  "Speciality type, is choosen from dictionary. The value should be present in the `SPECIALITY_TYPE` dictionary."
   specialityType: String!
-  "Providing condition, is choosen from dictionary. The value should be present in the `` dictionary."
+  "Providing condition, is choosen from dictionary. The value should be present in the `PROVIDING_CONDITION` dictionary."
   providingCondition: String!
   "Not implemented yet. For future use"
   category: [String]
@@ -88,8 +91,8 @@ enum HealthcareServiceStatus {
 Healthcare Service Available Time
 """
 type HealthcareServiceAvailableTime {
-  "Days of week when service is available"
-  daysOfWeek: [String!]
+  "Days of week when service is available. The value should be present in the `DAYS_OF_WEEK` dictionary."
+  daysOfWeek: [String!]!
   "All day"
   allDay: Boolean!
   "Available start time"
