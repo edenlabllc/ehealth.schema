@@ -1,5 +1,5 @@
 # import LegalEntity from "legalEntities.graphql"
-# import Division from "Divisions.graphql"
+# import Division from "divisions.graphql"
 
 """
 Fields to filter Healthcare service in the system.
