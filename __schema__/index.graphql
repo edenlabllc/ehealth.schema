@@ -501,6 +501,38 @@ type Query {
 
   "Reads global parameters."
   globalParameters: GlobalParameters
+
+  "Reads and enables pagination through a set of `Healthcare service`."
+  healthcareServices(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: HealthcareServiceFilter
+    "The method to use when ordering collection items."
+    orderBy: HealthcareServiceOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): HealthcareServiceConnection!
+
+  "Reads and enables pagination through a set of `Employee roles`."
+  employeeRoles(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: EmployeeRoleFilter
+    "The method to use when ordering collection items."
+    orderBy: EmployeeRoleOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): EmployeeRoleConnection!
 }
 
 """

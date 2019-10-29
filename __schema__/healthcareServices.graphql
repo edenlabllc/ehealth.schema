@@ -1,0 +1,119 @@
+"""
+Fields to filter Healthcare service in the system.
+"""
+input HealthcareServiceFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+}
+
+"""
+Methods to use when ordering `Healthcare service`.
+"""
+enum HealthcareServiceOrderBy {
+  "Sort Healthcare service by updated_at in ascending order."
+  UPDATED_AT_ASC
+  "Sort Healthcare service by updated_at in descending order."
+  UPDATED_AT_DESC
+}
+
+"""
+A connection to a list of `Healthcare service` items.
+"""
+type HealthcareServiceConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [HealthcareService]
+  "A list of edges."
+  edges: [HealthcareServiceEdge]
+}
+
+"""
+An edge in a connection of `Healthcare service`.
+"""
+type HealthcareServiceEdge {
+  "The item at the end of the edge."
+  node: HealthcareService!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Healthcare service
+
+In order to obtain details user must have a scope **healthcare_service:read**
+"""
+type HealthcareService implements Node {
+  "The ID of an object"
+  id: ID!
+  "Division in which this healthcare service is provided"
+  division: Division!
+  "Information about legal_entity"
+  legalEntity: LegalEntity!
+  "Speciality type, is choosen from dictionary. The value should be present in the `` dictionary."
+  specialityType: String!
+  "Providing condition, is choosen from dictionary. The value should be present in the `` dictionary."
+  providingCondition: String!
+  "Not implemented yet. For future use"
+  category: [String]
+  "Not implemented yet. For future use"
+  type: [String]
+  "Status of employee role"
+  status: HealthcareServiceStatus!
+  "Comment about curent status"
+  comment: String
+  "Not implemented yet. For future use"
+  coverageArea: [String]
+  "Available time for this healthcare service"
+  availableTime: [HealthcareServiceAvailableTime]
+  "This healthcare service not available during"
+  notAvailable: HealthcareServiceNotAvailable
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}
+
+"""
+Healthcare service status enum
+"""
+enum HealthcareServiceStatus {
+  "Status `ACTIVE` for healthcare service."
+  ACTIVE
+  "Status `INACTIVE` for healthcare service."
+  INACTIVE
+}
+
+"""
+Healthcare Service Available Time
+"""
+type HealthcareServiceAvailableTime {
+  "Days of week when service is available"
+  daysOfWeek: [String!]
+  "All day"
+  allDay: Boolean!
+  "Available start time"
+  availableStartTime: String
+  "Available end time"
+  availableEndTime: String
+}
+
+"""
+Healthcare Service Not Available
+"""
+type HealthcareServiceNotAvailable {
+  "Description"
+  description: String!
+  "During"
+  during: HealthcareServiceDuring!
+}
+
+"""
+Healthcare Service During
+"""
+type HealthcareServiceDuring {
+  "Start"
+  start: DateTime!
+  "End"
+  end: DateTime!
+}

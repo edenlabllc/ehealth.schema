@@ -1,0 +1,73 @@
+"""
+Fields to filter employee role in the system.
+"""
+input EmployeeRoleFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+}
+
+"""
+Methods to use when ordering `Employee role`.
+"""
+enum EmployeeRoleOrderBy {
+  "Sort employee role by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort employee role by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `Employee role` items.
+"""
+type EmployeeRoleConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [EmployeeRole]
+  "A list of edges."
+  edges: [EmployeeRoleEdge]
+}
+
+"""
+An edge in a connection of `Employee role`.
+"""
+type EmployeeRoleEdge {
+  "The item at the end of the edge."
+  node: EmployeeRole!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Employee role shows relations between employees and healthcare services
+
+In order to obtain details user must have a scope **employee_role:read**
+"""
+type EmployeeRole implements Node {
+  "The ID of an object"
+  id: ID!
+  "Information about healthcare service"
+  healthcareService: HealthcareService!
+  "Information about employee"
+  employee: Employee!
+  "Relation is started at"
+  startDate: DateTime!
+  "Realtion is ended at"
+  endDate: DateTime
+  "Status of employee role"
+  status: EmployeeRoleStatus!
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}
+
+"""
+Employee role status enum
+"""
+enum EmployeeRoleStatus {
+  "Status `ACTIVE` for employee role."
+  ACTIVE
+  "Status `INACTIVE` for employee role."
+  INACTIVE
+}
