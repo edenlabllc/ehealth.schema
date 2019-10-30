@@ -64,7 +64,7 @@ type HealthcareService implements Node {
   "Available time for this healthcare service"
   availableTime: [HealthcareServiceAvailableTime]
   "This healthcare service not available during"
-  notAvailable: HealthcareServiceNotAvailable
+  notAvailable: [HealthcareServiceNotAvailable]
   "Date and time when record was inserted"
   insertedAt: DateTime!
   "Date and time when record was updated"
