@@ -2,14 +2,6 @@
 # import Division from "divisions.graphql"
 
 """
-Fields to filter Healthcare service in the system.
-"""
-input HealthcareServiceFilter {
-  "Primary key identifier from the database."
-  databaseId: UUID
-}
-
-"""
 Methods to use when ordering `Healthcare service`.
 """
 enum HealthcareServiceOrderBy {

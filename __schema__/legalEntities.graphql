@@ -4,6 +4,7 @@
 # import Employee from "employees.graphql"
 # import LegalEntityLicenseFilter, LegalEntityLicenseOrderBy, LegalEntityLicenseConnection from "legalEntityLicenses.graphql"
 # import RelatedLegalEntityFilter, RelatedLegalEntityOrderBy, RelatedLegalEntityConnection from "relatedLegalEntities.graphql"
+# import HealthcareServiceFilter, HealthcareServiceOrderBy, HealthcareServiceConnection from "healthcareServices.graphql"
 
 """
 A condition to be used against `LegalEntity` object types. All fields are tested for equality and combined with a logical ‘and.’
@@ -329,6 +330,19 @@ type LegalEntity implements Node {
     "Only read the last _n_ values of the set."
     last: Int
   ): RelatedLegalEntityConnection!
+  "Reads and enables pagination through a set of `Healthcare service`."
+  healthcareServices(
+    "The method to use when ordering collection items."
+    orderBy: HealthcareServiceOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): HealthcareServiceConnection!
 }
 
 """
