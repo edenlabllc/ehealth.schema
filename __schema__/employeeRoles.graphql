@@ -1,16 +1,7 @@
-# import Employee from "employees.graphql"
 # import HealthcareService from "healthcareServices.graphql"
 
 """
-Fields to filter employee role in the system.
-"""
-input EmployeeRoleFilter {
-  "Primary key identifier from the database."
-  databaseId: UUID
-}
-
-"""
-Methods to use when ordering `Employee role`.
+Methods to use when ordering `EmployeeRole`.
 """
 enum EmployeeRoleOrderBy {
   "Sort employee role by inserted_at in ascending order."
@@ -20,7 +11,7 @@ enum EmployeeRoleOrderBy {
 }
 
 """
-A connection to a list of `Employee role` items.
+A connection to a list of `EmployeeRole` items.
 """
 type EmployeeRoleConnection {
   "Information to aid in pagination."
@@ -32,7 +23,7 @@ type EmployeeRoleConnection {
 }
 
 """
-An edge in a connection of `Employee role`.
+An edge in a connection of `EmployeeRole`.
 """
 type EmployeeRoleEdge {
   "The item at the end of the edge."
@@ -51,11 +42,9 @@ type EmployeeRole implements Node {
   id: ID!
   "Information about healthcare service"
   healthcareService: HealthcareService!
-  "Information about employee"
-  employee: Employee!
   "Relation is started at"
   startDate: DateTime!
-  "Realtion is ended at"
+  "Relation is ended at"
   endDate: DateTime
   "Status of employee role"
   status: EmployeeRoleStatus!

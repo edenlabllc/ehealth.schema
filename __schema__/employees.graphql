@@ -1,3 +1,5 @@
+# import EmployeeRoleFilter, EmployeeRoleOrderBy, EmployeeRoleConnection from "employeeRoles.graphql"
+
 """
 Fields to filter employee in the system.
 """
@@ -110,6 +112,19 @@ type Employee implements Node {
   division: Division
   "Legal entity in which employee works."
   legalEntity: LegalEntity!
+  "Reads and enables pagination through a set of `Employee roles`."
+  roles(
+    "The method to use when ordering collection items."
+    orderBy: EmployeeRoleOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): EmployeeRoleConnection!
 }
 
 """
