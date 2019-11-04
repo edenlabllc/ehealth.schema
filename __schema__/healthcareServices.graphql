@@ -1,5 +1,15 @@
 # import LegalEntity from "legalEntities.graphql"
-# import Division from "divisions.graphql"
+# import Division, DivisionFilter from "divisions.graphql"
+
+"""
+Fields to filter Healthcare service in the system.
+"""
+input HealthcareServiceFilter {
+  "A condition to be used in determining which values should be returned by the collection."
+  division: DivisionFilter
+  "Speciality type, is chosen from dictionary. The value should be present in the `SPECIALITY_TYPE` dictionary."
+  specialityType: String
+}
 
 """
 Methods to use when ordering `Healthcare service`.
@@ -45,9 +55,9 @@ type HealthcareService implements Node {
   division: Division!
   "Information about legal_entity"
   legalEntity: LegalEntity!
-  "Speciality type, is choosen from dictionary. The value should be present in the `SPECIALITY_TYPE` dictionary."
+  "Speciality type, is chosen from dictionary. The value should be present in the `SPECIALITY_TYPE` dictionary."
   specialityType: String!
-  "Providing condition, is choosen from dictionary. The value should be present in the `PROVIDING_CONDITION` dictionary."
+  "Providing condition, is chosen from dictionary. The value should be present in the `PROVIDING_CONDITION` dictionary."
   providingCondition: String!
   "Status of employee role"
   status: HealthcareServiceStatus!
