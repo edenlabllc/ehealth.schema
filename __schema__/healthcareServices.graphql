@@ -9,6 +9,8 @@ input HealthcareServiceFilter {
   division: DivisionFilter
   "Speciality type, is chosen from dictionary. The value should be present in the `SPECIALITY_TYPE` dictionary."
   specialityType: String
+  "Status to be used in determining which values should be returned by the collection."
+  status: HealthcareServiceStatus
 }
 
 """
@@ -59,7 +61,7 @@ type HealthcareService implements Node {
   specialityType: String!
   "Providing condition, is chosen from dictionary. The value should be present in the `PROVIDING_CONDITION` dictionary."
   providingCondition: String!
-  "Status of employee role"
+  "Status of healthcare service role"
   status: HealthcareServiceStatus!
   "Comment about curent status"
   comment: String
