@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.9.0"></a>
+# [4.9.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.8.2...v4.9.0) (2019-11-13)
+
+
+### Features
+
+* added filter to employeeRole and healthcareService ([#146](https://github.com/edenlabllc/ehealth.schema/issues/146)) ([6d2cdfb](https://github.com/edenlabllc/ehealth.schema/commit/6d2cdfb))
+
+
+
 <a name="4.8.2"></a>
 ## [4.8.2](https://github.com/edenlabllc/ehealth.schema/compare/v4.8.1...v4.8.2) (2019-11-05)
 
