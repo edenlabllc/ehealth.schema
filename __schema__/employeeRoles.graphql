@@ -1,6 +1,14 @@
 # import HealthcareService from "healthcareServices.graphql"
 
 """
+Fields to filter Employee role in the system.
+"""
+input EmployeeRoleFilter {
+  "Status to be used in determining which values should be returned by the collection."
+  status: EmployeeRoleStatus
+}
+
+"""
 Methods to use when ordering `EmployeeRole`.
 """
 enum EmployeeRoleOrderBy {
