@@ -1,3 +1,25 @@
+"""
+Fields to filter Healthcare service license in the system.
+"""
+input HealthcareServiceLicenseFilter {
+  "Status to be used in determining which values should be returned by the collection."
+  status: HealthcareServiceLicenseStatus
+}
+
+"""
+Methods to use when ordering `Healthcare service`.
+"""
+enum HealthcareServiceLicenseOrderBy {
+  "Sort Healthcare service license by updated_at in ascending order."
+  UPDATED_AT_ASC
+  "Sort Healthcare service license by updated_at in descending order."
+  UPDATED_AT_DESC
+  "Sort Healthcare service license by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort Healthcare service license by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
 
 """
 A connection to a list of `Licensed healthcare service` items.
@@ -32,7 +54,7 @@ type LicensedHealthcareService implements Node {
   "Division in which this healthcare service is provided"
   healthcare_service_id: UUID!
   "Status of healthcare service license"
-  licenseStatus: HealthcareServiceLicenseStatus!
+  status: HealthcareServiceLicenseStatus!
   "Date and time when record was inserted"
   insertedAt: DateTime!
   "Date and time when record was updated"
