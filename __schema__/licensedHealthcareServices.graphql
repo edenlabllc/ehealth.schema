@@ -1,49 +1,4 @@
 """
-Fields to filter Healthcare service license in the system.
-"""
-input HealthcareServiceLicenseFilter {
-  "Status to be used in determining which values should be returned by the collection."
-  status: HealthcareServiceLicenseStatus
-}
-
-"""
-Methods to use when ordering `Healthcare service`.
-"""
-enum HealthcareServiceLicenseOrderBy {
-  "Sort Healthcare service license by updated_at in ascending order."
-  UPDATED_AT_ASC
-  "Sort Healthcare service license by updated_at in descending order."
-  UPDATED_AT_DESC
-  "Sort Healthcare service license by inserted_at in ascending order."
-  INSERTED_AT_ASC
-  "Sort Healthcare service license by inserted_at in descending order."
-  INSERTED_AT_DESC
-}
-
-
-"""
-A connection to a list of `Licensed healthcare service` items.
-"""
-type LicensedHealthcareServiceConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of nodes."
-  nodes: [LicensedHealthcareService]
-  "A list of edges."
-  edges: [LicensedHealthcareServiceEdge]
-}
-
-"""
-An edge in a connection of `Licensed healthcare service`.
-"""
-type LicensedHealthcareServiceEdge {
-  "The item at the end of the edge."
-  node: LicensedHealthcareService!
-  "A cursor for use in pagination."
-  cursor: String!
-}
-
-"""
 Licensed healthcare service
 
 In order to obtain details user must have a scope **healthcare_service:read**
@@ -51,8 +6,6 @@ In order to obtain details user must have a scope **healthcare_service:read**
 type LicensedHealthcareService implements Node {
   "The ID of an object"
   id: ID!
-  "Division in which this healthcare service is provided"
-  healthcare_service_id: UUID!
   "Status of healthcare service license"
   status: HealthcareServiceLicenseStatus!
   "Date and time when record was inserted"
