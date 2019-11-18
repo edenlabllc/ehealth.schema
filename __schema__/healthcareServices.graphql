@@ -1,5 +1,6 @@
 # import LegalEntity from "legalEntities.graphql"
 # import Division, DivisionFilter from "divisions.graphql"
+# import LicensedHealthcareService from "licensedHealthcareServices.graphql"
 
 """
 Fields to filter Healthcare service in the system.
@@ -84,16 +85,6 @@ enum HealthcareServiceStatus {
   "Status `ACTIVE` for healthcare service."
   ACTIVE
   "Status `INACTIVE` for healthcare service."
-  INACTIVE
-}
-
-"""
-Healthcare service license status enum
-"""
-enum HealthcareServiceLicenseStatus {
-  "Status `ACTIVE` for healthcare service license."
-  ACTIVE
-  "Status `INACTIVE` for healthcare service license."
   INACTIVE
 }
 
