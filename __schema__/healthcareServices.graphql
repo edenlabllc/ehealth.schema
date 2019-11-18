@@ -67,7 +67,7 @@ type HealthcareService implements Node {
   "Comment about curent status"
   comment: String
   "Status of healthcare service license"
-  licenseStatus: HealthcareServiceLicense!
+  licenseStatus: LicensedHealthcareService!
   "Available time for this healthcare service"
   availableTime: [HealthcareServiceAvailableTime]
   "This healthcare service not available during"
