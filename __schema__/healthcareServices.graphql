@@ -65,6 +65,8 @@ type HealthcareService implements Node {
   status: HealthcareServiceStatus!
   "Comment about curent status"
   comment: String
+  "Status of healthcare service license"
+  licenseStatus: HealthcareServiceLicenseStatus!
   "Available time for this healthcare service"
   availableTime: [HealthcareServiceAvailableTime]
   "This healthcare service not available during"
@@ -82,6 +84,16 @@ enum HealthcareServiceStatus {
   "Status `ACTIVE` for healthcare service."
   ACTIVE
   "Status `INACTIVE` for healthcare service."
+  INACTIVE
+}
+
+"""
+Healthcare service license status enum
+"""
+enum HealthcareServiceLicenseStatus {
+  "Status `ACTIVE` for healthcare service license."
+  ACTIVE
+  "Status `INACTIVE` for healthcare service license."
   INACTIVE
 }
 
