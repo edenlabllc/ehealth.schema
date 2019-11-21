@@ -1,5 +1,6 @@
 # import LegalEntity from "legalEntities.graphql"
 # import Division, DivisionFilter from "divisions.graphql"
+# import LicensedHealthcareService from "licensedHealthcareServices.graphql"
 
 """
 Fields to filter Healthcare service in the system.
@@ -65,6 +66,8 @@ type HealthcareService implements Node {
   status: HealthcareServiceStatus!
   "Comment about curent status"
   comment: String
+  "Licensed healthcare service"
+  licensedHealthcareService: LicensedHealthcareService!
   "Available time for this healthcare service"
   availableTime: [HealthcareServiceAvailableTime]
   "This healthcare service not available during"
