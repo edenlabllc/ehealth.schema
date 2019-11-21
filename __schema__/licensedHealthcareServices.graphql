@@ -1,0 +1,25 @@
+"""
+Licensed healthcare service
+
+In order to obtain details user must have a scope **healthcare_service:read**
+"""
+type LicensedHealthcareService implements Node {
+  "The ID of an object"
+  id: ID!
+  "Status of licensed healthcare service."
+  status: LicensedHealthcareServiceStatus!
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}
+
+"""
+Licensed healthcare service status enum
+"""
+enum LicensedHealthcareServiceStatus {
+  "Status `ACTIVE` for licensed healthcare service."
+  ACTIVE
+  "Status `INACTIVE` for licensed healthcare service."
+  INACTIVE
+}
