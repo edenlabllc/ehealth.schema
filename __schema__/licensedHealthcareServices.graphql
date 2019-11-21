@@ -6,7 +6,7 @@ In order to obtain details user must have a scope **healthcare_service:read**
 type LicensedHealthcareService implements Node {
   "The ID of an object"
   id: ID!
-  "Status of licensed healthcare service"
+  "Status of licensed healthcare service."
   status: LicensedHealthcareServiceStatus!
   "Date and time when record was inserted"
   insertedAt: DateTime!
