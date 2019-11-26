@@ -32,6 +32,7 @@
 # import * from "employeeRequests.graphql"
 # import * from "globalParameters.graphql"
 # import * from "declarationsTerminationJobs.graphql"
+# import * from "divisions.graphql"
 
 """
 The query root of e-Health GraphQL interface.
@@ -501,6 +502,9 @@ type Query {
 
   "Reads global parameters."
   globalParameters: GlobalParameters
+
+  "Reads a single `Division` using its globally unique ID."
+  Division(id: ID!): Division
 }
 
 """
