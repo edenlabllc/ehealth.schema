@@ -84,7 +84,6 @@ type Division implements Node {
   dlsVerified: Boolean
   "Id in the registery of State Service of Ukraine for drug control."
   dlsId: UUID
-  "Information about related equipment."
   
   "Equipment wich belong to Division"
   equipment(
