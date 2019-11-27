@@ -504,7 +504,7 @@ type Query {
   globalParameters: GlobalParameters
 
   "Reads a single `Division` using its globally unique ID."
-  Division(id: ID!): Division
+  division(id: ID!): Division
 }
 
 """
