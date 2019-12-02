@@ -70,8 +70,12 @@ type MedicalProgram implements Node {
   updatedAt: DateTime!
   "Whether it is possible to create `Medication Request`"
   medicationRequestAllowed: Boolean!
+  "Medication request allowed status description"
+  medicationRequestAllowedText: String
   "Whether it is possible to create `Medication Dispense`"
   medicationDispenseAllowed: Boolean!
+  "Medication dispense allowed status description"
+  medicationDispenseAllowedText: String
 }
 
 """
@@ -104,8 +108,12 @@ input UpdateMedicalProgramInput {
   id: ID!
   "Whether it is possible to create `Medication Request`"
   medicationRequestAllowed: Boolean!
+  "Medication request allowed status description"
+  medicationRequestAllowedText: String
   "Whether it is possible to create `Medication Dispense`"
   medicationDispenseAllowed: Boolean!
+  "Medication dispense allowed status description"
+  medicationDispenseAllowedText: String
 }
 
 """
