@@ -11,10 +11,10 @@ input EquipmentFilter {
 Methods to use when ordering `Equipment`.
 """
 enum EquipmentOrderBy {
-  "Sort equipment by externalId in ascending order."
-  EXTERNAL_ID_ASC
-  "Sort equipment by externalId in descending order."
-  EXTERNAL_ID_DESC
+  "Sort Equipment by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort Equipment by inserted_at in descending order."
+  INSERTED_AT_DESC
 }
 
 """
