@@ -68,6 +68,14 @@ type MedicalProgram implements Node {
   insertedAt: DateTime!
   "Date and time when record was updated."
   updatedAt: DateTime!
+  "Whether it is possible to create `Medication Request`"
+  medicationRequestAllowed: Boolean!
+  "Medication request allowed status description"
+  medicationRequestAllowedText: String
+  "Whether it is possible to create `Medication Dispense`"
+  medicationDispenseAllowed: Boolean!
+  "Medication dispense allowed status description"
+  medicationDispenseAllowedText: String
 }
 
 """
@@ -87,6 +95,32 @@ Return type for `createMedicalProgram` mutation.
 """
 type CreateMedicalProgramPayload {
   "Created `MedicalProgram`."
+  medicalProgram: MedicalProgram
+}
+
+"""
+Input for `updateMedicalProgram` mutation.
+
+User must have a scope **medical_program:write**
+"""
+input UpdateMedicalProgramInput {
+  "The ID of an object."
+  id: ID!
+  "Whether it is possible to create `Medication Request`"
+  medicationRequestAllowed: Boolean
+  "Medication request allowed status description"
+  medicationRequestAllowedText: String
+  "Whether it is possible to create `Medication Dispense`"
+  medicationDispenseAllowed: Boolean
+  "Medication dispense allowed status description"
+  medicationDispenseAllowedText: String
+}
+
+"""
+Return type for `updateMedicalProgram` mutation.
+"""
+type UpdateMedicalProgramPayload {
+  "Updated `MedicalProgram`."
   medicalProgram: MedicalProgram
 }
 

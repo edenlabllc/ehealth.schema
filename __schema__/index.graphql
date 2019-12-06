@@ -613,6 +613,11 @@ type Mutation {
     input: CreateMedicalProgramInput!
   ): CreateMedicalProgramPayload
 
+  "Update a single `MedicalProgram`."
+  updateMedicalProgram(
+    input: UpdateMedicalProgramInput!
+  ): UpdateMedicalProgramPayload
+
   "Deactivates a single `MedicalProgram` using its globally unique ID."
   deactivateMedicalProgram(
     input: DeactivateMedicalProgramInput!
