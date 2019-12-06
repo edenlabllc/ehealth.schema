@@ -107,11 +107,11 @@ input UpdateMedicalProgramInput {
   "The ID of an object."
   id: ID!
   "Whether it is possible to create `Medication Request`"
-  medicationRequestAllowed: Boolean!
+  medicationRequestAllowed: Boolean
   "Medication request allowed status description"
   medicationRequestAllowedText: String
   "Whether it is possible to create `Medication Dispense`"
-  medicationDispenseAllowed: Boolean!
+  medicationDispenseAllowed: Boolean
   "Medication dispense allowed status description"
   medicationDispenseAllowedText: String
 }
