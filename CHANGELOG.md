@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.0"></a>
+# [4.10.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.9.0...v4.10.0) (2019-11-21)
+
+
+### Features
+
+* licensedHealthcareServices schema added ([#149](https://github.com/edenlabllc/ehealth.schema/issues/149)) ([2f1d41e](https://github.com/edenlabllc/ehealth.schema/commit/2f1d41e))
+
+
+
 <a name="4.9.0"></a>
 # [4.9.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.8.2...v4.9.0) (2019-11-13)
 
