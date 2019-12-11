@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.11.0"></a>
+# [4.11.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.10.0...v4.11.0) (2019-12-06)
+
+
+### Features
+
+* manage flags on medical program ([#148](https://github.com/edenlabllc/ehealth.schema/issues/148)) ([6e7c9e9](https://github.com/edenlabllc/ehealth.schema/commit/6e7c9e9))
+
+
+
 <a name="4.10.0"></a>
 # [4.10.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.9.0...v4.10.0) (2019-11-21)
 
