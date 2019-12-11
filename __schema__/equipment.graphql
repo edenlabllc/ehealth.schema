@@ -84,9 +84,9 @@ type Equipment implements Node {
   "Flag whether equipment is actual or not"
   isActive: Boolean
   "Date and time when record was inserted"
-  insertedAt: DateTime
+  insertedAt: DateTime!
   "Date and time when record was updated"
-  updatedAt: DateTime
+  updatedAt: DateTime!
 }
 
 """
