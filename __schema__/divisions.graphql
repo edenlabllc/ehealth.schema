@@ -1,6 +1,8 @@
 # import Address from "addresses.graphql"
 # import Phone from "phones.graphql"
 # import LegalEntity from "legalEntities.graphql"
+# import HealthcareService from "healthcareServices.graphql"
+# import Equipment from "equipment.graphql"
 
 """
 Fields to filter division in the system.
@@ -82,6 +84,38 @@ type Division implements Node {
   dlsVerified: Boolean
   "Id in the registery of State Service of Ukraine for drug control."
   dlsId: UUID
+  
+  "Equipment wich belong to Division"
+  equipment(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: EquipmentFilter
+    "The method to use when ordering collection items."
+    orderBy: EquipmentOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): EquipmentConnection!
+
+  "Healthcare services wich belong to Division"
+  healthcareServices(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: HealthcareServiceFilter
+    "The method to use when ordering collection items."
+    orderBy: HealthcareServiceOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): HealthcareServiceConnection!
 }
 
 """

@@ -1,0 +1,100 @@
+
+"""
+Fields to filter equipment in the system.
+"""
+input EquipmentFilter {
+  "Equipment type."
+  type: String
+}
+
+"""
+Methods to use when ordering `Equipment`.
+"""
+enum EquipmentOrderBy {
+  "Sort Equipment by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort Equipment by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `Equipment` items.
+"""
+type EquipmentConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [Equipment]
+  "A list of edges."
+  edges: [EquipmentEdge]
+}
+
+"""
+An edge in a connection of `Equipment`.
+"""
+type EquipmentEdge {
+  "The item at the end of the edge."
+  node: Equipment!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Equipment
+
+In order to obtain details user must have a scope **equipment:read**
+"""
+type Equipment implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Information about legal_entity"
+  legalEntity: LegalEntity!
+  "Information about division."
+  division: Division!
+  "Status of equipment."
+  status: EquipmentStatus!
+  "Equipment type, is choosen from dictionary. The value should be present in the `EQUIPMENT_TYPE` dictionary."
+  type: String!
+  "Identifier of equipment in external system."
+  externalId: String!
+  "Array of unique identifiers assigned to the asset by the manufacturer."
+  udi: [String]
+  "Equipment lot number."
+  lotNumber: String
+  "Manufacturer of the equipment."
+  manufacturer: String
+  "Manufacture date."
+  manufactureDate: Date
+  "Equipment expiration date."
+  expirationDate: Date
+  "Model number of equipment."
+  modelNumber: String
+  "Part number of equipment."
+  partNumber: String
+  "Version of equipment."
+  version: String
+  "Name of the equipment"
+  name: String
+  "Equipment serial number"
+  serialNumber: String
+  "Note for the equipment"
+  note: String
+  "Flag whether equipment is actual or not"
+  isActive: Boolean
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}
+
+"""
+Equipment status enum
+"""
+enum EquipmentStatus {
+  "Status `ACTIVE` for equipment."
+  ACTIVE
+  "Status `INACTIVE` for equipment."
+  INACTIVE
+}
