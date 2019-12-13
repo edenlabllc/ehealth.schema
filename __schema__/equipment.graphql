@@ -5,6 +5,8 @@ Fields to filter equipment in the system.
 input EquipmentFilter {
   "Equipment type."
   type: String
+  "Status of equipment."
+  status: EquipmentStatus
 }
 
 """
