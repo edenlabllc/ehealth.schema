@@ -50,15 +50,7 @@ input PersonPersonalFilter {
   "Patient birth Date."
   birthDate: Date
   "Filter by patient's authentication phone number with type OTP."
-  authenticationMethod: AuthenticationMethodFilter
-}
-
-"""
-Information about authentication.
-"""
-input AuthenticationMethodFilter {
-  "Patient authentication phone number with authentication type OTP."
-  phoneNumber: String
+  authenticationMethod: PersonAuthenticationMethodFilter
 }
 
 """
@@ -167,7 +159,20 @@ type Person implements Node {
   "Technical information when the patient was updated in the DB."
   updatedAt: DateTime!
   "The method to verify changes of patient by patient."
-  authenticationMethods: [PersonAuthenticationMethod]!
+  authenticationMethods(
+    "The method to use when ordering collection items."
+    filter: PersonAuthenticationMethodFilter
+    "The method to use when ordering collection items."
+    orderBy: PersonAuthenticationMethodOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): PersonAuthenticationMethodConnection!
   "Patient identification documents."
   documents: [PersonDocument]
   "Patient addresses."
@@ -211,16 +216,6 @@ enum PersonPreferredWayCommunication {
   EMAIL
   "`PHONE` as a preferred way of the communication."
   PHONE
-}
-
-"""
-The method to verify changes of patient by patient.
-"""
-type PersonAuthenticationMethod {
-  "Type of authentication method. The value should be present in the `AUTHENTICATION_METHOD` dictionary."
-  type: String!
-  "Person's mobile phone number when the authentication method type is `OTP`."
-  phoneNumber: String
 }
 
 """
