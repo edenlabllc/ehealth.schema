@@ -104,10 +104,10 @@ enum EquipmentStatus {
 """
 Udi structure in Equipment
 """
-type Udi {
-  "Udi identifier"
+type UDI {
+  "UDI identifier"
   value: String!
-  "Udi type, is choosen from dictionary. The value should be present in the `EQUIPMENT_UDI_TYPE` dictionary."
+  "UDI type, is choosen from dictionary. The value should be present in the `EQUIPMENT_UDI_TYPE` dictionary."
   type: String!
   "The name of the assigner"
   assignerName: String
