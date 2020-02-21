@@ -23,6 +23,7 @@
 # import * from "mergeRequests.graphql"
 # import * from "parties.graphql"
 # import * from "persons.graphql"
+# import * from "personAuthenticationMethods.graphql"
 # import * from "regions.graphql"
 # import * from "districts.graphql"
 # import * from "settlements.graphql"

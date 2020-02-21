@@ -1,0 +1,69 @@
+"""
+A condition to be used against `AuthenticationMethod` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input PersonAuthenticationMethodFilter {
+  "Checks for nullability with the object’s `endedAt` field."
+  isEnded: Boolean
+  "Checks for equality with the object’s `isActive` field."
+  isActive: Boolean
+  "Checks for inclusion in the list with the object’s `type` field. The values should be present in the `AUTHENTICATION_METHOD` dictionary."
+  type: String
+}
+
+"""
+Methods to use when ordering `PersonAuthenticationMethod`.
+"""
+enum PersonAuthenticationMethodOrderBy {
+  "Orders by the object’s `insertedAt` field in the ascending order."
+  INSERTED_AT_ASC
+  "Orders by the object’s `insertedAt` field in the descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `PersonAuthenticationMethod` values.
+"""
+type PersonAuthenticationMethodConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [PersonAuthenticationMethod]
+  "A list of edges."
+  edges: [PersonAuthenticationMethodEdge]
+}
+
+"""
+Reads and enables pagination through a set of `PersonAuthenticationMethod`.
+"""
+type PersonAuthenticationMethodEdge {
+  "The item at the end of the edge."
+  node: PersonAuthenticationMethod!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Describes authentication method of a `Person`.
+"""
+type PersonAuthenticationMethod implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: UUID!
+  "Type of auth method"
+  type: String!
+  "Phone number of person (present when `type` is `\"OTP\"`)."
+  phoneNumber: String
+  "Reference to external authentication method."
+  value: Person
+  "Date and time when the `PersonAuthenticationMethod` started."
+  startedAt: DateTime!
+  "Date and time when the `PersonAuthenticationMethod` ended."
+  endedAt: DateTime
+  "Whether the `PersonAuthenticationMethod` is active or not?"
+  isActive: Boolean
+  "Date and time when record was inserted."
+  insertedAt: DateTime!
+  "Date and time when record was updated."
+  updatedAt: DateTime!
+}
