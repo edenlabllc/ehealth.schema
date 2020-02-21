@@ -62,7 +62,7 @@ type Equipment implements Node {
   "Identifier of equipment in external system."
   externalId: String!
   "Array of unique identifiers assigned to the asset by the manufacturer."
-  udi: [Udi]
+  udi: [UDI]
   "Equipment lot number."
   lotNumber: String
   "Manufacturer of the equipment."
