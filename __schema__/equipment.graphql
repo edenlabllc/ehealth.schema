@@ -62,7 +62,7 @@ type Equipment implements Node {
   "Identifier of equipment in external system."
   externalId: String!
   "Array of unique identifiers assigned to the asset by the manufacturer."
-  udi: [String]
+  udi: [UDI]
   "Equipment lot number."
   lotNumber: String
   "Manufacturer of the equipment."
@@ -99,4 +99,16 @@ enum EquipmentStatus {
   ACTIVE
   "Status `INACTIVE` for equipment."
   INACTIVE
+}
+
+"""
+Udi structure in Equipment
+"""
+type UDI {
+  "UDI identifier"
+  value: String!
+  "UDI type, is choosen from dictionary. The value should be present in the `EQUIPMENT_UDI_TYPE` dictionary."
+  type: String!
+  "The name of the assigner"
+  assignerName: String
 }
