@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.14.0"></a>
+# [4.14.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.13.1...v4.14.0) (2020-02-24)
+
+
+### Features
+
+* add `UDI` type ([0566039](https://github.com/edenlabllc/ehealth.schema/commit/0566039))
+
+
+
 <a name="4.13.1"></a>
 ## [4.13.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.13.0...v4.13.1) (2020-02-24)
 
