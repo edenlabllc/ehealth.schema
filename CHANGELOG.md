@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.13.0"></a>
+# [4.13.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.12.2...v4.13.0) (2020-02-24)
+
+
+### Features
+
+* extend `PersonAuthenticationMethod` ([493cd1e](https://github.com/edenlabllc/ehealth.schema/commit/493cd1e))
+
+
+
 <a name="4.12.2"></a>
 ## [4.12.2](https://github.com/edenlabllc/ehealth.schema/compare/v4.12.1...v4.12.2) (2019-12-27)
 
