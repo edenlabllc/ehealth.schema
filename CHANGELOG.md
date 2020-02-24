@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.13.1"></a>
+## [4.13.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.13.0...v4.13.1) (2020-02-24)
+
+
+### Bug Fixes
+
+* accept list of `String` in `type` field of the `PersonAuthenticationMethodFilter` ([d24065e](https://github.com/edenlabllc/ehealth.schema/commit/d24065e))
+
+
+
 <a name="4.13.0"></a>
 # [4.13.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.12.2...v4.13.0) (2020-02-24)
 
