@@ -7,7 +7,7 @@ input PersonAuthenticationMethodFilter {
   "Checks for equality with the object’s `isActive` field."
   isActive: Boolean
   "Checks for inclusion in the list with the object’s `type` field. The values should be present in the `AUTHENTICATION_METHOD` dictionary."
-  type: String
+  type: [String]
 }
 
 """
