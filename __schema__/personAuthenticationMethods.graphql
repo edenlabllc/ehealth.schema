@@ -54,14 +54,14 @@ type PersonAuthenticationMethod implements Node {
   type: String!
   "Phone number of person (present when `type` is `\"OTP\"`)."
   phoneNumber: String
-  "Reference to external authentication method."
-  value: Person
+  "References third person (present when `type` is `\"THIRD_PERSON\"`)."
+  thirdPerson: Person
   "Date and time when the `PersonAuthenticationMethod` started."
   startedAt: DateTime!
   "Date and time when the `PersonAuthenticationMethod` ended."
   endedAt: DateTime
   "Whether the `PersonAuthenticationMethod` is active or not?"
-  isActive: Boolean
+  isActive: Boolean!
   "Date and time when record was inserted."
   insertedAt: DateTime!
   "Date and time when record was updated."
