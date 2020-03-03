@@ -57,7 +57,7 @@ type PersonAuthenticationMethod implements Node {
   "References third person (present when `type` is `\"THIRD_PERSON\"`)."
   thirdPerson: Person
   "Date and time when the `PersonAuthenticationMethod` started."
-  startedAt: DateTime!
+  startedAt: DateTime
   "Date and time when the `PersonAuthenticationMethod` ended."
   endedAt: DateTime
   "Whether the `PersonAuthenticationMethod` is active or not?"
