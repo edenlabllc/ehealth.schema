@@ -7,6 +7,7 @@
 # import * from "capitationContractRequests.graphql"
 # import * from "reimbursementContractRequests.graphql"
 # import * from "reimbursementContracts.graphql"
+# import * from "globalBudgetContracts.graphql"
 # import * from "declarations.graphql"
 # import * from "dictionaries.graphql"
 # import * from "legalEntities.graphql"
@@ -76,6 +77,25 @@ type Query {
 
   "Reads a single `ReimbursementContract` using its globally unique ID."
   reimbursementContract(id: ID!): ReimbursementContract
+
+    "Reads and enables pagination through a set of `GlobalBudgetContract`."
+  globalBudgetContracts(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: GlobalBudgetContractFilter
+    "The method to use when ordering collection items."
+    orderBy: GlobalBudgetContractOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): GlobalBudgetContractConnection!
+
+  "Reads a single `GlobalBudgetContract` using its globally unique ID."
+  globalBudgetContract(id: ID!): GlobalBudgetContract
 
   "Reads and enables pagination through a set of `CapitationContractRequest`."
   capitationContractRequests(
