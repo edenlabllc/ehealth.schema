@@ -31,7 +31,7 @@ input GlobalBudgetContractFilter {
 }
 
 """
-Methods to use when ordering `ReimbursementContracts`.
+Methods to use when ordering `GlobalBudgetContracts`.
 """
 enum GlobalBudgetContractOrderBy {
   "Sort by edrpou in ascending order."
@@ -152,7 +152,7 @@ type GlobalBudgetContract implements Node & Contract {
   nhsPaymentMethod: String
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
-  "Medical program that is a subject of a reimbursement contract."
+  "Medical program that is a subject of a globalBudget contract."
   medicalProgram: MedicalProgram!
   "Date and time when record was inserted"
   insertedAt: DateTime!
