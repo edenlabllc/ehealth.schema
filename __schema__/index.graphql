@@ -78,7 +78,7 @@ type Query {
   "Reads a single `ReimbursementContract` using its globally unique ID."
   reimbursementContract(id: ID!): ReimbursementContract
 
-    "Reads and enables pagination through a set of `GlobalBudgetContract`."
+  "Reads and enables pagination through a set of `GlobalBudgetContract`."
   globalBudgetContracts(
     "A condition to be used in determining which values should be returned by the collection."
     filter: GlobalBudgetContractFilter

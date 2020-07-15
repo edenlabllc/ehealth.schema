@@ -96,7 +96,7 @@ type GlobalBudgetContract implements Node & Contract {
   databaseId: UUID!
   "Human redable contract number"
   contractNumber: String
-    @fake(randexp: "\\d{4}-[\\dAEHKMPTX]{4}-[\\dAEHKMPTX]{4}$")
+    @fake(randexp: "^[\\dAEHKMPTX]{4}-[\\dAEHKMPTX]{4}-[\\dAEHKMPTX]{4}-C$")
   "Contract that is prolongated."
   parentContract: GlobalBudgetContract
   "Type of contract. Dictionary"
