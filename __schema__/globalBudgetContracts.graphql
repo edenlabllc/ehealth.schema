@@ -21,7 +21,7 @@ input GlobalBudgetContractFilter {
   isSuspended: Boolean
 
   "Checks object’s `medicalProgram` field using its globally unique ID."
-  medicalProgramId: ID
+  medicalProgram: MedicalProgramFilter
 
   "Conditions to check on fields of the object’s `contractorLegalEntity` field."
   contractorLegalEntity: LegalEntityFilter
@@ -87,7 +87,7 @@ type GlobalBudgetContractEdge {
 }
 
 """
-In order to obtain details user must have a scope `contract:read`.
+In order to obtain details user must have a scope `private_contracts:read`.
 """
 type GlobalBudgetContract implements Node & Contract {
   "The ID of an object"
@@ -142,6 +142,22 @@ type GlobalBudgetContract implements Node & Contract {
     last: Int
   ): DivisionConnection!
 
+  "Employees which were included in contract"
+  contractorEmployeeDivisions(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ContractorEmployeeDivisionFilter
+    "The method to use when ordering collection items."
+    orderBy: ContractorEmployeeDivisionOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ContractorEmployeeDivisionConnection!
+
   "Representer of NHS who signed contract"
   nhsSigner: Employee
   "Information about legal entity from NHS side"
@@ -154,8 +170,34 @@ type GlobalBudgetContract implements Node & Contract {
   attachedDocuments: [ContractDocument]!
   "Medical program that is a subject of a globalBudget contract."
   medicalProgram: MedicalProgram!
+  "The price for the contract. Is filled with UAH."
+  nhsContractPrice: Float @fake(locale: "uk", method: "finance.amount")
   "Date and time when record was inserted"
   insertedAt: DateTime!
   "Date and time when record was updated"
   updatedAt: DateTime!
+}
+
+"""
+Input for `suspendContract` mutation.
+
+User must have scope `private_contracts:write` in order to perform this action
+"""
+input SuspendGlobalBudgetContractInput {
+  "Input for a single `contractId` using its globally unique ID."
+  id: ID!
+  "Input for new value of isSuspended. Could be only true"
+  isSuspended: Boolean!
+  "Free text to reason of termination contract"
+  reason: String
+  "The reason of termination contract. The value should be present in the `CONTRACT_STATUS_REASON` dictionary."
+  statusReason: String!
+}
+
+"""
+Return type for `suspendGlobalBudgetContract` mutation.
+"""
+type SuspendGlobalBudgetContractPayload {
+  "Payload for Contract"
+  contract: Contract
 }
