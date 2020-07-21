@@ -541,6 +541,9 @@ type Mutation {
   "Suspends a single `Contract` using its globally unique ID."
   suspendContract(input: SuspendContractInput!): SuspendContractPayload
 
+  "Suspends a single `GlobalBudgetContract` using its globally unique ID."
+  suspendGlobalBudgetContract(input: SuspendGlobalBudgetContractInput!): SuspendGlobalBudgetContractPayload
+
   "Creates a single `ContractRequest`."
   createContractRequest(
     input: CreateContractRequestInput!
