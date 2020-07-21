@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.15.0"></a>
+# [4.15.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.14.2...v4.15.0) (2020-07-21)
+
+
+### Features
+
+* globalBudgetContract schema added ([#156](https://github.com/edenlabllc/ehealth.schema/issues/156)) ([e82ff7c](https://github.com/edenlabllc/ehealth.schema/commit/e82ff7c))
+
+
+
 <a name="4.14.2"></a>
 ## [4.14.2](https://github.com/edenlabllc/ehealth.schema/compare/v4.14.1...v4.14.2) (2020-03-03)
 
