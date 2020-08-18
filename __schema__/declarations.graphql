@@ -129,7 +129,7 @@ type Declaration implements Node {
   "Status ah yhe declaration, is set automatically."
   status: DeclarationStatus!
   "type of declaration, as for now it's only one type =`family_doctor`"
-  scope: String!
+  scope: String
   "The reason of declining the declaration, is set automatically on declining declaration."
   reason: String
   "Free text for declining declaration, is filled by the person who declined declaration."
