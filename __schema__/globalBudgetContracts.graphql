@@ -50,10 +50,6 @@ enum GlobalBudgetContractOrderBy {
   IS_SUSPENDED_ASC
   "Sort by is suspended in descending order."
   IS_SUSPENDED_DESC
-  "Sort by medical_program_name in ascending order."
-  MEDICAL_PROGRAM_NAME_ASC
-  "Sort by medical_program_name in descending order."
-  MEDICAL_PROGRAM_NAME_DESC
   "Sort by start date in ascending order."
   START_DATE_ASC
   "Sort by start date in descending order."
@@ -168,8 +164,21 @@ type GlobalBudgetContract implements Node & Contract {
   nhsPaymentMethod: String
   "Link to receive attached documents with particular types"
   attachedDocuments: [ContractDocument]!
-  "Medical program that is a subject of a globalBudget contract."
-  medicalProgram: MedicalProgram!
+  "Medical programs which were included in contract"
+  medicalPrograms(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: MedicalProgramFilter
+    "The method to use when ordering collection items."
+    orderBy: MedicalProgramOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): MedicalProgramConnection!
   "The price for the contract. Is filled with UAH."
   nhsContractPrice: Float @fake(locale: "uk", method: "finance.amount")
   "Date and time when record was inserted"
