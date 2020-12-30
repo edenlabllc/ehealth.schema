@@ -24,7 +24,7 @@ input ReimbursementContractRequestFilter {
   contractorLegalEntity: LegalEntityFilter
 
   "Conditions to check on fields of the object’s `medicalProgram` field."
-  medicalProgram: MedicalProgramFilter
+  medicalPrograms: MedicalProgramFilter
 }
 
 """
@@ -136,7 +136,7 @@ type ReimbursementContractRequest implements Node & ContractRequest {
   "Data which should be signed by NHS employee in order to sign given `ContractRequest`."
   toSignContent: JSON
   "Medical program that is a subject of a reimbursement contract."
-  medicalProgram: MedicalProgram!
+  medicalPrograms: [MedicalProgram]!
   "Date and time when record was inserted"
   insertedAt: DateTime!
   "Date and time when record was updated"
