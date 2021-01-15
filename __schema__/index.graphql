@@ -337,8 +337,8 @@ type Query {
     last: Int
   ): DeclarationsProlongationJobConnection!
 
-  "Reads a single `DeclarationsTerminationJob` using its globally unique ID."
-  declarationsTerminationJob(id: ID!): DeclarationsTerminationJob
+  "Reads a single `DeclarationsProlongationJob` using its globally unique ID."
+  declarationsProlongationJob(id: ID!): DeclarationsProlongationJob
 
   "Reads and enables pagination through a set of `MedicalProgram`."
   medicalPrograms(
