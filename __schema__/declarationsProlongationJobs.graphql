@@ -63,7 +63,7 @@ input DeclarationsProlongationParams {
 """
 Return type for `prolongateDeclarations` mutation.
 """
-type prolongateDeclarationsPayload {
+type ProlongateDeclarationsPayload {
   "payload prolongateDeclarationsPayload."
   declarationsProlongationJob: DeclarationsProlongationJob
 }
