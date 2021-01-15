@@ -1,0 +1,172 @@
+# import JobStatus, JobStrategy from "jobs.graphql"
+# import TaskFilter, TaskOrderBy, TaskConnection from "tasks.graphql"
+"""
+Filter for declarations prolongation merge job.
+"""
+input DeclarationsProlongationJobFilter {
+  "Declarations prolongation merge job filters."
+  status: JobStatus
+}
+
+"""
+List of fields to filter both ask and desc side `DeclarationsProlongationJob`.
+"""
+enum DeclarationsProlongationJobOrderBy {
+  "Sort declarations prolongation job by started at in ascending order"
+  STARTED_AT_ASC
+  "Sort declarations prolongation job by started at in descending order"
+  STARTED_AT_DESC
+}
+
+"""
+A connection to a list of `DeclarationsProlongationJob` values.
+"""
+type DeclarationsProlongationJobConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [DeclarationsProlongationJob]
+  "A list of edges."
+  edges: [DeclarationsProlongationJobEdge]
+}
+
+"""
+Reads and enables pagination through a set of `DeclarationsProlongationJob`.
+"""
+type DeclarationsProlongationJobEdge {
+  "The item at the end of the edge."
+  node: DeclarationsProlongationJob!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+Input for `prolongateDeclarations` mutation.
+"""
+input ProlongateDeclarationsInput {
+  "Deactivation reason description."
+  reasonDescription: String
+  "Set of primary key identifiers from the database of a `Declaration` to prolongate."
+  prolongationParams: [DeclarationsProlongationParams]!
+}
+
+"""
+Declarations prolongation parameters
+"""
+input DeclarationsProlongationParams {
+  "Declaration ID."
+  id: ID!
+  "Prolongation end date."
+  endDate: Date!
+}
+
+"""
+Return type for `prolongateDeclarations` mutation.
+"""
+type prolongateDeclarationsPayload {
+  "payload prolongateDeclarationsPayload."
+  declarationsProlongationJob: DeclarationsProlongationJob
+}
+
+"""
+An object for DeclarationsProlongationJob.
+"""
+type DeclarationsProlongationJob implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Job name."
+  name: String
+  "Declarations Prolongation Job status."
+  status: JobStatus!
+  "Job execution strategy."
+  strategy: JobStrategy!
+  "Job metadata."
+  meta: DeclarationsProlongationJobMeta
+  "Date and time when the job starts."
+  startedAt: DateTime!
+  "Date and time when the job ends."
+  endedAt: DateTime
+  "Tasks within this job."
+  tasks(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: TaskFilter
+    "The method to use when ordering collection items."
+    orderBy: TaskOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DeclarationsProlongationTaskConnection!
+}
+
+"""
+Metadata of a `DeclarationsProlongationJob`.
+"""
+type DeclarationsProlongationJobMeta {
+  "Prolongation reason description."
+  reasonDescription: String
+}
+
+"""
+A connection to a list of `DeclarationProlongationTask` values.
+"""
+type DeclarationsProlongationTaskConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [DeclarationsProlongationTask]
+  "A list of edges."
+  edges: [DeclarationsProlongationTaskEdge]
+}
+
+"""
+Reads and enables pagination through a set of `DeclarationsProlongationTask`.
+"""
+type DeclarationsProlongationTaskEdge {
+  "The item at the end of the edge."
+  node: DeclarationsProlongationTask!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+A child of a `DeclarationsProlongationJob`, contains the result of task execution.
+"""
+type DeclarationsProlongationTask implements Node {
+  "The ID of an object"
+  id: ID!
+  "Primary key identifier from the database"
+  databaseId: UUID!
+  "Task name."
+  name: String
+    @fake(
+      locale: "uk"
+      format: "{{company.companyName}} {{company.companySuffix}}"
+    )
+  "Task status, is set automatically."
+  status: TaskStatus!
+  "Task meta data."
+  meta: DeclarationsProlongationTaskMeta
+  "Date and time when task was executed."
+  endedAt: DateTime
+  "Task error."
+  error: TaskError
+  "Technical information when task was inserted into the DB."
+  insertedAt: DateTime!
+  "Technical information when task was updated in the DB."
+  updatedAt: DateTime!
+}
+
+"""
+Metadata of a `DeclarationsProlongationTask`.
+"""
+type DeclarationsProlongationTaskMeta {
+  "Set of primary key identifiers from the database of a `Declaration`."
+  databaseId: UUID!
+}
