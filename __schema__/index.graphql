@@ -604,6 +604,11 @@ type Mutation {
     input: TerminateDeclarationsInput!
   ): TerminateDeclarationsPayload
 
+  "Prolongate a list of `Declaration` using prolongation parameters."
+  prolongateDeclarations(
+    input: ProlongateDeclarationsInput!
+  ): ProlongateDeclarationsPayload
+
   "Approves a single `Declaration` using its globally unique ID."
   approveDeclaration(input: ApproveDeclarationInput!): ApproveDeclarationPayload
 
