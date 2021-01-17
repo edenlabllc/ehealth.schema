@@ -33,6 +33,7 @@
 # import * from "programServices.graphql"
 # import * from "employeeRequests.graphql"
 # import * from "globalParameters.graphql"
+# import * from "declarationsProlongationJobs.graphql"
 # import * from "declarationsTerminationJobs.graphql"
 # import * from "divisions.graphql"
 
@@ -320,6 +321,25 @@ type Query {
   "Reads a single `DeclarationsTerminationJob` using its globally unique ID."
   declarationsTerminationJob(id: ID!): DeclarationsTerminationJob
 
+  "Reads and enables pagination through a set of `DeclarationsProlongationJob`."
+  declarationsProlongationJobs(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: DeclarationsProlongationJobFilter
+    "The method to use when ordering collection items."
+    orderBy: DeclarationsProlongationJobOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): DeclarationsProlongationJobConnection!
+
+  "Reads a single `DeclarationsProlongationJob` using its globally unique ID."
+  declarationsProlongationJob(id: ID!): DeclarationsProlongationJob
+
   "Reads and enables pagination through a set of `MedicalProgram`."
   medicalPrograms(
     "A condition to be used in determining which values should be returned by the collection."
@@ -583,6 +603,11 @@ type Mutation {
   terminateDeclarations(
     input: TerminateDeclarationsInput!
   ): TerminateDeclarationsPayload
+
+  "Prolongate a list of `Declaration` using prolongation parameters."
+  prolongateDeclarations(
+    input: ProlongateDeclarationsInput!
+  ): ProlongateDeclarationsPayload
 
   "Approves a single `Declaration` using its globally unique ID."
   approveDeclaration(input: ApproveDeclarationInput!): ApproveDeclarationPayload
