@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.17.0"></a>
+# [4.17.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.16.0...v4.17.0) (2021-01-17)
+
+
+### Features
+
+* additional parameters added to updateProgramMedication mutation ([#162](https://github.com/edenlabllc/ehealth.schema/issues/162)) ([ca4f438](https://github.com/edenlabllc/ehealth.schema/commit/ca4f438))
+
+
+
 <a name="4.16.0"></a>
 # [4.16.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.15.2...v4.16.0) (2021-01-17)
 
