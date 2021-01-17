@@ -117,6 +117,14 @@ input UpdateProgramMedicationInput {
   endDate: Date
   "General registry identifier"
   registryNumber: String
+  "Reimbursement daily dosage"
+  reimbursementDailyDosage: Float
+  "Consumer price"
+  consumerPrice: Float
+  "Wholesale price"
+  wholesalePrice: Float
+  "Estimated payment amount"
+  estimatedPaymentAmount: Float
 }
 
 """
