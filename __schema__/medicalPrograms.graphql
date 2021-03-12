@@ -77,9 +77,9 @@ type MedicalProgram implements Node {
   "Medication dispense allowed status description"
   medicationDispenseAllowedText: String
   "Medical program settings"
-  mediaclProgramSettings: MediaclProgramSettings!
+  medicalProgramSettings: MedicalProgramSettings
   "Medical program settings status description"
-  mediaclProgramSettingsText: String
+  medicalProgramSettingsText: String
 }
 
 """
@@ -149,13 +149,13 @@ type DeactivateMedicalProgramPayload {
 """
 Medical program settings.
 """
-type MediaclProgramSettings {
+type MedicalProgramSettings {
   "Whether it is allowed to create `Medication Request` with the same `innm` in one treatment period"
-  sameMnnInTreatmentPeriod: Boolean
-  "Coma separated list of employee types which allowed to create `Medication Request`. The value should be present in the `EMPLOYEE_TYPE` dictionary."
-  employeeTypesToCreateMedicationRequest: String
-  "Coma separated list of employee specialities which allowed to create `Medication Request`. The value should be present in the `SPECIALITY_TYPE` dictionary."
-  specialityTypesToCreateMedicationRequest: String
+  skipMnnInTreatmentPeriod: Boolean
+  "Array of employee types which allowed to create `Medication Request`. The value should be present in the `EMPLOYEE_TYPE` dictionary."
+  employeeTypesToCreateMedicationRequest: [String]
+  "Array of employee specialities which allowed to create `Medication Request`. The value should be present in the `SPECIALITY_TYPE` dictionary."
+  specialityTypesToCreateMedicationRequest: [String]
   "Whether it is care plan required to create `Medication Request`"
   carePlanRequired: Boolean
   "Whether it is allowed to set medical program on create `Medication Dispense` if it was not set on `Medication Request`"
