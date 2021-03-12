@@ -151,15 +151,15 @@ Medical program settings.
 """
 type MedicalProgramSettings {
   "Whether it is allowed to create `Medication Request` with the same `innm` in one treatment period"
-  skipMnnInTreatmentPeriod: Boolean
+  skipMnnInTreatmentPeriod: Boolean!
   "Array of employee types which allowed to create `Medication Request`. The value should be present in the `EMPLOYEE_TYPE` dictionary."
   employeeTypesToCreateMedicationRequest: [String]
   "Array of employee specialities which allowed to create `Medication Request`. The value should be present in the `SPECIALITY_TYPE` dictionary."
   specialityTypesToCreateMedicationRequest: [String]
   "Whether it is care plan required to create `Medication Request`"
-  carePlanRequired: Boolean
+  carePlanRequired: Boolean!
   "Whether it is allowed to set medical program on create `Medication Dispense` if it was not set on `Medication Request`"
-  setMedicalProgramOnMedicationDispense: Boolean
+  setMedicalProgramOnMedicationDispense: Boolean!
   "Whether it is possible to skip employee validations to create `Medication Request`"
-  skipEmployeeValidation: Boolean
+  skipEmployeeValidation: Boolean!
 }
