@@ -36,6 +36,7 @@
 # import * from "declarationsProlongationJobs.graphql"
 # import * from "declarationsTerminationJobs.graphql"
 # import * from "divisions.graphql"
+# import * from "forbiddenGroups.graphql"
 
 """
 The query root of e-Health GraphQL interface.
@@ -546,6 +547,25 @@ type Query {
 
   "Reads a single `Division` using its globally unique ID."
   division(id: ID!): Division
+
+  "Reads and enables pagination through a set of `ForbiddenGroup`."
+  forbiddenGroups(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ForbiddenGroupFilter
+    "The method to use when ordering collection items."
+    orderBy: ForbiddenGroupOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ForbiddenGroupConnection!
+
+  "Reads a single `ForbiddenGroup` using its globally unique ID."
+  forbiddenGroup(id: ID!): ForbiddenGroup
 }
 
 """
@@ -763,6 +783,26 @@ type Mutation {
   updateGlobalParameters(
     input: UpdateGlobalParametersInput!
   ): UpdateGlobalParametersPayload
+
+  "Creates a single `ForbiddenGroup`."
+  createForbiddenGroup(
+    input: CreateForbiddenGroupInput!
+  ): CreateForbiddenGroupPayload
+
+  "Deactivates a single `ForbiddenGroup` using its globally unique ID."
+  deactivateForbiddenGroup(
+    input: DeactivateForbiddenGroupInput!
+  ): DeactivateForbiddenGroupPayload
+
+  "Creates a set of `ForbiddenGroup` items"
+  createForbiddenGroupItems(
+    input: CreateForbiddenGroupItemsInput!
+  ): CreateForbiddenGroupItemsPayload
+
+  "Deactivates a set of items in the `ForbiddenGroup`"
+  deactivateForbiddenGroupItems(
+    input: DeactivateForbiddenGroupItemsInput!
+  ): DeactivateForbiddenGroupItemsPayload
 }
 
 """
