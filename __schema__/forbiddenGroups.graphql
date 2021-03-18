@@ -11,9 +11,9 @@ input ForbiddenGroupFilter {
   "Checks for equality with the object’s `isActive` field."
   isActive: Boolean
   "Forbidden group service filter"
-  ForbiddenGroupService: ForbiddenGroupServiceFilter
+  forbiddenGroupService: ForbiddenGroupServiceFilter
   "Forbidden group code filter"
-  ForbiddenGroupCode: ForbiddenGroupCodeFilter
+  forbiddenGroupCode: ForbiddenGroupCodeFilter
 }
 
 """
