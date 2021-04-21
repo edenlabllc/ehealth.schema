@@ -158,8 +158,12 @@ type MedicalProgramSettings {
   specialityTypesToCreateMedicationRequest: [String]
   "Whether it is care plan required to create `Medication Request`"
   carePlanRequired: Boolean!
-  "Array of employee specialities which allowed to create care plan's activity. The value should be present in the `SPECIALITY_TYPE` dictionary."
+  "Array of employee specialities which allowed to create care plan's 'Activity'. The value should be present in the `SPECIALITY_TYPE` dictionary."
   specialityTypesToCreateActivity: [String]
   "Whether it is possible to skip employee validations to create `Medication Request`"
   skipEmployeeValidation: Boolean!
+  "Array of condition codes which allowed to create `Medication Request` or care plan's 'Activity'. The value should be present in the `eHealth/ICD10_AM/condition_codes` dictionary."
+  conditionsIcd10AmAllowed: [String]
+  "Array of condition codes which allowed to create `Medication Request` or care plan's 'Activity'. The value should be present in the `eHealth/ICPC2/condition_codes` dictionary."
+  conditionsIcpc2Allowed: [String]
 }
