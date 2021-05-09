@@ -114,10 +114,8 @@ Input for `createForbiddenGroup` mutation.
 User must have a scope **forbidden_group:write**
 """
 input CreateForbiddenGroupInput {
-  "The name of the `ForbiddenGroup`."
-  name: String!
-  "Reason for creating the `ForbiddenGroup`."
-  creationReason: String!
+  "Signed data to create employee request"
+  signedContent: SignedContent!
 }
 
 """
@@ -134,10 +132,8 @@ Input for `deactivateForbiddenGroup` mutation.
 User must have a scope **forbidden_group:write**
 """
 input DeactivateForbiddenGroupInput {
-  "The ID of a `ForbiddenGroup` to deactivate."
-  id: ID!
-  "Reason for deactivating the `ForbiddenGroup`."
-  deactivationReason: String!
+  "Signed data to create employee request"
+  signedContent: SignedContent!
 }
 
 """
@@ -154,31 +150,15 @@ Input for `createForbiddenGroupItems` mutation.
 User must have a scope **forbidden_group:write**
 """
 input CreateForbiddenGroupItemsInput{
-    "Forbidden group identifier."
-    forbiddenGroupId: ID!
-    "List of service identifiers."
-    serviceIds: [ID!]
-    "List of service group identifiers."
-    serviceGroupIds: [ID!]
-    "List of dictionary codes."
-    codes:[CreateForbiddenGroupCodeInput!]
-}
-
-"""
-Input for `codes` in `createForbiddenGroupItems` mutation.
-"""
-input CreateForbiddenGroupCodeInput {
-    "The name of the dictionary. Allowed names: eHealth/ICD10AM/condition_codes, eHealth/ICPC2/actions, eHealth/ICPC2/condition_codes, eHealth/ICPC2/reasons."
-    system: String!
-    "The value from dictionary. It should be present in the dictionary specified in `system` property"
-    code: String!
+  "Signed data to create employee request"
+  signedContent: SignedContent!
 }
 
 """
 Return type for `createForbiddenGroupItems` mutation.
 """
 type CreateForbiddenGroupItemsPayload {
-  "Updaed `ForbiddenGroup`."
+  "Updated `ForbiddenGroup`."
   forbiddenGroup: ForbiddenGroup
 }
 
@@ -188,18 +168,14 @@ Input for `deactivateForbiddenGroupItems` mutation.
 User must have a scope **forbidden_group:write**
 """
 input DeactivateForbiddenGroupItemsInput {
-    "Forbidden group identifier."
-    forbiddenGroupId: ID!
-    "List with IDs of `ForbiddenGroupService` objects. Each object should be active and belong to the `forbiddenGroupId`"
-    forbiddenGroupServiceIds: [ID!]
-    "List with IDs of `ForbiddenGroupCode` objects. Each object should be active and belong to the `forbiddenGroupId`"
-    forbiddenGroupCodeIds: [ID!]
+  "Signed data to create employee request"
+  signedContent: SignedContent!
 }
 
 """
 Return type for `DeactivateForbiddenGroupItems` mutation.
 """
 type DeactivateForbiddenGroupItemsPayload {
-  "Updaed `ForbiddenGroup`."
+  "Updated `ForbiddenGroup`."
   forbiddenGroup: ForbiddenGroup
 }

@@ -5,8 +5,6 @@ Fields to filter forbidden group codes in the system.
 input ForbiddenGroupCodeFilter {
   "Primary key identifier from the database."
   databaseId: UUID
-  "Forbidden group filter."
-  forbiddenGroup: ForbiddenGroupFilter
   "Flag whether `ForbiddenGroupCode` is active or not?"
   isActive: Boolean
   "Code from dictionary values."
@@ -63,6 +61,10 @@ type ForbiddenGroupCode implements Node {
   system: String!
   "Code from values of the dictionary pointed at `system` property"
   code: String!
+  "Creation reason."
+  creationReason: String!
+  "Deactivation reason."
+  deactivationReason: String
   "Whether `ForbiddenGroupCode` is active or not?"
   isActive: Boolean!
   "Date and time when record was inserted"

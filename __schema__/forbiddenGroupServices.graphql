@@ -7,8 +7,6 @@ Fields to filter forbidden group services in the system.
 input ForbiddenGroupServiceFilter {
   "Primary key identifier from the database."
   databaseId: UUID
-  "Forbidden group filter."
-  forbiddenGroup: ForbiddenGroupFilter
   "Flag whether `ForbiddenGroupService` is active or not?"
   isActive: Boolean
   "Service filter"
@@ -65,6 +63,10 @@ type ForbiddenGroupService implements Node {
   service: Service
   "Service group"
   serviceGroup: ServiceGroup
+  "Creation reason."
+  creationReason: String!
+  "Deactivation reason."
+  deactivationReason: String
   "Whether `ForbiddenGroupService` is active or not?"
   isActive: Boolean!
   "Date and time when record was inserted"
