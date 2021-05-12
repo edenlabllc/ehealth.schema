@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.18.0"></a>
+# [4.18.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.17.0...v4.18.0) (2021-05-12)
+
+
+### Features
+
+* forbidden groups created ([#164](https://github.com/edenlabllc/ehealth.schema/issues/164)) ([27033a5](https://github.com/edenlabllc/ehealth.schema/commit/27033a5))
+
+
+
 <a name="4.17.0"></a>
 # [4.17.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.16.0...v4.17.0) (2021-01-17)
 
