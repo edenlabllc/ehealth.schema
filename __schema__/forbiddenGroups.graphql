@@ -1,0 +1,181 @@
+# import ForbiddenGroupService from "forbiddenGroupServices.graphql"
+# import ForbiddenGroupCode from "forbiddenGroupCodes.graphql"
+"""
+Fields to filter forbidden groups in the system.
+"""
+input ForbiddenGroupFilter {
+  "Checks for equality with the object’s `databaseId` field."
+  databaseId: UUID
+  "Checks for matching with the object’s `name` field."
+  name: String
+  "Checks for equality with the object’s `isActive` field."
+  isActive: Boolean
+  "Forbidden group service filter"
+  forbiddenGroupService: ForbiddenGroupServiceFilter
+  "Forbidden group code filter"
+  forbiddenGroupCode: ForbiddenGroupCodeFilter
+}
+
+"""
+Methods to use when ordering `ForbiddenGroup`.
+"""
+enum ForbiddenGroupOrderBy {
+  "Orders by the object’s `insertedAt` field in the ascending order."
+  INSERTED_AT_ASC
+  "Orders by the object’s `insertedAt` field in the descending order."
+  INSERTED_AT_DESC
+  "Orders by the object’s `name` field in the ascending order."
+  NAME_ASC
+  "Orders by the object’s `name` field in the descending order."
+  NAME_DESC
+}
+
+"""
+A connection to a list of `ForbiddenGroup` items.
+"""
+type ForbiddenGroupConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ForbiddenGroup]
+  "A list of edges."
+  edges: [ForbiddenGroupEdge]
+}
+
+"""
+An edge in a connection of `MedicalProgram`.
+"""
+type ForbiddenGroupEdge {
+  "The item at the end of the edge."
+  node: ForbiddenGroup!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+ForbiddenGroup contains details about restricted codes, services and service groups included in medical events.
+
+In order to obtain details user must have a scope **forbidden_group:read**
+"""
+type ForbiddenGroup implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: UUID!
+  "The name of the `ForbiddenGroup`."
+  name: String!
+  "The reason the `ForbiddenGroup` was created."
+  creationReason: String!
+  "The reason the `ForbiddenGroup` was deactivated."
+  deactivationReason: String
+  "Whether the `ForbiddenGroup` is active or not?"
+  isActive: Boolean!
+  "Date and time when record was inserted."
+  insertedAt: DateTime!
+  "Date and time when record was updated."
+  updatedAt: DateTime!
+
+  "Services and Service groups wich belong to ForbiddenGroup."
+  forbiddenGroupServices(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ForbiddenGroupServiceFilter
+    "The method to use when ordering collection items."
+    orderBy: ForbiddenGroupServiceOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ForbiddenGroupServiceConnection!
+
+  "Codes wich belong to ForbiddenGroup."
+  forbiddenGroupCodes(
+    "A condition to be used in determining which values should be returned by the collection."
+    filter: ForbiddenGroupCodeFilter
+    "The method to use when ordering collection items."
+    orderBy: ForbiddenGroupCodeOrderBy
+    "Read all values in the set after (below) this cursor."
+    after: String
+    "Read all values in the set before (above) this cursor."
+    before: String
+    "Only read the first _n_ values of the set."
+    first: Int
+    "Only read the last _n_ values of the set."
+    last: Int
+  ): ForbiddenGroupCodeConnection!
+}
+
+"""
+Input for `createForbiddenGroup` mutation.
+
+User must have a scope **forbidden_group:write**
+"""
+input CreateForbiddenGroupInput {
+  "Signed data to create employee request"
+  signedContent: SignedContent!
+}
+
+"""
+Return type for `createForbiddenGroup` mutation.
+"""
+type CreateForbiddenGroupPayload {
+  "Created `ForbiddenGroup`."
+  forbiddenGroup: ForbiddenGroup
+}
+
+"""
+Input for `deactivateForbiddenGroup` mutation.
+
+User must have a scope **forbidden_group:write**
+"""
+input DeactivateForbiddenGroupInput {
+  "Signed data to create employee request"
+  signedContent: SignedContent!
+}
+
+"""
+Return type for `deactivateForbiddenGroup` mutation.
+"""
+type DeactivateForbiddenGroupPayload {
+  "Deactivated `ForbiddenGroup`."
+  forbiddenGroup: ForbiddenGroup
+}
+
+"""
+Input for `createForbiddenGroupItems` mutation.
+
+User must have a scope **forbidden_group:write**
+"""
+input CreateForbiddenGroupItemsInput{
+  "Signed data to create employee request"
+  signedContent: SignedContent!
+}
+
+"""
+Return type for `createForbiddenGroupItems` mutation.
+"""
+type CreateForbiddenGroupItemsPayload {
+  "Updated `ForbiddenGroup`."
+  forbiddenGroup: ForbiddenGroup
+}
+
+"""
+Input for `deactivateForbiddenGroupItems` mutation.
+
+User must have a scope **forbidden_group:write**
+"""
+input DeactivateForbiddenGroupItemsInput {
+  "Signed data to create employee request"
+  signedContent: SignedContent!
+}
+
+"""
+Return type for `DeactivateForbiddenGroupItems` mutation.
+"""
+type DeactivateForbiddenGroupItemsPayload {
+  "Updated `ForbiddenGroup`."
+  forbiddenGroup: ForbiddenGroup
+}

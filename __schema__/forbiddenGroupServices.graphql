@@ -1,0 +1,76 @@
+# import ForbiddenGroup from "forbiddenGroups.graphql"
+# import Service from "services.graphql"
+# import ServiceGroup from "serviceGroup.graphql"
+"""
+Fields to filter forbidden group services in the system.
+"""
+input ForbiddenGroupServiceFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+  "Flag whether `ForbiddenGroupService` is active or not?"
+  isActive: Boolean
+  "Service filter"
+  service: ServiceFilter
+  "Service Group filter"
+  serviceGroup: ServiceGroupFilter
+}
+
+"""
+Methods to use when ordering `ForbiddenGroupService`.
+"""
+enum ForbiddenGroupServiceOrderBy {
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `ForbiddenGroupService` items.
+"""
+type ForbiddenGroupServiceConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ForbiddenGroupService]
+  "A list of edges."
+  edges: [ForbiddenGroupServiceEdge]
+}
+
+"""
+An edge in a connection of `ForbiddenGroupService`.
+"""
+type ForbiddenGroupServiceEdge {
+  "The item at the end of the edge."
+  node: ForbiddenGroupService!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+ForbiddenGroupService connects service, serviceGroup and forbiddenGroup.
+
+In order to obtain details user must have a scope **forbidden_group:read**
+"""
+type ForbiddenGroupService implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: UUID!
+  "ForbiddenGroup."
+  forbiddenGroup: ForbiddenGroup!
+  "Service"
+  service: Service
+  "Service group"
+  serviceGroup: ServiceGroup
+  "Creation reason."
+  creationReason: String!
+  "Deactivation reason."
+  deactivationReason: String
+  "Whether `ForbiddenGroupService` is active or not?"
+  isActive: Boolean!
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}

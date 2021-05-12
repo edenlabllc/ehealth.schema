@@ -1,0 +1,74 @@
+# import ForbiddenGroup from "forbiddenGroups.graphql"
+"""
+Fields to filter forbidden group codes in the system.
+"""
+input ForbiddenGroupCodeFilter {
+  "Primary key identifier from the database."
+  databaseId: UUID
+  "Flag whether `ForbiddenGroupCode` is active or not?"
+  isActive: Boolean
+  "Code from dictionary values."
+  code: String
+  "Dictionary name."
+  system: String
+}
+
+"""
+Methods to use when ordering `ForbiddenGroupCode`.
+"""
+enum ForbiddenGroupCodeOrderBy {
+  "Sort by inserted_at in ascending order."
+  INSERTED_AT_ASC
+  "Sort by inserted_at in descending order."
+  INSERTED_AT_DESC
+}
+
+"""
+A connection to a list of `ForbiddenGroupCode` items.
+"""
+type ForbiddenGroupCodeConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of nodes."
+  nodes: [ForbiddenGroupCode]
+  "A list of edges."
+  edges: [ForbiddenGroupCodeEdge]
+}
+
+"""
+An edge in a connection of `ForbiddenGroupCode`.
+"""
+type ForbiddenGroupCodeEdge {
+  "The item at the end of the edge."
+  node: ForbiddenGroupCode!
+  "A cursor for use in pagination."
+  cursor: String!
+}
+
+"""
+ForbiddenGroupCode connects dictionary codes and forbiddenGroup.
+
+In order to obtain details user must have a scope **forbidden_group:read**
+"""
+type ForbiddenGroupCode implements Node {
+  "The ID of an object."
+  id: ID!
+  "Primary key identifier from the database."
+  databaseId: UUID!
+  "ForbiddenGroup."
+  forbiddenGroup: ForbiddenGroup!
+  "Dictionary name."
+  system: String!
+  "Code from values of the dictionary pointed at `system` property"
+  code: String!
+  "Creation reason."
+  creationReason: String!
+  "Deactivation reason."
+  deactivationReason: String
+  "Whether `ForbiddenGroupCode` is active or not?"
+  isActive: Boolean!
+  "Date and time when record was inserted"
+  insertedAt: DateTime!
+  "Date and time when record was updated"
+  updatedAt: DateTime!
+}
