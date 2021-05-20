@@ -76,6 +76,30 @@ type MedicalProgram implements Node {
   medicationDispenseAllowed: Boolean!
   "Medication dispense allowed status description"
   medicationDispenseAllowedText: String
+  "Medical program settings"
+  medicalProgramSettings: MedicalProgramSettings
+  "Medical program settings description"
+  medicalProgramSettingsText: String
+}
+
+"""
+Medical program settings
+"""
+type MedicalProgramSettings {
+  "Skip MNN in treatment period requirement flag"
+  skipMnnInTreatmentPeriod: Boolean!
+  "Care plan requirement flag"
+  carePlanRequired: Boolean!
+  "Skip employee validation requirement flag"
+  skipEmployeeValidation: Boolean!
+  "Allowed employee types to create medication request"
+  employeeTypesToCreateMedicationRequest: [String]
+  "Speciality types allowed"
+  specialityTypesAllowed: [String]
+  "conditions ICD10_AM allowed"
+  conditionsIcd10AmAllowed: [String]
+  "Conditions ICPC2 allowed"
+  conditions_icpc2_allowed: [String]
 }
 
 """
@@ -114,6 +138,30 @@ input UpdateMedicalProgramInput {
   medicationDispenseAllowed: Boolean
   "Medication dispense allowed status description"
   medicationDispenseAllowedText: String
+  "Medical program settings"
+  medicalProgramSettings: MedicalProgramSettingsInput
+  "Medical program settings description"
+  medicalProgramSettingsText: String
+}
+
+"""
+Input for `MedicalProgramSettings` of `updateMedicalProgram` mutation.
+"""
+input MedicalProgramSettingsInput {
+  "Skip MNN in treatment period requirement flag"
+  skipMnnInTreatmentPeriod: Boolean!
+  "Care plan requirement flag"
+  carePlanRequired: Boolean!
+  "Skip employee validation requirement flag"
+  skipEmployeeValidation: Boolean!
+  "Allowed employee types to create medication request"
+  employeeTypesToCreateMedicationRequest: [String]
+  "Speciality types allowed"
+  specialityTypesAllowed: [String]
+  "conditions ICD10_AM allowed"
+  conditionsIcd10AmAllowed: [String]
+  "Conditions ICPC2 allowed"
+  conditions_icpc2_allowed: [String]
 }
 
 """
