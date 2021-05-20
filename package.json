@@ -41,7 +41,7 @@
     "husky": "^1.1.0",
     "prettier": "^1.14.3",
     "pretty-quick": "^1.7.0",
-    "standard-version": "^4.4.0"
+    "standard-version": "^8.0.1"
   },
   "husky": {
     "hooks": {
