@@ -99,7 +99,7 @@ type MedicalProgramSettings {
   "conditions ICD10_AM allowed"
   conditionsIcd10AmAllowed: [String]
   "Conditions ICPC2 allowed"
-  conditions_icpc2_allowed: [String]
+  conditionsIcpc2Allowed: [String]
 }
 
 """
@@ -161,7 +161,7 @@ input MedicalProgramSettingsInput {
   "conditions ICD10_AM allowed"
   conditionsIcd10AmAllowed: [String]
   "Conditions ICPC2 allowed"
-  conditions_icpc2_allowed: [String]
+  conditionsIcpc2Allowed: [String]
 }
 
 """
