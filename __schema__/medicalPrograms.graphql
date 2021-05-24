@@ -78,8 +78,30 @@ type MedicalProgram implements Node {
   medicationDispenseAllowedText: String
   "Medical program settings"
   medicalProgramSettings: MedicalProgramSettings
-  "Medical program settings status description"
+  "Medical program settings description"
   medicalProgramSettingsText: String
+}
+
+"""
+Medical program settings
+"""
+type MedicalProgramSettings {
+  "Skip MNN in treatment period requirement flag"
+  skipMnnInTreatmentPeriod: Boolean
+  "Care plan requirement flag"
+  carePlanRequired: Boolean!
+  "Skip employee validation requirement flag"
+  skipEmployeeValidation: Boolean
+  "Allowed employee types to create medication request"
+  employeeTypesToCreateMedicationRequest: [String]
+  "Speciality types allowed"
+  specialityTypesAllowed: [String]
+  "conditions ICD10_AM allowed"
+  conditionsIcd10AmAllowed: [String]
+  "Conditions ICPC2 allowed"
+  conditionsIcpc2Allowed: [String]
+  "Maximum length in days of treatment period for `Medication Request` created with the program"
+  medicationRequestMaxPeriodDay: Int
 }
 
 """
@@ -118,6 +140,32 @@ input UpdateMedicalProgramInput {
   medicationDispenseAllowed: Boolean
   "Medication dispense allowed status description"
   medicationDispenseAllowedText: String
+  "Medical program settings"
+  medicalProgramSettings: MedicalProgramSettingsInput
+  "Medical program settings description"
+  medicalProgramSettingsText: String
+}
+
+"""
+Input for `MedicalProgramSettings` of `updateMedicalProgram` mutation.
+"""
+input MedicalProgramSettingsInput {
+  "Skip MNN in treatment period requirement flag"
+  skipMnnInTreatmentPeriod: Boolean
+  "Care plan requirement flag"
+  carePlanRequired: Boolean!
+  "Skip employee validation requirement flag"
+  skipEmployeeValidation: Boolean
+  "Allowed employee types to create medication request"
+  employeeTypesToCreateMedicationRequest: [String]
+  "Speciality types allowed"
+  specialityTypesAllowed: [String]
+  "conditions ICD10_AM allowed"
+  conditionsIcd10AmAllowed: [String]
+  "Conditions ICPC2 allowed"
+  conditionsIcpc2Allowed: [String]
+  "Maximum length in days of treatment period for `Medication Request` created with the program"
+  medicationRequestMaxPeriodDay: Int
 }
 
 """
@@ -144,26 +192,4 @@ Return type for `deactivateMedicalProgram` mutation.
 type DeactivateMedicalProgramPayload {
   "Deactivated `MedicalProgram`."
   medicalProgram: MedicalProgram
-}
-
-"""
-Medical program settings.
-"""
-type MedicalProgramSettings {
-  "Whether it is allowed to create `Medication Request` with the same `innm` in one treatment period"
-  skipMnnInTreatmentPeriod: Boolean!
-  "Array of employee types which allowed to create `Medication Request`. The value should be present in the `EMPLOYEE_TYPE` dictionary."
-  employeeTypesToCreateMedicationRequest: [String]
-  "Array of employee specialities which allowed to create `Medication Request`. The value should be present in the `SPECIALITY_TYPE` dictionary."
-  specialityTypesToCreateMedicationRequest: [String]
-  "Whether it is care plan required to create `Medication Request`"
-  carePlanRequired: Boolean!
-  "Array of employee specialities which allowed to create care plan's 'Activity'. The value should be present in the `SPECIALITY_TYPE` dictionary."
-  specialityTypesToCreateActivity: [String]
-  "Whether it is possible to skip employee validations to create `Medication Request`"
-  skipEmployeeValidation: Boolean!
-  "Array of condition codes which allowed to create `Medication Request` or care plan's 'Activity'. The value should be present in the `eHealth/ICD10_AM/condition_codes` dictionary."
-  conditionsIcd10AmAllowed: [String]
-  "Array of condition codes which allowed to create `Medication Request` or care plan's 'Activity'. The value should be present in the `eHealth/ICPC2/condition_codes` dictionary."
-  conditionsIcpc2Allowed: [String]
 }
