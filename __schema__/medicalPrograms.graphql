@@ -87,11 +87,11 @@ Medical program settings
 """
 type MedicalProgramSettings {
   "Skip MNN in treatment period requirement flag"
-  skipMnnInTreatmentPeriod: Boolean!
+  skipMnnInTreatmentPeriod: Boolean
   "Care plan requirement flag"
   carePlanRequired: Boolean!
   "Skip employee validation requirement flag"
-  skipEmployeeValidation: Boolean!
+  skipEmployeeValidation: Boolean
   "Allowed employee types to create medication request"
   employeeTypesToCreateMedicationRequest: [String]
   "Speciality types allowed"
@@ -100,6 +100,8 @@ type MedicalProgramSettings {
   conditionsIcd10AmAllowed: [String]
   "Conditions ICPC2 allowed"
   conditionsIcpc2Allowed: [String]
+  "Maximum length in days of treatment period for `Medication Request` created with the program"
+  medicationRequestMaxPeriodDay: Int
 }
 
 """
@@ -149,11 +151,11 @@ Input for `MedicalProgramSettings` of `updateMedicalProgram` mutation.
 """
 input MedicalProgramSettingsInput {
   "Skip MNN in treatment period requirement flag"
-  skipMnnInTreatmentPeriod: Boolean!
+  skipMnnInTreatmentPeriod: Boolean
   "Care plan requirement flag"
   carePlanRequired: Boolean!
   "Skip employee validation requirement flag"
-  skipEmployeeValidation: Boolean!
+  skipEmployeeValidation: Boolean
   "Allowed employee types to create medication request"
   employeeTypesToCreateMedicationRequest: [String]
   "Speciality types allowed"
@@ -162,6 +164,8 @@ input MedicalProgramSettingsInput {
   conditionsIcd10AmAllowed: [String]
   "Conditions ICPC2 allowed"
   conditionsIcpc2Allowed: [String]
+  "Maximum length in days of treatment period for `Medication Request` created with the program"
+  medicationRequestMaxPeriodDay: Int
 }
 
 """
