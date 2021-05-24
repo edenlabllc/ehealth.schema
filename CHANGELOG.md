@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.19.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.18.2...v4.19.0) (2021-05-24)
+
+
+### Features
+
+* medicalProgram schema edited ([#169](https://github.com/edenlabllc/ehealth.schema/issues/169)) ([1d2653c](https://github.com/edenlabllc/ehealth.schema/commit/1d2653ce705e0d62c8bdbcb4a99d713f5f028f35))
+
 ### [4.18.2](https://github.com/edenlabllc/ehealth.schema/compare/v4.18.1...v4.18.2) (2021-05-20)
 
 <a name="4.18.1"></a>
