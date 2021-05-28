@@ -102,6 +102,8 @@ type MedicalProgramSettings {
   conditionsIcpc2Allowed: [String]
   "Maximum length in days of treatment period for `Medication Request` created with the program"
   medicationRequestMaxPeriodDay: Int
+  "Providing conditions allowed"
+  providingConditionsAllowed: [String]
 }
 
 """
@@ -166,6 +168,8 @@ input MedicalProgramSettingsInput {
   conditionsIcpc2Allowed: [String]
   "Maximum length in days of treatment period for `Medication Request` created with the program"
   medicationRequestMaxPeriodDay: Int
+  "Providing conditions allowed"
+  providingConditionsAllowed: [String]
 }
 
 """
