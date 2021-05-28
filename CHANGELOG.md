@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.19.1](https://github.com/edenlabllc/ehealth.schema/compare/v4.19.0...v4.19.1) (2021-05-28)
+
 ## [4.19.0](https://github.com/edenlabllc/ehealth.schema/compare/v4.18.2...v4.19.0) (2021-05-24)
 
 
