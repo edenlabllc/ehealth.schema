@@ -1,4 +1,5 @@
 # import Service from "services.graphql"
+# import MedicalProgram from "medicalProgram.graphql"
 
 """
 Fields to filter service group in the system.
@@ -12,8 +13,12 @@ input ServiceGroupFilter {
   code: String
   "Flag whether `Service group` is active or not?"
   isActive: Boolean
+  "Flag whether `requestAllowed` is true or not?"
+  requestAllowed: Boolean
   "Applies conditions to object’s `parentGroup` field."
   parentGroup: ServiceGroupFilter
+  "Medical program filter."
+  medicalProgram: MedicalProgramFilter
 }
 
 """
@@ -210,6 +215,8 @@ type ServiceGroup implements Node {
     last: Int
   ): ServiceConnection!
 
+  "Medical program of service group"
+  medicalProgram: [MedicalProgram]
   "Date and time when record was inserted"
   insertedAt: DateTime!
   "Date and time when record was updated"
